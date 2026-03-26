@@ -4,6 +4,10 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://indianpotato.in'),
+  other: {
+    'google-site-verification': process.env.GOOGLE_SITE_VERIFICATION || '',
+    'msvalidate.01': process.env.BING_SITE_VERIFICATION || '',
+  },
   title: {
     default: 'इंडियन पोटैटो — भारत का प्रमुख आलू उद्योग मंच | Indian Potato',
     template: '%s | इंडियन पोटैटो',
