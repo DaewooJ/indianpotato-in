@@ -43,35 +43,11 @@ export default function SamparkPage() {
 
             <div className="bg-stone-50 rounded-2xl p-8 border border-stone-200">
               <h2 className="font-display text-[1.5rem] font-bold text-stone-900 mb-6">हमें संदेश भेजें</h2>
-              <div className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block font-body text-[0.82rem] font-semibold text-stone-600 mb-1.5">नाम</label>
-                    <input type="text" placeholder="आपका नाम" className="w-full px-4 py-3 rounded-[10px] border border-stone-300 font-body text-[0.92rem] outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all" />
-                  </div>
-                  <div>
-                    <label className="block font-body text-[0.82rem] font-semibold text-stone-600 mb-1.5">फ़ोन / ईमेल</label>
-                    <input type="text" placeholder="फ़ोन नंबर या ईमेल" className="w-full px-4 py-3 rounded-[10px] border border-stone-300 font-body text-[0.92rem] outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all" />
-                  </div>
-                </div>
-                <div>
-                  <label className="block font-body text-[0.82rem] font-semibold text-stone-600 mb-1.5">विषय</label>
-                  <select className="w-full px-4 py-3 rounded-[10px] border border-stone-300 font-body text-[0.92rem] outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all bg-white">
-                    <option>सामान्य पूछताछ</option>
-                    <option>विज्ञापन</option>
-                    <option>साझेदारी</option>
-                    <option>समाचार सबमिशन</option>
-                    <option>तकनीकी सहायता</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block font-body text-[0.82rem] font-semibold text-stone-600 mb-1.5">संदेश</label>
-                  <textarea rows={5} placeholder="अपना संदेश लिखें..." className="w-full px-4 py-3 rounded-[10px] border border-stone-300 font-body text-[0.92rem] outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all resize-none" />
-                </div>
-                <button className="bg-gradient-to-r from-red-600 to-orange-500 text-white px-8 py-3.5 rounded-[10px] font-body text-base font-bold shadow-[0_3px_12px_rgba(220,38,38,0.25)] hover:shadow-[0_4px_20px_rgba(220,38,38,0.3)] transition-all cursor-pointer border-none">
-                  संदेश भेजें →
-                </button>
-              </div>
+              <iframe
+                src="https://crm.zoho.in/crm/WebFormServeServlet?rid=feb7cbd2a6998544c1da5a0a2284491d43a6925a92e58245c675b352bb55189c57b7926961fa03a32a168129cb62309f&grpid=87300a7df7dcf2dd4440cbfd007f4f11e296f7066d9bf5ff4feffd3397e4e02d"
+                style={{ width: '100%', minHeight: 600, border: 'none', borderRadius: 12 }}
+                title="संपर्क फ़ॉर्म"
+              />
             </div>
           </div>
         </section>
