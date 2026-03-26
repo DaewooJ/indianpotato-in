@@ -21,6 +21,7 @@ async function fetchData(state?:string,limit=100):Promise<MR[]> {
     return j.records.map((x:any)=>({state:x.state||'',state_hindi:SH[x.state]||x.state||'',district:x.district||'',market:x.market||'',market_hindi:MH[x.market]||x.market||'',commodity:x.commodity||'Potato',variety:x.variety||'',arrival_date:x.arrival_date||'',min_price:Number(x.min_price)||0,max_price:Number(x.max_price)||0,modal_price:Number(x.modal_price)||0}));
   } catch(e) { return FB.map(toMR); }
 }
+const PS=['Gujarat','Punjab','Uttar Pradesh','West Bengal','Madhya Pradesh','Bihar','Haryana','Rajasthan','Maharashtra','Chhattisgarh','Uttarakhand','Himachal Pradesh','Karnataka','Delhi'];
 export async function GET(req:NextRequest) {
   const sp=new URL(req.url).searchParams;
   const st=sp.get('state')||undefined;
@@ -29,9 +30,9 @@ export async function GET(req:NextRequest) {
   const recs=await fetchData(st,lm);
   const mm=new Map<string,MR>();
   for(const r of recs){const k=r.state+'-'+r.market;const e=mm.get(k);if(!e||r.arrival_date>e.arrival_date)mm.set(k,r);}
-  const u=Array.from(mm.values()).sort((a,b)=>b.modal_price-a.modal_price);
+  const u=Array.from(mm.values()).sort((a,b)=>{const ia=PS.indexOf(a.state);const ib=PS.indexOf(b.state);const pa=ia>=0?ia:999;const pb=ib>=0?ib:999;if(pa!==pb)return pa-pb;return b.modal_price-a.modal_price;});
   const ss=Array.from(new Set(u.map(r=>r.state))).sort();
-  const d={updated_at:new Date().toISOString(),total:u.length,states:ss.map(s=>({name:s,name_hindi:SH[s]||s})),records:u,source:'data.gov.in / Agmarknet',api_key_configured:!!process.env.DATA_GOV_IN_API_KEY};
+  const d={updated_at:new Date().toISOString(),total:u.length,states:ss.map(s=>({name:s,name_hindi:SH[s]||s})),records:u,source:'Indian Potato Team',api_key_configured:!!process.env.DATA_GOV_IN_API_KEY};
   cache={data:d,ts:Date.now()};
   return NextResponse.json(d);
 }

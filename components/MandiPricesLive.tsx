@@ -72,7 +72,7 @@ export default function MandiPricesLive() {
           </div>
           {data && (
             <div style={{ textAlign: 'right' as const, fontSize: 12, color: '#999' }}>
-              <div>स्रोत: <span style={{ color: '#666', fontWeight: 600 }}>{data.source}</span></div>
+              <div>Indian Potato Team</div>
               <div>अपडेट: {formatTime(data.updated_at)} • {data.total} मंडियाँ</div>
             </div>
           )}
