@@ -53,7 +53,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       <main style={{ paddingTop: 70 }}>
 
         {/* HERO BANNER */}
-        <div style={{ background: 'linear-gradient(135deg, #7f1d1d 0%, #dc2626 40%, #7f1d1d 100%)', padding: 'clamp(32px, 6vw, 60px) clamp(20px, 5vw, 48px)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ background: 'linear-gradient(135deg, #7f1d1d 0%, #dc2626 40%, #7f1d1d 100%)', padding: 'clamp(24px, 6vw, 60px) clamp(16px, 5vw, 48px)', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', top: '-50%', right: '-20%', width: 400, height: 400, background: 'radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' as const }} />
           <div style={{ maxWidth: 900, margin: '0 auto', position: 'relative', zIndex: 2 }}>
             <span style={{ display: 'inline-block', background: 'rgba(249,115,22,0.9)', color: '#fff', fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase' as const, padding: '6px 16px', borderRadius: 50, marginBottom: 16 }}>{post.category_hindi}</span>
@@ -62,7 +62,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 16px' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 clamp(16px, 4vw, 24px)' }}>
 
           {/* AUTHOR & DATE BAR */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 0', borderBottom: '1px solid #f0f0f0', marginBottom: 32, flexWrap: 'wrap' as const, gap: 12 }}>
@@ -70,7 +70,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               <span>📅 {formatDate(post.date)}</span>
               <span>⏱️ {post.readingTime} मिनट</span>
             </div>
-            <div style={{ display: 'flex', gap: 8 }}>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' as const }}>
               <a href={'https://api.whatsapp.com/send?text=' + shareText + '%20' + encodeURIComponent(shareUrl)} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '7px 16px', borderRadius: 20, background: '#25D366', color: '#fff', fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>💬 WhatsApp</a>
               <a href={'https://twitter.com/intent/tweet?text=' + shareText + '&url=' + encodeURIComponent(shareUrl)} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '7px 16px', borderRadius: 20, background: '#1DA1F2', color: '#fff', fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>🐦 Twitter</a>
               <a href={'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl)} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '7px 16px', borderRadius: 20, background: '#1877F2', color: '#fff', fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>📘 Facebook</a>
@@ -147,7 +147,12 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         .premium-article a:hover { color: #f97316; }
         .premium-article code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
         .premium-article hr { border: none; height: 1px; background: #e5e5e5; margin: 32px 0; }
-        @media (max-width: 768px) { .premium-article { font-size: 15px; } }
+        @media (max-width: 768px) {
+          .premium-article { font-size: 15px; padding: 0; }
+          .premium-article h2 { font-size: 20px; margin: 32px 0 14px 0; }
+          .premium-article h3 { font-size: 17px; margin: 24px 0 10px 0; }
+          .premium-article blockquote { padding: 12px 16px; margin: 16px 0; }
+        }
       `}</style>
     </>
   );
