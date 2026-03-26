@@ -1,0 +1,14 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "regions": ["bom1"],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Content-Language", "value": "hi" }
+      ]
+    }
+  ]
+}

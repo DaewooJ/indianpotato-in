@@ -1,0 +1,23 @@
+{
+  "name": "इंडियन पोटैटो — भारत का प्रमुख आलू उद्योग मंच",
+  "short_name": "इंडियन पोटैटो",
+  "description": "रोज़ाना मंडी भाव, सरकारी योजनाएँ, आलू किस्में और उद्योग समाचार",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#dc2626",
+  "orientation": "portrait-primary",
+  "lang": "hi",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
