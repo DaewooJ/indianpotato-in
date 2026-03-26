@@ -44,7 +44,7 @@ export default function SamparkPage() {
             <div className="bg-stone-50 rounded-2xl p-8 border border-stone-200">
               <h2 className="font-display text-[1.5rem] font-bold text-stone-900 mb-6">हमें संदेश भेजें</h2>
               <iframe
-                src="https://crm.zoho.in/crm/WebFormServeServlet?rid=feb7cbd2a6998544c1da5a0a2284491d43a6925a92e58245c675b352bb55189c57b7926961fa03a32a168129cb62309f&grpid=87300a7df7dcf2dd4440cbfd007f4f11e296f7066d9bf5ff4feffd3397e4e02d"
+                src="https://crm.zoho.in/crm/WebFormServeServlet?rid=a5174606cb124e57f44591063684ba5bd44adf0050a0efa9fd55d96cee04c822b9fdd7534452a378b7d426314fd5236bgidd66db2a70c7b31a4bc1e77d1e9627c4f14dcf282ea33b77c818d8cd4b51f9310"
                 style={{ width: '100%', minHeight: 600, border: 'none', borderRadius: 12 }}
                 title="संपर्क फ़ॉर्म"
               />
