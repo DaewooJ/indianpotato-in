@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
-import MandiPrices from '@/components/MandiPrices';
+import MandiPricesLive from '@/components/MandiPricesLive';
 import { WhatsAppCTA, Footer } from '@/components/Sections';
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export default function MandiPage() {
             </p>
           </div>
         </div>
-        <MandiPrices />
+        <MandiPricesLive />
         <WhatsAppCTA />
       </main>
       <Footer />
