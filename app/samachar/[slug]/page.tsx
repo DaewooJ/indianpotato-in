@@ -149,7 +149,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         .premium-article hr { border: none; height: 1px; background: #e5e5e5; margin: 32px 0; }
         .premium-article img { max-width: 100% !important; height: auto !important; border-radius: 12px; }
         @media (max-width: 768px) {
-          .premium-article { font-size: 15px; padding: 0; }
+          .premium-article { font-size: 15px; padding: 0 16px; }
           .premium-article h2 { font-size: 20px; margin: 32px 0 14px 0; }
           .premium-article h3 { font-size: 17px; margin: 24px 0 10px 0; }
           .premium-article blockquote { padding: 12px 16px; margin: 16px 0; }
