@@ -31,7 +31,7 @@ export async function GET(req:NextRequest) {
   const mm=new Map<string,MR>();
   for(const r of recs){const k=r.state+'-'+r.market;const e=mm.get(k);if(!e||r.arrival_date>e.arrival_date)mm.set(k,r);}
   const u=Array.from(mm.values()).sort((a,b)=>{const ia=PS.indexOf(a.state);const ib=PS.indexOf(b.state);const pa=ia>=0?ia:999;const pb=ib>=0?ib:999;if(pa!==pb)return pa-pb;return b.modal_price-a.modal_price;});
-  const ss=Array.from(new Set(u.map(r=>r.state))).sort();
+  const ss=Array.from(new Set(u.map(r=>r.state))).sort((a,b)=>{const ia=PS.indexOf(a);const ib=PS.indexOf(b);const pa=ia>=0?ia:999;const pb=ib>=0?ib:999;return pa-pb;});
   const d={updated_at:new Date().toISOString(),total:u.length,states:ss.map(s=>({name:s,name_hindi:SH[s]||s})),records:u,source:'Indian Potato Team',api_key_configured:!!process.env.DATA_GOV_IN_API_KEY};
   cache={data:d,ts:Date.now()};
   return NextResponse.json(d);
