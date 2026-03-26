@@ -55,6 +55,10 @@ export default function MandiPricesLive() {
     catch { return ''; }
   };
 
+  const cleanMarket = (name: string) => {
+    return name.replace(/\(.*?\)/g, '').replace(/apmc/gi, '').replace(/\s+/g, ' ').trim();
+  };
+
   return (
     <section id="mandi-prices" style={{ padding: '80px 0', background: 'linear-gradient(180deg, #fffbeb 0%, #ffffff 100%)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
@@ -123,7 +127,7 @@ export default function MandiPricesLive() {
                     onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = 'none'; el.style.borderColor = '#f3f4f6'; el.style.transform = 'none'; }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
                       <div>
-                        <h3 style={{ fontSize: 18, fontWeight: 700, color: '#1a1a1a', margin: 0 }}>{record.market_hindi || record.market}</h3>
+                        <h3 style={{ fontSize: 18, fontWeight: 700, color: '#1a1a1a', margin: 0 }}>{cleanMarket(record.market_hindi || record.market)}</h3>
                         <p style={{ fontSize: 13, color: '#888', margin: '2px 0 0' }}>{record.state_hindi}</p>
                       </div>
                       <span style={{ fontSize: 12, fontWeight: 700, padding: '3px 10px', borderRadius: 12,
