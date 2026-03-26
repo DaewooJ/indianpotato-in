@@ -19,7 +19,7 @@ export default function Hero() {
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 40 }}>
               <Link href="/mandi" style={{ background: '#E53E3E', color: '#fff', textDecoration: 'none', padding: '14px 30px', borderRadius: 5, fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.95rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: 8, boxShadow: '0 4px 16px rgba(229,62,62,0.25)' }}>📊 मंडी भाव देखें</Link>
-              <Link href="/sampark" style={{ background: '#fff', color: '#E53E3E', textDecoration: 'none', border: '2px solid #E53E3E', padding: '13px 30px', borderRadius: 5, fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.95rem', fontWeight: 700 }}>💬 WhatsApp जोड़ें</Link>
+              <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{ background: '#fff', color: '#E53E3E', textDecoration: 'none', border: '2px solid #E53E3E', padding: '13px 30px', borderRadius: 5, fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.95rem', fontWeight: 700 }}>💬 WhatsApp जोड़ें</a>
             </div>
             {/* Stats row below buttons */}
             <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap' }}>
