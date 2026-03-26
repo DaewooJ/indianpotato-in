@@ -4,12 +4,12 @@ import Link from 'next/link';
 
 /* ─── NEWS ─── */
 const articles = [
-  { tag: 'उत्पादन', title: 'भारत में आलू उत्पादन 60.18 मिलियन टन — नया रिकॉर्ड', date: '24 मार्च 2026' },
-  { tag: 'निर्यात', title: 'आलू फ्लेक्स निर्यात ₹527 करोड़ — तीन वर्षों में 450% वृद्धि', date: '22 मार्च 2026' },
-  { tag: 'नीति', title: 'बिहार सरकार ने लेडी रोसेटा आलू विस्तार योजना शुरू की', date: '20 मार्च 2026' },
-  { tag: 'तकनीक', title: 'LUCRA ने भारतीय खेतों के लिए CH200-SRS हार्वेस्टर लॉन्च किया', date: '18 मार्च 2026' },
-  { tag: 'अनुसंधान', title: 'ICAR ने चार नई उन्नत आलू किस्मों को मंजूरी दी', date: '15 मार्च 2026' },
-  { tag: 'राज्य', title: 'त्रिपुरा का 2030 तक आलू में आत्मनिर्भर बनने का लक्ष्य', date: '12 मार्च 2026' },
+  { tag: 'उत्पादन', title: 'भारत में आलू उत्पादन 60.18 मिलियन टन — नया रिकॉर्ड', date: '24 मार्च 2026', img: '/images/news-1.jpg' },
+  { tag: 'निर्यात', title: 'आलू फ्लेक्स निर्यात ₹527 करोड़ — तीन वर्षों में 450% वृद्धि', date: '22 मार्च 2026', img: '/images/news-2.jpg' },
+  { tag: 'नीति', title: 'बिहार सरकार ने लेडी रोसेटा आलू विस्तार योजना शुरू की', date: '20 मार्च 2026', img: '/images/news-3.jpg' },
+  { tag: 'तकनीक', title: 'LUCRA ने भारतीय खेतों के लिए CH200-SRS हार्वेस्टर लॉन्च किया', date: '18 मार्च 2026', img: '/images/processing.jpg' },
+  { tag: 'अनुसंधान', title: 'ICAR ने चार नई उन्नत आलू किस्मों को मंजूरी दी', date: '15 मार्च 2026', img: '/images/potatoes-top.jpg' },
+  { tag: 'राज्य', title: 'त्रिपुरा का 2030 तक आलू में आत्मनिर्भर बनने का लक्ष्य', date: '12 मार्च 2026', img: '/images/potato-group.jpg' },
 ];
 
 export function NewsSection() {
@@ -24,20 +24,34 @@ export function NewsSection() {
           <Link href="/samachar" style={{ textDecoration: 'none', fontFamily: "'Noto Sans Devanagari'", fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>सभी समाचार →</Link>
         </div>
         <div className="news-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 12 }}>
-          <div style={{ background: '#E53E3E', padding: '44px 36px', borderRadius: 10, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative', cursor: 'pointer', minHeight: 340 }}>
-            <div style={{ position: 'absolute', top: 16, left: 16, background: '#fff', padding: '5px 14px', borderRadius: 4, fontFamily: "'DM Sans'", fontSize: '0.65rem', fontWeight: 800, color: '#E53E3E', textTransform: 'uppercase', letterSpacing: '0.1em' }}>🔥 मुख्य ख़बर</div>
-            <span style={{ display: 'inline-block', width: 'fit-content', background: 'rgba(255,255,255,0.2)', color: '#fff', padding: '3px 12px', borderRadius: 3, fontFamily: "'Noto Sans Devanagari'", fontSize: '0.72rem', fontWeight: 700, marginBottom: 14 }}>{articles[0].tag}</span>
-            <h3 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '1.45rem', fontWeight: 800, color: '#fff', lineHeight: 1.4, marginBottom: 14 }}>{articles[0].title}</h3>
-            <div style={{ fontFamily: "'DM Sans'", fontSize: '0.78rem', color: 'rgba(255,255,255,0.7)' }}>{articles[0].date}</div>
+          {/* Featured with image */}
+          <div style={{
+            borderRadius: 10, overflow: 'hidden', cursor: 'pointer', position: 'relative', minHeight: 340,
+            backgroundImage: `url(/images/news-featured.jpg)`,
+            backgroundSize: 'cover', backgroundPosition: 'center',
+          }}>
+            {/* Red overlay */}
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(180,20,20,0.95) 0%, rgba(229,62,62,0.7) 50%, rgba(229,62,62,0.3) 100%)' }} />
+            <div style={{ position: 'relative', zIndex: 2, padding: '44px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', height: '100%' }}>
+              <div style={{ position: 'absolute', top: 16, left: 16, background: '#fff', padding: '5px 14px', borderRadius: 4, fontFamily: "'DM Sans'", fontSize: '0.65rem', fontWeight: 800, color: '#E53E3E', textTransform: 'uppercase', letterSpacing: '0.1em' }}>🔥 मुख्य ख़बर</div>
+              <span style={{ display: 'inline-block', width: 'fit-content', background: 'rgba(255,255,255,0.2)', color: '#fff', padding: '3px 12px', borderRadius: 3, fontFamily: "'Noto Sans Devanagari'", fontSize: '0.72rem', fontWeight: 700, marginBottom: 14 }}>{articles[0].tag}</span>
+              <h3 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '1.45rem', fontWeight: 800, color: '#fff', lineHeight: 1.4, marginBottom: 14 }}>{articles[0].title}</h3>
+              <div style={{ fontFamily: "'DM Sans'", fontSize: '0.78rem', color: 'rgba(255,255,255,0.7)' }}>{articles[0].date}</div>
+            </div>
           </div>
+
+          {/* List with thumbnails */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {articles.slice(1).map((a, i) => (
-              <div key={i} style={{ padding: '18px 22px', background: '#f9fafb', cursor: 'pointer', borderRadius: 8, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', border: '1px solid #f0f0f0' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
-                  <span style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.65rem', fontWeight: 700, color: '#E53E3E', background: '#fef2f2', padding: '2px 8px', borderRadius: 3 }}>{a.tag}</span>
-                  <span style={{ fontFamily: "'DM Sans'", fontSize: '0.68rem', color: '#ccc' }}>{a.date}</span>
+              <div key={i} style={{ padding: '14px 18px', background: '#f9fafb', cursor: 'pointer', borderRadius: 8, flex: 1, display: 'flex', gap: 14, alignItems: 'center', border: '1px solid #f0f0f0' }}>
+                <img src={a.img} alt={a.title} style={{ width: 72, height: 52, borderRadius: 6, objectFit: 'cover', flexShrink: 0 }} loading="lazy" />
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                    <span style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.62rem', fontWeight: 700, color: '#E53E3E', background: '#fef2f2', padding: '1px 7px', borderRadius: 3 }}>{a.tag}</span>
+                    <span style={{ fontFamily: "'DM Sans'", fontSize: '0.62rem', color: '#ccc' }}>{a.date}</span>
+                  </div>
+                  <h4 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.88rem', fontWeight: 700, color: '#222', lineHeight: 1.4 }}>{a.title}</h4>
                 </div>
-                <h4 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.92rem', fontWeight: 700, color: '#222', lineHeight: 1.45 }}>{a.title}</h4>
               </div>
             ))}
           </div>
@@ -80,14 +94,14 @@ export function GovSchemes() {
   );
 }
 
-/* ─── VARIETIES ─── */
+/* ─── VARIETIES WITH IMAGES ─── */
 const varieties = [
-  { name: 'कुफरी ज्योति', use: 'खाने के लिए', days: '90-100 दिन', yield: '25-30 टन/हे.', states: 'UP, पंजाब, HP', proc: false },
-  { name: 'कुफरी पुखराज', use: 'खाने के लिए', days: '80-90 दिन', yield: '35-40 टन/हे.', states: 'बिहार, UP, WB', proc: false },
-  { name: 'कुफरी चिप्सोना-1', use: 'प्रसंस्करण', days: '95-105 दिन', yield: '28-32 टन/हे.', states: 'गुजरात, MP', proc: true },
-  { name: 'लेडी रोसेटा', use: 'प्रसंस्करण', days: '100-110 दिन', yield: '22-26 टन/हे.', states: 'गुजरात, पंजाब', proc: true },
-  { name: 'कुफरी बहार', use: 'खाने के लिए', days: '90-100 दिन', yield: '30-35 टन/हे.', states: 'बिहार, UP, झारखंड', proc: false },
-  { name: 'कुफरी सिंधुरी', use: 'खाने के लिए', days: '120-130 दिन', yield: '25-30 टन/हे.', states: 'UP, बिहार', proc: false },
+  { name: 'कुफरी ज्योति', use: 'खाने के लिए', days: '90-100 दिन', yield: '25-30 टन/हे.', states: 'UP, पंजाब, HP', proc: false, img: '/images/variety-1.jpg' },
+  { name: 'कुफरी पुखराज', use: 'खाने के लिए', days: '80-90 दिन', yield: '35-40 टन/हे.', states: 'बिहार, UP, WB', proc: false, img: '/images/variety-2.jpg' },
+  { name: 'कुफरी चिप्सोना-1', use: 'प्रसंस्करण', days: '95-105 दिन', yield: '28-32 टन/हे.', states: 'गुजरात, MP', proc: true, img: '/images/variety-3.jpg' },
+  { name: 'लेडी रोसेटा', use: 'प्रसंस्करण', days: '100-110 दिन', yield: '22-26 टन/हे.', states: 'गुजरात, पंजाब', proc: true, img: '/images/variety-4.jpg' },
+  { name: 'कुफरी बहार', use: 'खाने के लिए', days: '90-100 दिन', yield: '30-35 टन/हे.', states: 'बिहार, UP, झारखंड', proc: false, img: '/images/potato-single.jpg' },
+  { name: 'कुफरी सिंधुरी', use: 'खाने के लिए', days: '120-130 दिन', yield: '25-30 टन/हे.', states: 'UP, बिहार', proc: false, img: '/images/potatoes-top.jpg' },
 ];
 
 export function VarietiesQuick() {
@@ -103,18 +117,18 @@ export function VarietiesQuick() {
         </div>
         <div className="variety-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: 10 }}>
           {varieties.map((v, i) => (
-            <div key={i} style={{ background: '#f9fafb', borderRadius: 8, padding: '22px 24px', border: '1px solid #eee', cursor: 'pointer', display: 'flex', gap: 18, alignItems: 'flex-start' }}>
-              <div style={{ width: 44, height: 44, borderRadius: 8, flexShrink: 0, background: v.proc ? '#fef2f2' : '#f0fdf4', border: v.proc ? '1px solid #fecaca' : '1px solid #d1fae5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, marginTop: 2 }}>🥔</div>
+            <div key={i} style={{ background: '#f9fafb', borderRadius: 8, padding: '18px 20px', border: '1px solid #eee', cursor: 'pointer', display: 'flex', gap: 16, alignItems: 'center' }}>
+              <img src={v.img} alt={v.name} style={{ width: 64, height: 64, borderRadius: 8, objectFit: 'cover', flexShrink: 0 }} loading="lazy" />
               <div style={{ flex: 1 }}>
-                <div style={{ marginBottom: 10 }}>
-                  <h3 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '1.02rem', fontWeight: 800, color: '#1a1a1a', marginBottom: 3 }}>{v.name}</h3>
-                  <span style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.68rem', fontWeight: 700, color: v.proc ? '#E53E3E' : '#16a34a', background: v.proc ? '#fef2f2' : '#f0fdf4', padding: '2px 8px', borderRadius: 3 }}>{v.use}</span>
+                <div style={{ marginBottom: 8 }}>
+                  <h3 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '1rem', fontWeight: 800, color: '#1a1a1a', marginBottom: 3 }}>{v.name}</h3>
+                  <span style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.65rem', fontWeight: 700, color: v.proc ? '#E53E3E' : '#16a34a', background: v.proc ? '#fef2f2' : '#f0fdf4', padding: '2px 8px', borderRadius: 3 }}>{v.use}</span>
                 </div>
-                <div style={{ display: 'flex', gap: 20 }}>
+                <div style={{ display: 'flex', gap: 18 }}>
                   {[{ label: 'अवधि', val: v.days }, { label: 'उपज', val: v.yield }, { label: 'क्षेत्र', val: v.states }].map((d, j) => (
                     <div key={j}>
-                      <div style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.58rem', fontWeight: 600, color: '#bbb', marginBottom: 1 }}>{d.label}</div>
-                      <div style={{ fontFamily: "'DM Sans', 'Noto Sans Devanagari'", fontSize: '0.8rem', fontWeight: 600, color: '#444' }}>{d.val}</div>
+                      <div style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.55rem', fontWeight: 600, color: '#bbb', marginBottom: 1 }}>{d.label}</div>
+                      <div style={{ fontFamily: "'DM Sans', 'Noto Sans Devanagari'", fontSize: '0.78rem', fontWeight: 600, color: '#444' }}>{d.val}</div>
                     </div>
                   ))}
                 </div>

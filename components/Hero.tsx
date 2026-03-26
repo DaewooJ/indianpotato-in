@@ -17,28 +17,51 @@ export default function Hero() {
             <p style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '1.08rem', lineHeight: 1.85, color: '#777', maxWidth: 500, marginBottom: 32 }}>
               मंडी भाव · सरकारी योजनाएँ · किस्मों का डेटाबेस · निर्यात डेटा · उद्योग डायरेक्टरी — किसानों, व्यापारियों और प्रसंस्करण उद्योग के लिए।
             </p>
-            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 40 }}>
               <Link href="/mandi" style={{ background: '#E53E3E', color: '#fff', textDecoration: 'none', padding: '14px 30px', borderRadius: 5, fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.95rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: 8, boxShadow: '0 4px 16px rgba(229,62,62,0.25)' }}>📊 मंडी भाव देखें</Link>
               <Link href="/sampark" style={{ background: '#fff', color: '#E53E3E', textDecoration: 'none', border: '2px solid #E53E3E', padding: '13px 30px', borderRadius: 5, fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.95rem', fontWeight: 700 }}>💬 WhatsApp जोड़ें</Link>
             </div>
+            {/* Stats row below buttons */}
+            <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap' }}>
+              {[
+                { value: '60.18M टन', label: 'उत्पादन 2024-25' },
+                { value: '₹527 Cr', label: 'निर्यात FY25' },
+                { value: '#2 विश्व', label: 'चीन के बाद' },
+              ].map((s, i) => (
+                <div key={i} style={{ borderLeft: i === 0 ? 'none' : '1px solid #eee', paddingLeft: i === 0 ? 0 : 28 }}>
+                  <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '1.3rem', fontWeight: 900, color: '#E53E3E', letterSpacing: '-0.02em' }}>{s.value}</div>
+                  <div style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.75rem', color: '#aaa', fontWeight: 500 }}>{s.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-            {[
-              { value: '60.18M', label: 'टन उत्पादन', sub: '2024-25 सीज़न', highlight: true },
-              { value: '₹527Cr', label: 'फ्लेक्स निर्यात', sub: 'FY2025', highlight: false },
-              { value: '#2', label: 'विश्व में स्थान', sub: 'चीन के बाद', highlight: false },
-              { value: '15K+', label: 'साप्ताहिक पाठक', sub: 'WhatsApp + वेब', highlight: true },
-            ].map((s, i) => (
-              <div key={i} style={{
-                background: s.highlight ? '#fef2f2' : '#f9fafb', padding: '28px 22px', borderRadius: 8,
-                border: s.highlight ? '1.5px solid #fecaca' : '1.5px solid #f0f0f0',
-                borderTop: s.highlight ? '4px solid #E53E3E' : '4px solid #e5e5e5',
-              }}>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '1.9rem', fontWeight: 900, color: s.highlight ? '#E53E3E' : '#1a1a1a', marginBottom: 6, letterSpacing: '-0.03em' }}>{s.value}</div>
-                <div style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.88rem', fontWeight: 700, color: '#444', marginBottom: 3 }}>{s.label}</div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.68rem', color: '#aaa', fontWeight: 500 }}>{s.sub}</div>
-              </div>
-            ))}
+
+          {/* Right side — Hero Image */}
+          <div style={{ position: 'relative' }}>
+            <div style={{
+              borderRadius: 16, overflow: 'hidden',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.08)',
+              border: '1px solid #f0f0f0',
+            }}>
+              <img
+                src="/images/hero-side.jpg"
+                alt="भारत में आलू — Indian Potato"
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+                loading="eager"
+              />
+            </div>
+            {/* Floating stat card */}
+            <div style={{
+              position: 'absolute', bottom: -16, left: -16,
+              background: '#fff', borderRadius: 10,
+              padding: '16px 22px',
+              boxShadow: '0 8px 30px rgba(0,0,0,0.1)',
+              border: '1px solid #f0f0f0',
+              borderLeft: '4px solid #E53E3E',
+            }}>
+              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '1.4rem', fontWeight: 900, color: '#E53E3E' }}>15K+</div>
+              <div style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.72rem', color: '#888' }}>साप्ताहिक पाठक</div>
+            </div>
           </div>
         </div>
       </div>
