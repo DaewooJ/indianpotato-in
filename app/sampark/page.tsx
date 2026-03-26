@@ -28,7 +28,7 @@ export default function SamparkPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               {[
                 { icon: '📧', title: 'ईमेल', value: 'info@indpotato.com', desc: 'सामान्य पूछताछ' },
-                { icon: '💬', title: 'WhatsApp', value: 'ग्रुप जॉइन करें', desc: 'मंडी भाव और अपडेट', link: 'https://spuds.me/kisan' },
+                { icon: '💬', title: 'WhatsApp', value: '9499668498', desc: 'मंडी भाव और अपडेट' },
                 { icon: '📢', title: 'विज्ञापन', value: 'ads@indpotato.com', desc: 'विज्ञापन और प्रमोशन' },
                 { icon: '📝', title: 'समाचार भेजें', value: 'news@indpotato.com', desc: 'प्रेस रिलीज़ और समाचार' },
               ].map((c, i) => (
