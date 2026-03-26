@@ -27,10 +27,10 @@ export default function SamparkPage() {
           <div className="max-w-[800px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               {[
-                { icon: '📧', title: 'ईमेल', value: 'contact@indianpotato.in', desc: 'सामान्य पूछताछ' },
+                { icon: '📧', title: 'ईमेल', value: 'info@indpotato.com', desc: 'सामान्य पूछताछ' },
                 { icon: '💬', title: 'WhatsApp', value: 'ग्रुप जॉइन करें', desc: 'मंडी भाव और अपडेट' },
-                { icon: '📢', title: 'विज्ञापन', value: 'ads@indianpotato.in', desc: 'विज्ञापन और प्रमोशन' },
-                { icon: '📝', title: 'समाचार भेजें', value: 'news@indianpotato.in', desc: 'प्रेस रिलीज़ और समाचार' },
+                { icon: '📢', title: 'विज्ञापन', value: 'ads@indpotato.com', desc: 'विज्ञापन और प्रमोशन' },
+                { icon: '📝', title: 'समाचार भेजें', value: 'news@indpotato.com', desc: 'प्रेस रिलीज़ और समाचार' },
               ].map((c, i) => (
                 <div key={i} className="bg-stone-50 rounded-[14px] p-6 border border-stone-200">
                   <div className="w-12 h-12 rounded-xl bg-red-50 border border-red-200 flex items-center justify-center text-2xl mb-4">{c.icon}</div>
