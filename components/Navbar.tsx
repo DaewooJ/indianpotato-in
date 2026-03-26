@@ -55,13 +55,13 @@ export default function Navbar() {
             }}>{item.label}</Link>
           ))}
           <div style={{ width: 1, height: 24, background: '#e5e5e5', margin: '0 14px' }} />
-          <Link href="/sampark" style={{
+          <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
             background: '#E53E3E', color: '#fff',
             textDecoration: 'none', padding: '9px 22px', borderRadius: 5,
             fontFamily: "'Noto Sans Devanagari', sans-serif",
             fontSize: '0.82rem', fontWeight: 700,
-          }}>💬 जुड़ें</Link>
+          }}>💬 जुड़ें</a>
         </div>
 
         <button onClick={() => setMenuOpen(!menuOpen)} className="mob-btn" style={{
@@ -80,13 +80,13 @@ export default function Navbar() {
               borderBottom: '1px solid #f5f5f5',
             }}>{item.label}</Link>
           ))}
-          <Link href="/sampark" onClick={() => setMenuOpen(false)} style={{
+          <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} style={{
             display: 'block', textAlign: 'center', textDecoration: 'none',
             background: '#E53E3E', color: '#fff',
             padding: '13px', borderRadius: 5, marginTop: 10,
             fontFamily: "'Noto Sans Devanagari', sans-serif",
             fontSize: '0.95rem', fontWeight: 700,
-          }}>💬 WhatsApp पर जुड़ें</Link>
+          }}>💬 WhatsApp पर जुड़ें</a>
         </div>
       )}
 
