@@ -11,14 +11,38 @@ const headlines = [
 
 export default function NewsTicker() {
   return (
-    <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white overflow-hidden whitespace-nowrap text-[0.85rem] font-body py-2.5">
-      <div className="inline-block animate-ticker">
-        {[...headlines, ...headlines].map((h, i) => (
-          <span key={i} className="px-12">
-            <span className="text-yellow-200 font-bold mr-2.5">◆</span>
-            {h}
-          </span>
-        ))}
+    <div style={{
+      background: '#E53E3E', color: '#fff',
+      overflow: 'hidden', whiteSpace: 'nowrap',
+      display: 'flex', alignItems: 'center',
+    }}>
+      <div style={{
+        background: '#1a1a1a', color: '#E53E3E',
+        padding: '11px 20px', fontWeight: 800,
+        fontSize: '0.68rem', letterSpacing: '0.14em',
+        textTransform: 'uppercase',
+        fontFamily: "'DM Sans', sans-serif",
+        flexShrink: 0, display: 'flex', alignItems: 'center', gap: 7,
+      }}>
+        <span style={{
+          width: 8, height: 8, borderRadius: '50%',
+          background: '#E53E3E', animation: 'blink 1.5s infinite',
+        }} />
+        ताज़ा
+      </div>
+      <div style={{ overflow: 'hidden', flex: 1, padding: '11px 0' }}>
+        <div style={{
+          display: 'inline-block', animation: 'ticker 50s linear infinite',
+          fontFamily: "'Noto Sans Devanagari', sans-serif",
+          fontSize: '0.84rem', fontWeight: 500,
+        }}>
+          {[...headlines, ...headlines].map((h, i) => (
+            <span key={i} style={{ padding: '0 36px' }}>
+              {h}
+              <span style={{ margin: '0 16px', opacity: 0.4, fontSize: '0.6rem' }}>●</span>
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );

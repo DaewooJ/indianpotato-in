@@ -8,8 +8,9 @@ const navItems = [
   { label: 'मंडी भाव', href: '/mandi' },
   { label: 'समाचार', href: '/samachar' },
   { label: 'किस्में', href: '/kisme' },
-  { label: 'सरकारी योजनाएँ', href: '/yojnaye' },
+  { label: 'योजनाएँ', href: '/yojnaye' },
   { label: 'डायरेक्टरी', href: '/directory' },
+  { label: 'संपर्क', href: '/sampark' },
 ];
 
 export default function Navbar() {
@@ -17,91 +18,94 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', handler);
-    return () => window.removeEventListener('scroll', handler);
+    const h = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', h);
+    return () => window.removeEventListener('scroll', h);
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/97 shadow-[0_2px_24px_rgba(220,38,38,0.08)] border-b border-red-100'
-          : 'bg-white/92 border-b border-transparent'
-      }`}
-      style={{ backdropFilter: 'blur(16px)' }}
-    >
-      <div
-        className={`max-w-[1280px] mx-auto px-6 flex items-center justify-between transition-all duration-300 ${
-          scrolled ? 'h-16' : 'h-[76px]'
-        }`}
-      >
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 no-underline">
-          <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-red-600 to-orange-500 flex items-center justify-center text-2xl shadow-[0_3px_12px_rgba(220,38,38,0.3)]">
-            🥔
-          </div>
+    <nav style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
+      background: '#1a1a1a',
+      borderBottom: '3px solid #E53E3E',
+      boxShadow: scrolled ? '0 4px 30px rgba(0,0,0,0.4)' : 'none',
+      transition: 'box-shadow 0.3s',
+    }}>
+      <div style={{
+        maxWidth: 1320, margin: '0 auto', padding: '0 28px',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        height: 64,
+      }}>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer', textDecoration: 'none' }}>
+          <div style={{
+            background: '#E53E3E', width: 36, height: 36, borderRadius: 5,
+            display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20,
+          }}>🥔</div>
           <div>
-            <div className="font-display text-[1.35rem] font-bold text-red-700 leading-none">
-              इंडियन पोटैटो
-            </div>
-            <div className="font-mono text-[0.58rem] font-bold text-orange-600 tracking-[0.22em] uppercase">
-              indianpotato.in
-            </div>
+            <div style={{
+              fontFamily: "'Noto Sans Devanagari', sans-serif",
+              fontSize: '1.15rem', fontWeight: 800, color: '#fff', lineHeight: 1.05,
+            }}>इंडियन पोटैटो</div>
+            <div style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '0.52rem', fontWeight: 700, color: '#E53E3E',
+              letterSpacing: '0.3em', textTransform: 'uppercase',
+            }}>INDIANPOTATO.IN</div>
           </div>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-0.5">
+        <div className="desk-nav" style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
           {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="px-4 py-2 rounded-lg font-body text-[0.92rem] font-semibold text-stone-600 hover:text-red-700 hover:bg-red-50 transition-all no-underline"
-            >
-              {item.label}
-            </Link>
+            <Link key={item.href} href={item.href} style={{
+              textDecoration: 'none', padding: '22px 14px',
+              fontFamily: "'Noto Sans Devanagari', sans-serif",
+              fontSize: '0.86rem', fontWeight: 600, color: '#aaa',
+              borderBottom: '3px solid transparent', marginBottom: -3,
+              transition: 'all 0.15s',
+            }}>{item.label}</Link>
           ))}
-          <Link
-            href="/sampark"
-            className="ml-3 inline-flex items-center gap-1.5 bg-gradient-to-r from-red-600 to-orange-500 text-white px-5 py-2.5 rounded-lg font-body text-[0.85rem] font-bold shadow-[0_2px_10px_rgba(220,38,38,0.3)] hover:shadow-[0_4px_16px_rgba(220,38,38,0.35)] transition-all no-underline"
-          >
-            <span className="text-base">💬</span> WhatsApp जोड़ें
-          </Link>
+          <div style={{ width: 1, height: 24, background: '#333', margin: '0 14px' }} />
+          <Link href="/sampark" style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            background: '#E53E3E', color: '#fff',
+            textDecoration: 'none', padding: '8px 20px', borderRadius: 4,
+            fontFamily: "'Noto Sans Devanagari', sans-serif",
+            fontSize: '0.8rem', fontWeight: 700,
+          }}>💬 जुड़ें</Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden bg-transparent border-none text-[28px] cursor-pointer text-red-600"
-          aria-label="मेन्यू खोलें"
-        >
-          {menuOpen ? '✕' : '☰'}
-        </button>
+        <button onClick={() => setMenuOpen(!menuOpen)} className="mob-btn" style={{
+          display: 'none', background: 'none', border: 'none',
+          fontSize: 24, cursor: 'pointer', color: '#fff',
+        }}>{menuOpen ? '✕' : '☰'}</button>
       </div>
 
-      {/* Mobile Dropdown */}
       {menuOpen && (
-        <div className="lg:hidden bg-white border-t border-red-100 px-6 py-3 flex flex-col gap-0.5">
+        <div style={{ background: '#1a1a1a', borderTop: '1px solid #252525', padding: '8px 28px 16px' }}>
           {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setMenuOpen(false)}
-              className="px-4 py-3 rounded-lg font-body text-base font-semibold text-stone-600 hover:bg-red-50 no-underline"
-            >
-              {item.label}
-            </Link>
+            <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{
+              display: 'block', textDecoration: 'none', padding: '13px 0',
+              fontFamily: "'Noto Sans Devanagari', sans-serif",
+              fontSize: '1rem', fontWeight: 600, color: '#ccc',
+              borderBottom: '1px solid #222',
+            }}>{item.label}</Link>
           ))}
-          <Link
-            href="/sampark"
-            onClick={() => setMenuOpen(false)}
-            className="mt-2 flex items-center justify-center gap-2 bg-gradient-to-r from-red-600 to-orange-500 text-white px-4 py-3 rounded-lg font-body text-[0.95rem] font-bold no-underline"
-          >
-            💬 WhatsApp पर जुड़ें
-          </Link>
+          <Link href="/sampark" onClick={() => setMenuOpen(false)} style={{
+            display: 'block', textAlign: 'center', textDecoration: 'none',
+            background: '#E53E3E', color: '#fff',
+            padding: '13px', borderRadius: 4, marginTop: 10,
+            fontFamily: "'Noto Sans Devanagari', sans-serif",
+            fontSize: '0.95rem', fontWeight: 700,
+          }}>💬 WhatsApp पर जुड़ें</Link>
         </div>
       )}
+
+      <style>{`
+        @media (max-width: 960px) {
+          .desk-nav { display: none !important; }
+          .mob-btn { display: block !important; }
+        }
+      `}</style>
     </nav>
   );
 }

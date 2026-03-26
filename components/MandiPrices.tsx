@@ -21,104 +21,71 @@ export default function MandiPrices() {
   const filtered = activeState === 'सभी' ? allPrices : allPrices.filter((p) => p.state === activeState);
 
   return (
-    <section id="mandi" className="py-20 px-6 bg-orange-50">
-      <div className="max-w-[1280px] mx-auto">
-        {/* Header */}
-        <div className="flex items-end justify-between mb-3 flex-wrap gap-4">
-          <div>
-            <div className="font-mono text-[0.72rem] font-bold text-orange-600 tracking-[0.15em] uppercase mb-2">
-              LIVE PRICES
-            </div>
-            <h2 className="font-display text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-stone-900 mb-1.5">
-              आज का मंडी भाव
-            </h2>
-            <p className="font-body text-[0.92rem] text-stone-500">
-              प्रमुख मंडियों से आलू के ताज़ा थोक भाव — प्रतिदिन अपडेट
-            </p>
+    <section id="mandi" style={{ padding: '64px 28px 72px', background: '#fff' }}>
+      <div style={{ maxWidth: 1320, margin: '0 auto' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6, flexWrap: 'wrap', gap: 12 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
+            <h2 style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: '#1a1a1a' }}>आज का मंडी भाव</h2>
           </div>
-          <div className="bg-red-50 border border-red-200 px-4 py-2.5 rounded-[10px] font-body text-[0.82rem] font-semibold text-red-600 flex items-center gap-1.5">
-            <span className="text-sm">📅</span> आज का अपडेट
-          </div>
+          <div style={{ background: '#fef2f2', border: '1px solid #fecaca', padding: '7px 14px', borderRadius: 4, fontFamily: "'DM Sans', sans-serif", fontSize: '0.75rem', fontWeight: 700, color: '#E53E3E', display: 'flex', alignItems: 'center', gap: 6 }}>◉ LIVE · आज</div>
         </div>
+        <p style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.88rem', color: '#999', marginBottom: 24, paddingLeft: 16 }}>प्रमुख मंडियों से आलू के ताज़ा थोक भाव (₹ प्रति क्विंटल)</p>
 
-        {/* State Filters */}
-        <div className="flex gap-1.5 mt-6 mb-7 flex-wrap">
-          {states.map((s) => (
-            <button
-              key={s}
-              onClick={() => setActiveState(s)}
-              className={`px-[18px] py-2 rounded-full font-body text-[0.82rem] font-semibold transition-all cursor-pointer border ${
-                activeState === s
-                  ? 'bg-gradient-to-r from-red-600 to-orange-500 text-white border-transparent shadow-[0_2px_8px_rgba(220,38,38,0.25)]'
-                  : 'bg-white text-stone-600 border-stone-300 hover:border-red-300'
-              }`}
-            >
-              {s}
-            </button>
+        <div style={{ display: 'flex', gap: 5, marginBottom: 20, flexWrap: 'wrap' }}>
+          {states.map(s => (
+            <button key={s} onClick={() => setActiveState(s)} style={{
+              background: activeState === s ? '#E53E3E' : '#fff',
+              color: activeState === s ? '#fff' : '#666',
+              border: activeState === s ? '1.5px solid #E53E3E' : '1.5px solid #e5e5e5',
+              cursor: 'pointer', padding: '6px 16px', borderRadius: 3,
+              fontFamily: "'Noto Sans Devanagari', sans-serif",
+              fontSize: '0.8rem', fontWeight: 600, transition: 'all 0.12s',
+            }}>{s}</button>
           ))}
         </div>
 
-        {/* Price Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5">
+        <div className="mandi-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 10 }}>
           {filtered.map((p, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-[14px] p-[22px_24px] border border-orange-200 cursor-pointer hover:shadow-[0_4px_20px_rgba(220,38,38,0.08)] hover:border-red-300 transition-all relative overflow-hidden"
-            >
-              {/* Change badge */}
-              <div
-                className={`absolute top-0 right-0 px-3.5 py-1.5 rounded-[0_14px_0_10px] font-mono text-[0.82rem] font-extrabold ${
-                  p.up ? 'bg-green-100 text-green-800' : 'bg-red-50 text-red-800'
-                }`}
-              >
-                {p.up ? '▲' : '▼'} {p.change}
-              </div>
-
-              <div className="font-display text-[1.2rem] font-bold text-stone-900 mb-1">
-                {p.mandi}
-              </div>
-              <div className="font-body text-[0.78rem] text-stone-400 mb-[18px]">{p.state}</div>
-
-              <div className="flex gap-5 items-end">
+            <div key={i} style={{
+              background: '#fafafa', borderRadius: 6, padding: '20px 22px',
+              border: '1px solid #eee', borderLeft: '4px solid #E53E3E',
+              cursor: 'pointer', transition: 'all 0.15s',
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
                 <div>
-                  <div className="font-body text-[0.65rem] font-semibold text-stone-400 uppercase tracking-wider mb-0.5">
-                    मॉडल भाव
-                  </div>
-                  <div className="font-mono text-[1.5rem] font-extrabold text-red-600">
-                    {p.modal}
-                  </div>
+                  <div style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '1.05rem', fontWeight: 800, color: '#1a1a1a' }}>{p.mandi}</div>
+                  <div style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.75rem', color: '#aaa', marginTop: 2 }}>{p.state}</div>
                 </div>
-                <div className="flex gap-4 border-l border-orange-200 pl-4 ml-1">
-                  <div>
-                    <div className="font-body text-[0.62rem] font-semibold text-stone-400 mb-0.5">
-                      न्यूनतम
-                    </div>
-                    <div className="font-mono text-[0.92rem] font-bold text-stone-600">{p.min}</div>
-                  </div>
-                  <div>
-                    <div className="font-body text-[0.62rem] font-semibold text-stone-400 mb-0.5">
-                      अधिकतम
-                    </div>
-                    <div className="font-mono text-[0.92rem] font-bold text-stone-600">{p.max}</div>
-                  </div>
-                </div>
+                <div style={{
+                  background: p.up ? '#f0fdf4' : '#fef2f2',
+                  color: p.up ? '#16a34a' : '#dc2626',
+                  padding: '4px 10px', borderRadius: 3,
+                  fontFamily: "'DM Sans', sans-serif", fontSize: '0.78rem', fontWeight: 800,
+                }}>{p.up ? '▲' : '▼'} {p.change}</div>
               </div>
-
-              <div className="mt-3.5 pt-3 border-t border-orange-50 font-body text-[0.72rem] text-stone-400">
-                भाव प्रति क्विंटल
+              <div style={{ display: 'flex', alignItems: 'flex-end', gap: 20 }}>
+                <div>
+                  <div style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.6rem', fontWeight: 600, color: '#bbb', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 2 }}>मॉडल भाव</div>
+                  <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '1.6rem', fontWeight: 900, color: '#E53E3E', letterSpacing: '-0.02em' }}>{p.modal}</div>
+                </div>
+                <div style={{ display: 'flex', gap: 14, borderLeft: '1px solid #e5e5e5', paddingLeft: 14, marginBottom: 4 }}>
+                  <div>
+                    <div style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.58rem', color: '#bbb', marginBottom: 1 }}>न्यूनतम</div>
+                    <div style={{ fontFamily: "'DM Sans'", fontSize: '0.88rem', fontWeight: 700, color: '#555' }}>{p.min}</div>
+                  </div>
+                  <div>
+                    <div style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.58rem', color: '#bbb', marginBottom: 1 }}>अधिकतम</div>
+                    <div style={{ fontFamily: "'DM Sans'", fontSize: '0.88rem', fontWeight: 700, color: '#555' }}>{p.max}</div>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-7">
-          <Link
-            href="/mandi"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-orange-500 text-white px-7 py-3 rounded-[10px] font-body text-[0.92rem] font-bold shadow-[0_3px_12px_rgba(220,38,38,0.25)] hover:shadow-[0_4px_20px_rgba(220,38,38,0.3)] transition-all no-underline"
-          >
-            सभी मंडी भाव देखें →
-          </Link>
+        <div style={{ textAlign: 'center', marginTop: 24 }}>
+          <Link href="/mandi" style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.88rem', fontWeight: 700, color: '#E53E3E', textDecoration: 'none', borderBottom: '2px solid #E53E3E', paddingBottom: 3 }}>सभी मंडी भाव देखें →</Link>
         </div>
       </div>
     </section>

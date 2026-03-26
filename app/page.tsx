@@ -2,19 +2,20 @@ import Navbar from '@/components/Navbar';
 import NewsTicker from '@/components/NewsTicker';
 import Hero from '@/components/Hero';
 import MandiPrices from '@/components/MandiPrices';
-import { GovSchemes, NewsSection, VarietiesQuick, WhatsAppCTA, Footer } from '@/components/Sections';
+import { NewsSection, GovSchemes, VarietiesQuick, DirectoryPreview, WhatsAppCTA, Footer } from '@/components/Sections';
 
 export default function HomePage() {
   return (
     <>
       <Navbar />
-      <NewsTicker />
-      <main className="pt-[76px]">
+      <main className="pt-16">
+        <NewsTicker />
         <Hero />
         <MandiPrices />
-        <GovSchemes />
         <NewsSection />
+        <GovSchemes />
         <VarietiesQuick />
+        <DirectoryPreview />
         <WhatsAppCTA />
       </main>
       <Footer />
