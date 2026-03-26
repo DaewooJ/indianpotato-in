@@ -24,19 +24,20 @@ export function NewsSection() {
           <Link href="/samachar" style={{ textDecoration: 'none', fontFamily: "'Noto Sans Devanagari'", fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>सभी समाचार →</Link>
         </div>
         <div className="news-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 12 }}>
-          {/* Featured with image */}
+          {/* Featured — clean image + text below */}
           <div style={{
-            borderRadius: 10, overflow: 'hidden', cursor: 'pointer', position: 'relative', minHeight: 340,
-            backgroundImage: `url(/images/news-featured.jpg)`,
-            backgroundSize: 'cover', backgroundPosition: 'center',
+            borderRadius: 10, overflow: 'hidden', cursor: 'pointer',
+            border: '1px solid #eee', background: '#fff',
+            display: 'flex', flexDirection: 'column',
           }}>
-            {/* Red overlay */}
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(180,20,20,0.95) 0%, rgba(229,62,62,0.7) 50%, rgba(229,62,62,0.3) 100%)' }} />
-            <div style={{ position: 'relative', zIndex: 2, padding: '44px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', height: '100%' }}>
-              <div style={{ position: 'absolute', top: 16, left: 16, background: '#fff', padding: '5px 14px', borderRadius: 4, fontFamily: "'DM Sans'", fontSize: '0.65rem', fontWeight: 800, color: '#E53E3E', textTransform: 'uppercase', letterSpacing: '0.1em' }}>🔥 मुख्य ख़बर</div>
-              <span style={{ display: 'inline-block', width: 'fit-content', background: 'rgba(255,255,255,0.2)', color: '#fff', padding: '3px 12px', borderRadius: 3, fontFamily: "'Noto Sans Devanagari'", fontSize: '0.72rem', fontWeight: 700, marginBottom: 14 }}>{articles[0].tag}</span>
-              <h3 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '1.45rem', fontWeight: 800, color: '#fff', lineHeight: 1.4, marginBottom: 14 }}>{articles[0].title}</h3>
-              <div style={{ fontFamily: "'DM Sans'", fontSize: '0.78rem', color: 'rgba(255,255,255,0.7)' }}>{articles[0].date}</div>
+            <div style={{ position: 'relative' }}>
+              <img src="/images/news-featured.jpg" alt={articles[0].title} style={{ width: '100%', height: 220, objectFit: 'cover', display: 'block' }} loading="lazy" />
+              <div style={{ position: 'absolute', top: 12, left: 12, background: '#E53E3E', padding: '5px 14px', borderRadius: 4, fontFamily: "'DM Sans'", fontSize: '0.65rem', fontWeight: 800, color: '#fff', textTransform: 'uppercase', letterSpacing: '0.1em' }}>🔥 मुख्य ख़बर</div>
+            </div>
+            <div style={{ padding: '24px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <span style={{ display: 'inline-block', width: 'fit-content', background: '#fef2f2', color: '#E53E3E', padding: '3px 12px', borderRadius: 3, fontFamily: "'Noto Sans Devanagari'", fontSize: '0.72rem', fontWeight: 700, marginBottom: 14 }}>{articles[0].tag}</span>
+              <h3 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '1.35rem', fontWeight: 800, color: '#1a1a1a', lineHeight: 1.4, marginBottom: 14 }}>{articles[0].title}</h3>
+              <div style={{ fontFamily: "'DM Sans'", fontSize: '0.78rem', color: '#aaa' }}>{articles[0].date}</div>
             </div>
           </div>
 
