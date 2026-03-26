@@ -12,7 +12,7 @@ export default function SamparkPage() {
     <>
       <Navbar />
       <main className="pt-[76px]">
-        <div className="bg-gradient-to-r from-red-900 to-orange-700 py-16 px-6">
+        <div className="bg-gradient-to-r from-red-700 to-red-600 py-16 px-6">
           <div className="max-w-[1280px] mx-auto">
             <h1 className="font-display text-[clamp(2rem,5vw,3rem)] font-bold text-white mb-3">
               संपर्क करें
