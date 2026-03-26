@@ -147,6 +147,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         .premium-article a:hover { color: #f97316; }
         .premium-article code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
         .premium-article hr { border: none; height: 1px; background: #e5e5e5; margin: 32px 0; }
+        .premium-article img { max-width: 100% !important; height: auto !important; border-radius: 12px; }
         @media (max-width: 768px) {
           .premium-article { font-size: 15px; padding: 0; }
           .premium-article h2 { font-size: 20px; margin: 32px 0 14px 0; }

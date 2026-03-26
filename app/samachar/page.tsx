@@ -62,7 +62,7 @@ export default function SamacharPage() {
             {featuredPost && (
               <Link href={'/samachar/' + featuredPost.slug} style={{ textDecoration: 'none' }}>
                 <article style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 0, background: '#fff', borderRadius: 20, overflow: 'hidden', border: '1px solid #f0f0f0', marginBottom: 48 }}>
-                  <div style={{ aspectRatio: '16/10', background: 'url(' + featuredPost.image + ') center/cover no-repeat', minHeight: 280 }} />
+                  <div style={{ aspectRatio: '16/9', background: 'url(' + featuredPost.image + ') center/cover no-repeat', minHeight: 200, maxWidth: '100%' }} />
                   <div style={{ padding: '24px', display: 'flex', flexDirection: 'column' as const, justifyContent: 'center' }}>
                     <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
                       <span style={{ background: '#fef2f2', color: '#dc2626', padding: '4px 12px', borderRadius: 12, fontSize: 12, fontWeight: 700 }}>🔥 मुख्य ख़बर</span>
