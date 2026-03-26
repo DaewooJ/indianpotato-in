@@ -67,7 +67,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           {/* AUTHOR & DATE BAR */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 0', borderBottom: '1px solid #f0f0f0', marginBottom: 32, flexWrap: 'wrap' as const, gap: 12 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 16, color: '#666', fontSize: 14 }}>
-              <span>✍️ {post.author}</span>
               <span>📅 {formatDate(post.date)}</span>
               <span>⏱️ {post.readingTime} मिनट</span>
             </div>
