@@ -17,9 +17,9 @@ export default function NewsTicker() {
       display: 'flex', alignItems: 'center',
     }}>
       <div style={{
-        background: '#1a1a1a', color: '#E53E3E',
+        background: '#fff', color: '#E53E3E',
         padding: '11px 20px', fontWeight: 800,
-        fontSize: '0.68rem', letterSpacing: '0.14em',
+        fontSize: '0.7rem', letterSpacing: '0.14em',
         textTransform: 'uppercase',
         fontFamily: "'DM Sans', sans-serif",
         flexShrink: 0, display: 'flex', alignItems: 'center', gap: 7,

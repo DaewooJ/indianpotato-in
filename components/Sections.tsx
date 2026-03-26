@@ -7,39 +7,37 @@ const articles = [
   { tag: 'उत्पादन', title: 'भारत में आलू उत्पादन 60.18 मिलियन टन — नया रिकॉर्ड', date: '24 मार्च 2026' },
   { tag: 'निर्यात', title: 'आलू फ्लेक्स निर्यात ₹527 करोड़ — तीन वर्षों में 450% वृद्धि', date: '22 मार्च 2026' },
   { tag: 'नीति', title: 'बिहार सरकार ने लेडी रोसेटा आलू विस्तार योजना शुरू की', date: '20 मार्च 2026' },
-  { tag: 'तकनीक', title: 'LUCRA ने भारतीय खेतों के लिए CH200-SRS आलू हार्वेस्टर लॉन्च किया', date: '18 मार्च 2026' },
+  { tag: 'तकनीक', title: 'LUCRA ने भारतीय खेतों के लिए CH200-SRS हार्वेस्टर लॉन्च किया', date: '18 मार्च 2026' },
   { tag: 'अनुसंधान', title: 'ICAR ने चार नई उन्नत आलू किस्मों को मंजूरी दी', date: '15 मार्च 2026' },
   { tag: 'राज्य', title: 'त्रिपुरा का 2030 तक आलू में आत्मनिर्भर बनने का लक्ष्य', date: '12 मार्च 2026' },
 ];
 
 export function NewsSection() {
   return (
-    <section id="news" style={{ padding: '64px 28px 72px', background: '#f7f7f7' }}>
+    <section id="news" style={{ padding: '64px 28px 72px', background: '#fff' }}>
       <div style={{ maxWidth: 1320, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 28, flexWrap: 'wrap', gap: 12 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
-            <h2 style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: '#1a1a1a' }}>ताज़ा समाचार</h2>
+            <h2 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: '#1a1a1a' }}>ताज़ा समाचार</h2>
           </div>
-          <Link href="/samachar" style={{ textDecoration: 'none', fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>सभी समाचार →</Link>
+          <Link href="/samachar" style={{ textDecoration: 'none', fontFamily: "'Noto Sans Devanagari'", fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>सभी समाचार →</Link>
         </div>
-
-        <div className="news-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 3, borderRadius: 6, overflow: 'hidden' }}>
-          <div style={{ background: '#1a1a1a', padding: '44px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative', cursor: 'pointer', minHeight: 360 }}>
-            <div style={{ position: 'absolute', top: 0, left: 0, background: '#E53E3E', padding: '7px 18px', fontFamily: "'DM Sans', sans-serif", fontSize: '0.65rem', fontWeight: 800, color: '#fff', textTransform: 'uppercase', letterSpacing: '0.12em', display: 'flex', alignItems: 'center', gap: 6 }}>🔥 मुख्य ख़बर</div>
-            <span style={{ display: 'inline-block', width: 'fit-content', background: 'rgba(229,62,62,0.15)', color: '#E53E3E', padding: '3px 12px', borderRadius: 3, fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.72rem', fontWeight: 700, marginBottom: 16 }}>{articles[0].tag}</span>
-            <h3 style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '1.45rem', fontWeight: 800, color: '#fff', lineHeight: 1.4, marginBottom: 16 }}>{articles[0].title}</h3>
-            <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.78rem', color: '#666' }}>{articles[0].date}</div>
+        <div className="news-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 12 }}>
+          <div style={{ background: '#E53E3E', padding: '44px 36px', borderRadius: 10, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative', cursor: 'pointer', minHeight: 340 }}>
+            <div style={{ position: 'absolute', top: 16, left: 16, background: '#fff', padding: '5px 14px', borderRadius: 4, fontFamily: "'DM Sans'", fontSize: '0.65rem', fontWeight: 800, color: '#E53E3E', textTransform: 'uppercase', letterSpacing: '0.1em' }}>🔥 मुख्य ख़बर</div>
+            <span style={{ display: 'inline-block', width: 'fit-content', background: 'rgba(255,255,255,0.2)', color: '#fff', padding: '3px 12px', borderRadius: 3, fontFamily: "'Noto Sans Devanagari'", fontSize: '0.72rem', fontWeight: 700, marginBottom: 14 }}>{articles[0].tag}</span>
+            <h3 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '1.45rem', fontWeight: 800, color: '#fff', lineHeight: 1.4, marginBottom: 14 }}>{articles[0].title}</h3>
+            <div style={{ fontFamily: "'DM Sans'", fontSize: '0.78rem', color: 'rgba(255,255,255,0.7)' }}>{articles[0].date}</div>
           </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {articles.slice(1).map((a, i) => (
-              <div key={i} style={{ padding: '20px 24px', background: '#fff', cursor: 'pointer', borderBottom: '1px solid #f0f0f0', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 7 }}>
-                  <span style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.65rem', fontWeight: 700, color: '#E53E3E', background: '#fef2f2', padding: '2px 8px', borderRadius: 3 }}>{a.tag}</span>
-                  <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.68rem', color: '#ccc' }}>{a.date}</span>
+              <div key={i} style={{ padding: '18px 22px', background: '#f9fafb', cursor: 'pointer', borderRadius: 8, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', border: '1px solid #f0f0f0' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
+                  <span style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.65rem', fontWeight: 700, color: '#E53E3E', background: '#fef2f2', padding: '2px 8px', borderRadius: 3 }}>{a.tag}</span>
+                  <span style={{ fontFamily: "'DM Sans'", fontSize: '0.68rem', color: '#ccc' }}>{a.date}</span>
                 </div>
-                <h4 style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.95rem', fontWeight: 700, color: '#222', lineHeight: 1.45 }}>{a.title}</h4>
+                <h4 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.92rem', fontWeight: 700, color: '#222', lineHeight: 1.45 }}>{a.title}</h4>
               </div>
             ))}
           </div>
@@ -60,20 +58,20 @@ const schemes = [
 
 export function GovSchemes() {
   return (
-    <section id="schemes" style={{ padding: '64px 28px 72px', background: '#fff' }}>
+    <section id="schemes" style={{ padding: '64px 28px 72px', background: '#f9fafb' }}>
       <div style={{ maxWidth: 1320, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
           <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
-          <h2 style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: '#1a1a1a' }}>सरकारी योजनाएँ</h2>
+          <h2 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: '#1a1a1a' }}>सरकारी योजनाएँ</h2>
         </div>
-        <div className="scheme-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 10 }}>
+        <div className="scheme-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 12 }}>
           {schemes.map((s, i) => (
-            <div key={i} style={{ background: '#fafafa', padding: '26px 24px', border: '1px solid #eee', borderLeft: '4px solid #E53E3E', borderRadius: 6, cursor: 'pointer', position: 'relative' }}>
-              <div style={{ position: 'absolute', top: 12, right: 12, background: s.status === 'नई' ? '#E53E3E' : '#1a1a1a', color: '#fff', padding: '2px 10px', borderRadius: 3, fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.6rem', fontWeight: 700 }}>{s.status}</div>
+            <div key={i} style={{ background: '#fff', padding: '26px 24px', border: '1px solid #eee', borderLeft: '4px solid #E53E3E', borderRadius: 8, cursor: 'pointer', position: 'relative' }}>
+              <div style={{ position: 'absolute', top: 14, right: 14, background: s.status === 'नई' ? '#E53E3E' : '#f0f0f0', color: s.status === 'नई' ? '#fff' : '#666', padding: '3px 10px', borderRadius: 4, fontFamily: "'Noto Sans Devanagari'", fontSize: '0.62rem', fontWeight: 700 }}>{s.status}</div>
               <div style={{ fontSize: 28, marginBottom: 14 }}>{s.icon}</div>
-              <h3 style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '1.02rem', fontWeight: 800, color: '#1a1a1a', marginBottom: 6, lineHeight: 1.3 }}>{s.name}</h3>
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '1.1rem', fontWeight: 900, color: '#E53E3E', marginBottom: 10 }}>{s.benefit}</div>
-              <p style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.85rem', color: '#888', lineHeight: 1.6 }}>{s.desc}</p>
+              <h3 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '1.02rem', fontWeight: 800, color: '#1a1a1a', marginBottom: 6, lineHeight: 1.3 }}>{s.name}</h3>
+              <div style={{ fontFamily: "'DM Sans'", fontSize: '1.1rem', fontWeight: 900, color: '#E53E3E', marginBottom: 10 }}>{s.benefit}</div>
+              <p style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.85rem', color: '#888', lineHeight: 1.6 }}>{s.desc}</p>
             </div>
           ))}
         </div>
@@ -94,23 +92,23 @@ const varieties = [
 
 export function VarietiesQuick() {
   return (
-    <section id="varieties" style={{ padding: '64px 28px 72px', background: '#f7f7f7' }}>
+    <section id="varieties" style={{ padding: '64px 28px 72px', background: '#fff' }}>
       <div style={{ maxWidth: 1320, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 28, flexWrap: 'wrap', gap: 12 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
-            <h2 style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: '#1a1a1a' }}>आलू की प्रमुख किस्में</h2>
+            <h2 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: '#1a1a1a' }}>आलू की प्रमुख किस्में</h2>
           </div>
-          <Link href="/kisme" style={{ textDecoration: 'none', fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>सभी किस्में →</Link>
+          <Link href="/kisme" style={{ textDecoration: 'none', fontFamily: "'Noto Sans Devanagari'", fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>सभी किस्में →</Link>
         </div>
         <div className="variety-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: 10 }}>
           {varieties.map((v, i) => (
-            <div key={i} style={{ background: '#fff', borderRadius: 6, padding: '22px 24px', border: '1px solid #eee', cursor: 'pointer', display: 'flex', gap: 18, alignItems: 'flex-start' }}>
-              <div style={{ width: 44, height: 44, borderRadius: 6, flexShrink: 0, background: v.proc ? '#fef2f2' : '#f7fdf9', border: v.proc ? '1px solid #fecaca' : '1px solid #d1fae5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, marginTop: 2 }}>🥔</div>
+            <div key={i} style={{ background: '#f9fafb', borderRadius: 8, padding: '22px 24px', border: '1px solid #eee', cursor: 'pointer', display: 'flex', gap: 18, alignItems: 'flex-start' }}>
+              <div style={{ width: 44, height: 44, borderRadius: 8, flexShrink: 0, background: v.proc ? '#fef2f2' : '#f0fdf4', border: v.proc ? '1px solid #fecaca' : '1px solid #d1fae5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, marginTop: 2 }}>🥔</div>
               <div style={{ flex: 1 }}>
                 <div style={{ marginBottom: 10 }}>
-                  <h3 style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '1.02rem', fontWeight: 800, color: '#1a1a1a', marginBottom: 3 }}>{v.name}</h3>
-                  <span style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.68rem', fontWeight: 700, color: v.proc ? '#E53E3E' : '#16a34a', background: v.proc ? '#fef2f2' : '#f0fdf4', padding: '2px 8px', borderRadius: 3 }}>{v.use}</span>
+                  <h3 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '1.02rem', fontWeight: 800, color: '#1a1a1a', marginBottom: 3 }}>{v.name}</h3>
+                  <span style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.68rem', fontWeight: 700, color: v.proc ? '#E53E3E' : '#16a34a', background: v.proc ? '#fef2f2' : '#f0fdf4', padding: '2px 8px', borderRadius: 3 }}>{v.use}</span>
                 </div>
                 <div style={{ display: 'flex', gap: 20 }}>
                   {[{ label: 'अवधि', val: v.days }, { label: 'उपज', val: v.yield }, { label: 'क्षेत्र', val: v.states }].map((d, j) => (
@@ -141,18 +139,18 @@ export function DirectoryPreview() {
     { icon: '🧪', name: 'अनुसंधान', count: '42+' },
   ];
   return (
-    <section id="directory" style={{ padding: '64px 28px 72px', background: '#fff' }}>
+    <section id="directory" style={{ padding: '64px 28px 72px', background: '#f9fafb' }}>
       <div style={{ maxWidth: 1320, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
           <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
-          <h2 style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: '#1a1a1a' }}>उद्योग डायरेक्टरी</h2>
+          <h2 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: '#1a1a1a' }}>उद्योग डायरेक्टरी</h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 8 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 10 }}>
           {cats.map((c, i) => (
-            <div key={i} style={{ background: '#fafafa', borderRadius: 6, padding: '24px 20px', border: '1px solid #eee', cursor: 'pointer', textAlign: 'center', transition: 'all 0.15s' }}>
-              <div style={{ fontSize: 30, marginBottom: 10 }}>{c.icon}</div>
-              <div style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.9rem', fontWeight: 700, color: '#1a1a1a', marginBottom: 4 }}>{c.name}</div>
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.82rem', fontWeight: 800, color: '#E53E3E' }}>{c.count}</div>
+            <div key={i} style={{ background: '#fff', borderRadius: 8, padding: '28px 20px', border: '1px solid #eee', cursor: 'pointer', textAlign: 'center' }}>
+              <div style={{ fontSize: 32, marginBottom: 10 }}>{c.icon}</div>
+              <div style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.9rem', fontWeight: 700, color: '#1a1a1a', marginBottom: 4 }}>{c.name}</div>
+              <div style={{ fontFamily: "'DM Sans'", fontSize: '0.85rem', fontWeight: 800, color: '#E53E3E' }}>{c.count}</div>
             </div>
           ))}
         </div>
@@ -164,14 +162,14 @@ export function DirectoryPreview() {
 /* ─── WHATSAPP CTA ─── */
 export function WhatsAppCTA() {
   return (
-    <section id="whatsapp" style={{ padding: '56px 28px', background: '#1a1a1a', borderTop: '3px solid #E53E3E' }}>
-      <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 40, flexWrap: 'wrap', justifyContent: 'center' }}>
-        <div style={{ width: 64, height: 64, borderRadius: 8, background: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32, flexShrink: 0 }}>💬</div>
+    <section id="whatsapp" style={{ padding: '56px 28px', background: '#E53E3E' }}>
+      <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 36, flexWrap: 'wrap', justifyContent: 'center' }}>
+        <div style={{ width: 64, height: 64, borderRadius: 10, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32, flexShrink: 0 }}>💬</div>
         <div style={{ flex: 1, minWidth: 240 }}>
-          <h2 style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '1.35rem', fontWeight: 800, color: '#fff', marginBottom: 6 }}>WhatsApp पर रोज़ अपडेट पाएँ</h2>
-          <p style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.88rem', color: '#777', lineHeight: 1.6 }}>मंडी भाव · योजनाएँ · खेती टिप्स · समाचार — मुफ्त · 15,000+ सदस्य</p>
+          <h2 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '1.35rem', fontWeight: 800, color: '#fff', marginBottom: 6 }}>WhatsApp पर रोज़ अपडेट पाएँ</h2>
+          <p style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.88rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.6 }}>मंडी भाव · योजनाएँ · खेती टिप्स · समाचार — मुफ्त · 15,000+ सदस्य</p>
         </div>
-        <a href="https://chat.whatsapp.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#25D366', color: '#fff', textDecoration: 'none', padding: '13px 32px', borderRadius: 4, fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.95rem', fontWeight: 700, flexShrink: 0 }}>📲 अभी जॉइन करें</a>
+        <a href="https://chat.whatsapp.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#fff', color: '#E53E3E', textDecoration: 'none', padding: '14px 32px', borderRadius: 6, fontFamily: "'Noto Sans Devanagari'", fontSize: '0.95rem', fontWeight: 800, flexShrink: 0 }}>📲 अभी जॉइन करें</a>
       </div>
     </section>
   );
@@ -180,14 +178,14 @@ export function WhatsAppCTA() {
 /* ─── FOOTER ─── */
 export function Footer() {
   return (
-    <footer style={{ background: '#0f0f0f', padding: '52px 28px 20px' }}>
+    <footer style={{ background: '#f9fafb', padding: '52px 28px 20px', borderTop: '1px solid #eee' }}>
       <div className="footer-g" style={{ maxWidth: 1320, margin: '0 auto', display: 'grid', gridTemplateColumns: '1.8fr 1fr 1fr 1fr', gap: 40 }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
-            <div style={{ background: '#E53E3E', width: 32, height: 32, borderRadius: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 17 }}>🥔</div>
-            <span style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '1.02rem', fontWeight: 700, color: '#fff' }}>इंडियन पोटैटो</span>
+            <div style={{ background: '#E53E3E', width: 32, height: 32, borderRadius: 5, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 17 }}>🥔</div>
+            <span style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '1.05rem', fontWeight: 800, color: '#E53E3E' }}>इंडियन पोटैटो</span>
           </div>
-          <p style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.82rem', color: '#555', lineHeight: 1.7, maxWidth: 280 }}>भारत का #1 आलू उद्योग मंच — किसानों, व्यापारियों और प्रसंस्करण उद्योग को जोड़ता है।</p>
+          <p style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.82rem', color: '#888', lineHeight: 1.7, maxWidth: 280 }}>भारत का #1 आलू उद्योग मंच — किसानों, व्यापारियों और प्रसंस्करण उद्योग को जोड़ता है।</p>
         </div>
         {[
           { title: 'जानकारी', links: [{ l: 'मंडी भाव', h: '/mandi' }, { l: 'किस्में', h: '/kisme' }, { l: 'निर्यात डेटा', h: '/samachar' }, { l: 'खेती गाइड', h: '/samachar' }, { l: 'सरकारी योजनाएँ', h: '/yojnaye' }] },
@@ -195,16 +193,16 @@ export function Footer() {
           { title: 'कंपनी', links: [{ l: 'हमारे बारे में', h: '/sampark' }, { l: 'संपर्क', h: '/sampark' }, { l: 'विज्ञापन', h: '/sampark' }, { l: 'गोपनीयता नीति', h: '/sampark' }] },
         ].map((col, i) => (
           <div key={i}>
-            <h4 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.68rem', fontWeight: 700, color: '#E53E3E', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>{col.title}</h4>
+            <h4 style={{ fontFamily: "'DM Sans'", fontSize: '0.7rem', fontWeight: 700, color: '#E53E3E', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>{col.title}</h4>
             {col.links.map((link, j) => (
-              <Link key={j} href={link.h} style={{ display: 'block', fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.82rem', color: '#555', padding: '4px 0', textDecoration: 'none' }}>{link.l}</Link>
+              <Link key={j} href={link.h} style={{ display: 'block', fontFamily: "'Noto Sans Devanagari'", fontSize: '0.82rem', color: '#888', padding: '4px 0', textDecoration: 'none' }}>{link.l}</Link>
             ))}
           </div>
         ))}
       </div>
-      <div style={{ maxWidth: 1320, margin: '36px auto 0', paddingTop: 16, borderTop: '1px solid #1a1a1a', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 6 }}>
-        <span style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.72rem', color: '#444' }}>© 2026 इंडियन पोटैटो। सर्वाधिकार सुरक्षित।</span>
-        <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.72rem', color: '#444' }}>indianpotato.in</span>
+      <div style={{ maxWidth: 1320, margin: '36px auto 0', paddingTop: 16, borderTop: '1px solid #e5e5e5', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 6 }}>
+        <span style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.72rem', color: '#aaa' }}>© 2026 इंडियन पोटैटो। सर्वाधिकार सुरक्षित।</span>
+        <span style={{ fontFamily: "'DM Sans'", fontSize: '0.72rem', color: '#aaa' }}>indianpotato.in</span>
       </div>
       <style>{`
         @media (max-width: 800px) { .footer-g { grid-template-columns: 1fr 1fr !important; } }
