@@ -7,7 +7,7 @@ const FB: any[] = [{ state:'Uttar Pradesh',district:'Agra',market:'Agra',commodi
 const SH: Record<string,string> = {'Uttar Pradesh':'उत्तर प्रदेश','West Bengal':'पश्चिम बंगाल','Gujarat':'गुजरात','Punjab':'पंजाब','Bihar':'बिहार','Madhya Pradesh':'मध्य प्रदेश','Rajasthan':'राजस्थान','Maharashtra':'महाराष्ट्र','Haryana':'हरियाणा','Chhattisgarh':'छत्तीसगढ़','Himachal Pradesh':'हिमाचल प्रदेश','Jharkhand':'झारखंड','Karnataka':'कर्नाटक','Delhi':'दिल्ली','Uttarakhand':'उत्तराखंड'};
 const MH: Record<string,string> = {'Agra':'आगरा','Lucknow':'लखनऊ','Kolkata':'कोलकाता','Deesa':'डीसा','Jalandhar':'जालंधर','Patna':'पटना','Indore':'इंदौर','Kanpur':'कानपुर','Jaipur':'जयपुर','Pune':'पुणे','Mumbai':'मुंबई','Delhi':'दिल्ली','Karnal':'करनाल','Raipur':'रायपुर','Ahmedabad':'अहमदाबाद','Amritsar':'अमृतसर','Shimla':'शिमला','Nagpur':'नागपुर'};
 interface MR { state:string;state_hindi:string;district:string;market:string;market_hindi:string;commodity:string;variety:string;arrival_date:string;min_price:number;max_price:number;modal_price:number; }
-function toMR(d:any):MR { return {...d,state_hindi:SH[d.state]||d.state,market_hindi:MH[d.market]||d.market}; }
+function toMR(d:any):MR { return {...d,state_hindi:SH[d.state]||d.state,market_hindi:(()=>{const m=(d.market||'').replace(/\(.*?\)/g,'').replace(/apmc/gi,'').replace(/\s+/g,' ').trim();return MH[m]||m;})()}; }
 async function fetchData(state?:string,limit=100):Promise<MR[]> {
   const ak=process.env.DATA_GOV_IN_API_KEY;
   if(!ak) return FB.map(toMR);
@@ -18,7 +18,7 @@ async function fetchData(state?:string,limit=100):Promise<MR[]> {
     if(!r.ok) throw new Error('E');
     const j=await r.json();
     if(!j.records||!j.records.length) return FB.map(toMR);
-    return j.records.map((x:any)=>({state:x.state||'',state_hindi:SH[x.state]||x.state||'',district:x.district||'',market:x.market||'',market_hindi:MH[x.market]||x.market||'',commodity:x.commodity||'Potato',variety:x.variety||'',arrival_date:x.arrival_date||'',min_price:Number(x.min_price)||0,max_price:Number(x.max_price)||0,modal_price:Number(x.modal_price)||0}));
+    return j.records.map((x:any)=>({state:x.state||'',state_hindi:SH[x.state]||x.state||'',district:x.district||'',market:x.market||'',market_hindi:(()=>{const m=(x.market||'').replace(/\(.*?\)/g,'').replace(/apmc/gi,'').replace(/\s+/g,' ').trim();return MH[m]||m;})(),commodity:x.commodity||'Potato',variety:x.variety||'',arrival_date:x.arrival_date||'',min_price:Number(x.min_price)||0,max_price:Number(x.max_price)||0,modal_price:Number(x.modal_price)||0}));
   } catch(e) { return FB.map(toMR); }
 }
 const PS=['Gujarat','Punjab','Uttar Pradesh','West Bengal','Madhya Pradesh','Bihar','Haryana','Rajasthan','Maharashtra','Chhattisgarh','Uttarakhand','Himachal Pradesh','Karnataka','Delhi'];
