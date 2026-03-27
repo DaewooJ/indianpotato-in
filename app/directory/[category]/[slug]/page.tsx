@@ -227,7 +227,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
                     )}
 
                     {/* Phone */}
-                    {listing.phone && listing.phone.length > 0 && (
+                    {isPremium && listing.phone && listing.phone.length > 0 && (
                       <div className="flex items-start gap-3">
                         <span className="text-[1rem] mt-0.5 shrink-0">☎️</span>
                         <div>
@@ -238,7 +238,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
                     )}
 
                     {/* Email */}
-                    {listing.email && (
+                    {isPremium && listing.email && (
                       <div className="flex items-start gap-3">
                         <span className="text-[1rem] mt-0.5 shrink-0">📧</span>
                         <div>
@@ -262,17 +262,17 @@ export default function ListingPage({ params }: { params: { category: string; sl
 
                   {/* Action Buttons */}
                   <div className="mt-6 space-y-3">
-                    {listing.phone && listing.phone[0] && (
+                    {isPremium && listing.phone && listing.phone[0] && (
                       <a href={'tel:' + listing.phone[0]} className={'flex items-center justify-center gap-2 w-full py-3.5 font-body font-bold text-[0.95rem] rounded-xl transition-all ' + (isPremium ? 'bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white shadow-lg shadow-red-200' : 'bg-red-600 hover:bg-red-700 text-white')}>
                         📞 अभी कॉल करें
                       </a>
                     )}
-                    {cleanWhatsapp && (
+                    {isPremium && cleanWhatsapp && (
                       <a href={'https://wa.me/' + cleanWhatsapp + '?text=' + encodeURIComponent('नमस्ते ' + (listing.contactPerson || '') + ', मुझे आलू बीज के बारे में जानकारी चाहिए। (indianpotato.in से)')} target="_blank" rel="noopener" className="flex items-center justify-center gap-2 w-full py-3.5 bg-green-600 hover:bg-green-700 text-white font-body font-bold text-[0.95rem] rounded-xl transition-colors shadow-lg shadow-green-200">
                         💬 WhatsApp पर बात करें
                       </a>
                     )}
-                    {listing.email && (
+                    {isPremium && listing.email && (
                       <a href={'mailto:' + listing.email + '?subject=' + encodeURIComponent('आलू बीज जानकारी — indianpotato.in') + '&body=' + encodeURIComponent('नमस्ते ' + (listing.contactPerson || '') + ',\n\nमुझे आलू बीज के बारे में जानकारी चाहिए।\n\nधन्यवाद।')} className="flex items-center justify-center gap-2 w-full py-3.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-body font-semibold text-[0.95rem] rounded-xl transition-colors border border-stone-200">
                         📧 ईमेल भेजें
                       </a>
