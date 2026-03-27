@@ -1,26 +1,37 @@
 import { MetadataRoute } from 'next';
+import { getSortedPostsData } from '@/lib/posts';
+import { DIRECTORY_CATEGORIES, getAllListings } from '@/lib/directory';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://indianpotato.in';
-
-  // Static pages
-  const staticPages = [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: 'daily' as const, priority: 1 },
-    { url: `${baseUrl}/mandi`, lastModified: new Date(), changeFrequency: 'daily' as const, priority: 0.95 },
-    { url: `${baseUrl}/samachar`, lastModified: new Date(), changeFrequency: 'daily' as const, priority: 0.9 },
-    { url: `${baseUrl}/kisme`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.8 },
-    { url: `${baseUrl}/yojnaye`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.8 },
-    { url: `${baseUrl}/directory`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.7 },
-    { url: `${baseUrl}/sampark`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 },
+  const staticPages: MetadataRoute.Sitemap = [
+    { url: baseUrl, lastModified: new Date(), changeFrequency: 'daily', priority: 1 },
+    { url: baseUrl + '/mandi', lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
+    { url: baseUrl + '/samachar', lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
+    { url: baseUrl + '/kisme', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: baseUrl + '/yojnaye', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
+    { url: baseUrl + '/directory', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: baseUrl + '/sampark', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
   ];
-
-  // In production, you'd dynamically add blog/article URLs here
-  // const articles = getArticleSlugs().map(slug => ({
-  //   url: `${baseUrl}/samachar/${slug}`,
-  //   lastModified: new Date(),
-  //   changeFrequency: 'weekly' as const,
-  //   priority: 0.7,
-  // }));
-
-  return [...staticPages];
+  const posts = getSortedPostsData();
+  const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: baseUrl + '/samachar/' + post.slug,
+    lastModified: new Date(post.date),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+  const categoryPages: MetadataRoute.Sitemap = DIRECTORY_CATEGORIES.map((cat) => ({
+    url: baseUrl + '/directory/' + cat.slug,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+  const listings = getAllListings();
+  const listingPages: MetadataRoute.Sitemap = listings.map((listing) => ({
+    url: baseUrl + '/directory/' + listing.category + '/' + listing.slug,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+  return [...staticPages, ...blogPages, ...categoryPages, ...listingPages];
 }
