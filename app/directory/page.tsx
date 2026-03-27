@@ -152,7 +152,7 @@ export default function DirectoryPage() {
             <p className="font-body text-[0.88rem] text-stone-400 mb-6">निःशुल्क लिस्टिंग — भारत के सबसे बड़े आलू प्लेटफ़ॉर्म पर</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link href="/directory/submit" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-body font-semibold text-[0.88rem] rounded-xl transition-colors">📋 निःशुल्क लिस्टिंग</Link>
-              <a href="https://wa.me/919XXXXXXXXX?text=मैं%20अपना%20व्यवसाय%20सूचीबद्ध%20करना%20चाहता%20हूँ" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-body font-semibold text-[0.88rem] rounded-xl transition-colors">💬 WhatsApp</a>
+              <a href="https://wa.me/919499668831?text=मैं%20अपना%20व्यवसाय%20सूचीबद्ध%20करना%20चाहता%20हूँ" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-body font-semibold text-[0.88rem] rounded-xl transition-colors">💬 WhatsApp</a>
             </div>
           </div>
         </section>
