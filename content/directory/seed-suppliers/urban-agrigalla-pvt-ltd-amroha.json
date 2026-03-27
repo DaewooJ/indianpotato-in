@@ -6,10 +6,12 @@
   "district": "अमरोहा (संभल)",
   "districtEn": "Amroha (Sambhal)",
   "address": "प्लॉट नं. 227, घोषीपुरा, अमरोहा, संभल, उत्तर प्रदेश 244242",
-  "phone": [],
+  "phone": [
+    "+918860561985"
+  ],
   "contactPerson": "राजनीश पराशर",
   "contactPersonEn": "Rajneesh Parashar",
-  "email": "",
+  "email": "agrigalla@gmail.com",
   "website": "https://www.tradeindia.com/urban-agrigalla-pvt-ltd-21528144/",
   "description": "अर्बन एग्रीगल्ला प्राइवेट लिमिटेड — अमरोहा, उत्तर प्रदेश स्थित एक अग्रणी बीज आलू आपूर्तिकर्ता और ट्रेडिंग कंपनी। 2018 में स्थापित। भारतीय कुफ़री किस्मों (कुफ़री चिप्सोना 1, चिप्सोना 3, पुखराज, सूर्या) के साथ-साथ अंतर्राष्ट्रीय HZPC किस्मों (पैनामेरा, टॉरस, मेम्फ़िस, सैगिटा) और लेडी रोसेटा जैसी प्रीमियम प्रसंस्करण किस्मों की आपूर्ति। A ग्रेड, 100% शुद्धता, 50 किलो गनी बैग पैकिंग। प्राकृतिक खेती और रबी सीज़न के लिए उपयुक्त। पूरे भारत में आपूर्ति नेटवर्क — उत्तर प्रदेश, बिहार, पश्चिम बंगाल, गुजरात, मध्य प्रदेश और राजस्थान।",
   "descriptionEn": "Urban Agrigalla Pvt. Ltd. is a leading seed potato supplier and trading company based in Amroha, Uttar Pradesh. Established in 2018. Supplies both Indian Kufri varieties (Chipsona 1, Chipsona 3, Pukhraj, Surya) and international HZPC varieties (Panamera, Taurus, Memphis, Sagitta) along with premium processing variety Lady Rosetta. A Grade, 100% purity, 50 kg gunny bag packing. Pan-India supply network covering UP, Bihar, West Bengal, Gujarat, MP and Rajasthan.",
@@ -108,5 +110,7 @@
     "Rajneesh Parashar",
     "A grade seed"
   ],
-  "tier": "platinum"
+  "tier": "platinum",
+  "whatsapp": "+919319431401",
+  "logo": "/images/directory/agrigalla-logo.jpg"
 }
