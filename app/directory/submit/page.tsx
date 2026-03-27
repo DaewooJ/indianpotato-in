@@ -53,7 +53,16 @@ export default function SubmitListingPage() {
                     </div>
                     <span className="text-[0.6rem] font-bold text-green-400 bg-green-900/30 px-2 py-0.5 rounded-full border border-green-700/30">● ऑनलाइन</span>
                   </div>
-                  <div className="p-1 md:p-2" id="zoho-form-wrapper" dangerouslySetInnerHTML={{ __html: '<script id="formScript907916000002339307" src="https://crm.zoho.in/crm/WebFormServeServlet?rid=b7492b778a7a9c90cfb80a2474159bd127a5c6cce031cc1411fb163fd9a66c3bf9ea45e583794656f524041de8944517gid884a4a74283b0831189a240eeba11b36714ce6c04a9684918c667f6761aec55d&script=$sYG"></script>' }} />
+                  <div className="p-1 md:p-2">
+                    <iframe
+                      src="https://crm.zoho.in/crm/WebFormServeServlet?rid=f673dbebbb9cf7d7e9dea65261f7ed90cd04aef8845b76f13ee4c9b4bdd1222fdfe598b63b994aa8145f83fcc43879e8gidb7c49cf2db08aaa014c67fa20a58653873b69c36b62428f49708607e6f53c245"
+                      width="100%"
+                      height="800"
+                      style={{ border: 'none', borderRadius: '12px', minHeight: '800px' }}
+                      title="लिस्टिंग आवेदन फ़ॉर्म"
+                      loading="eager"
+                    />
+                  </div>
                 </div>
                 <div className="mt-4 flex items-start gap-2 px-2">
                   <span className="text-[0.85rem] mt-0.5">🔒</span>
@@ -105,35 +114,15 @@ export default function SubmitListingPage() {
       </main>
       <Footer />
 
-      <style jsx global>{`
-        #zoho-form-wrapper table { width: 100% !important; border: none !important; }
-        #zoho-form-wrapper td { border: none !important; padding: 6px 8px !important; font-family: 'DM Sans', sans-serif !important; }
-        #zoho-form-wrapper input[type="text"], #zoho-form-wrapper input[type="email"], #zoho-form-wrapper input[type="tel"], #zoho-form-wrapper textarea, #zoho-form-wrapper select {
-          width: 100% !important; padding: 10px 14px !important; border: 1.5px solid #e7e5e4 !important; border-radius: 10px !important;
-          font-family: 'DM Sans', sans-serif !important; font-size: 0.88rem !important; color: #1c1917 !important; background: #fafaf9 !important;
-          transition: all 0.2s !important; outline: none !important; box-sizing: border-box !important;
+      <script dangerouslySetInnerHTML={{ __html: `
+        function wfa_pstMesgFrmFom(evt){
+          if(evt.origin==='https://crm.zoho.in'||evt.origin==='https://crm.zohopublic.in'){
+            var loc_obj=JSON.stringify({origin:window.location.origin,pathname:window.location.pathname,search:window.location.search,hash:window.location.hash});
+            evt.source.postMessage(('prnt_wnd_pg_lc_rc_frm_prwindow_'+loc_obj),evt.origin);
+          }
         }
-        #zoho-form-wrapper input:focus, #zoho-form-wrapper textarea:focus, #zoho-form-wrapper select:focus {
-          border-color: #dc2626 !important; background: #fff !important; box-shadow: 0 0 0 3px rgba(220,38,38,0.08) !important;
-        }
-        #zoho-form-wrapper input[type="submit"], #zoho-form-wrapper button[type="submit"] {
-          width: 100% !important; padding: 12px 24px !important; background: linear-gradient(135deg, #dc2626, #ea580c) !important;
-          color: #fff !important; border: none !important; border-radius: 12px !important; font-family: 'DM Sans', sans-serif !important;
-          font-size: 0.92rem !important; font-weight: 700 !important; cursor: pointer !important; margin-top: 8px !important;
-        }
-        #zoho-form-wrapper input[type="submit"]:hover { background: linear-gradient(135deg, #b91c1c, #c2410c) !important; }
-        #zoho-form-wrapper input[type="reset"] {
-          width: 100% !important; padding: 10px !important; background: #f5f5f4 !important; color: #78716c !important;
-          border: 1.5px solid #e7e5e4 !important; border-radius: 12px !important; font-family: 'DM Sans', sans-serif !important; cursor: pointer !important;
-        }
-        #zoho-form-wrapper img[src*="zoho"], #zoho-form-wrapper a[href*="zoho"] { display: none !important; }
-        #zoho-form-wrapper font[color="red"] { color: #dc2626 !important; }
-        @media (max-width: 640px) {
-          #zoho-form-wrapper table, #zoho-form-wrapper tr, #zoho-form-wrapper td { display: block !important; width: 100% !important; }
-          #zoho-form-wrapper input[type="text"], #zoho-form-wrapper input[type="email"], #zoho-form-wrapper textarea, #zoho-form-wrapper select { font-size: 16px !important; }
-        }
-      `}</style>
+        window.addEventListener('message',wfa_pstMesgFrmFom,false);
+      `}} />
     </>
   );
 }
-
