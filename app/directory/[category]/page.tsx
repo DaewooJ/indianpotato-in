@@ -189,7 +189,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
             <h2 className="font-display text-[1.1rem] font-bold text-stone-900 mb-2">अपना {cat.name} यहाँ सूचीबद्ध करें</h2>
             <p className="font-body text-[0.82rem] text-stone-500 mb-4">निःशुल्क लिस्टिंग — WhatsApp या ईमेल</p>
             <div className="flex flex-col sm:flex-row gap-2.5 justify-center">
-              <Link href="/sampark" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-body font-semibold text-[0.85rem] rounded-xl transition-colors">📋 लिस्टिंग जोड़ें</Link>
+              <Link href="/directory/submit" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-body font-semibold text-[0.85rem] rounded-xl transition-colors">📋 लिस्टिंग जोड़ें</Link>
               <a href="https://wa.me/919XXXXXXXXX" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white font-body font-semibold text-[0.85rem] rounded-xl transition-colors">💬 WhatsApp</a>
             </div>
           </div>
