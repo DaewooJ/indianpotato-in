@@ -139,6 +139,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                             <h3 className={'font-display text-[0.95rem] font-bold leading-snug group-hover:text-red-700 transition-colors ' +
                               (isFree ? 'text-stone-700' : 'text-stone-900')}>{listing.name}</h3>
                             {listing.nameEn && <p className="font-body text-[0.68rem] text-stone-400 italic">{listing.nameEn}</p>}
+                            {isFree && <p className="font-body text-[0.68rem] text-stone-500 mt-1 font-medium">📍 {listing.district}, {listing.state}</p>}
                           </div>
                         </div>
 
