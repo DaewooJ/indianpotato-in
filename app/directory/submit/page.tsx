@@ -1,19 +1,9 @@
+'use client';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { WhatsAppCTA, Footer } from '@/components/Sections';
 
-export const metadata: Metadata = {
-  title: 'अपना व्यवसाय सूचीबद्ध करें — डायरेक्टरी लिस्टिंग फ़ॉर्म | Indian Potato',
-  description: 'Indian Potato डायरेक्टरी में अपना व्यवसाय निःशुल्क सूचीबद्ध करें। कोल्ड स्टोरेज, व्यापारी, निर्यातक, बीज आपूर्तिकर्ता, प्रसंस्करण कंपनियाँ — अभी आवेदन करें।',
-  openGraph: {
-    title: 'अपना व्यवसाय सूचीबद्ध करें — Indian Potato Directory',
-    description: 'भारत के #1 आलू प्लेटफ़ॉर्म पर अपना व्यवसाय सूचीबद्ध करें',
-    type: 'website',
-    url: 'https://indianpotato.in/directory/submit',
-  },
-  alternates: { canonical: 'https://indianpotato.in/directory/submit' },
-};
 
 export default function SubmitListingPage() {
   return (
