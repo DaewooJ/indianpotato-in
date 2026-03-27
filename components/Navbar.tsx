@@ -6,7 +6,7 @@ import Link from 'next/link';
 const navItems = [
   { label: 'होम', href: '/' },
   { label: 'मंडी भाव', href: '/mandi' },
-  { label: 'डायरेक्टरी', href: '/directory' },
+  { label: 'डायरेक्टरी', href: '/directory', highlight: true },
   { label: 'समाचार', href: '/samachar' },
   { label: 'किस्में', href: '/kisme' },
   { label: 'योजनाएँ', href: '/yojnaye' },
@@ -45,14 +45,24 @@ export default function Navbar() {
         </Link>
 
         <div className="desk-nav" style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} style={{
-              textDecoration: 'none', padding: '22px 14px',
-              fontFamily: "'Noto Sans Devanagari', sans-serif",
-              fontSize: '0.88rem', fontWeight: 600, color: '#555',
-              borderBottom: '3px solid transparent', marginBottom: -3,
-              transition: 'all 0.15s',
-            }}>{item.label}</Link>
+          {navItems.map((item: any) => (
+            item.highlight ? (
+              <Link key={item.href} href={item.href} style={{
+                textDecoration: 'none', padding: '6px 14px', margin: '0 6px',
+                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontSize: '0.82rem', fontWeight: 700, color: '#fff',
+                background: '#E53E3E', borderRadius: 6,
+                transition: 'all 0.15s',
+              }}>📋 {item.label}</Link>
+            ) : (
+              <Link key={item.href} href={item.href} style={{
+                textDecoration: 'none', padding: '22px 14px',
+                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontSize: '0.88rem', fontWeight: 600, color: '#555',
+                borderBottom: '3px solid transparent', marginBottom: -3,
+                transition: 'all 0.15s',
+              }}>{item.label}</Link>
+            )
           ))}
           <div style={{ width: 1, height: 24, background: '#e5e5e5', margin: '0 14px' }} />
           <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{
@@ -72,17 +82,26 @@ export default function Navbar() {
 
       {menuOpen && (
         <div style={{ background: '#fff', borderTop: '1px solid #f0f0f0', padding: '8px 28px 16px' }}>
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{
-              display: 'block', textDecoration: 'none', padding: '13px 0',
-              fontFamily: "'Noto Sans Devanagari', sans-serif",
-              fontSize: '1rem', fontWeight: 600, color: '#444',
-              borderBottom: '1px solid #f5f5f5',
-            }}>{item.label}</Link>
+          {navItems.map((item: any) => (
+            item.highlight ? (
+              <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{
+                display: 'block', textDecoration: 'none', padding: '12px 16px', margin: '6px 0',
+                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontSize: '1rem', fontWeight: 700, color: '#fff',
+                background: '#E53E3E', borderRadius: 8, textAlign: 'center',
+              }}>📋 {item.label}</Link>
+            ) : (
+              <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{
+                display: 'block', textDecoration: 'none', padding: '13px 0',
+                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontSize: '1rem', fontWeight: 600, color: '#444',
+                borderBottom: '1px solid #f5f5f5',
+              }}>{item.label}</Link>
+            )
           ))}
           <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} style={{
             display: 'block', textAlign: 'center', textDecoration: 'none',
-            background: '#E53E3E', color: '#fff',
+            background: '#16a34a', color: '#fff',
             padding: '13px', borderRadius: 5, marginTop: 10,
             fontFamily: "'Noto Sans Devanagari', sans-serif",
             fontSize: '0.95rem', fontWeight: 700,
