@@ -33,7 +33,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
   }
   const statesWithListings = Object.keys(stateGroups).sort();
 
-  // Sort listings: platinum first, then gold, then featured, then rest
+  // Sort: platinum → gold → featured → free
   const sortedListings = [...listings].sort((a: any, b: any) => {
     const tierOrder: Record<string, number> = { platinum: 0, gold: 1 };
     const aTier = tierOrder[a.tier] ?? (a.featured ? 2 : 3);
@@ -71,7 +71,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
           </div>
         </div>
 
-        {/* Listings */}
+        {/* Listings — Card Grid */}
         <section className="py-6 md:py-12 px-3 md:px-6 bg-stone-50/50">
           <div className="max-w-[1280px] mx-auto">
             {listings.length === 0 ? (
@@ -82,7 +82,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                 <Link href="/directory/submit" className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-body font-semibold text-[0.85rem] rounded-xl transition-colors">📋 पहली लिस्टिंग बनें</Link>
               </div>
             ) : (
-              <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {sortedListings.map((listing) => {
                   const ld = listing as any;
                   const isPremium = ld.premium === true;
@@ -91,83 +91,82 @@ export default function CategoryPage({ params }: { params: { category: string } 
                   const isGold = tier === 'gold';
                   const isFree = !isPremium;
 
-                  if (isFree) {
-                    // ─── FREE: Small compact row ───
-                    return (
-                      <Link key={listing.slug} href={'/directory/' + cat.slug + '/' + listing.slug}
-                        className="flex items-center gap-3 p-3 bg-white rounded-xl border border-stone-200 hover:border-stone-300 hover:shadow-sm transition-all group">
-                        <div className="w-9 h-9 rounded-lg bg-stone-100 border border-stone-200 flex items-center justify-center text-[18px] shrink-0 overflow-hidden">
-                          {cat.iconImage ? <img src={cat.iconImage} alt="" className="w-full h-full object-contain p-0.5 rounded" /> : cat.icon}
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <h3 className="font-body text-[0.82rem] font-semibold text-stone-700 group-hover:text-red-700 transition-colors truncate">{listing.name}</h3>
-                          {listing.email && <span className="font-body text-[0.65rem] text-stone-400">📧 {listing.email}</span>}
-                        </div>
-                        <span className="text-[0.6rem] text-stone-300 font-body shrink-0">Basic</span>
-                      </Link>
-                    );
-                  }
-
-                  // ─── GOLD / PLATINUM: Full premium card ───
                   return (
                     <Link key={listing.slug} href={'/directory/' + cat.slug + '/' + listing.slug}
-                      className={'group rounded-2xl border-2 overflow-hidden transition-all duration-200 ' +
-                        (isPlat ? 'bg-gradient-to-r from-violet-50/60 via-white to-purple-50/40 border-violet-300 hover:shadow-xl hover:shadow-violet-100/50' :
-                          'bg-gradient-to-r from-amber-50/60 via-white to-yellow-50/40 border-amber-300 hover:shadow-xl hover:shadow-amber-100/50')}>
-                      <div className="p-5 md:p-6">
-                        {/* Top bar: badge + location */}
-                        <div className="flex items-center justify-between mb-4">
-                          <span className={'text-[0.62rem] font-bold px-2.5 py-1 rounded-full ' +
-                            (isPlat ? 'text-violet-800 bg-gradient-to-r from-violet-200 to-purple-200' :
+                      className={'group rounded-2xl border-2 overflow-hidden transition-all duration-200 flex flex-col ' +
+                        (isPlat ? 'bg-gradient-to-b from-violet-50/50 to-white border-violet-300 hover:shadow-xl hover:shadow-violet-100/50' :
+                        isGold ? 'bg-gradient-to-b from-amber-50/50 to-white border-amber-300 hover:shadow-xl hover:shadow-amber-100/50' :
+                        'bg-white border-stone-200 hover:shadow-md hover:border-stone-300')}>
+
+                      <div className={'p-4 md:p-5 flex flex-col flex-1'}>
+                        {/* Top: badge + location for premium */}
+                        {(isPlat || isGold) && (
+                          <div className="flex items-center justify-between mb-3">
+                            <span className={'text-[0.6rem] font-bold px-2 py-0.5 rounded-full ' +
+                              (isPlat ? 'text-violet-800 bg-gradient-to-r from-violet-200 to-purple-200' :
                               'text-amber-800 bg-gradient-to-r from-amber-200 to-yellow-200')}>
-                            {isPlat ? '💎 PLATINUM' : '👑 GOLD'}
-                          </span>
-                          <span className={'text-[0.72rem] font-bold px-3 py-1 rounded-full border ' +
-                            (isPlat ? 'text-violet-700 bg-violet-50 border-violet-200' :
+                              {isPlat ? '💎 PLATINUM' : '👑 GOLD'}
+                            </span>
+                            <span className={'text-[0.65rem] font-semibold px-2 py-0.5 rounded-full border ' +
+                              (isPlat ? 'text-violet-700 bg-violet-50 border-violet-200' :
                               'text-amber-700 bg-amber-50 border-amber-200')}>
-                            📍 {listing.district}, {listing.state}
-                          </span>
-                        </div>
-
-                        <div className="flex items-start gap-4">
-                          {/* Logo */}
-                          {ld.logo ? (
-                            <div className={'w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 bg-white shrink-0 p-1 ' +
-                              (isPlat ? 'border-violet-300 shadow-md shadow-violet-100' : 'border-amber-300 shadow-md shadow-amber-100')}>
-                              <img src={ld.logo} alt={listing.name} className="w-full h-full object-contain rounded-lg" loading="lazy" />
-                            </div>
-                          ) : (
-                            <div className={'w-14 h-14 rounded-xl border flex items-center justify-center text-[28px] shrink-0 overflow-hidden ' +
-                              (isPlat ? 'bg-violet-100 border-violet-200' : 'bg-amber-100 border-amber-200')}>
-                              {cat.iconImage ? <img src={cat.iconImage} alt="" className="w-full h-full object-contain p-1" /> : cat.icon}
-                            </div>
-                          )}
-
-                          <div className="min-w-0 flex-1">
-                            <h3 className="font-display text-[1.05rem] md:text-[1.15rem] font-bold text-stone-900 group-hover:text-red-700 transition-colors leading-snug">{listing.name}</h3>
-                            {listing.nameEn && <p className="font-body text-[0.7rem] text-stone-400 italic mt-0.5">{listing.nameEn}</p>}
-
-                            <p className="font-body text-[0.8rem] text-stone-500 leading-relaxed mt-2 line-clamp-2">{listing.description}</p>
-                          </div>
-                        </div>
-
-                        {/* Specializations */}
-                        {listing.specialization && listing.specialization.length > 0 && (
-                          <div className="flex flex-wrap gap-1.5 mt-3">
-                            {listing.specialization.slice(0, 5).map((spec: string, i: number) => (
-                              <span key={i} className={'text-[0.6rem] font-medium px-1.5 py-0.5 rounded ' +
-                                (isPlat ? 'text-violet-600 bg-violet-100/60' : 'text-amber-700 bg-amber-100/60')}>{spec}</span>
-                            ))}
-                            {listing.specialization.length > 5 && <span className="text-[0.6rem] text-stone-400">+{listing.specialization.length - 5}</span>}
+                              📍 {listing.district}, {listing.state}
+                            </span>
                           </div>
                         )}
 
-                        {/* Contact row */}
-                        <div className="flex flex-wrap items-center gap-3 mt-4 pt-3 border-t border-stone-200/50">
-                          {ld.phone && ld.phone[0] && <span className="text-[0.72rem] font-semibold text-green-600">📞 {ld.phone[0]}</span>}
-                          {ld.email && <span className="text-[0.72rem] text-stone-400">📧 {ld.email}</span>}
-                          {listing.capacity && <span className="text-[0.68rem] text-stone-400">📊 {listing.capacity}</span>}
-                          {ld.contactPerson && <span className={'text-[0.68rem] font-medium ml-auto ' + (isPlat ? 'text-violet-600' : 'text-amber-700')}>👤 {ld.contactPerson}</span>}
+                        {/* Logo + Name */}
+                        <div className="flex items-start gap-3">
+                          {ld.logo ? (
+                            <div className={'w-14 h-14 rounded-xl overflow-hidden border bg-white shrink-0 p-0.5 ' +
+                              (isPlat ? 'border-violet-300 shadow-sm' : isGold ? 'border-amber-300 shadow-sm' : 'border-stone-200')}>
+                              <img src={ld.logo} alt={listing.name} className="w-full h-full object-contain rounded-lg" loading="lazy" />
+                            </div>
+                          ) : (
+                            <div className={'w-11 h-11 rounded-lg border flex items-center justify-center text-[22px] shrink-0 overflow-hidden ' +
+                              (isPlat ? 'bg-violet-100 border-violet-200' : isGold ? 'bg-amber-100 border-amber-200' : 'bg-stone-100 border-stone-200')}>
+                              {cat.iconImage ? <img src={cat.iconImage} alt="" className="w-full h-full object-contain p-0.5 rounded" /> : cat.icon}
+                            </div>
+                          )}
+                          <div className="min-w-0">
+                            <h3 className={'font-display text-[0.95rem] font-bold leading-snug group-hover:text-red-700 transition-colors ' +
+                              (isFree ? 'text-stone-700' : 'text-stone-900')}>{listing.name}</h3>
+                            {listing.nameEn && <p className="font-body text-[0.68rem] text-stone-400 italic">{listing.nameEn}</p>}
+                          </div>
+                        </div>
+
+                        {/* Description — shorter for free */}
+                        <p className={'font-body text-stone-500 leading-relaxed mt-2.5 ' +
+                          (isFree ? 'text-[0.75rem] line-clamp-1' : 'text-[0.8rem] line-clamp-2')}>{listing.description}</p>
+
+                        {/* Specializations — only for premium */}
+                        {!isFree && listing.specialization && listing.specialization.length > 0 && (
+                          <div className="flex flex-wrap gap-1 mt-2.5">
+                            {listing.specialization.slice(0, 3).map((spec: string, i: number) => (
+                              <span key={i} className={'text-[0.6rem] font-medium px-1.5 py-0.5 rounded ' +
+                                (isPlat ? 'text-violet-600 bg-violet-100/60' : 'text-amber-700 bg-amber-100/60')}>{spec}</span>
+                            ))}
+                            {listing.specialization.length > 3 && <span className="text-[0.6rem] text-stone-400">+{listing.specialization.length - 3}</span>}
+                          </div>
+                        )}
+
+                        {/* Footer */}
+                        <div className="mt-auto pt-3 border-t border-stone-100 mt-3">
+                          {isFree ? (
+                            /* Free: only email, no phone */
+                            <div className="flex items-center justify-between">
+                              {listing.email && <span className="text-[0.68rem] text-stone-400 truncate">📧 {listing.email}</span>}
+                              <span className="text-[0.58rem] text-stone-300 font-body shrink-0 ml-auto">Basic</span>
+                            </div>
+                          ) : (
+                            /* Premium: phone, email, contact */
+                            <div className="flex flex-wrap items-center gap-2">
+                              {ld.phone && ld.phone[0] && <span className="text-[0.7rem] font-semibold text-green-600">📞 {ld.phone[0]}</span>}
+                              {ld.email && <span className="text-[0.68rem] text-stone-400">📧 {ld.email}</span>}
+                              {ld.contactPerson && <span className={'text-[0.68rem] font-medium ml-auto ' +
+                                (isPlat ? 'text-violet-600' : 'text-amber-700')}>👤 {ld.contactPerson}</span>}
+                            </div>
+                          )}
                         </div>
                       </div>
                     </Link>
