@@ -101,7 +101,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                     <Link key={listing.slug} href={'/directory/' + cat.slug + '/' + listing.slug}
                       data-state={listing.state}
                       className={'group rounded-2xl border-2 overflow-hidden transition-all duration-200 flex flex-col ' +
-                        (isPlat ? 'bg-gradient-to-b from-violet-50/50 to-white border-violet-300 hover:shadow-xl hover:shadow-violet-100/50' :
+                        (isPlat ? 'bg-gradient-to-b from-red-50/50 to-white border-red-400 hover:shadow-xl hover:shadow-red-100/50' :
                         isGold ? 'bg-gradient-to-b from-amber-50/50 to-white border-amber-300 hover:shadow-xl hover:shadow-amber-100/50' :
                         'bg-white border-stone-200 hover:shadow-md hover:border-stone-300')}>
 
@@ -110,13 +110,13 @@ export default function CategoryPage({ params }: { params: { category: string } 
                         {(isPlat || isGold) && (
                           <div className="flex items-center justify-between mb-3">
                             <span className={'text-[0.6rem] font-bold px-2 py-0.5 rounded-full ' +
-                              (isPlat ? 'text-violet-800 bg-gradient-to-r from-violet-200 to-purple-200' :
+                              (isPlat ? 'text-white bg-gradient-to-r from-red-600 to-red-500' :
                               'text-amber-800 bg-gradient-to-r from-amber-200 to-yellow-200')}>
                               {isPlat ? '💎 PLATINUM' : '👑 GOLD'}
                             </span>
                             <span className={'text-[0.65rem] font-semibold px-2 py-0.5 rounded-full border ' +
-                              (isPlat ? 'text-violet-700 bg-violet-50 border-violet-200' :
-                              'text-amber-700 bg-amber-50 border-amber-200')}>
+                              (isPlat ? 'text-white bg-red-600 border-red-500 shadow-sm shadow-red-200' :
+                              'text-white bg-red-600 border-red-500 shadow-sm shadow-red-200')}>
                               📍 {listing.district}, {listing.state}
                             </span>
                           </div>
@@ -131,7 +131,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                             </div>
                           ) : (
                             <div className={'w-11 h-11 rounded-lg border flex items-center justify-center text-[22px] shrink-0 overflow-hidden ' +
-                              (isPlat ? 'bg-violet-100 border-violet-200' : isGold ? 'bg-amber-100 border-amber-200' : 'bg-stone-100 border-stone-200')}>
+                              (isPlat ? 'bg-red-100 border-red-200' : isGold ? 'bg-amber-100 border-amber-200' : 'bg-stone-100 border-stone-200')}>
                               {cat.iconImage ? <img src={cat.iconImage} alt="" className="w-full h-full object-contain p-0.5 rounded" /> : cat.icon}
                             </div>
                           )}
@@ -152,7 +152,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                           <div className="flex flex-wrap gap-1 mt-2.5">
                             {listing.specialization.slice(0, 3).map((spec: string, i: number) => (
                               <span key={i} className={'text-[0.6rem] font-medium px-1.5 py-0.5 rounded ' +
-                                (isPlat ? 'text-violet-600 bg-violet-100/60' : 'text-amber-700 bg-amber-100/60')}>{spec}</span>
+                                (isPlat ? 'text-red-600 bg-red-100/60' : 'text-amber-700 bg-amber-100/60')}>{spec}</span>
                             ))}
                             {listing.specialization.length > 3 && <span className="text-[0.6rem] text-stone-400">+{listing.specialization.length - 3}</span>}
                           </div>
@@ -172,7 +172,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                               {ld.phone && ld.phone[0] && <span className="text-[0.7rem] font-semibold text-green-600">📞 {ld.phone[0]}</span>}
                               {ld.email && <span className="text-[0.68rem] text-stone-400">📧 {ld.email}</span>}
                               {ld.contactPerson && <span className={'text-[0.68rem] font-medium ml-auto ' +
-                                (isPlat ? 'text-violet-600' : 'text-amber-700')}>👤 {ld.contactPerson}</span>}
+                                (isPlat ? 'text-red-600' : 'text-amber-700')}>👤 {ld.contactPerson}</span>}
                             </div>
                           )}
                         </div>
