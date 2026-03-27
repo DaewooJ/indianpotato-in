@@ -205,7 +205,7 @@ export function Footer() {
         {[
           { title: 'जानकारी', links: [{ l: 'मंडी भाव', h: '/mandi' }, { l: 'किस्में', h: '/kisme' }, { l: 'निर्यात डेटा', h: '/samachar' }, { l: 'खेती गाइड', h: '/samachar' }, { l: 'सरकारी योजनाएँ', h: '/yojnaye' }] },
           { title: 'उद्योग', links: [{ l: 'डायरेक्टरी', h: '/directory' }, { l: 'कार्यक्रम', h: '/samachar' }, { l: 'प्रसंस्करण', h: '/directory' }, { l: 'कोल्ड स्टोरेज', h: '/directory' }] },
-          { title: 'कंपनी', links: [{ l: 'हमारे बारे में', h: '/sampark' }, { l: 'संपर्क', h: '/sampark' }, { l: 'विज्ञापन', h: '/sampark' }, { l: 'गोपनीयता नीति', h: '/sampark' }] },
+          { title: 'कंपनी', links: [{ l: 'हमारे बारे में', h: '/sampark' }, { l: 'संपर्क', h: '/sampark' }, { l: 'विज्ञापन', h: '/sampark' }, { l: 'गोपनीयता नीति', h: '/privacy-policy' }, { l: 'नियम व शर्तें', h: '/terms-and-conditions' }, { l: 'अस्वीकरण', h: '/disclaimer' }] },
         ].map((col, i) => (
           <div key={i}>
             <h4 style={{ fontFamily: "'DM Sans'", fontSize: '0.7rem', fontWeight: 700, color: '#E53E3E', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>{col.title}</h4>
