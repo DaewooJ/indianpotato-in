@@ -151,7 +151,7 @@ export default function DirectoryPage() {
             <h2 className="font-display text-[clamp(1.3rem,3.5vw,2rem)] font-bold text-white mb-3">अपना व्यवसाय सूचीबद्ध करें</h2>
             <p className="font-body text-[0.88rem] text-stone-400 mb-6">निःशुल्क लिस्टिंग — भारत के सबसे बड़े आलू प्लेटफ़ॉर्म पर</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/sampark" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-body font-semibold text-[0.88rem] rounded-xl transition-colors">📋 निःशुल्क लिस्टिंग</Link>
+              <Link href="/directory/submit" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-body font-semibold text-[0.88rem] rounded-xl transition-colors">📋 निःशुल्क लिस्टिंग</Link>
               <a href="https://wa.me/919XXXXXXXXX?text=मैं%20अपना%20व्यवसाय%20सूचीबद्ध%20करना%20चाहता%20हूँ" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-body font-semibold text-[0.88rem] rounded-xl transition-colors">💬 WhatsApp</a>
             </div>
           </div>
