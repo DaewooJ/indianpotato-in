@@ -21,7 +21,7 @@ export const DIRECTORY_CATEGORIES: CategoryConfig[] = [
   { slug: 'research', name: 'अनुसंधान संस्थान', nameEn: 'Research Institutes', icon: '🧪', description: 'आलू अनुसंधान संस्थान, विश्वविद्यालय और प्रयोगशालाएँ', descriptionEn: 'Potato research institutes, universities, and labs', color: 'violet' },
   { slug: 'transport', name: 'परिवहन / लॉजिस्टिक्स', nameEn: 'Transport & Logistics', icon: '🚛', description: 'रेफ्रिजरेटेड ट्रांसपोर्ट और आलू लॉजिस्टिक्स सेवाएँ', descriptionEn: 'Refrigerated transport and potato logistics services', color: 'orange' },
   { slug: 'processing-machines', name: 'प्रसंस्करण मशीनें', nameEn: 'Processing Machines', icon: '🔧', description: 'आलू चिप्स, फ्राइज़, पाउडर और फ्लेक्स बनाने की मशीनें', descriptionEn: 'Machines for making potato chips, fries, powder and flakes', color: 'zinc' },
-  { slug: 'TEMP_EXPORTERS', name: 'निर्यातक', nameEn: 'Exporters', icon: '📦', description: 'ताज़ा और प्रसंस्कृत आलू के निर्यातक — APEDA पंजीकृत', descriptionEn: 'Fresh and processed potato exporters', color: 'green' },
+  { slug: 'exporters', name: 'निर्यातक', nameEn: 'Exporters', icon: '📦', description: 'ताज़ा और प्रसंस्कृत आलू के निर्यातक — APEDA पंजीकृत', descriptionEn: 'Fresh and processed potato exporters', color: 'green' },
   { slug: 'progressive-farmers', name: 'प्रगतिशील किसान', nameEn: 'Progressive Farmers', icon: '👨‍🌾', description: 'भारत के अग्रणी आलू किसान — नई तकनीक और उच्च उत्पादकता', descriptionEn: 'Leading potato farmers of India — new tech and high yields', color: 'yellow' },
 ];
 
