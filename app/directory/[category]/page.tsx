@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import { WhatsAppCTA, Footer } from '@/components/Sections';
 import { DIRECTORY_CATEGORIES, getCategoryConfig, getListingsByCategory } from '@/lib/directory';
+import StateFilter from '@/app/directory/StateFilter';
 
 export function generateStaticParams() {
   return DIRECTORY_CATEGORIES.map((cat) => ({ category: cat.slug }));
@@ -71,6 +72,11 @@ export default function CategoryPage({ params }: { params: { category: string } 
           </div>
         </div>
 
+        {/* State Filter */}
+        {statesWithListings.length > 0 && (
+          <StateFilter states={statesWithListings} counts={Object.fromEntries(statesWithListings.map(s => [s, stateGroups[s].length]))} />
+        )}
+
         {/* Listings — Card Grid */}
         <section className="py-6 md:py-12 px-3 md:px-6 bg-stone-50/50">
           <div className="max-w-[1280px] mx-auto">
@@ -93,6 +99,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
 
                   return (
                     <Link key={listing.slug} href={'/directory/' + cat.slug + '/' + listing.slug}
+                      data-state={listing.state}
                       className={'group rounded-2xl border-2 overflow-hidden transition-all duration-200 flex flex-col ' +
                         (isPlat ? 'bg-gradient-to-b from-violet-50/50 to-white border-violet-300 hover:shadow-xl hover:shadow-violet-100/50' :
                         isGold ? 'bg-gradient-to-b from-amber-50/50 to-white border-amber-300 hover:shadow-xl hover:shadow-amber-100/50' :
