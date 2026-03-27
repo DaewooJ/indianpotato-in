@@ -71,7 +71,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
                     <img src={listing.logo} alt={listing.name + ' logo'} className="w-full h-full object-contain p-1" />
                   </div>
                 ) : (
-                  <div className={'w-16 h-16 md:w-20 md:h-20 rounded-2xl backdrop-blur-sm border flex items-center justify-center text-[36px] md:text-[44px] shrink-0 ' + (isPremium ? 'bg-amber-500/20 border-amber-400/40' : 'bg-white/10 border-white/20')}>{cat.icon}</div>
+                  <div className={'w-16 h-16 md:w-20 md:h-20 rounded-2xl backdrop-blur-sm border flex items-center justify-center text-[36px] md:text-[44px] shrink-0 ' + (isPremium ? 'bg-amber-500/20 border-amber-400/40' : 'bg-white/10 border-white/20')}>{cat.iconImage ? <img src={cat.iconImage} alt="" className="w-full h-full object-contain p-1 rounded" /> : cat.icon}</div>
                 )}
                 <div>
                   {/* Badges */}

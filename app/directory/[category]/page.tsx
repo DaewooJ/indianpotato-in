@@ -47,7 +47,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
               <span className="text-white/80">{cat.name}</span>
             </nav>
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-[28px] md:text-[34px] shrink-0">{cat.icon}</div>
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-[28px] md:text-[34px] shrink-0">{cat.iconImage ? <img src={cat.iconImage} alt={cat.name} className="w-full h-full object-contain p-1" /> : cat.icon}</div>
               <div>
                 <h1 className="font-display text-[clamp(1.4rem,4vw,2.4rem)] font-bold text-white leading-tight">{cat.name}</h1>
                 <p className="font-body text-[0.78rem] text-white/40 italic">{cat.nameEn}</p>
@@ -110,7 +110,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                                 <img src={ld.logo} alt={listing.name} className="w-full h-full object-contain rounded-lg" loading="lazy" />
                               </div>
                             ) : (
-                              <div className="w-11 h-11 rounded-lg bg-stone-100 border border-stone-200 flex items-center justify-center text-[22px] shrink-0 group-hover:scale-105 transition-transform">{cat.icon}</div>
+                              <div className="w-11 h-11 rounded-lg bg-stone-100 border border-stone-200 flex items-center justify-center text-[22px] shrink-0 group-hover:scale-105 transition-transform">{cat.iconImage ? <img src={cat.iconImage} alt="" className="w-full h-full object-contain p-0.5 rounded" /> : cat.icon}</div>
                             )}
                             <div className="min-w-0 flex-1">
                               <h3 className="font-display text-[0.95rem] font-bold text-stone-900 group-hover:text-red-700 transition-colors leading-snug">{listing.name}</h3>
@@ -163,7 +163,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                                 {ld.logo ? (
                                   <div className="w-10 h-10 rounded-lg overflow-hidden border border-stone-200 bg-white shrink-0 p-0.5"><img src={ld.logo} alt={listing.name} className="w-full h-full object-contain rounded" /></div>
                                 ) : (
-                                  <div className="w-9 h-9 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center text-[18px] shrink-0">{cat.icon}</div>
+                                  <div className="w-9 h-9 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center text-[18px] shrink-0">{cat.iconImage ? <img src={cat.iconImage} alt="" className="w-full h-full object-contain p-0.5 rounded" /> : cat.icon}</div>
                                 )}
                                 <div className="min-w-0">
                                   <h4 className="font-body text-[0.82rem] font-semibold text-stone-800 group-hover:text-red-700 transition-colors truncate">{listing.name}</h4>

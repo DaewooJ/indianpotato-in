@@ -6,13 +6,14 @@ export interface CategoryConfig {
   name: string;
   nameEn: string;
   icon: string;
+  iconImage?: string;
   description: string;
   descriptionEn: string;
   color: string;
 }
 
 export const DIRECTORY_CATEGORIES: CategoryConfig[] = [
-  { slug: 'seed-suppliers', name: 'बीज आपूर्तिकर्ता', nameEn: 'Seed Suppliers', icon: '🌱', description: 'प्रमाणित बीज आलू उत्पादक और आपूर्तिकर्ता', descriptionEn: 'Certified seed potato producers and suppliers', color: 'emerald' },
+  { slug: 'seed-suppliers', name: 'बीज आपूर्तिकर्ता', nameEn: 'Seed Suppliers', icon: '🌱', iconImage: '/images/directory/seed-suppliers-icon.png', description: 'प्रमाणित बीज आलू उत्पादक और आपूर्तिकर्ता', descriptionEn: 'Certified seed potato producers and suppliers', color: 'emerald' },
   { slug: 'traders', name: 'व्यापारी / आढ़तिया', nameEn: 'Traders / Commission Agents', icon: '🤝', description: 'आलू के थोक व्यापारी, आढ़तिया और कमीशन एजेंट', descriptionEn: 'Wholesale potato traders and commission agents', color: 'amber' },
   { slug: 'farming-machines', name: 'कृषि मशीनें', nameEn: 'Potato Farming Machines', icon: '🚜', description: 'आलू बुआई, खुदाई, ग्रेडिंग और सॉर्टिंग मशीनें', descriptionEn: 'Potato planting, harvesting, grading and sorting machines', color: 'lime' },
   { slug: 'cold-storage', name: 'कोल्ड स्टोरेज', nameEn: 'Cold Storage', icon: '❄️', description: 'भारत भर में आलू कोल्ड स्टोरेज सुविधाएँ — क्षमता, संपर्क और पता', descriptionEn: 'Potato cold storage facilities across India', color: 'blue' },

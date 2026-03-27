@@ -67,7 +67,7 @@ export default function DirectoryPage() {
                 return (
                   <Link key={cat.slug} href={'/directory/' + cat.slug} className={'group bg-white rounded-xl p-3 md:p-4 border border-stone-200 hover:shadow-md transition-all duration-200 flex flex-col ' + colors.accent}>
                     <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
-                      <div className={'w-9 h-9 md:w-11 md:h-11 rounded-lg ' + colors.iconBg + ' border ' + colors.iconBorder + ' flex items-center justify-center text-[18px] md:text-[22px] shrink-0 group-hover:scale-105 transition-transform'}>{cat.icon}</div>
+                      <div className={'w-9 h-9 md:w-11 md:h-11 rounded-lg ' + colors.iconBg + ' border ' + colors.iconBorder + ' flex items-center justify-center text-[18px] md:text-[22px] shrink-0 group-hover:scale-105 transition-transform'}>{cat.iconImage ? <img src={cat.iconImage} alt={cat.name} className="w-full h-full object-contain p-0.5 rounded-lg" /> : cat.icon}</div>
                       <div className="min-w-0">
                         <h3 className="font-display text-[0.82rem] md:text-[0.95rem] font-bold text-stone-800 leading-tight truncate">{cat.name}</h3>
                         <p className="font-body text-[0.62rem] md:text-[0.68rem] text-stone-400 italic truncate">{cat.nameEn}</p>
