@@ -5,216 +5,71 @@ import { WhatsAppCTA, Footer } from '@/components/Sections';
 
 export const metadata: Metadata = {
   title: 'डायरेक्टरी लिस्टिंग प्लान — Basic, Silver, Gold, Platinum | Indian Potato',
-  description: 'Indian Potato डायरेक्टरी में अपना व्यवसाय सूचीबद्ध करें। Basic (निःशुल्क), Silver (₹4,999/वर्ष), Gold (₹7,999/वर्ष), Platinum (₹9,999/वर्ष) — भारत के सबसे बड़े आलू उद्योग प्लेटफ़ॉर्म पर।',
-  openGraph: {
-    title: 'डायरेक्टरी लिस्टिंग प्लान — Indian Potato',
-    description: 'अपना व्यवसाय भारत के #1 आलू प्लेटफ़ॉर्म पर सूचीबद्ध करें',
-    type: 'website',
-    url: 'https://indianpotato.in/directory/plans',
-  },
+  description: 'Indian Potato डायरेक्टरी में अपना व्यवसाय सूचीबद्ध करें। Basic (निःशुल्क), Silver (₹4,999/वर्ष), Gold (₹7,999/वर्ष), Platinum (₹9,999/वर्ष)।',
+  openGraph: { title: 'डायरेक्टरी लिस्टिंग प्लान — Indian Potato', description: 'अपना व्यवसाय भारत के #1 आलू प्लेटफ़ॉर्म पर सूचीबद्ध करें', type: 'website', url: 'https://indianpotato.in/directory/plans' },
   alternates: { canonical: 'https://indianpotato.in/directory/plans' },
 };
 
 const plans = [
   {
-    id: 'basic',
-    name: 'Basic',
-    nameHi: 'बेसिक',
-    price: 'निःशुल्क',
-    priceEn: 'FREE',
-    period: '',
-    color: 'stone',
-    gradient: 'from-stone-100 to-stone-50',
-    border: 'border-stone-200',
-    badge: '',
-    badgeBg: '',
-    icon: '📋',
-    cta: 'निःशुल्क लिस्टिंग',
-    ctaBg: 'bg-stone-800 hover:bg-stone-900',
-    features: {
-      companyName: true,
-      location: true,
-      phone: true,
-      category: true,
-      description: false,
-      descriptionWords: 0,
-      logo: false,
-      photos: 0,
-      varieties: false,
-      certifications: false,
-      contactPerson: false,
-      email: false,
-      website: false,
-      whatsappButton: false,
-      callButton: false,
-      premiumBadge: false,
-      featuredHomepage: false,
-      featuredCategory: false,
-      socialMedia: false,
-      seoOptimized: false,
-      prioritySupport: false,
-      analytics: false,
-      dedicatedPage: false,
-      stateFilter: true,
-      searchVisible: true,
-    },
+    id: 'basic', name: 'Basic', nameHi: 'बेसिक', price: 'निःशुल्क', priceEn: 'FREE', period: '',
+    color: 'stone', gradient: 'from-stone-100 to-stone-50', border: 'border-stone-200',
+    badge: '', badgeBg: '', icon: '📋', cta: 'निःशुल्क लिस्टिंग', ctaBg: 'bg-stone-800 hover:bg-stone-900',
+    features: { companyName: true, location: true, phone: false, category: true, description: false, descriptionWords: 0, logo: false, photos: 0, varieties: false, certifications: false, contactPerson: false, email: true, website: false, whatsappButton: false, callButton: false, premiumBadge: false, featuredHomepage: false, featuredCategory: false, socialMedia: false, seoOptimized: false, prioritySupport: false, analytics: false, dedicatedPage: false, stateFilter: true, searchVisible: true, priorityReferral: false },
   },
   {
-    id: 'silver',
-    name: 'Silver',
-    nameHi: 'सिल्वर',
-    price: '₹4,999',
-    priceEn: '₹4,999',
-    period: '/वर्ष',
-    color: 'slate',
-    gradient: 'from-slate-100 to-slate-50',
-    border: 'border-slate-300',
-    badge: '🥈',
-    badgeBg: 'bg-slate-200 text-slate-700',
-    icon: '🥈',
-    cta: 'Silver चुनें',
-    ctaBg: 'bg-slate-700 hover:bg-slate-800',
-    features: {
-      companyName: true,
-      location: true,
-      phone: true,
-      category: true,
-      description: true,
-      descriptionWords: 100,
-      logo: true,
-      photos: 3,
-      varieties: false,
-      certifications: true,
-      contactPerson: true,
-      email: true,
-      website: true,
-      whatsappButton: true,
-      callButton: true,
-      premiumBadge: false,
-      featuredHomepage: false,
-      featuredCategory: false,
-      socialMedia: false,
-      seoOptimized: true,
-      prioritySupport: false,
-      analytics: false,
-      dedicatedPage: true,
-      stateFilter: true,
-      searchVisible: true,
-    },
+    id: 'silver', name: 'Silver', nameHi: 'सिल्वर', price: '₹4,999', priceEn: '₹4,999', period: '/वर्ष',
+    color: 'slate', gradient: 'from-slate-50 to-white', border: 'border-slate-300',
+    badge: '🥈', badgeBg: 'bg-slate-200 text-slate-700', icon: '🥈', cta: 'Silver चुनें', ctaBg: 'bg-slate-700 hover:bg-slate-800',
+    features: { companyName: true, location: true, phone: true, category: true, description: true, descriptionWords: 100, logo: true, photos: 2, varieties: false, certifications: true, contactPerson: true, email: true, website: true, whatsappButton: false, callButton: false, premiumBadge: false, featuredHomepage: false, featuredCategory: false, socialMedia: false, seoOptimized: true, prioritySupport: false, analytics: false, dedicatedPage: true, stateFilter: true, searchVisible: true, priorityReferral: false },
   },
   {
-    id: 'gold',
-    name: 'Gold',
-    nameHi: 'गोल्ड',
-    price: '₹7,999',
-    priceEn: '₹7,999',
-    period: '/वर्ष',
-    color: 'amber',
-    gradient: 'from-amber-50 to-yellow-50',
-    border: 'border-amber-300',
-    badge: '👑',
-    badgeBg: 'bg-gradient-to-r from-amber-200 to-yellow-200 text-amber-900',
-    icon: '👑',
-    cta: 'Gold चुनें — लोकप्रिय',
-    ctaBg: 'bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700',
+    id: 'gold', name: 'Gold', nameHi: 'गोल्ड', price: '₹7,999', priceEn: '₹7,999', period: '/वर्ष',
+    color: 'amber', gradient: 'from-amber-50 to-yellow-50/50', border: 'border-amber-300',
+    badge: '👑', badgeBg: 'bg-gradient-to-r from-amber-200 to-yellow-200 text-amber-900', icon: '👑',
+    cta: 'Gold चुनें — लोकप्रिय', ctaBg: 'bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700',
     popular: true,
-    features: {
-      companyName: true,
-      location: true,
-      phone: true,
-      category: true,
-      description: true,
-      descriptionWords: 300,
-      logo: true,
-      photos: 8,
-      varieties: true,
-      certifications: true,
-      contactPerson: true,
-      email: true,
-      website: true,
-      whatsappButton: true,
-      callButton: true,
-      premiumBadge: true,
-      featuredHomepage: true,
-      featuredCategory: true,
-      socialMedia: true,
-      seoOptimized: true,
-      prioritySupport: false,
-      analytics: true,
-      dedicatedPage: true,
-      stateFilter: true,
-      searchVisible: true,
-    },
+    features: { companyName: true, location: true, phone: true, category: true, description: true, descriptionWords: 300, logo: true, photos: 3, varieties: true, certifications: true, contactPerson: true, email: true, website: true, whatsappButton: true, callButton: true, premiumBadge: true, featuredHomepage: true, featuredCategory: true, socialMedia: true, seoOptimized: true, prioritySupport: false, analytics: true, dedicatedPage: true, stateFilter: true, searchVisible: true, priorityReferral: false },
   },
   {
-    id: 'platinum',
-    name: 'Platinum',
-    nameHi: 'प्लेटिनम',
-    price: '₹9,999',
-    priceEn: '₹9,999',
-    period: '/वर्ष',
-    color: 'violet',
-    gradient: 'from-violet-50 to-purple-50',
-    border: 'border-violet-300',
-    badge: '💎',
-    badgeBg: 'bg-gradient-to-r from-violet-200 to-purple-200 text-violet-900',
-    icon: '💎',
-    cta: 'Platinum चुनें',
-    ctaBg: 'bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700',
-    features: {
-      companyName: true,
-      location: true,
-      phone: true,
-      category: true,
-      description: true,
-      descriptionWords: 500,
-      logo: true,
-      photos: 15,
-      varieties: true,
-      certifications: true,
-      contactPerson: true,
-      email: true,
-      website: true,
-      whatsappButton: true,
-      callButton: true,
-      premiumBadge: true,
-      featuredHomepage: true,
-      featuredCategory: true,
-      socialMedia: true,
-      seoOptimized: true,
-      prioritySupport: true,
-      analytics: true,
-      dedicatedPage: true,
-      stateFilter: true,
-      searchVisible: true,
-    },
+    id: 'platinum', name: 'Platinum', nameHi: 'प्लेटिनम', price: '₹9,999', priceEn: '₹9,999', period: '/वर्ष',
+    color: 'violet', gradient: 'from-violet-50 to-purple-50/50', border: 'border-violet-300',
+    badge: '💎', badgeBg: 'bg-gradient-to-r from-violet-200 to-purple-200 text-violet-900', icon: '💎',
+    cta: 'Platinum चुनें', ctaBg: 'bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700',
+    features: { companyName: true, location: true, phone: true, category: true, description: true, descriptionWords: 500, logo: true, photos: 10, varieties: true, certifications: true, contactPerson: true, email: true, website: true, whatsappButton: true, callButton: true, premiumBadge: true, featuredHomepage: true, featuredCategory: true, socialMedia: true, seoOptimized: true, prioritySupport: true, analytics: true, dedicatedPage: true, stateFilter: true, searchVisible: true, priorityReferral: true },
   },
 ];
 
-const comparisonRows: { label: string; labelEn: string; key: string; type: 'boolean' | 'text' }[] = [
+const comparisonRows: { label: string; labelEn: string; key: string; type: 'boolean' | 'text'; section?: string }[] = [
+  { label: '', labelEn: '', key: '_section_basic', type: 'text', section: '📌 बुनियादी जानकारी — Basic Information' },
   { label: 'कंपनी का नाम', labelEn: 'Company Name', key: 'companyName', type: 'boolean' },
   { label: 'पता / स्थान', labelEn: 'Location & Address', key: 'location', type: 'boolean' },
   { label: 'फ़ोन नंबर', labelEn: 'Phone Number', key: 'phone', type: 'boolean' },
+  { label: 'ईमेल', labelEn: 'Email Address', key: 'email', type: 'boolean' },
   { label: 'श्रेणी में दिखाई दें', labelEn: 'Category Listing', key: 'category', type: 'boolean' },
   { label: 'राज्य फ़िल्टर में दिखें', labelEn: 'State Filter Visible', key: 'stateFilter', type: 'boolean' },
   { label: 'खोज में दिखें', labelEn: 'Search Visible', key: 'searchVisible', type: 'boolean' },
-  { label: 'विवरण (शब्द)', labelEn: 'Description', key: 'descriptionWords', type: 'text' },
+
+  { label: '', labelEn: '', key: '_section_profile', type: 'text', section: '🏢 प्रोफ़ाइल और ब्रांडिंग — Profile & Branding' },
+  { label: 'समर्पित प्रोफ़ाइल पेज', labelEn: 'Dedicated Profile Page', key: 'dedicatedPage', type: 'boolean' },
   { label: 'कंपनी लोगो', labelEn: 'Company Logo', key: 'logo', type: 'boolean' },
+  { label: 'विवरण (शब्द)', labelEn: 'Description Length', key: 'descriptionWords', type: 'text' },
   { label: 'फ़ोटो गैलरी', labelEn: 'Photo Gallery', key: 'photos', type: 'text' },
+  { label: 'किस्में / उत्पाद सूची', labelEn: 'Varieties / Products', key: 'varieties', type: 'boolean' },
+  { label: 'प्रमाणपत्र', labelEn: 'Certifications', key: 'certifications', type: 'boolean' },
   { label: 'संपर्क व्यक्ति', labelEn: 'Contact Person', key: 'contactPerson', type: 'boolean' },
-  { label: 'ईमेल', labelEn: 'Email Address', key: 'email', type: 'boolean' },
   { label: 'वेबसाइट लिंक', labelEn: 'Website Link', key: 'website', type: 'boolean' },
   { label: 'सोशल मीडिया लिंक', labelEn: 'Social Media Links', key: 'socialMedia', type: 'boolean' },
-  { label: 'किस्में / उत्पाद सूची', labelEn: 'Varieties / Products List', key: 'varieties', type: 'boolean' },
-  { label: 'प्रमाणपत्र', labelEn: 'Certifications', key: 'certifications', type: 'boolean' },
+
+  { label: '', labelEn: '', key: '_section_premium', type: 'text', section: '⭐ प्रीमियम सुविधाएँ — Premium Features' },
   { label: '📞 कॉल बटन', labelEn: 'Direct Call Button', key: 'callButton', type: 'boolean' },
   { label: '💬 WhatsApp बटन', labelEn: 'WhatsApp Button', key: 'whatsappButton', type: 'boolean' },
-  { label: 'समर्पित प्रोफ़ाइल पेज', labelEn: 'Dedicated Profile Page', key: 'dedicatedPage', type: 'boolean' },
-  { label: 'SEO ऑप्टिमाइज़्ड पेज', labelEn: 'SEO Optimized Page', key: 'seoOptimized', type: 'boolean' },
-  { label: '👑 प्रीमियम बैज', labelEn: 'Premium Verified Badge', key: 'premiumBadge', type: 'boolean' },
+  { label: 'SEO ऑप्टिमाइज़्ड पेज', labelEn: 'SEO Optimized', key: 'seoOptimized', type: 'boolean' },
+  { label: '👑 प्रीमियम सत्यापित बैज', labelEn: 'Premium Verified Badge', key: 'premiumBadge', type: 'boolean' },
   { label: '⭐ होमपेज पर फ़ीचर्ड', labelEn: 'Featured on Homepage', key: 'featuredHomepage', type: 'boolean' },
-  { label: '⭐ श्रेणी में टॉप पर', labelEn: 'Featured in Category', key: 'featuredCategory', type: 'boolean' },
+  { label: '⭐ श्रेणी में टॉप पर', labelEn: 'Top in Category', key: 'featuredCategory', type: 'boolean' },
   { label: '📊 व्यू एनालिटिक्स', labelEn: 'View Analytics', key: 'analytics', type: 'boolean' },
+  { label: '🔗 प्राथमिकता रेफ़रल', labelEn: 'Priority Referral', key: 'priorityReferral', type: 'boolean' },
   { label: '🎧 प्राथमिकता सपोर्ट', labelEn: 'Priority Support', key: 'prioritySupport', type: 'boolean' },
 ];
 
@@ -235,7 +90,6 @@ export default function PlansPage() {
         {/* Hero */}
         <div className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 py-12 md:py-20 px-4 md:px-6 relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-          {/* Gold accent line */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
           <div className="max-w-[1100px] mx-auto relative z-10 text-center">
             <div className="inline-block px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 mb-4">
@@ -256,88 +110,42 @@ export default function PlansPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
               {plans.map((plan: any) => (
                 <div key={plan.id} className={'relative rounded-2xl border-2 overflow-hidden transition-all ' + plan.border + (plan.popular ? ' ring-2 ring-amber-400 ring-offset-2 scale-[1.02] lg:scale-105' : '')}>
-                  {/* Popular tag */}
                   {plan.popular && (
                     <div className="bg-gradient-to-r from-amber-500 to-orange-500 py-1.5 text-center">
-                      <span className="text-[0.7rem] font-bold text-white tracking-wider uppercase">⭐ सबसे लोकप्रिय — MOST POPULAR</span>
+                      <span className="text-[0.7rem] font-bold text-white tracking-wider uppercase">⭐ सबसे लोकप्रिय</span>
                     </div>
                   )}
-
                   <div className={'bg-gradient-to-b ' + plan.gradient + ' p-5 md:p-6'}>
-                    {/* Plan header */}
                     <div className="flex items-center gap-2 mb-3">
                       <span className="text-[1.4rem]">{plan.icon}</span>
                       <div>
                         <h3 className="font-display text-[1.1rem] font-bold text-stone-900">{plan.name}</h3>
                         <p className="font-body text-[0.68rem] text-stone-400">{plan.nameHi}</p>
                       </div>
-                      {plan.badge && plan.badgeBg && (
-                        <span className={'ml-auto text-[0.6rem] font-bold px-2 py-0.5 rounded-full ' + plan.badgeBg}>{plan.badge}</span>
-                      )}
+                      {plan.badge && plan.badgeBg && (<span className={'ml-auto text-[0.6rem] font-bold px-2 py-0.5 rounded-full ' + plan.badgeBg}>{plan.badge}</span>)}
                     </div>
-
-                    {/* Price */}
                     <div className="mb-5">
                       <div className="flex items-baseline gap-1">
                         <span className="font-display text-[2rem] font-bold text-stone-900">{plan.price}</span>
                         {plan.period && <span className="font-body text-[0.82rem] text-stone-400">{plan.period}</span>}
                       </div>
-                      {plan.id !== 'basic' && (
-                        <p className="font-body text-[0.68rem] text-stone-400 mt-0.5">+ GST | वार्षिक नवीकरण</p>
-                      )}
+                      {plan.id !== 'basic' && (<p className="font-body text-[0.68rem] text-stone-400 mt-0.5">+ GST | वार्षिक नवीकरण</p>)}
                     </div>
-
-                    {/* Key features */}
                     <div className="space-y-2 mb-6">
                       {plan.id === 'basic' && (
-                        <>
-                          <Feature text="कंपनी का नाम और पता" />
-                          <Feature text="फ़ोन नंबर" />
-                          <Feature text="श्रेणी में सूचीबद्ध" />
-                          <FeatureNo text="कोई प्रोफ़ाइल पेज नहीं" />
-                          <FeatureNo text="कोई लोगो या फ़ोटो नहीं" />
-                        </>
+                        <>{F('कंपनी का नाम और पता')}{F('ईमेल')}{F('श्रेणी में सूचीबद्ध')}{FNo('कोई फ़ोन नंबर नहीं')}{FNo('कोई प्रोफ़ाइल पेज नहीं')}{FNo('कोई लोगो या फ़ोटो नहीं')}</>
                       )}
                       {plan.id === 'silver' && (
-                        <>
-                          <Feature text="समर्पित प्रोफ़ाइल पेज" />
-                          <Feature text="कंपनी लोगो + 3 फ़ोटो" />
-                          <Feature text="100 शब्दों का विवरण" />
-                          <Feature text="📞 कॉल + 💬 WhatsApp बटन" />
-                          <Feature text="SEO ऑप्टिमाइज़्ड पेज" />
-                        </>
+                        <>{F('समर्पित प्रोफ़ाइल पेज')}{F('फ़ोन नंबर + ईमेल')}{F('कंपनी लोगो + 2 फ़ोटो')}{F('100 शब्दों का विवरण')}{F('SEO ऑप्टिमाइज़्ड पेज')}</>
                       )}
                       {plan.id === 'gold' && (
-                        <>
-                          <Feature text="👑 प्रीमियम सत्यापित बैज" highlight />
-                          <Feature text="⭐ होमपेज + श्रेणी में फ़ीचर्ड" highlight />
-                          <Feature text="लोगो + 8 फ़ोटो + किस्में सूची" />
-                          <Feature text="300 शब्दों का विवरण" />
-                          <Feature text="📊 व्यू एनालिटिक्स" />
-                          <Feature text="सोशल मीडिया लिंक" />
-                        </>
+                        <>{F('👑 प्रीमियम सत्यापित बैज', true)}{F('⭐ होमपेज + श्रेणी में फ़ीचर्ड', true)}{F('📞 कॉल + 💬 WhatsApp बटन', true)}{F('लोगो + 3 फ़ोटो + किस्में सूची')}{F('300 शब्दों का विवरण')}{F('📊 व्यू एनालिटिक्स')}</>
                       )}
                       {plan.id === 'platinum' && (
-                        <>
-                          <Feature text="💎 सर्वोच्च प्राथमिकता प्लेसमेंट" highlight />
-                          <Feature text="Gold की सभी सुविधाएँ शामिल" />
-                          <Feature text="15 फ़ोटो गैलरी" />
-                          <Feature text="500 शब्दों का विस्तृत विवरण" />
-                          <Feature text="🎧 प्राथमिकता सपोर्ट" />
-                          <Feature text="📊 विस्तृत एनालिटिक्स" />
-                        </>
+                        <>{F('💎 सर्वोच्च प्राथमिकता प्लेसमेंट', true)}{F('Gold की सभी सुविधाएँ शामिल')}{F('📞 कॉल + 💬 WhatsApp बटन', true)}{F('10 फ़ोटो गैलरी')}{F('500 शब्दों का विस्तृत विवरण')}{F('🔗 प्राथमिकता रेफ़रल', true)}{F('🎧 प्राथमिकता सपोर्ट')}</>
                       )}
                     </div>
-
-                    {/* CTA */}
-                    <a
-                      href={'https://wa.me/919XXXXXXXXX?text=' + encodeURIComponent('नमस्ते, मुझे ' + plan.name + ' लिस्टिंग प्लान (₹' + (plan.id === 'basic' ? 'Free' : plan.price) + ') चाहिए।')}
-                      target="_blank"
-                      rel="noopener"
-                      className={'flex items-center justify-center gap-2 w-full py-3 text-white font-body font-bold text-[0.88rem] rounded-xl transition-all shadow-md hover:shadow-lg ' + plan.ctaBg}
-                    >
-                      {plan.cta}
-                    </a>
+                    <a href={'https://wa.me/919XXXXXXXXX?text=' + encodeURIComponent('नमस्ते, मुझे ' + plan.name + ' लिस्टिंग प्लान (' + plan.price + ') चाहिए।')} target="_blank" rel="noopener" className={'flex items-center justify-center gap-2 w-full py-3 text-white font-body font-bold text-[0.88rem] rounded-xl transition-all shadow-md hover:shadow-lg ' + plan.ctaBg}>{plan.cta}</a>
                   </div>
                 </div>
               ))}
@@ -345,100 +153,122 @@ export default function PlansPage() {
           </div>
         </section>
 
-        {/* Comparison Table */}
-        <section className="py-10 md:py-16 px-3 md:px-6 bg-white">
+        {/* ═══════════════════════════════════════════
+            PREMIUM COMPARISON TABLE
+        ═══════════════════════════════════════════ */}
+        <section className="py-12 md:py-20 px-3 md:px-6 bg-gradient-to-b from-white via-stone-50/30 to-white">
           <div className="max-w-[1200px] mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="font-display text-[clamp(1.3rem,3vw,1.8rem)] font-bold text-stone-900 mb-2">विस्तृत तुलना</h2>
-              <p className="font-body text-[0.85rem] text-stone-400">सभी प्लान की सुविधाओं की पूरी तुलना</p>
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 rounded-full mb-3">
+                <span className="w-1.5 h-1.5 bg-red-500 rounded-full" />
+                <span className="text-[0.68rem] font-bold text-stone-500 uppercase tracking-wider">Feature Comparison</span>
+                <span className="w-1.5 h-1.5 bg-red-500 rounded-full" />
+              </div>
+              <h2 className="font-display text-[clamp(1.4rem,3.5vw,2rem)] font-bold text-stone-900 mb-2">विस्तृत तुलना</h2>
+              <p className="font-body text-[0.85rem] text-stone-400">हर प्लान में क्या-क्या मिलता है — एक नज़र में</p>
             </div>
 
             {/* Desktop Table */}
-            <div className="hidden md:block overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr>
-                    <th className="text-left py-4 px-4 font-body text-[0.78rem] font-semibold text-stone-500 uppercase tracking-wider border-b-2 border-stone-200 w-[280px]">सुविधा / Feature</th>
-                    {plans.map((plan: any) => (
-                      <th key={plan.id} className={'text-center py-4 px-3 border-b-2 ' + (plan.popular ? 'border-amber-400 bg-amber-50/50' : 'border-stone-200')}>
-                        <div className="flex flex-col items-center gap-1">
-                          <span className="text-[1.1rem]">{plan.icon}</span>
-                          <span className="font-display text-[0.88rem] font-bold text-stone-800">{plan.name}</span>
-                          <span className="font-body text-[0.72rem] font-bold text-red-600">{plan.price}{plan.period}</span>
-                        </div>
+            <div className="hidden md:block">
+              <div className="rounded-2xl border border-stone-200 overflow-hidden shadow-sm">
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="bg-stone-900">
+                      <th className="text-left py-5 px-6 w-[280px]">
+                        <span className="font-display text-[0.85rem] font-bold text-white">सुविधाएँ</span>
+                        <br /><span className="font-body text-[0.65rem] text-stone-400">Features</span>
                       </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparisonRows.map((row, i) => (
-                    <tr key={row.key} className={i % 2 === 0 ? 'bg-stone-50/50' : 'bg-white'}>
-                      <td className="py-3 px-4 border-b border-stone-100">
-                        <div className="font-body text-[0.82rem] font-medium text-stone-700">{row.label}</div>
-                        <div className="font-body text-[0.65rem] text-stone-400">{row.labelEn}</div>
-                      </td>
-                      {plans.map((plan: any) => {
-                        const val = getFeatureValue(plan.features, row.key, row.type);
-                        return (
-                          <td key={plan.id} className={'text-center py-3 px-3 border-b border-stone-100 ' + (plan.popular ? 'bg-amber-50/30' : '')}>
-                            {row.type === 'boolean' ? (
-                              val ? (
-                                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-100 text-green-600 text-[0.7rem] font-bold">✓</span>
-                              ) : (
-                                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-stone-100 text-stone-300 text-[0.7rem]">—</span>
-                              )
-                            ) : (
-                              <span className={'font-body text-[0.78rem] font-semibold ' + (val === '—' ? 'text-stone-300' : 'text-stone-700')}>{val as string}</span>
-                            )}
-                          </td>
-                        );
-                      })}
+                      {plans.map((plan: any) => (
+                        <th key={plan.id} className={'text-center py-5 px-4 ' + (plan.popular ? 'bg-amber-900/30' : '')}>
+                          <div className="flex flex-col items-center gap-1.5">
+                            <span className="text-[1.3rem]">{plan.icon}</span>
+                            <span className="font-display text-[0.88rem] font-bold text-white">{plan.name}</span>
+                            <span className={'inline-block px-2.5 py-0.5 rounded-full text-[0.68rem] font-bold ' + (plan.id === 'basic' ? 'bg-white/10 text-white/70' : plan.id === 'silver' ? 'bg-slate-500/30 text-slate-200' : plan.id === 'gold' ? 'bg-amber-500/30 text-amber-200' : 'bg-violet-500/30 text-violet-200')}>{plan.price}{plan.period}</span>
+                          </div>
+                        </th>
+                      ))}
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {comparisonRows.map((row, i) => {
+                      if (row.section) {
+                        return (
+                          <tr key={row.key} className="bg-stone-100/80">
+                            <td colSpan={5} className="py-3 px-6">
+                              <span className="font-display text-[0.78rem] font-bold text-stone-700 tracking-wide">{row.section}</span>
+                            </td>
+                          </tr>
+                        );
+                      }
+                      return (
+                        <tr key={row.key} className={'transition-colors hover:bg-stone-50 ' + (i % 2 === 0 ? 'bg-white' : 'bg-stone-50/40')}>
+                          <td className="py-3.5 px-6 border-b border-stone-100">
+                            <div className="font-body text-[0.82rem] font-medium text-stone-700">{row.label}</div>
+                            <div className="font-body text-[0.62rem] text-stone-400 mt-0.5">{row.labelEn}</div>
+                          </td>
+                          {plans.map((plan: any) => {
+                            const val = getFeatureValue(plan.features, row.key, row.type);
+                            return (
+                              <td key={plan.id} className={'text-center py-3.5 px-4 border-b border-stone-100 ' + (plan.popular ? 'bg-amber-50/20' : '')}>
+                                {row.type === 'boolean' ? (
+                                  val ? (
+                                    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-green-50 border border-green-200 text-green-600 text-[0.75rem] font-bold shadow-sm">✓</span>
+                                  ) : (
+                                    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-stone-50 border border-stone-200 text-stone-300 text-[0.72rem]">✗</span>
+                                  )
+                                ) : (
+                                  <span className={'font-body text-[0.8rem] font-semibold ' + (val === '—' ? 'text-stone-300' : 'text-stone-700')}>{val as string}</span>
+                                )}
+                              </td>
+                            );
+                          })}
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                  {/* Bottom CTA row */}
+                  <tfoot>
+                    <tr className="bg-stone-900">
+                      <td className="py-4 px-6"><span className="font-body text-[0.78rem] text-stone-400">अभी शुरू करें →</span></td>
+                      {plans.map((plan: any) => (
+                        <td key={plan.id} className="text-center py-4 px-4">
+                          <a href={'https://wa.me/919XXXXXXXXX?text=' + encodeURIComponent('मुझे ' + plan.name + ' प्लान चाहिए।')} target="_blank" rel="noopener" className={'inline-block px-4 py-2 text-white font-body font-bold text-[0.72rem] rounded-lg transition-all ' + plan.ctaBg}>{plan.name} चुनें</a>
+                        </td>
+                      ))}
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
             </div>
 
-            {/* Mobile: Stacked comparison */}
+            {/* Mobile: Premium stacked cards */}
             <div className="md:hidden space-y-4">
               {plans.map((plan: any) => (
-                <div key={plan.id} className={'rounded-xl border-2 overflow-hidden ' + plan.border + (plan.popular ? ' ring-2 ring-amber-400' : '')}>
-                  {plan.popular && (
-                    <div className="bg-gradient-to-r from-amber-500 to-orange-500 py-1 text-center">
-                      <span className="text-[0.62rem] font-bold text-white uppercase tracking-wider">⭐ सबसे लोकप्रिय</span>
-                    </div>
-                  )}
+                <div key={plan.id} className={'rounded-2xl border-2 overflow-hidden ' + plan.border + (plan.popular ? ' ring-2 ring-amber-400' : '')}>
+                  {plan.popular && (<div className="bg-gradient-to-r from-amber-500 to-orange-500 py-1 text-center"><span className="text-[0.62rem] font-bold text-white uppercase tracking-wider">⭐ सबसे लोकप्रिय</span></div>)}
                   <div className={'bg-gradient-to-b ' + plan.gradient + ' p-4'}>
-                    <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center justify-between mb-4 pb-3 border-b border-stone-200">
                       <div className="flex items-center gap-2">
-                        <span className="text-[1.2rem]">{plan.icon}</span>
-                        <span className="font-display text-[1rem] font-bold text-stone-900">{plan.name}</span>
+                        <span className="text-[1.3rem]">{plan.icon}</span>
+                        <span className="font-display text-[1.05rem] font-bold text-stone-900">{plan.name}</span>
                       </div>
-                      <span className="font-display text-[1.1rem] font-bold text-red-600">{plan.price}<span className="text-[0.7rem] text-stone-400">{plan.period}</span></span>
+                      <span className="font-display text-[1.15rem] font-bold text-red-600">{plan.price}<span className="text-[0.7rem] text-stone-400 font-normal">{plan.period}</span></span>
                     </div>
-                    <div className="grid grid-cols-1 gap-1.5">
-                      {comparisonRows.map((row) => {
-                        const val = getFeatureValue(plan.features, row.key, row.type);
-                        const isYes = row.type === 'boolean' ? val === true : val !== '—';
-                        return (
-                          <div key={row.key} className="flex items-center justify-between py-1 border-b border-stone-200/50 last:border-0">
-                            <span className={'font-body text-[0.72rem] ' + (isYes ? 'text-stone-700' : 'text-stone-400')}>{row.label}</span>
-                            {row.type === 'boolean' ? (
-                              isYes ? (
-                                <span className="text-[0.7rem] text-green-600 font-bold">✓</span>
-                              ) : (
-                                <span className="text-[0.7rem] text-stone-300">—</span>
-                              )
-                            ) : (
-                              <span className={'font-body text-[0.72rem] font-semibold ' + (isYes ? 'text-stone-700' : 'text-stone-300')}>{val as string}</span>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-                    <a href={'https://wa.me/919XXXXXXXXX?text=' + encodeURIComponent('मुझे ' + plan.name + ' प्लान चाहिए।')} target="_blank" rel="noopener" className={'flex items-center justify-center gap-2 w-full py-2.5 mt-4 text-white font-body font-bold text-[0.82rem] rounded-xl ' + plan.ctaBg}>
-                      {plan.cta}
-                    </a>
+                    {comparisonRows.filter(r => !r.section).map((row) => {
+                      const val = getFeatureValue(plan.features, row.key, row.type);
+                      const isYes = row.type === 'boolean' ? val === true : val !== '—';
+                      return (
+                        <div key={row.key} className={'flex items-center justify-between py-1.5 ' + (isYes ? '' : 'opacity-40')}>
+                          <span className="font-body text-[0.72rem] text-stone-600">{row.label}</span>
+                          {row.type === 'boolean' ? (
+                            isYes ? (<span className="text-[0.72rem] text-green-600 font-bold">✓</span>) : (<span className="text-[0.72rem] text-stone-300">✗</span>)
+                          ) : (
+                            <span className={'font-body text-[0.72rem] font-semibold ' + (isYes ? 'text-stone-700' : 'text-stone-300')}>{val as string}</span>
+                          )}
+                        </div>
+                      );
+                    })}
+                    <a href={'https://wa.me/919XXXXXXXXX?text=' + encodeURIComponent('मुझे ' + plan.name + ' प्लान चाहिए।')} target="_blank" rel="noopener" className={'flex items-center justify-center gap-2 w-full py-2.5 mt-4 text-white font-body font-bold text-[0.82rem] rounded-xl ' + plan.ctaBg}>{plan.cta}</a>
                   </div>
                 </div>
               ))}
@@ -456,6 +286,7 @@ export default function PlansPage() {
                 { q: 'क्या मैं बाद में प्लान अपग्रेड कर सकता हूँ?', a: 'हाँ, किसी भी समय अपग्रेड कर सकते हैं। अपग्रेड पर शेष अवधि का प्रो-रेटा समायोजन होगा।' },
                 { q: 'भुगतान कैसे करें?', a: 'UPI, बैंक ट्रांसफ़र, और PhonePe/GPay से भुगतान स्वीकार्य है। WhatsApp पर संपर्क करें।' },
                 { q: 'क्या GST अलग से लगेगा?', a: 'हाँ, दर्शाई गई कीमतों पर 18% GST अतिरिक्त लागू होगा।' },
+                { q: 'प्राथमिकता रेफ़रल क्या है?', a: 'Platinum सदस्यों को हम सीधे खरीदारों और व्यापारियों से जोड़ते हैं। जब कोई किसान या व्यापारी हमसे आपकी श्रेणी में आपूर्तिकर्ता पूछता है, तो Platinum सदस्यों को पहले रेफ़र किया जाता है।' },
                 { q: 'रिफ़ंड पॉलिसी क्या है?', a: 'लिस्टिंग लाइव होने से पहले पूर्ण रिफ़ंड। लाइव होने के बाद कोई रिफ़ंड नहीं।' },
               ].map((faq, i) => (
                 <div key={i} className="bg-white rounded-xl p-4 border border-stone-200">
@@ -486,7 +317,7 @@ export default function PlansPage() {
   );
 }
 
-function Feature({ text, highlight }: { text: string; highlight?: boolean }) {
+function F(text: string, highlight?: boolean) {
   return (
     <div className="flex items-start gap-2">
       <span className={'text-[0.72rem] mt-0.5 ' + (highlight ? 'text-amber-500' : 'text-green-500')}>✓</span>
@@ -495,7 +326,7 @@ function Feature({ text, highlight }: { text: string; highlight?: boolean }) {
   );
 }
 
-function FeatureNo({ text }: { text: string }) {
+function FNo({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <span className="text-[0.72rem] mt-0.5 text-stone-300">✗</span>
