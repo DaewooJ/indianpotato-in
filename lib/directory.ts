@@ -12,17 +12,16 @@ export interface CategoryConfig {
 }
 
 export const DIRECTORY_CATEGORIES: CategoryConfig[] = [
-  { slug: 'cold-storage', name: 'कोल्ड स्टोरेज', nameEn: 'Cold Storage', icon: '❄️', description: 'भारत भर में आलू कोल्ड स्टोरेज सुविधाएँ — क्षमता, संपर्क और पता', descriptionEn: 'Potato cold storage facilities across India', color: 'blue' },
+  { slug: 'seed-suppliers', name: 'बीज आपूर्तिकर्ता', nameEn: 'Seed Suppliers', icon: '🌱', description: 'प्रमाणित बीज आलू उत्पादक और आपूर्तिकर्ता', descriptionEn: 'Certified seed potato producers and suppliers', color: 'emerald' },
   { slug: 'traders', name: 'व्यापारी / आढ़तिया', nameEn: 'Traders / Commission Agents', icon: '🤝', description: 'आलू के थोक व्यापारी, आढ़तिया और कमीशन एजेंट', descriptionEn: 'Wholesale potato traders and commission agents', color: 'amber' },
   { slug: 'farming-machines', name: 'कृषि मशीनें', nameEn: 'Potato Farming Machines', icon: '🚜', description: 'आलू बुआई, खुदाई, ग्रेडिंग और सॉर्टिंग मशीनें', descriptionEn: 'Potato planting, harvesting, grading and sorting machines', color: 'lime' },
-  { slug: 'seed-suppliers', name: 'बीज आपूर्तिकर्ता', nameEn: 'Seed Suppliers', icon: '🌱', description: 'प्रमाणित बीज आलू उत्पादक और आपूर्तिकर्ता', descriptionEn: 'Certified seed potato producers and suppliers', color: 'emerald' },
+  { slug: 'cold-storage', name: 'कोल्ड स्टोरेज', nameEn: 'Cold Storage', icon: '❄️', description: 'भारत भर में आलू कोल्ड स्टोरेज सुविधाएँ — क्षमता, संपर्क और पता', descriptionEn: 'Potato cold storage facilities across India', color: 'blue' },
   { slug: 'processors', name: 'प्रसंस्करण कंपनियाँ', nameEn: 'Processors', icon: '🏭', description: 'चिप्स, फ्राइज़, डिहाइड्रेटेड और फ्रोज़न आलू उत्पाद निर्माता', descriptionEn: 'Chips, fries, dehydrated & frozen potato manufacturers', color: 'red' },
-  { slug: 'equipment', name: 'उपकरण / मशीनरी', nameEn: 'Equipment & Machinery', icon: '⚙️', description: 'आलू उद्योग के लिए मशीनरी और तकनीक प्रदाता', descriptionEn: 'Machinery and technology providers for the potato industry', color: 'slate' },
+  { slug: 'progressive-farmers', name: 'प्रगतिशील किसान', nameEn: 'Progressive Farmers', icon: '👨‍🌾', description: 'भारत के अग्रणी आलू किसान — नई तकनीक और उच्च उत्पादकता', descriptionEn: 'Leading potato farmers of India — new tech and high yields', color: 'yellow' },
   { slug: 'research', name: 'अनुसंधान संस्थान', nameEn: 'Research Institutes', icon: '🧪', description: 'आलू अनुसंधान संस्थान, विश्वविद्यालय और प्रयोगशालाएँ', descriptionEn: 'Potato research institutes, universities, and labs', color: 'violet' },
   { slug: 'transport', name: 'परिवहन / लॉजिस्टिक्स', nameEn: 'Transport & Logistics', icon: '🚛', description: 'रेफ्रिजरेटेड ट्रांसपोर्ट और आलू लॉजिस्टिक्स सेवाएँ', descriptionEn: 'Refrigerated transport and potato logistics services', color: 'orange' },
   { slug: 'processing-machines', name: 'प्रसंस्करण मशीनें', nameEn: 'Processing Machines', icon: '🔧', description: 'आलू चिप्स, फ्राइज़, पाउडर और फ्लेक्स बनाने की मशीनें', descriptionEn: 'Machines for making potato chips, fries, powder and flakes', color: 'zinc' },
   { slug: 'exporters', name: 'निर्यातक', nameEn: 'Exporters', icon: '📦', description: 'ताज़ा और प्रसंस्कृत आलू के निर्यातक — APEDA पंजीकृत', descriptionEn: 'Fresh and processed potato exporters', color: 'green' },
-  { slug: 'progressive-farmers', name: 'प्रगतिशील किसान', nameEn: 'Progressive Farmers', icon: '👨‍🌾', description: 'भारत के अग्रणी आलू किसान — नई तकनीक और उच्च उत्पादकता', descriptionEn: 'Leading potato farmers of India — new tech and high yields', color: 'yellow' },
 ];
 
 export interface DirectoryListing {
