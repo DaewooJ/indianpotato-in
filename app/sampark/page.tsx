@@ -451,8 +451,8 @@ export default function SamparkPage() {
                 </div>
               </div>
 
-              {/* Website + Founder — two horizontal blocks */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }} className="two-blocks">
+              {/* Website + Founder — stacked vertically */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
 
                 {/* Website links */}
                 <div style={{
@@ -696,7 +696,6 @@ export default function SamparkPage() {
         }
         @media (max-width: 640px) {
           .form-row { grid-template-columns: 1fr !important; }
-          .two-blocks { grid-template-columns: 1fr !important; }
           .office-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
