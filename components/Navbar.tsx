@@ -6,10 +6,10 @@ import Link from 'next/link';
 const navItems = [
   { label: 'होम', href: '/' },
   { label: 'मंडी भाव', href: '/mandi' },
+  { label: 'डायरेक्टरी', href: '/directory' },
   { label: 'समाचार', href: '/samachar' },
   { label: 'किस्में', href: '/kisme' },
   { label: 'योजनाएँ', href: '/yojnaye' },
-  { label: 'डायरेक्टरी', href: '/directory' },
   { label: 'संपर्क', href: '/sampark' },
 ];
 
