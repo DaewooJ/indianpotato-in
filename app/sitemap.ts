@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { getAllPosts } from '@/lib/blog';
 import { DIRECTORY_CATEGORIES, getAllListings } from '@/lib/directory';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,6 +13,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: baseUrl + '/directory', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: baseUrl + '/sampark', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
   ];
+  const posts = getAllPosts();
+  const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: baseUrl + '/samachar/' + post.slug,
+    lastModified: new Date(post.date),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
   const categoryPages: MetadataRoute.Sitemap = DIRECTORY_CATEGORIES.map((cat) => ({
     url: baseUrl + '/directory/' + cat.slug,
     lastModified: new Date(),
@@ -25,5 +33,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
-  return [...staticPages, ...categoryPages, ...listingPages];
+  return [...staticPages, ...blogPages, ...categoryPages, ...listingPages];
 }
