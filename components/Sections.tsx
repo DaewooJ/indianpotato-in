@@ -81,13 +81,13 @@ export function GovSchemes() {
         </div>
         <div className="scheme-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 12 }}>
           {schemes.map((s, i) => (
-            <div key={i} style={{ background: '#fff', padding: '26px 24px', border: '1px solid #eee', borderLeft: '4px solid #E53E3E', borderRadius: 8, cursor: 'pointer', position: 'relative' }}>
+            <a key={i} href="/yojnaye" style={{ background: '#fff', padding: '26px 24px', border: '1px solid #eee', borderLeft: '4px solid #E53E3E', borderRadius: 8, cursor: 'pointer', position: 'relative', textDecoration: 'none', color: 'inherit', display: 'block', transition: 'transform 0.2s, box-shadow 0.2s' }}>
               <div style={{ position: 'absolute', top: 14, right: 14, background: s.status === 'नई' ? '#E53E3E' : '#f0f0f0', color: s.status === 'नई' ? '#fff' : '#666', padding: '3px 10px', borderRadius: 4, fontFamily: "'Noto Sans Devanagari'", fontSize: '0.62rem', fontWeight: 700 }}>{s.status}</div>
               <div style={{ fontSize: 28, marginBottom: 14 }}>{s.icon}</div>
               <h3 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '1.02rem', fontWeight: 800, color: '#1a1a1a', marginBottom: 6, lineHeight: 1.3 }}>{s.name}</h3>
               <div style={{ fontFamily: "'DM Sans'", fontSize: '1.1rem', fontWeight: 900, color: '#E53E3E', marginBottom: 10 }}>{s.benefit}</div>
               <p style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '0.85rem', color: '#888', lineHeight: 1.6 }}>{s.desc}</p>
-            </div>
+            </a>
           ))}
         </div>
       </div>
