@@ -65,10 +65,10 @@ export function NewsSection() {
 
 /* ─── GOV SCHEMES ─── */
 const schemes = [
-  { icon: '🌾', name: 'PM किसान सम्मान निधि', benefit: '₹6,000/वर्ष', desc: 'तीन किस्तों में सीधे बैंक खाते में — सभी किसान परिवारों के लिए', status: 'सक्रिय' },
-  { icon: '❄️', name: 'कोल्ड स्टोरेज सब्सिडी', benefit: '35-50% अनुदान', desc: 'नए कोल्ड स्टोरेज निर्माण पर सरकारी सब्सिडी — PMKSY के तहत', status: 'सक्रिय' },
-  { icon: '🧬', name: 'लेडी रोसेटा विस्तार योजना', benefit: 'बीज अनुदान', desc: 'प्रसंस्करण गुणवत्ता किस्म के लिए किसानों को विशेष सहायता', status: 'नई' },
-  { icon: '💰', name: 'किसान क्रेडिट कार्ड', benefit: '4% ब्याज दर', desc: '₹3 लाख तक का फसल ऋण — समय पर भुगतान पर 3% छूट', status: 'सक्रिय' },
+  { icon: '🌾', name: 'PM किसान सम्मान निधि', benefit: '₹6,000/वर्ष', desc: 'तीन किस्तों में सीधे बैंक खाते में — सभी किसान परिवारों के लिए', status: 'सक्रिय', link: '/samachar/pm-kisan-samman-nidhi-yojana' },
+  { icon: '❄️', name: 'कोल्ड स्टोरेज सब्सिडी', benefit: '35-50% अनुदान', desc: 'नए कोल्ड स्टोरेज निर्माण पर सरकारी सब्सिडी — PMKSY के तहत', status: 'सक्रिय', link: '/samachar/cold-storage-subsidy-scheme-india' },
+  { icon: '🧬', name: 'लेडी रोसेटा विस्तार योजना', benefit: '75% सब्सिडी', desc: 'बिहार 17 जिलों में प्रसंस्करण-गुणवत्ता आलू पर ₹93,863/हे. अनुदान', status: 'नई', link: '/samachar/bihar-lady-rosetta-vistar-yojana' },
+  { icon: '💰', name: 'किसान क्रेडिट कार्ड', benefit: '4% ब्याज दर', desc: '₹5 लाख तक का फसल ऋण — समय पर भुगतान पर 3% छूट', status: 'सक्रिय', link: '/samachar/kisan-credit-card-yojana' },
 ];
 
 export function GovSchemes() {
@@ -81,7 +81,7 @@ export function GovSchemes() {
         </div>
         <div className="scheme-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 12 }}>
           {schemes.map((s, i) => (
-            <a key={i} href="/yojnaye" style={{ background: '#fff', padding: '26px 24px', border: '1px solid #eee', borderLeft: '4px solid #E53E3E', borderRadius: 8, cursor: 'pointer', position: 'relative', textDecoration: 'none', color: 'inherit', display: 'block', transition: 'transform 0.2s, box-shadow 0.2s' }}>
+            <a key={i} href={s.link || "/yojnaye"} style={{ background: '#fff', padding: '26px 24px', border: '1px solid #eee', borderLeft: '4px solid #E53E3E', borderRadius: 8, cursor: 'pointer', position: 'relative', textDecoration: 'none', color: 'inherit', display: 'block', transition: 'transform 0.2s, box-shadow 0.2s' }}>
               <div style={{ position: 'absolute', top: 14, right: 14, background: s.status === 'नई' ? '#E53E3E' : '#f0f0f0', color: s.status === 'नई' ? '#fff' : '#666', padding: '3px 10px', borderRadius: 4, fontFamily: "'Noto Sans Devanagari'", fontSize: '0.62rem', fontWeight: 700 }}>{s.status}</div>
               <div style={{ fontSize: 28, marginBottom: 14 }}>{s.icon}</div>
               <h3 style={{ fontFamily: "'Noto Sans Devanagari'", fontSize: '1.02rem', fontWeight: 800, color: '#1a1a1a', marginBottom: 6, lineHeight: 1.3 }}>{s.name}</h3>
