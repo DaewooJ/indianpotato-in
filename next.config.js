@@ -89,6 +89,27 @@ const nextConfig = {
       { source: '/magazines', destination: '/samachar', permanent: true },
       { source: '/magazines/:path*', destination: '/samachar', permanent: true },
 
+      // Additional old blog/content pages
+      { source: '/cip-announces-launch-of-south-asia-centre-in-agra', destination: '/samachar', permanent: true },
+      { source: '/faces-behind-potato-brands-soundararadjane-s', destination: '/samachar', permanent: true },
+      { source: '/khalsa-potato-seeds', destination: '/directory/seed-suppliers', permanent: true },
+      { source: '/potato-varieties', destination: '/kisme', permanent: true },
+      { source: '/truth-behind-low-sugar-potatoes/feed', destination: '/samachar', permanent: true },
+      { source: '/davinderdosanjh', destination: '/samachar', permanent: true },
+
+      // Additional WordPress junk/system URLs
+      { source: '/tglobal-style/:path*', destination: '/', permanent: true },
+      { source: '/category/:path*', destination: '/samachar', permanent: true },
+      { source: '/type_of_variety/:path*', destination: '/kisme', permanent: true },
+      { source: '/comments/feed', destination: '/', permanent: true },
+      { source: '/feed', destination: '/feed.xml', permanent: true },
+      { source: '/home-3', destination: '/', permanent: true },
+      { source: '/home-5-2', destination: '/', permanent: true },
+      { source: '/seed-com-test-1-2', destination: '/directory/seed-suppliers', permanent: true },
+
+      // Haldirams directory page
+      { source: '/directory/processors/haldirams', destination: '/directory', permanent: true },
+
       // Old Hindi slug URLs
       { source: '/%E0%A4%AA%E0%A5%81%E0%A4%A3%E0%A5%87-%E0%A4%95%E0%A5%87-%E0%A4%B8%E0%A4%A4%E0%A4%97%E0%A4%BE%E0%A4%82%E0%A4%B5-%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A5%87%E0%A4%A4%E0%A5%8D%E0%A4%B0-%E0%A4%95%E0%A5%87', destination: '/samachar', permanent: true },
       { source: '/%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4-%E0%A4%95%E0%A4%BE-2024-25-%E0%A4%AE%E0%A5%87%E0%A4%82-%E0%A4%86%E0%A4%B2%E0%A5%82-%E0%A4%89%E0%A4%A4%E0%A5%8D%E0%A4%AA%E0%A4%BE%E0%A4%A6%E0%A4%A8', destination: '/samachar/india-potato-production-2024-25', permanent: true },
