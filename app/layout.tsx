@@ -1,20 +1,20 @@
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import type { Metadata } from 'next';
-import { Noto_Sans_Devanagari, DM_Sans } from 'next/font/google';
+import { Mukta, DM_Sans } from 'next/font/google';
 import './globals.css';
 
-const notoSansDevanagari = Noto_Sans_Devanagari({
+const mukta = Mukta({
   subsets: ['devanagari', 'latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
-  variable: '--font-noto',
+  variable: '--font-hindi',
 });
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
-  variable: '--font-dm',
+  variable: '--font-english',
 });
 
 export const metadata: Metadata = {
@@ -130,7 +130,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="hi" dir="ltr" className={`${notoSansDevanagari.variable} ${dmSans.variable}`}>
+    <html lang="hi" dir="ltr" className={`${mukta.variable} ${dmSans.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />

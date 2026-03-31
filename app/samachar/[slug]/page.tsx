@@ -6,6 +6,7 @@ import { markdownToHtml } from '@/lib/markdown';
 import Navbar from '@/components/Navbar';
 import { Footer } from '@/components/Sections';
 import { BreadcrumbJsonLd } from '@/components/Breadcrumbs';
+import ShareButtons from '@/components/ShareButtons';
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -15,11 +16,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const post = getPostBySlug(params.slug);
   if (!post) return { title: 'लेख नहीं मिला' };
   const ogImage = post.image.startsWith('http') ? post.image : 'https://www.indianpotato.in' + post.image;
+  // Shorter OG title for WhatsApp/social previews (avoid double title)
+  const ogTitle = post.title.length > 60 ? post.title.split('—')[0].trim() : post.title;
   return {
-    title: post.title + ' | Indian Potato',
+    title: post.title,
     description: post.excerpt,
-    openGraph: { title: post.title, description: post.excerpt, url: 'https://www.indianpotato.in/samachar/' + post.slug, type: 'article', publishedTime: post.date, authors: [post.author], images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }] },
-    twitter: { card: 'summary_large_image', title: post.title, description: post.excerpt, images: [ogImage] },
+    openGraph: { title: ogTitle, description: post.excerpt, url: 'https://www.indianpotato.in/samachar/' + post.slug, type: 'article', publishedTime: post.date, authors: [post.author], images: [{ url: ogImage, width: 1200, height: 630, alt: ogTitle }] },
+    twitter: { card: 'summary_large_image', title: ogTitle, description: post.excerpt, images: [ogImage] },
     alternates: { canonical: 'https://www.indianpotato.in/samachar/' + post.slug },
   };
 }
@@ -33,7 +36,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   const formatDate = (d: string) => { try { return new Date(d).toLocaleDateString('hi-IN', { day: 'numeric', month: 'long', year: 'numeric' }); } catch { return d; } };
   const shareUrl = 'https://www.indianpotato.in/samachar/' + post.slug;
-  const shareText = encodeURIComponent(post.title + ' — Indian Potato');
   const ogImage = post.image.startsWith('http') ? post.image : 'https://www.indianpotato.in' + post.image;
 
   const jsonLd = {
@@ -43,9 +45,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     publisher: { '@type': 'Organization', name: 'Indian Potato', url: 'https://www.indianpotato.in', logo: { '@type': 'ImageObject', url: 'https://www.indianpotato.in/logo.png' } },
     mainEntityOfPage: { '@type': 'WebPage', '@id': shareUrl }, articleSection: post.category_hindi, inLanguage: 'hi',
   };
-
-  // Parse stats from frontmatter if available
-  const stats = (post as any).stats || null;
 
   return (
     <>
@@ -70,17 +69,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 clamp(16px, 4vw, 24px)' }}>
 
-          {/* AUTHOR & DATE BAR */}
+          {/* AUTHOR & DATE BAR + SHARE */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 0', borderBottom: '1px solid #f0f0f0', marginBottom: 32, flexWrap: 'wrap' as const, gap: 12 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 16, color: '#666', fontSize: 14 }}>
-              <span>📅 {formatDate(post.date)}</span>
-              <span>⏱️ {post.readingTime} मिनट</span>
+              <span>{formatDate(post.date)}</span>
+              <span>{post.readingTime} मिनट पढ़ें</span>
             </div>
-            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' as const }}>
-              <a href={'https://api.whatsapp.com/send?text=' + shareText + '%20' + encodeURIComponent(shareUrl)} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '7px 16px', borderRadius: 20, background: '#25D366', color: '#fff', fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>💬 WhatsApp</a>
-              <a href={'https://twitter.com/intent/tweet?text=' + shareText + '&url=' + encodeURIComponent(shareUrl)} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '7px 16px', borderRadius: 20, background: '#1DA1F2', color: '#fff', fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>🐦 Twitter</a>
-              <a href={'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl)} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '7px 16px', borderRadius: 20, background: '#1877F2', color: '#fff', fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>📘 Facebook</a>
-            </div>
+            <ShareButtons title={post.title} slug={post.slug} variant="inline" />
           </div>
 
           {/* ARTICLE CONTENT */}
@@ -101,24 +96,40 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <div style={{ position: 'absolute', top: '-40%', right: '-15%', width: 300, height: 300, background: 'radial-gradient(circle, rgba(249,115,22,0.2) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' as const }} />
             <h2 style={{ color: '#fff', fontSize: 'clamp(20px, 3.5vw, 28px)', fontWeight: 700, margin: '0 0 12px 0', position: 'relative', zIndex: 2 }}>भारत के आलू उद्योग से जुड़ें</h2>
             <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: 16, margin: '0 0 24px 0', maxWidth: 600, marginLeft: 'auto', marginRight: 'auto', position: 'relative', zIndex: 2 }}>आलू आपूर्तिकर्ता, शीतगृह संचालक, या व्यापारिक साझेदार खोज रहे हैं? Indian Potato आपको जोड़ता है।</p>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' as const, position: 'relative', zIndex: 2 }}>
-              <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '14px 32px', borderRadius: 50, background: '#25D366', color: '#fff', fontSize: 15, fontWeight: 600, textDecoration: 'none' }}>💬 WhatsApp पर चैट करें</a>
-              <a href="mailto:info@indpotato.com" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '14px 32px', borderRadius: 50, background: '#fff', color: '#dc2626', fontSize: 15, fontWeight: 600, textDecoration: 'none' }}>📧 ईमेल भेजें</a>
+            <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 12, maxWidth: 400, margin: '0 auto', position: 'relative', zIndex: 2 }}>
+              <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                padding: '14px 24px', borderRadius: 12,
+                background: 'linear-gradient(135deg,#25D366,#128C7E)',
+                color: 'white', fontWeight: 700, fontSize: 15,
+                textDecoration: 'none',
+                boxShadow: '0 4px 15px rgba(37,211,102,0.4)',
+              }}>
+                🥔 आलू किसानों का WhatsApp ग्रुप जॉइन करें
+              </a>
+              <a href="mailto:news@indpotato.com?subject=समाचार सबमिशन — Indian Potato" style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                padding: '14px 24px', borderRadius: 12,
+                background: 'white',
+                color: '#dc2626', fontWeight: 700, fontSize: 15,
+                textDecoration: 'none',
+                border: '2px solid rgba(255,255,255,0.3)',
+                boxShadow: '0 4px 15px rgba(220,38,38,0.15)',
+              }}>
+                📧 समाचार या सुझाव ईमेल करें
+              </a>
             </div>
           </div>
 
           {/* SHARE BAR BOTTOM */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, justifyContent: 'center', padding: '20px 0', margin: '32px 0', borderTop: '1px solid #e0e0e0', borderBottom: '1px solid #e0e0e0', flexWrap: 'wrap' as const }}>
-            <span style={{ fontWeight: 600, fontSize: 14, color: '#333' }}>यह लेख शेयर करें:</span>
-            <a href={'https://api.whatsapp.com/send?text=' + shareText + '%20' + encodeURIComponent(shareUrl)} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, borderRadius: '50%', background: '#25D366', color: '#fff', textDecoration: 'none', fontSize: 18 }}>💬</a>
-            <a href={'https://twitter.com/intent/tweet?text=' + shareText + '&url=' + encodeURIComponent(shareUrl)} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, borderRadius: '50%', background: '#1DA1F2', color: '#fff', textDecoration: 'none', fontSize: 18 }}>🐦</a>
-            <a href={'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl)} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, borderRadius: '50%', background: '#1877F2', color: '#fff', textDecoration: 'none', fontSize: 18 }}>📘</a>
+          <div style={{ padding: '20px 0', margin: '32px 0', borderTop: '1px solid #e0e0e0', borderBottom: '1px solid #e0e0e0' }}>
+            <ShareButtons title={post.title} slug={post.slug} variant="bar" />
           </div>
 
           {/* RELATED POSTS */}
           {relatedPosts.length > 0 && (
             <div style={{ margin: '48px 0' }}>
-              <h2 style={{ fontSize: 22, fontWeight: 700, color: '#1a1a1a', marginBottom: 24, textAlign: 'center' as const }}>और पढ़ें</h2>
+              <h2 style={{ fontSize: 22, fontWeight: 700, color: '#dc2626', marginBottom: 24, textAlign: 'center' as const }}>और पढ़ें</h2>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 16 }}>
                 {relatedPosts.map((rp) => (
                   <Link key={rp.slug} href={'/samachar/' + rp.slug} style={{ textDecoration: 'none' }}>
@@ -154,6 +165,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         .premium-article code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
         .premium-article hr { border: none; height: 1px; background: #e5e5e5; margin: 32px 0; }
         .premium-article img { max-width: 100% !important; height: auto !important; border-radius: 12px; }
+        .premium-article details { margin: 12px 0; border: 1px solid #f0f0f0; border-radius: 10px; overflow: hidden; }
+        .premium-article summary { padding: 14px 18px; cursor: pointer; background: #fef2f2; font-size: 15px; }
+        .premium-article summary strong { color: #dc2626; }
+        .premium-article details[open] summary { border-bottom: 1px solid #f0f0f0; }
+        .premium-article details > :not(summary) { padding: 14px 18px; font-size: 15px; color: #555; }
         @media (max-width: 768px) {
           .premium-article { font-size: 15px; padding: 0 16px; }
           .premium-article h2 { font-size: 20px; margin: 32px 0 14px 0; }

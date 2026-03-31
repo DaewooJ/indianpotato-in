@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  font-family: var(--font-noto), 'Noto Sans Devanagari', system-ui, sans-serif;
+  font-family: var(--font-hindi), 'Mukta', system-ui, sans-serif;
   background: #fff;
   color: #1a1a1a;
   line-height: 1.6;
