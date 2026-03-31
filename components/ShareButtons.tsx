@@ -25,7 +25,7 @@ export default function ShareButtons({ title, slug, variant = 'inline' }: ShareB
           <span style={{ fontWeight: 600, fontSize: 14, color: '#555', marginRight: 4 }}>शेयर करें:</span>
         )}
         <a
-          href={`https://wa.me/?text=${encodeURIComponent(title + ' — ' + url)}`}
+          href={`https://wa.me/?text=${encodeURIComponent(url)}`}
           target="_blank"
           rel="noopener noreferrer"
           style={{
