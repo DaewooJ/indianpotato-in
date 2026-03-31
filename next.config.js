@@ -5,6 +5,16 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [{ protocol: 'https', hostname: '**' }],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'indianpotato.in' }],
+        destination: 'https://www.indianpotato.in/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
