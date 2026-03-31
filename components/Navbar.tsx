@@ -37,7 +37,7 @@ export default function Navbar() {
         height: 66,
       }}>
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer', textDecoration: 'none' }}>
-          <div style={{ background: '#E53E3E', width: 40, height: 40, borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>🥔</div>
+          <img src="/logo.png" alt="इंडियन पोटैटो लोगो" style={{ width: 40, height: 40, borderRadius: 6 }} />
           <div>
             <div style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '1.2rem', fontWeight: 800, color: '#E53E3E', lineHeight: 1.05 }}>इंडियन पोटैटो</div>
             <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.52rem', fontWeight: 700, color: '#999', letterSpacing: '0.3em', textTransform: 'uppercase' }}>INDIANPOTATO.IN</div>

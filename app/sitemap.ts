@@ -3,7 +3,7 @@ import { getAllPosts } from '@/lib/blog';
 import { DIRECTORY_CATEGORIES, getAllListings } from '@/lib/directory';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://indianpotato.in';
+  const baseUrl = 'https://www.indianpotato.in';
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: 'daily', priority: 1 },
     { url: baseUrl + '/mandi', lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
@@ -12,6 +12,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: baseUrl + '/yojnaye', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: baseUrl + '/directory', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: baseUrl + '/sampark', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
+    { url: baseUrl + '/about', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: baseUrl + '/privacy-policy', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+    { url: baseUrl + '/terms-and-conditions', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+    { url: baseUrl + '/disclaimer', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
   ];
   const posts = getAllPosts();
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({

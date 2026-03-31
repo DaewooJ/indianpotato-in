@@ -6,8 +6,8 @@ import { WhatsAppCTA, Footer } from '@/components/Sections';
 export const metadata: Metadata = {
   title: 'डायरेक्टरी लिस्टिंग प्लान — Basic, Silver, Gold, Platinum | Indian Potato',
   description: 'Indian Potato डायरेक्टरी में अपना व्यवसाय सूचीबद्ध करें। Basic (निःशुल्क), Silver (₹4,999/वर्ष), Gold (₹7,999/वर्ष), Platinum (₹9,999/वर्ष)।',
-  openGraph: { title: 'डायरेक्टरी लिस्टिंग प्लान — Indian Potato', description: 'अपना व्यवसाय भारत के #1 आलू प्लेटफ़ॉर्म पर सूचीबद्ध करें', type: 'website', url: 'https://indianpotato.in/directory/plans' },
-  alternates: { canonical: 'https://indianpotato.in/directory/plans' },
+  openGraph: { title: 'डायरेक्टरी लिस्टिंग प्लान — Indian Potato', description: 'अपना व्यवसाय भारत के #1 आलू प्लेटफ़ॉर्म पर सूचीबद्ध करें', type: 'website', url: 'https://www.indianpotato.in/directory/plans' },
+  alternates: { canonical: 'https://www.indianpotato.in/directory/plans' },
 };
 
 const plans = [

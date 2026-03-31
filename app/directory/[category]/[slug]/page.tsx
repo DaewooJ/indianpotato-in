@@ -24,8 +24,8 @@ export function generateMetadata({ params }: { params: { category: string; slug:
   const description = listing.name + ' — ' + listing.description.slice(0, 160);
   return {
     title, description,
-    openGraph: { title: listing.name, description, type: 'website', url: 'https://indianpotato.in/directory/' + params.category + '/' + params.slug, ...(listing.image && { images: [{ url: listing.image }] }) },
-    alternates: { canonical: 'https://indianpotato.in/directory/' + params.category + '/' + params.slug },
+    openGraph: { title: listing.name, description, type: 'website', url: 'https://www.indianpotato.in/directory/' + params.category + '/' + params.slug, ...(listing.image && { images: [{ url: listing.image }] }) },
+    alternates: { canonical: 'https://www.indianpotato.in/directory/' + params.category + '/' + params.slug },
   };
 }
 
@@ -314,7 +314,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
         </section>
 
         {/* JSON-LD */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'LocalBusiness', name: listing.name, description: listing.description, url: 'https://indianpotato.in/directory/' + params.category + '/' + params.slug, ...(listing.image && { image: listing.image }), address: { '@type': 'PostalAddress', addressLocality: listing.district, addressRegion: listing.state, addressCountry: 'IN', ...(listing.address && { streetAddress: listing.address }) }, ...(listing.phone && listing.phone[0] && { telephone: listing.phone[0] }), ...(listing.email && { email: listing.email }), ...(listing.website && { sameAs: listing.website }), ...(listing.established && { foundingDate: listing.established }) }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'LocalBusiness', name: listing.name, description: listing.description, url: 'https://www.indianpotato.in/directory/' + params.category + '/' + params.slug, ...(listing.image && { image: listing.image }), address: { '@type': 'PostalAddress', addressLocality: listing.district, addressRegion: listing.state, addressCountry: 'IN', ...(listing.address && { streetAddress: listing.address }) }, ...(listing.phone && listing.phone[0] && { telephone: listing.phone[0] }), ...(listing.email && { email: listing.email }), ...(listing.website && { sameAs: listing.website }), ...(listing.established && { foundingDate: listing.established }) }) }} />
         <WhatsAppCTA />
       </main>
       <Footer />

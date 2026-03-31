@@ -13,13 +13,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = getPostBySlug(params.slug);
   if (!post) return { title: 'लेख नहीं मिला' };
-  const ogImage = post.image.startsWith('http') ? post.image : 'https://indianpotato.in' + post.image;
+  const ogImage = post.image.startsWith('http') ? post.image : 'https://www.indianpotato.in' + post.image;
   return {
     title: post.title + ' | Indian Potato',
     description: post.excerpt,
-    openGraph: { title: post.title, description: post.excerpt, url: 'https://indianpotato.in/samachar/' + post.slug, type: 'article', publishedTime: post.date, authors: [post.author], images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }] },
+    openGraph: { title: post.title, description: post.excerpt, url: 'https://www.indianpotato.in/samachar/' + post.slug, type: 'article', publishedTime: post.date, authors: [post.author], images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }] },
     twitter: { card: 'summary_large_image', title: post.title, description: post.excerpt, images: [ogImage] },
-    alternates: { canonical: 'https://indianpotato.in/samachar/' + post.slug },
+    alternates: { canonical: 'https://www.indianpotato.in/samachar/' + post.slug },
   };
 }
 
@@ -31,15 +31,15 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const relatedPosts = allPosts.filter((p) => p.slug !== post.slug).slice(0, 4);
 
   const formatDate = (d: string) => { try { return new Date(d).toLocaleDateString('hi-IN', { day: 'numeric', month: 'long', year: 'numeric' }); } catch { return d; } };
-  const shareUrl = 'https://indianpotato.in/samachar/' + post.slug;
+  const shareUrl = 'https://www.indianpotato.in/samachar/' + post.slug;
   const shareText = encodeURIComponent(post.title + ' — Indian Potato');
-  const ogImage = post.image.startsWith('http') ? post.image : 'https://indianpotato.in' + post.image;
+  const ogImage = post.image.startsWith('http') ? post.image : 'https://www.indianpotato.in' + post.image;
 
   const jsonLd = {
     '@context': 'https://schema.org', '@type': 'NewsArticle', headline: post.title,
     description: post.excerpt, datePublished: post.date, dateModified: post.date, image: ogImage,
     author: { '@type': 'Person', name: post.author },
-    publisher: { '@type': 'Organization', name: 'Indian Potato', url: 'https://indianpotato.in', logo: { '@type': 'ImageObject', url: 'https://indianpotato.in/logo.png' } },
+    publisher: { '@type': 'Organization', name: 'Indian Potato', url: 'https://www.indianpotato.in', logo: { '@type': 'ImageObject', url: 'https://www.indianpotato.in/logo.png' } },
     mainEntityOfPage: { '@type': 'WebPage', '@id': shareUrl }, articleSection: post.category_hindi, inLanguage: 'hi',
   };
 

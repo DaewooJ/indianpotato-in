@@ -6,7 +6,7 @@ import { Footer } from '@/components/Sections';
 export const metadata: Metadata = {
   title: 'नियम और शर्तें (Terms & Conditions)',
   description: 'इंडियन पोटैटो वेबसाइट के उपयोग से संबंधित नियम और शर्तें — indianpotato.in',
-  alternates: { canonical: 'https://indianpotato.in/terms-and-conditions' },
+  alternates: { canonical: 'https://www.indianpotato.in/terms-and-conditions' },
 };
 
 export default function TermsPage() {
@@ -184,7 +184,7 @@ export default function TermsPage() {
             }}>
               <p style={{ margin: '4px 0', fontWeight: 600 }}>इंडियन पोटैटो (Indpotato Pvt Ltd)</p>
               <p style={{ margin: '4px 0' }}>📧 ईमेल: <a href="mailto:contact@indianpotato.in" style={{ color: '#E53E3E', textDecoration: 'none' }}>contact@indianpotato.in</a></p>
-              <p style={{ margin: '4px 0' }}>🌐 वेबसाइट: <a href="https://indianpotato.in" style={{ color: '#E53E3E', textDecoration: 'none' }}>indianpotato.in</a></p>
+              <p style={{ margin: '4px 0' }}>🌐 वेबसाइट: <a href="https://www.indianpotato.in" style={{ color: '#E53E3E', textDecoration: 'none' }}>indianpotato.in</a></p>
               <p style={{ margin: '4px 0' }}>📍 पिंपरी-चिंचवड, पुणे, महाराष्ट्र</p>
             </div>
           </div>

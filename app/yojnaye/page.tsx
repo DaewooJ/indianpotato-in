@@ -5,6 +5,15 @@ import { GovSchemes, WhatsAppCTA, Footer } from '@/components/Sections';
 export const metadata: Metadata = {
   title: 'सरकारी योजनाएँ — आलू किसानों के लिए अनुदान और सब्सिडी | Govt Schemes for Potato Farmers',
   description: 'आलू किसानों के लिए प्रमुख सरकारी योजनाएँ — PM किसान, कोल्ड स्टोरेज सब्सिडी, किसान क्रेडिट कार्ड, और राज्य स्तरीय योजनाएँ।',
+  alternates: {
+    canonical: 'https://www.indianpotato.in/yojnaye',
+  },
+  openGraph: {
+    title: 'सरकारी योजनाएँ — आलू किसानों के लिए अनुदान और सब्सिडी',
+    description: 'आलू किसानों के लिए प्रमुख सरकारी योजनाएँ — PM किसान, कोल्ड स्टोरेज सब्सिडी, किसान क्रेडिट कार्ड, और राज्य स्तरीय योजनाएँ।',
+    url: 'https://www.indianpotato.in/yojnaye',
+    type: 'website',
+  },
 };
 
 export default function YojnayePage() {

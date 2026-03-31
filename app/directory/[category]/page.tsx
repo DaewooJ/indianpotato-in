@@ -16,8 +16,8 @@ export function generateMetadata({ params }: { params: { category: string } }): 
   return {
     title: cat.name + ' — आलू ' + cat.nameEn + ' डायरेक्टरी | Indian Potato',
     description: cat.description,
-    openGraph: { title: cat.name + ' | Indian Potato Directory', description: cat.descriptionEn, type: 'website', url: 'https://indianpotato.in/directory/' + cat.slug },
-    alternates: { canonical: 'https://indianpotato.in/directory/' + cat.slug },
+    openGraph: { title: cat.name + ' | Indian Potato Directory', description: cat.descriptionEn, type: 'website', url: 'https://www.indianpotato.in/directory/' + cat.slug },
+    alternates: { canonical: 'https://www.indianpotato.in/directory/' + cat.slug },
   };
 }
 
@@ -197,7 +197,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
           </div>
         </section>
 
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: cat.name + ' — Indian Potato', url: 'https://indianpotato.in/directory/' + cat.slug, numberOfItems: listings.length }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: cat.name + ' — Indian Potato', url: 'https://www.indianpotato.in/directory/' + cat.slug, numberOfItems: listings.length }) }} />
         <WhatsAppCTA />
       </main>
       <Footer />

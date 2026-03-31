@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: '/api/',
       },
       {
         userAgent: 'GPTBot',
@@ -51,7 +52,23 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: 'YouBot',
         allow: '/',
       },
+      {
+        userAgent: 'cohere-ai',
+        allow: '/',
+      },
+      {
+        userAgent: 'Meta-ExternalAgent',
+        allow: '/',
+      },
+      {
+        userAgent: 'Amazonbot',
+        allow: '/',
+      },
+      {
+        userAgent: 'OAI-SearchBot',
+        allow: '/',
+      },
     ],
-    sitemap: 'https://indianpotato.in/sitemap.xml',
+    sitemap: 'https://www.indianpotato.in/sitemap.xml',
   };
 }

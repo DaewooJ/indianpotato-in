@@ -467,7 +467,7 @@ export default function SamparkPage() {
                     fontSize: '0.95rem', fontWeight: 700, color: '#1F2937', marginBottom: 12,
                   }}>हमारी वेबसाइट</h3>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                    <a href="https://indianpotato.in" style={{
+                    <a href="https://www.indianpotato.in" style={{
                       fontFamily: "'DM Sans', sans-serif",
                       fontSize: '0.85rem', color: '#E53E3E', fontWeight: 600, textDecoration: 'none',
                       display: 'flex', alignItems: 'center', gap: 6,

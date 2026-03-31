@@ -1,9 +1,24 @@
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import type { Metadata } from 'next';
+import { Noto_Sans_Devanagari, DM_Sans } from 'next/font/google';
 import './globals.css';
 
+const notoSansDevanagari = Noto_Sans_Devanagari({
+  subsets: ['devanagari', 'latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  display: 'swap',
+  variable: '--font-noto',
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  display: 'swap',
+  variable: '--font-dm',
+});
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://indianpotato.in'),
+  metadataBase: new URL('https://www.indianpotato.in'),
   other: {
     'google-site-verification': process.env.GOOGLE_SITE_VERIFICATION || '',
     'msvalidate.01': process.env.BING_SITE_VERIFICATION || '',
@@ -20,13 +35,13 @@ export const metadata: Metadata = {
     'आलू समाचार', 'सरकारी योजनाएँ किसान', 'potato varieties India',
     'Indian potato industry', 'आलू उत्पादन भारत', 'mandi bhav today',
   ],
-  authors: [{ name: 'Indian Potato', url: 'https://indianpotato.in' }],
+  authors: [{ name: 'Indian Potato', url: 'https://www.indianpotato.in' }],
   creator: 'Indian Potato',
   publisher: 'Indian Potato',
   openGraph: {
     type: 'website',
     locale: 'hi_IN',
-    url: 'https://indianpotato.in',
+    url: 'https://www.indianpotato.in',
     siteName: 'इंडियन पोटैटो | Indian Potato',
     title: 'इंडियन पोटैटो — भारत का प्रमुख आलू उद्योग मंच',
     description:
@@ -59,14 +74,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://indianpotato.in',
-    languages: {
-      'hi-IN': 'https://indianpotato.in',
-      'en-IN': 'https://indianpotato.com',
-    },
-  },
-  verification: {
-    google: 'YOUR_GOOGLE_VERIFICATION_CODE',
+    canonical: 'https://www.indianpotato.in',
   },
 };
 
@@ -76,30 +84,30 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebSite',
-      '@id': 'https://indianpotato.in/#website',
-      url: 'https://indianpotato.in',
+      '@id': 'https://www.indianpotato.in/#website',
+      url: 'https://www.indianpotato.in',
       name: 'इंडियन पोटैटो | Indian Potato',
       description: 'भारत का प्रमुख आलू उद्योग मंच',
       inLanguage: 'hi',
-      publisher: { '@id': 'https://indianpotato.in/#organization' },
+      publisher: { '@id': 'https://www.indianpotato.in/#organization' },
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://indianpotato.in/search?q={search_term_string}',
+          urlTemplate: 'https://www.indianpotato.in/search?q={search_term_string}',
         },
         'query-input': 'required name=search_term_string',
       },
     },
     {
       '@type': 'Organization',
-      '@id': 'https://indianpotato.in/#organization',
+      '@id': 'https://www.indianpotato.in/#organization',
       name: 'Indian Potato',
       alternateName: 'इंडियन पोटैटो',
-      url: 'https://indianpotato.in',
+      url: 'https://www.indianpotato.in',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://indianpotato.in/logo.png',
+        url: 'https://www.indianpotato.in/logo.png',
       },
       sameAs: [
         'https://twitter.com/indianpotato',
@@ -114,13 +122,13 @@ const jsonLd = {
     },
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://indianpotato.in/#breadcrumb',
+      '@id': 'https://www.indianpotato.in/#breadcrumb',
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: 'होम',
-          item: 'https://indianpotato.in',
+          item: 'https://www.indianpotato.in',
         },
       ],
     },
@@ -133,7 +141,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="hi" dir="ltr">
+    <html lang="hi" dir="ltr" className={`${notoSansDevanagari.variable} ${dmSans.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />

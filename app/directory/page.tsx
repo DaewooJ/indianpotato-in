@@ -7,8 +7,8 @@ import { DIRECTORY_CATEGORIES, getCategoryCounts, getFeaturedListings } from '@/
 export const metadata: Metadata = {
   title: 'आलू उद्योग डायरेक्टरी — कोल्ड स्टोरेज, व्यापारी, निर्यातक | Indian Potato Directory',
   description: 'भारत की सबसे बड़ी आलू उद्योग डायरेक्टरी — कोल्ड स्टोरेज, व्यापारी, निर्यातक, प्रसंस्करण कंपनियाँ, बीज आपूर्तिकर्ता, मशीनरी और प्रगतिशील किसान। राज्यवार खोजें।',
-  openGraph: { title: 'आलू उद्योग डायरेक्टरी — Indian Potato', description: 'भारत की सबसे बड़ी आलू उद्योग डायरेक्टरी', type: 'website', url: 'https://indianpotato.in/directory' },
-  alternates: { canonical: 'https://indianpotato.in/directory' },
+  openGraph: { title: 'आलू उद्योग डायरेक्टरी — Indian Potato', description: 'भारत की सबसे बड़ी आलू उद्योग डायरेक्टरी', type: 'website', url: 'https://www.indianpotato.in/directory' },
+  alternates: { canonical: 'https://www.indianpotato.in/directory' },
 };
 
 const colorMap: Record<string, { text: string; iconBg: string; iconBorder: string; accent: string }> = {
@@ -157,7 +157,7 @@ export default function DirectoryPage() {
           </div>
         </section>
 
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'आलू उद्योग डायरेक्टरी', url: 'https://indianpotato.in/directory', publisher: { '@type': 'Organization', name: 'Indian Potato', url: 'https://indianpotato.in' }, numberOfItems: totalListings }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'आलू उद्योग डायरेक्टरी', url: 'https://www.indianpotato.in/directory', publisher: { '@type': 'Organization', name: 'Indian Potato', url: 'https://www.indianpotato.in' }, numberOfItems: totalListings }) }} />
         <WhatsAppCTA />
       </main>
       <Footer />

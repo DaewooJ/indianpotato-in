@@ -6,7 +6,7 @@ import { Footer } from '@/components/Sections';
 export const metadata: Metadata = {
   title: 'गोपनीयता नीति (Privacy Policy)',
   description: 'इंडियन पोटैटो की गोपनीयता नीति — आपके व्यक्तिगत डेटा का संग्रह, उपयोग और सुरक्षा से संबंधित जानकारी।',
-  alternates: { canonical: 'https://indianpotato.in/privacy-policy' },
+  alternates: { canonical: 'https://www.indianpotato.in/privacy-policy' },
 };
 
 export default function PrivacyPolicyPage() {
@@ -174,7 +174,7 @@ export default function PrivacyPolicyPage() {
             }}>
               <p style={{ margin: '4px 0', fontWeight: 600 }}>इंडियन पोटैटो (Indpotato Pvt Ltd)</p>
               <p style={{ margin: '4px 0' }}>📧 ईमेल: <a href="mailto:contact@indianpotato.in" style={{ color: '#E53E3E', textDecoration: 'none' }}>contact@indianpotato.in</a></p>
-              <p style={{ margin: '4px 0' }}>🌐 वेबसाइट: <a href="https://indianpotato.in" style={{ color: '#E53E3E', textDecoration: 'none' }}>indianpotato.in</a></p>
+              <p style={{ margin: '4px 0' }}>🌐 वेबसाइट: <a href="https://www.indianpotato.in" style={{ color: '#E53E3E', textDecoration: 'none' }}>indianpotato.in</a></p>
               <p style={{ margin: '4px 0' }}>📍 पिंपरी-चिंचवड, पुणे, महाराष्ट्र</p>
             </div>
           </div>

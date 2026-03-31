@@ -6,11 +6,11 @@ import { Footer } from '@/components/Sections';
 export const metadata: Metadata = {
   title: 'हमारे बारे में — इंडियन पोटैटो | About Us',
   description: 'इंडियन पोटैटो (Indpotato Pvt Ltd) — भारत का प्रमुख आलू उद्योग मंच। किसानों, व्यापारियों, प्रसंस्करण उद्योग और निर्यातकों को जोड़ता है।',
-  alternates: { canonical: 'https://indianpotato.in/about' },
+  alternates: { canonical: 'https://www.indianpotato.in/about' },
   openGraph: {
     title: 'हमारे बारे में — इंडियन पोटैटो',
     description: 'भारत का प्रमुख आलू उद्योग मंच — मंडी भाव, समाचार, किस्में, योजनाएँ और उद्योग डायरेक्टरी।',
-    url: 'https://indianpotato.in/about',
+    url: 'https://www.indianpotato.in/about',
     type: 'website',
   },
 };
@@ -399,7 +399,7 @@ export default function AboutPage() {
               {[
                 { label: 'कानूनी संस्था', value: 'Indpotato Private Limited' },
                 { label: 'पंजीकृत कार्यालय', value: 'पिंपरी-चिंचवड, पुणे, महाराष्ट्र, भारत' },
-                { label: 'वेबसाइट (हिंदी)', value: 'indianpotato.in', link: 'https://indianpotato.in' },
+                { label: 'वेबसाइट (हिंदी)', value: 'indianpotato.in', link: 'https://www.indianpotato.in' },
                 { label: 'वेबसाइट (English)', value: 'indianpotato.com', link: 'https://indianpotato.com' },
                 { label: 'ईमेल', value: 'info@indpotato.com', link: 'mailto:info@indpotato.com' },
                 { label: 'WhatsApp', value: '+91 94996 68498', link: 'https://wa.me/919499668498' },
