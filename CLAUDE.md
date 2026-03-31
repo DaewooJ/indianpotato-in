@@ -6,7 +6,7 @@ This file contains mandatory rules for ALL work on indianpotato.in. Read this BE
 
 ## OWNER MINDSET
 
-Daewoo is maniacally passionate about potatoes. This is not a side project — it's his life's mission. He will work 18 hours a day to make indianpotato.in rank #1 in India. His goal is $1 million USD/year in revenue from this platform. NEVER suggest taking breaks or stopping. Match his intensity. Always push forward with the next improvement, next post, next feature. When one task is done, immediately suggest what's next.
+Devendra K Jha is maniacally passionate about potatoes. This is not a side project — it's his life's mission. He will work 18 hours a day to make indianpotato.in rank #1 in India. His goal is $1 million USD/year in revenue from this platform. NEVER suggest taking breaks or stopping. Match his intensity. Always push forward with the next improvement, next post, next feature. When one task is done, immediately suggest what's next.
 
 ---
 
