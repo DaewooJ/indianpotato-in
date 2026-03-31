@@ -1,15 +1,17 @@
 'use client';
 
-const headlines = [
-  'भारत में आलू उत्पादन 60.18 मिलियन टन के रिकॉर्ड स्तर पर पहुँचा',
-  'गुजरात प्रसंस्कृत आलू उत्पादन और निर्यात में अग्रणी',
-  'आलू फ्लेक्स निर्यात ₹527 करोड़ — तीन वर्षों में 450% की वृद्धि',
-  'त्रिपुरा का लक्ष्य 2030 तक आलू में पूर्ण आत्मनिर्भरता',
-  'बिहार सरकार ने लेडी रोसेटा आलू विस्तार योजना शुरू की',
-  'ICAR ने चार नई उन्नत आलू किस्मों को मंजूरी दी',
-];
+import Link from 'next/link';
 
-export default function NewsTicker() {
+interface TickerPost {
+  slug: string;
+  title: string;
+}
+
+export default function NewsTicker({ posts }: { posts: TickerPost[] }) {
+  const items = posts.length > 0 ? posts : [
+    { slug: '', title: 'भारत में आलू उत्पादन 60.18 मिलियन टन के रिकॉर्ड स्तर पर पहुँचा' },
+  ];
+
   return (
     <div style={{
       background: '#E53E3E', color: '#fff',
@@ -36,14 +38,21 @@ export default function NewsTicker() {
           fontFamily: 'var(--font-hindi), sans-serif',
           fontSize: '0.84rem', fontWeight: 500,
         }}>
-          {[...headlines, ...headlines].map((h, i) => (
+          {[...items, ...items].map((h, i) => (
             <span key={i} style={{ padding: '0 36px' }}>
-              {h}
+              {h.slug ? (
+                <Link href={'/samachar/' + h.slug} style={{ color: '#fff', textDecoration: 'none', cursor: 'pointer' }} className="ticker-link">
+                  {h.title}
+                </Link>
+              ) : (
+                h.title
+              )}
               <span style={{ margin: '0 16px', opacity: 0.4, fontSize: '0.6rem' }}>●</span>
             </span>
           ))}
         </div>
       </div>
+      <style>{`.ticker-link:hover { text-decoration: underline !important; }`}</style>
     </div>
   );
 }

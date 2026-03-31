@@ -222,8 +222,22 @@ export function WhatsAppCTA() {
 /* ─── FOOTER ─── */
 export function Footer() {
   return (
-    <footer style={{ background: '#f9fafb', padding: '52px 28px 20px', borderTop: '1px solid #eee' }}>
-      <div className="footer-g" style={{ maxWidth: 1320, margin: '0 auto', display: 'grid', gridTemplateColumns: '1.8fr 1fr 1fr 1fr', gap: 40 }}>
+    <footer style={{ background: '#f9fafb', padding: '0 28px 20px', borderTop: '1px solid #eee' }}>
+      {/* Stats Row */}
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '32px 0', display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 40, borderBottom: '1px solid #e5e7eb', marginBottom: 32 }}>
+        {[
+          { number: '15+', label: 'लेख और गाइड' },
+          { number: '54+', label: 'कंपनियाँ डायरेक्टरी में' },
+          { number: '15,000+', label: 'WhatsApp सदस्य' },
+          { number: '86+', label: 'मंडी भाव रोज़ाना' },
+        ].map((stat, i) => (
+          <div key={i} style={{ textAlign: 'center', minWidth: 120 }}>
+            <div style={{ fontSize: 28, fontWeight: 700, color: '#dc2626' }}>{stat.number}</div>
+            <div style={{ fontSize: 13, color: '#666', marginTop: 4 }}>{stat.label}</div>
+          </div>
+        ))}
+      </div>
+      <div className="footer-g" style={{ maxWidth: 1280, margin: '0 auto', display: 'grid', gridTemplateColumns: '1.8fr 1fr 1fr 1fr', gap: 40 }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
             <div style={{ background: '#E53E3E', width: 32, height: 32, borderRadius: 5, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 17 }}>🥔</div>

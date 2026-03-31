@@ -8,7 +8,9 @@ import { getAllPosts } from '@/lib/blog';
 import { DIRECTORY_CATEGORIES, getCategoryCounts } from '@/lib/directory';
 
 export default function HomePage() {
-  const posts = getAllPosts().slice(0, 6);
+  const allPosts = getAllPosts();
+  const posts = allPosts.slice(0, 6);
+  const tickerPosts = allPosts.slice(0, 8).map((p) => ({ slug: p.slug, title: p.title }));
   const dirCounts = getCategoryCounts();
   const dirCategories = DIRECTORY_CATEGORIES.slice(0, 6).map((cat) => ({
     icon: cat.icon,
@@ -21,7 +23,7 @@ export default function HomePage() {
     <>
       <Navbar />
       <main className="pt-[66px]">
-        <NewsTicker />
+        <NewsTicker posts={tickerPosts} />
         <Hero />
 
         {/* Trust / Credibility Bar */}
