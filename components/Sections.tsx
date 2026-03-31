@@ -22,9 +22,12 @@ export function NewsSection({ posts }: { posts: NewsPost[] }) {
     <section id="news" style={{ padding: '80px 20px', background: '#fff' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 12 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
-            <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#333' }}>ताज़ा समाचार</h2>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
+              <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#333' }}>ताज़ा समाचार</h2>
+            </div>
+            <div style={{ fontSize: '0.72rem', color: '#999', marginTop: 4, paddingLeft: 16 }}>अपडेट: {formatDate(featured.date)}</div>
           </div>
           <Link href="/samachar" style={{ textDecoration: 'none', fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>सभी समाचार →</Link>
         </div>
@@ -78,22 +81,36 @@ export function GovSchemes() {
   return (
     <section id="schemes" style={{ padding: '80px 20px', background: '#f9fafb' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 32 }}>
-          <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
-          <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#333' }}>सरकारी योजनाएँ</h2>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 8 }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
+              <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#333' }}>सरकारी योजनाएँ</h2>
+            </div>
+            <div style={{ fontSize: '0.72rem', color: '#999', marginTop: 4, paddingLeft: 16 }}>अपडेट: मार्च 2026</div>
+          </div>
+          <Link href="/yojnaye" style={{ textDecoration: 'none', fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>सभी योजनाएँ →</Link>
         </div>
         <div className="scheme-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
           {schemes.map((s, i) => (
-            <a key={i} href={s.link || "/yojnaye"} style={{ background: '#fff', padding: '26px 24px', border: '1px solid #eee', borderLeft: '4px solid #E53E3E', borderRadius: 8, cursor: 'pointer', position: 'relative', textDecoration: 'none', color: 'inherit', display: 'block', transition: 'transform 0.2s, box-shadow 0.2s' }}>
-              <div style={{ position: 'absolute', top: 14, right: 14, background: s.status === 'नई' ? '#E53E3E' : '#f0f0f0', color: s.status === 'नई' ? '#fff' : '#666', padding: '3px 10px', borderRadius: 4, fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.62rem', fontWeight: 700 }}>{s.status}</div>
-              <div style={{ fontSize: 28, marginBottom: 14 }}>{s.icon}</div>
-              <h3 style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '1.02rem', fontWeight: 800, color: '#1a1a1a', marginBottom: 6, lineHeight: 1.3 }}>{s.name}</h3>
-              <div style={{ fontFamily: 'var(--font-english), sans-serif', fontSize: '1.1rem', fontWeight: 900, color: '#E53E3E', marginBottom: 10 }}>{s.benefit}</div>
-              <p style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.85rem', color: '#888', lineHeight: 1.6 }}>{s.desc}</p>
+            <a key={i} href={s.link || "/yojnaye"} className="scheme-card" style={{ background: '#fff', padding: '28px 24px', border: '1px solid #eee', borderLeft: '4px solid #E53E3E', borderRadius: 10, cursor: 'pointer', position: 'relative', textDecoration: 'none', color: 'inherit', display: 'block', transition: 'transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease' }}>
+              <div style={{ position: 'absolute', top: 16, right: 16, padding: '4px 12px', borderRadius: 20, fontSize: '0.62rem', fontWeight: 700,
+                background: s.status === 'नई' ? '#fef2f2' : '#dcfce7',
+                color: s.status === 'नई' ? '#dc2626' : '#166534',
+              }}>{s.status}</div>
+              <div style={{ width: 48, height: 48, borderRadius: '50%', background: '#fef2f2', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, marginBottom: 16 }}>{s.icon}</div>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#333', marginBottom: 6, lineHeight: 1.3 }}>{s.name}</h3>
+              <div style={{ fontSize: '1.1rem', fontWeight: 900, color: '#E53E3E', marginBottom: 10 }}>{s.benefit}</div>
+              <p style={{ fontSize: '0.85rem', color: '#888', lineHeight: 1.6, marginBottom: 12 }}>{s.desc}</p>
+              <span className="scheme-arrow" style={{ fontSize: '0.78rem', fontWeight: 600, color: '#dc2626', opacity: 0 , transition: 'opacity 0.3s' }}>विवरण देखें →</span>
             </a>
           ))}
         </div>
       </div>
+      <style>{`
+        .scheme-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(220,38,38,0.12); background: linear-gradient(180deg, #fff 0%, #fef8f8 100%) !important; }
+        .scheme-card:hover .scheme-arrow { opacity: 1 !important; }
+      `}</style>
     </section>
   );
 }
@@ -113,26 +130,32 @@ export function VarietiesQuick() {
     <section id="varieties" style={{ padding: '80px 20px', background: '#fff' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 12 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
-            <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#333' }}>आलू की प्रमुख किस्में</h2>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
+              <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#333' }}>आलू की प्रमुख किस्में</h2>
+            </div>
+            <div style={{ fontSize: '0.72rem', color: '#999', marginTop: 4, paddingLeft: 16 }}>अपडेट: मार्च 2026</div>
           </div>
-          <Link href="/kisme" style={{ textDecoration: 'none', fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>सभी किस्में →</Link>
+          <Link href="/kisme" style={{ textDecoration: 'none', fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>सभी किस्में →</Link>
         </div>
         <div className="variety-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: 16 }}>
           {varieties.map((v, i) => (
-            <div key={i} style={{ background: '#f9fafb', borderRadius: 8, padding: '18px 20px', border: '1px solid #eee', cursor: 'pointer', display: 'flex', gap: 16, alignItems: 'center' }}>
-              <img src={v.img} alt={v.name} style={{ width: 64, height: 64, borderRadius: 8, objectFit: 'cover', flexShrink: 0 }} loading="lazy" />
+            <div key={i} className="variety-card" style={{ background: '#fff', borderRadius: 12, padding: '20px', border: '1px solid #eee', borderLeft: '3px solid #dc2626', cursor: 'pointer', display: 'flex', gap: 18, alignItems: 'center', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}>
+              <img src={v.img} alt={v.name + ' — भारतीय आलू किस्म'} style={{ width: 80, height: 80, borderRadius: 12, objectFit: 'cover', flexShrink: 0 }} loading="lazy" />
               <div style={{ flex: 1 }}>
-                <div style={{ marginBottom: 8 }}>
-                  <h3 style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '1rem', fontWeight: 800, color: '#1a1a1a', marginBottom: 3 }}>{v.name}</h3>
-                  <span style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.65rem', fontWeight: 700, color: v.proc ? '#E53E3E' : '#16a34a', background: v.proc ? '#fef2f2' : '#f0fdf4', padding: '2px 8px', borderRadius: 3 }}>{v.use}</span>
+                <div style={{ marginBottom: 10 }}>
+                  <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#333', marginBottom: 5 }}>{v.name}</h3>
+                  <span style={{ fontSize: '0.68rem', fontWeight: 700, padding: '3px 10px', borderRadius: 20,
+                    color: v.proc ? '#c2410c' : '#166534',
+                    background: v.proc ? '#fff7ed' : '#f0fdf4',
+                  }}>{v.use}</span>
                 </div>
-                <div style={{ display: 'flex', gap: 18 }}>
+                <div style={{ display: 'flex', gap: 20 }}>
                   {[{ label: 'अवधि', val: v.days }, { label: 'उपज', val: v.yield }, { label: 'क्षेत्र', val: v.states }].map((d, j) => (
                     <div key={j}>
-                      <div style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.55rem', fontWeight: 600, color: '#bbb', marginBottom: 1 }}>{d.label}</div>
-                      <div style={{ fontFamily: 'var(--font-english), var(--font-hindi), sans-serif', fontSize: '0.78rem', fontWeight: 600, color: '#444' }}>{d.val}</div>
+                      <div style={{ fontSize: '0.6rem', fontWeight: 700, color: '#aaa', marginBottom: 2, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{d.label}</div>
+                      <div style={{ fontSize: '0.8rem', fontWeight: 600, color: '#444' }}>{d.val}</div>
                     </div>
                   ))}
                 </div>
@@ -141,7 +164,10 @@ export function VarietiesQuick() {
           ))}
         </div>
       </div>
-      <style>{`@media (max-width: 720px) { .variety-cards { grid-template-columns: 1fr !important; } }`}</style>
+      <style>{`
+        @media (max-width: 720px) { .variety-cards { grid-template-columns: 1fr !important; } }
+        .variety-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+      `}</style>
     </section>
   );
 }
