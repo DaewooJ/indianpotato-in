@@ -32,7 +32,7 @@ export function NewsSection({ posts }: { posts: NewsPost[] }) {
           <Link href={'/samachar/' + featured.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
             <div style={{ borderRadius: 12, overflow: 'hidden', border: '1px solid #eee', background: '#fff', display: 'flex', flexDirection: 'column', height: '100%', transition: 'box-shadow 0.3s' }}>
               <div style={{ position: 'relative' }}>
-                <img src={featured.image} alt={featured.title} style={{ width: '100%', height: 240, objectFit: 'cover', display: 'block' }} loading="lazy" />
+                <img src={featured.image} alt={featured.title} style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover', display: 'block' }} loading="lazy" />
                 <div style={{ position: 'absolute', top: 12, left: 12, background: '#E53E3E', padding: '5px 14px', borderRadius: 4, fontSize: '0.65rem', fontWeight: 800, color: '#fff', textTransform: 'uppercase', letterSpacing: '0.1em' }}>🔥 मुख्य ख़बर</div>
               </div>
               <div style={{ padding: '24px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -47,7 +47,7 @@ export function NewsSection({ posts }: { posts: NewsPost[] }) {
             {others.map((a) => (
               <Link key={a.slug} href={'/samachar/' + a.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <div style={{ padding: '14px 18px', background: '#f9fafb', borderRadius: 8, flex: 1, display: 'flex', gap: 14, alignItems: 'center', border: '1px solid #f0f0f0', transition: 'box-shadow 0.2s' }}>
-                  <img src={a.image} alt={a.title} style={{ width: 72, height: 52, borderRadius: 6, objectFit: 'cover', flexShrink: 0 }} loading="lazy" />
+                  <img src={a.image} alt={a.title} style={{ width: 88, aspectRatio: '16/9', borderRadius: 6, objectFit: 'cover', flexShrink: 0 }} loading="lazy" />
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
                       <span style={{ fontSize: '0.62rem', fontWeight: 700, color: '#E53E3E', background: '#fef2f2', padding: '1px 7px', borderRadius: 3 }}>{a.category_hindi}</span>
