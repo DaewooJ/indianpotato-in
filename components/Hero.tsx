@@ -17,9 +17,25 @@ export default function Hero() {
             <p style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '1.08rem', lineHeight: 1.85, color: '#777', maxWidth: 500, marginBottom: 32 }}>
               मंडी भाव · सरकारी योजनाएँ · किस्मों का डेटाबेस · निर्यात डेटा · उद्योग डायरेक्टरी — किसानों, व्यापारियों और प्रसंस्करण उद्योग के लिए।
             </p>
-            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 40 }}>
-              <Link href="/mandi" style={{ background: '#E53E3E', color: '#fff', textDecoration: 'none', padding: '14px 30px', borderRadius: 5, fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.95rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: 8, boxShadow: '0 4px 16px rgba(229,62,62,0.25)' }}>📊 मंडी भाव देखें</Link>
-              <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{ background: '#fff', color: '#E53E3E', textDecoration: 'none', border: '2px solid #E53E3E', padding: '13px 30px', borderRadius: 5, fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.95rem', fontWeight: 700 }}>💬 WhatsApp जोड़ें</a>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 40, alignItems: 'flex-start' }}>
+              <Link href="/mandi" className="hero-cta" style={{
+                background: 'linear-gradient(135deg, #dc2626, #b91c1c)',
+                color: '#fff', textDecoration: 'none',
+                padding: '16px 36px', borderRadius: 50,
+                fontSize: '1rem', fontWeight: 700,
+                display: 'inline-flex', alignItems: 'center', gap: 8,
+                boxShadow: '0 6px 20px rgba(220,38,38,0.35)',
+                transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+              }}>
+                मंडी भाव देखें →
+              </Link>
+              <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{
+                fontSize: '0.85rem', color: '#999', textDecoration: 'none',
+                fontWeight: 500, paddingLeft: 4,
+                transition: 'color 0.2s',
+              }}>
+                या <span style={{ color: '#dc2626', fontWeight: 600 }}>WhatsApp ग्रुप जॉइन करें →</span>
+              </a>
             </div>
             {/* Stats row below buttons */}
             <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap' }}>
@@ -65,7 +81,10 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <style>{`@media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr !important; gap: 36px !important; } }`}</style>
+      <style>{`
+        @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr !important; gap: 36px !important; } }
+        .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(220,38,38,0.45) !important; filter: brightness(1.05); }
+      `}</style>
     </section>
   );
 }
