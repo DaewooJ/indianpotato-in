@@ -5,6 +5,7 @@ import { getPostBySlug, getAllSlugs, getAllPosts } from '@/lib/blog';
 import { markdownToHtml } from '@/lib/markdown';
 import Navbar from '@/components/Navbar';
 import { Footer } from '@/components/Sections';
+import { BreadcrumbJsonLd } from '@/components/Breadcrumbs';
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -49,6 +50,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <BreadcrumbJsonLd items={[
+        { name: 'होम', url: 'https://www.indianpotato.in' },
+        { name: 'समाचार', url: 'https://www.indianpotato.in/samachar' },
+        { name: post.title, url: `https://www.indianpotato.in/samachar/${post.slug}` },
+      ]} />
       <Navbar />
       <main style={{ paddingTop: 70 }}>
 

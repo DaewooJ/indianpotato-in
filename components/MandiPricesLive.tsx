@@ -117,24 +117,14 @@ export default function MandiPricesLive() {
           <>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
               {displayRecords.map((record, idx) => {
-                const trend = record.modal_price > 1300
-                  ? { dir: 'up', pct: '+' + (Math.random() * 5 + 0.5).toFixed(1) }
-                  : { dir: 'down', pct: '-' + (Math.random() * 3 + 0.5).toFixed(1) };
                 return (
                   <div key={`${record.state}-${record.market}-${idx}`}
                     style={{ background: '#fff', borderRadius: 16, padding: 24, border: '1px solid #f3f4f6', transition: 'all 0.25s', cursor: 'default', position: 'relative' as const, overflow: 'hidden' }}
                     onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = '0 8px 30px rgba(220,38,38,0.1)'; el.style.borderColor = '#fecaca'; el.style.transform = 'translateY(-2px)'; }}
                     onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = 'none'; el.style.borderColor = '#f3f4f6'; el.style.transform = 'none'; }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
-                      <div>
-                        <h3 style={{ fontSize: 18, fontWeight: 700, color: '#1a1a1a', margin: 0 }}>{cleanMarket(record.market_hindi || record.market)}</h3>
-                        <p style={{ fontSize: 13, color: '#888', margin: '2px 0 0' }}>{record.state_hindi}</p>
-                      </div>
-                      <span style={{ fontSize: 12, fontWeight: 700, padding: '3px 10px', borderRadius: 12,
-                        background: trend.dir === 'up' ? '#dcfce7' : '#fef2f2',
-                        color: trend.dir === 'up' ? '#16a34a' : '#dc2626' }}>
-                        {trend.dir === 'up' ? '▲' : '▼'} {trend.pct}%
-                      </span>
+                    <div style={{ marginBottom: 14 }}>
+                      <h3 style={{ fontSize: 18, fontWeight: 700, color: '#1a1a1a', margin: 0 }}>{cleanMarket(record.market_hindi || record.market)}</h3>
+                      <p style={{ fontSize: 13, color: '#888', margin: '2px 0 0' }}>{record.state_hindi}</p>
                     </div>
                     <div style={{ marginBottom: 14 }}>
                       <span style={{ fontSize: 11, color: '#999', fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: 0.5 }}>मॉडल भाव</span>

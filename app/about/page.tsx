@@ -2,6 +2,21 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { Footer } from '@/components/Sections';
+import { BreadcrumbJsonLd } from '@/components/Breadcrumbs';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Devendra Kumar Jha',
+  jobTitle: 'Co-Founder and Director',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Indpotato Pvt Ltd',
+    url: 'https://www.indianpotato.in',
+  },
+  url: 'https://www.linkedin.com/in/potatoes/',
+  sameAs: ['https://www.linkedin.com/in/potatoes/'],
+};
 
 export const metadata: Metadata = {
   title: 'हमारे बारे में — इंडियन पोटैटो | About Us',
@@ -52,6 +67,11 @@ const redDot: React.CSSProperties = {
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[
+        { name: 'होम', url: 'https://www.indianpotato.in' },
+        { name: 'हमारे बारे में', url: 'https://www.indianpotato.in/about' },
+      ]} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main style={{ paddingTop: 80, minHeight: '100vh', background: '#fff' }}>
 

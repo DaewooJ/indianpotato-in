@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { Footer } from '@/components/Sections';
+import { BreadcrumbJsonLd } from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'अस्वीकरण (Disclaimer)',
@@ -12,6 +13,10 @@ export const metadata: Metadata = {
 export default function DisclaimerPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[
+        { name: 'होम', url: 'https://www.indianpotato.in' },
+        { name: 'अस्वीकरण', url: 'https://www.indianpotato.in/disclaimer' },
+      ]} />
       <Navbar />
       <main style={{ paddingTop: 80, minHeight: '100vh', background: '#fff' }}>
         {/* Header */}

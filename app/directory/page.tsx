@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { WhatsAppCTA, Footer } from '@/components/Sections';
+import { BreadcrumbJsonLd } from '@/components/Breadcrumbs';
 import { DIRECTORY_CATEGORIES, getCategoryCounts, getFeaturedListings } from '@/lib/directory';
 
 export const metadata: Metadata = {
@@ -32,6 +33,10 @@ export default function DirectoryPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd items={[
+        { name: 'होम', url: 'https://www.indianpotato.in' },
+        { name: 'डायरेक्टरी', url: 'https://www.indianpotato.in/directory' },
+      ]} />
       <Navbar />
       <main className="pt-[76px]">
         {/* Hero — compact */}

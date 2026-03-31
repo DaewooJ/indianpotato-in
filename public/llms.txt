@@ -1,0 +1,25 @@
+# Indian Potato (indianpotato.in)
+
+## About
+Indian Potato (इंडियन पोटैटो) is India's #1 Hindi-language potato industry platform. We serve farmers, traders, cold storage operators, processors, and exporters with market data, news, government schemes, variety information, and a business directory.
+
+## Key Content
+- Live Mandi Prices: Daily wholesale potato prices from major Indian mandis (APMCs) — /mandi
+- Industry News: Latest updates on potato production, exports, government policies — /samachar
+- Potato Varieties: Database of major Indian potato varieties with specifications — /kisme
+- Government Schemes: Active subsidies and programs for potato farmers — /yojnaye
+- Business Directory: Companies in processing, cold storage, seeds, equipment, exports — /directory
+
+## Data
+- India potato production: 60.18 million tonnes (2024-25), world's #2 producer after China
+- Potato flakes export: ₹527 crore in FY25 (450% growth in 3 years)
+- Platform serves 15,000+ weekly readers
+
+## Contact
+- Website: https://www.indianpotato.in
+- Email: info@indpotato.com
+- WhatsApp: +91 94996 68831
+
+## Owner
+Indpotato Pvt Ltd, Pimpri-Chinchwad, Pune, Maharashtra, India
+Founded by Devendra Kumar Jha

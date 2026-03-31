@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import MandiPricesLive from '@/components/MandiPricesLive';
 import { WhatsAppCTA, Footer } from '@/components/Sections';
+import { BreadcrumbJsonLd, BreadcrumbNav } from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'आज का आलू मंडी भाव — ताज़ा थोक भाव | Potato Mandi Price Today',
@@ -20,10 +21,18 @@ export const metadata: Metadata = {
 export default function MandiPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[
+        { name: 'होम', url: 'https://www.indianpotato.in' },
+        { name: 'मंडी भाव', url: 'https://www.indianpotato.in/mandi' },
+      ]} />
       <Navbar />
       <main className="pt-[76px]">
         <div className="bg-gradient-to-r from-red-700 to-red-600 py-16 px-6">
           <div className="max-w-[1280px] mx-auto">
+            <BreadcrumbNav items={[
+              { name: 'होम', url: '/' },
+              { name: 'मंडी भाव', url: '/mandi' },
+            ]} />
             <h1 className="font-display text-[clamp(2rem,5vw,3rem)] font-bold text-white mb-3">
               आलू मंडी भाव
             </h1>

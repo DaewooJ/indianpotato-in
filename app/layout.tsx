@@ -75,6 +75,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.indianpotato.in',
+    types: {
+      'application/rss+xml': 'https://www.indianpotato.in/feed.xml',
+    },
   },
 };
 
@@ -110,27 +113,13 @@ const jsonLd = {
         url: 'https://www.indianpotato.in/logo.png',
       },
       sameAs: [
-        'https://twitter.com/indianpotato',
-        'https://www.youtube.com/@indianpotato',
-        'https://www.instagram.com/indianpotato',
+        'https://www.linkedin.com/in/potatoes/',
       ],
       contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'customer service',
         availableLanguage: ['Hindi', 'English'],
       },
-    },
-    {
-      '@type': 'BreadcrumbList',
-      '@id': 'https://www.indianpotato.in/#breadcrumb',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'होम',
-          item: 'https://www.indianpotato.in',
-        },
-      ],
     },
   ],
 };

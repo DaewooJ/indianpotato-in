@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import { VarietiesQuick, WhatsAppCTA, Footer } from '@/components/Sections';
+import { BreadcrumbJsonLd, BreadcrumbNav } from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'आलू की किस्में — भारत में उगाई जाने वाली प्रमुख किस्में | Potato Varieties India',
@@ -19,10 +20,18 @@ export const metadata: Metadata = {
 export default function KismePage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[
+        { name: 'होम', url: 'https://www.indianpotato.in' },
+        { name: 'किस्में', url: 'https://www.indianpotato.in/kisme' },
+      ]} />
       <Navbar />
       <main className="pt-[76px]">
         <div className="bg-gradient-to-r from-red-700 to-red-600 py-16 px-6">
           <div className="max-w-[1280px] mx-auto">
+            <BreadcrumbNav items={[
+              { name: 'होम', url: '/' },
+              { name: 'किस्में', url: '/kisme' },
+            ]} />
             <h1 className="font-display text-[clamp(2rem,5vw,3rem)] font-bold text-white mb-3">
               आलू की किस्में
             </h1>

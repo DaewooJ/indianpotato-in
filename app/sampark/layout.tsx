@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { BreadcrumbJsonLd } from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'संपर्क करें — इंडियन पोटैटो | Contact Us',
@@ -15,5 +16,13 @@ export const metadata: Metadata = {
 };
 
 export default function SamparkLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[
+        { name: 'होम', url: 'https://www.indianpotato.in' },
+        { name: 'संपर्क', url: 'https://www.indianpotato.in/sampark' },
+      ]} />
+      {children}
+    </>
+  );
 }
