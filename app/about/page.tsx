@@ -34,13 +34,13 @@ export const metadata: Metadata = {
 const sectionPad: React.CSSProperties = { padding: '56px 24px' };
 const maxW: React.CSSProperties = { maxWidth: 1080, margin: '0 auto' };
 const bodyFont: React.CSSProperties = {
-  fontFamily: "'Noto Sans Devanagari', sans-serif",
+  fontFamily: 'var(--font-hindi), sans-serif',
   fontSize: '0.95rem',
   color: '#374151',
   lineHeight: 1.9,
 };
 const h2Style: React.CSSProperties = {
-  fontFamily: "'Noto Sans Devanagari', sans-serif",
+  fontFamily: 'var(--font-hindi), sans-serif',
   fontSize: 'clamp(1.3rem, 3vw, 1.7rem)',
   fontWeight: 800,
   color: '#1F2937',
@@ -48,7 +48,7 @@ const h2Style: React.CSSProperties = {
   marginBottom: 12,
 };
 const subtitleStyle: React.CSSProperties = {
-  fontFamily: "'Noto Sans Devanagari', sans-serif",
+  fontFamily: 'var(--font-hindi), sans-serif',
   fontSize: '0.9rem',
   color: '#6B7280',
   textAlign: 'center',
@@ -89,13 +89,13 @@ export default function AboutPage() {
           <div style={{ maxWidth: 820, margin: '0 auto', position: 'relative', zIndex: 1 }}>
             <nav style={{ marginBottom: 20 }}>
               <Link href="/" style={{
-                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontFamily: 'var(--font-hindi), sans-serif',
                 fontSize: '0.82rem', color: 'rgba(255,255,255,0.7)',
                 textDecoration: 'none',
               }}>होम</Link>
               <span style={{ color: 'rgba(255,255,255,0.4)', margin: '0 10px', fontSize: '0.75rem' }}>›</span>
               <span style={{
-                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontFamily: 'var(--font-hindi), sans-serif',
                 fontSize: '0.82rem', color: '#fff',
               }}>हमारे बारे में</span>
             </nav>
@@ -105,7 +105,7 @@ export default function AboutPage() {
               borderRadius: 6,
               padding: '6px 14px',
               marginBottom: 16,
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: 'var(--font-english), sans-serif',
               fontSize: '0.72rem',
               fontWeight: 700,
               color: '#fff',
@@ -113,7 +113,7 @@ export default function AboutPage() {
               textTransform: 'uppercase',
             }}>🥔 ABOUT US</div>
             <h1 style={{
-              fontFamily: "'Noto Sans Devanagari', sans-serif",
+              fontFamily: 'var(--font-hindi), sans-serif',
               fontSize: 'clamp(1.8rem, 5vw, 2.6rem)',
               fontWeight: 900,
               color: '#fff',
@@ -124,7 +124,7 @@ export default function AboutPage() {
               भारत का प्रमुख आलू उद्योग मंच
             </h1>
             <p style={{
-              fontFamily: "'Noto Sans Devanagari', sans-serif",
+              fontFamily: 'var(--font-hindi), sans-serif',
               fontSize: '1.05rem',
               color: 'rgba(255,255,255,0.85)',
               marginTop: 16,
@@ -196,14 +196,14 @@ export default function AboutPage() {
                 }}>
                   <div style={{ fontSize: 28, marginBottom: 12 }}>{item.icon}</div>
                   <h3 style={{
-                    fontFamily: "'Noto Sans Devanagari', sans-serif",
+                    fontFamily: 'var(--font-hindi), sans-serif',
                     fontSize: '1.05rem',
                     fontWeight: 700,
                     color: '#1F2937',
                     marginBottom: 8,
                   }}>{item.title}</h3>
                   <p style={{
-                    fontFamily: "'Noto Sans Devanagari', sans-serif",
+                    fontFamily: 'var(--font-hindi), sans-serif',
                     fontSize: '0.88rem',
                     color: '#6B7280',
                     lineHeight: 1.75,
@@ -247,7 +247,7 @@ export default function AboutPage() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: 10,
-                  fontFamily: "'Noto Sans Devanagari', sans-serif",
+                  fontFamily: 'var(--font-hindi), sans-serif',
                   fontSize: '0.88rem',
                   fontWeight: 600,
                   color: '#374151',
@@ -300,14 +300,14 @@ export default function AboutPage() {
                     fontSize: 26, margin: '0 auto 16px',
                   }}>{item.icon}</div>
                   <h3 style={{
-                    fontFamily: "'Noto Sans Devanagari', sans-serif",
+                    fontFamily: 'var(--font-hindi), sans-serif',
                     fontSize: '1rem',
                     fontWeight: 700,
                     color: '#1F2937',
                     marginBottom: 8,
                   }}>{item.title}</h3>
                   <p style={{
-                    fontFamily: "'Noto Sans Devanagari', sans-serif",
+                    fontFamily: 'var(--font-hindi), sans-serif',
                     fontSize: '0.85rem',
                     color: '#6B7280',
                     lineHeight: 1.7,
@@ -348,11 +348,11 @@ export default function AboutPage() {
                   }}>{item.icon}</div>
                   <div>
                     <h3 style={{
-                      fontFamily: "'Noto Sans Devanagari', sans-serif",
+                      fontFamily: 'var(--font-hindi), sans-serif',
                       fontSize: '1rem', fontWeight: 700, color: '#1F2937', marginBottom: 6,
                     }}>{item.title}</h3>
                     <p style={{
-                      fontFamily: "'Noto Sans Devanagari', sans-serif",
+                      fontFamily: 'var(--font-hindi), sans-serif',
                       fontSize: '0.88rem', color: '#6B7280', lineHeight: 1.75, margin: 0,
                     }}>{item.desc}</p>
                   </div>
@@ -385,17 +385,17 @@ export default function AboutPage() {
                     background: '#E53E3E', border: '3px solid #FEE2E2',
                   }} />
                   <div style={{
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: 'var(--font-english), sans-serif',
                     fontSize: '0.72rem', fontWeight: 700,
                     color: '#E53E3E', letterSpacing: '0.1em',
                     textTransform: 'uppercase', marginBottom: 4,
                   }}>{item.year}</div>
                   <h3 style={{
-                    fontFamily: "'Noto Sans Devanagari', sans-serif",
+                    fontFamily: 'var(--font-hindi), sans-serif',
                     fontSize: '1.05rem', fontWeight: 700, color: '#1F2937', marginBottom: 4,
                   }}>{item.title}</h3>
                   <p style={{
-                    fontFamily: "'Noto Sans Devanagari', sans-serif",
+                    fontFamily: 'var(--font-hindi), sans-serif',
                     fontSize: '0.88rem', color: '#6B7280', lineHeight: 1.7, margin: 0,
                   }}>{item.desc}</p>
                 </div>
@@ -434,17 +434,17 @@ export default function AboutPage() {
                   gap: 8,
                 }}>
                   <span style={{
-                    fontFamily: "'Noto Sans Devanagari', sans-serif",
+                    fontFamily: 'var(--font-hindi), sans-serif',
                     fontSize: '0.85rem', color: '#9CA3AF', fontWeight: 500,
                   }}>{item.label}</span>
                   {item.link ? (
                     <a href={item.link} target={item.link.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" style={{
-                      fontFamily: "'DM Sans', sans-serif",
+                      fontFamily: 'var(--font-english), sans-serif',
                       fontSize: '0.9rem', color: '#E53E3E', textDecoration: 'none', fontWeight: 600,
                     }}>{item.value}</a>
                   ) : (
                     <span style={{
-                      fontFamily: "'DM Sans', sans-serif",
+                      fontFamily: 'var(--font-english), sans-serif',
                       fontSize: '0.9rem', color: '#fff', fontWeight: 600,
                     }}>{item.value}</span>
                   )}
@@ -462,14 +462,14 @@ export default function AboutPage() {
         }}>
           <div style={{ maxWidth: 600, margin: '0 auto' }}>
             <h2 style={{
-              fontFamily: "'Noto Sans Devanagari', sans-serif",
+              fontFamily: 'var(--font-hindi), sans-serif',
               fontSize: 'clamp(1.3rem, 3vw, 1.6rem)',
               fontWeight: 800,
               color: '#fff',
               marginBottom: 12,
             }}>जुड़ना चाहते हैं?</h2>
             <p style={{
-              fontFamily: "'Noto Sans Devanagari', sans-serif",
+              fontFamily: 'var(--font-hindi), sans-serif',
               fontSize: '0.9rem',
               color: 'rgba(255,255,255,0.8)',
               marginBottom: 28,
@@ -483,7 +483,7 @@ export default function AboutPage() {
                 color: '#E53E3E',
                 padding: '13px 28px',
                 borderRadius: 8,
-                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontFamily: 'var(--font-hindi), sans-serif',
                 fontSize: '0.92rem',
                 fontWeight: 700,
                 textDecoration: 'none',
@@ -493,7 +493,7 @@ export default function AboutPage() {
                 color: '#fff',
                 padding: '13px 28px',
                 borderRadius: 8,
-                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontFamily: 'var(--font-hindi), sans-serif',
                 fontSize: '0.92rem',
                 fontWeight: 700,
                 textDecoration: 'none',

@@ -33,9 +33,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        display: ['"Tiro Devanagari Hindi"', 'Georgia', 'serif'],
-        body: ['"Noto Sans Devanagari"', 'system-ui', 'sans-serif'],
-        mono: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        display: ['var(--font-hindi)', 'Mukta', 'sans-serif'],
+        body: ['var(--font-hindi)', 'Mukta', 'sans-serif'],
+        mono: ['var(--font-english)', 'DM Sans', 'sans-serif'],
       },
       animation: {
         ticker: 'ticker 55s linear infinite',

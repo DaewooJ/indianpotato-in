@@ -9,17 +9,17 @@ export default function Hero() {
           <div>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 4, padding: '7px 16px', marginBottom: 24 }}>
               <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#E53E3E', animation: 'blink 1.5s infinite' }} />
-              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.72rem', fontWeight: 700, color: '#E53E3E', letterSpacing: '0.12em', textTransform: 'uppercase' }}>LIVE · आज का अपडेट</span>
+              <span style={{ fontFamily: 'var(--font-english), sans-serif', fontSize: '0.72rem', fontWeight: 700, color: '#E53E3E', letterSpacing: '0.12em', textTransform: 'uppercase' }}>LIVE · आज का अपडेट</span>
             </div>
-            <h1 style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', fontWeight: 900, color: '#1a1a1a', lineHeight: 1.15, marginBottom: 20 }}>
+            <h1 style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', fontWeight: 900, color: '#1a1a1a', lineHeight: 1.15, marginBottom: 20 }}>
               भारत का <span style={{ color: '#E53E3E' }}>#1 आलू</span><br />उद्योग मंच
             </h1>
-            <p style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '1.08rem', lineHeight: 1.85, color: '#777', maxWidth: 500, marginBottom: 32 }}>
+            <p style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '1.08rem', lineHeight: 1.85, color: '#777', maxWidth: 500, marginBottom: 32 }}>
               मंडी भाव · सरकारी योजनाएँ · किस्मों का डेटाबेस · निर्यात डेटा · उद्योग डायरेक्टरी — किसानों, व्यापारियों और प्रसंस्करण उद्योग के लिए।
             </p>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 40 }}>
-              <Link href="/mandi" style={{ background: '#E53E3E', color: '#fff', textDecoration: 'none', padding: '14px 30px', borderRadius: 5, fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.95rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: 8, boxShadow: '0 4px 16px rgba(229,62,62,0.25)' }}>📊 मंडी भाव देखें</Link>
-              <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{ background: '#fff', color: '#E53E3E', textDecoration: 'none', border: '2px solid #E53E3E', padding: '13px 30px', borderRadius: 5, fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.95rem', fontWeight: 700 }}>💬 WhatsApp जोड़ें</a>
+              <Link href="/mandi" style={{ background: '#E53E3E', color: '#fff', textDecoration: 'none', padding: '14px 30px', borderRadius: 5, fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.95rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: 8, boxShadow: '0 4px 16px rgba(229,62,62,0.25)' }}>📊 मंडी भाव देखें</Link>
+              <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{ background: '#fff', color: '#E53E3E', textDecoration: 'none', border: '2px solid #E53E3E', padding: '13px 30px', borderRadius: 5, fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.95rem', fontWeight: 700 }}>💬 WhatsApp जोड़ें</a>
             </div>
             {/* Stats row below buttons */}
             <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap' }}>
@@ -29,8 +29,8 @@ export default function Hero() {
                 { value: '#2 विश्व', label: 'चीन के बाद' },
               ].map((s, i) => (
                 <div key={i} style={{ borderLeft: i === 0 ? 'none' : '1px solid #eee', paddingLeft: i === 0 ? 0 : 28 }}>
-                  <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '1.3rem', fontWeight: 900, color: '#E53E3E', letterSpacing: '-0.02em' }}>{s.value}</div>
-                  <div style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.75rem', color: '#aaa', fontWeight: 500 }}>{s.label}</div>
+                  <div style={{ fontFamily: 'var(--font-english), sans-serif', fontSize: '1.3rem', fontWeight: 900, color: '#E53E3E', letterSpacing: '-0.02em' }}>{s.value}</div>
+                  <div style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.75rem', color: '#aaa', fontWeight: 500 }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -59,8 +59,8 @@ export default function Hero() {
               border: '1px solid #f0f0f0',
               borderLeft: '4px solid #E53E3E',
             }}>
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '1.4rem', fontWeight: 900, color: '#E53E3E' }}>15K+</div>
-              <div style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.72rem', color: '#888' }}>साप्ताहिक पाठक</div>
+              <div style={{ fontFamily: 'var(--font-english), sans-serif', fontSize: '1.4rem', fontWeight: 900, color: '#E53E3E' }}>15K+</div>
+              <div style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.72rem', color: '#888' }}>साप्ताहिक पाठक</div>
             </div>
           </div>
         </div>

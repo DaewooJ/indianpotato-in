@@ -21,7 +21,7 @@ export default function NewsTicker() {
         padding: '11px 20px', fontWeight: 800,
         fontSize: '0.7rem', letterSpacing: '0.14em',
         textTransform: 'uppercase',
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: 'var(--font-english), sans-serif',
         flexShrink: 0, display: 'flex', alignItems: 'center', gap: 7,
       }}>
         <span style={{
@@ -33,7 +33,7 @@ export default function NewsTicker() {
       <div style={{ overflow: 'hidden', flex: 1, padding: '11px 0' }}>
         <div style={{
           display: 'inline-block', animation: 'ticker 50s linear infinite',
-          fontFamily: "'Noto Sans Devanagari', sans-serif",
+          fontFamily: 'var(--font-hindi), sans-serif',
           fontSize: '0.84rem', fontWeight: 500,
         }}>
           {[...headlines, ...headlines].map((h, i) => (

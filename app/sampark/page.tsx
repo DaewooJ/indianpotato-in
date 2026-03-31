@@ -91,18 +91,18 @@ export default function SamparkPage() {
           <div style={{ maxWidth: 820, margin: '0 auto', position: 'relative', zIndex: 1 }}>
             <nav style={{ marginBottom: 18 }}>
               <Link href="/" style={{
-                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontFamily: 'var(--font-hindi), sans-serif',
                 fontSize: '0.82rem', color: 'rgba(255,255,255,0.7)',
                 textDecoration: 'none',
               }}>होम</Link>
               <span style={{ color: 'rgba(255,255,255,0.4)', margin: '0 10px', fontSize: '0.75rem' }}>›</span>
               <span style={{
-                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontFamily: 'var(--font-hindi), sans-serif',
                 fontSize: '0.82rem', color: '#fff',
               }}>संपर्क</span>
             </nav>
             <h1 style={{
-              fontFamily: "'Noto Sans Devanagari', sans-serif",
+              fontFamily: 'var(--font-hindi), sans-serif',
               fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
               fontWeight: 900,
               color: '#fff',
@@ -112,7 +112,7 @@ export default function SamparkPage() {
               संपर्क करें
             </h1>
             <p style={{
-              fontFamily: "'Noto Sans Devanagari', sans-serif",
+              fontFamily: 'var(--font-hindi), sans-serif',
               fontSize: '1rem',
               color: 'rgba(255,255,255,0.85)',
               marginTop: 12,
@@ -167,17 +167,17 @@ export default function SamparkPage() {
                   fontSize: 22, marginBottom: 14,
                 }}>{ch.icon}</div>
                 <div style={{
-                  fontFamily: "'Noto Sans Devanagari', sans-serif",
+                  fontFamily: 'var(--font-hindi), sans-serif',
                   fontSize: '0.78rem', fontWeight: 600,
                   color: '#9CA3AF', marginBottom: 2,
                 }}>{ch.desc}</div>
                 <div style={{
-                  fontFamily: "'Noto Sans Devanagari', sans-serif",
+                  fontFamily: 'var(--font-hindi), sans-serif',
                   fontSize: '0.95rem', fontWeight: 700,
                   color: '#1F2937', marginBottom: 4,
                 }}>{ch.title}</div>
                 <div style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: 'var(--font-english), sans-serif',
                   fontSize: '0.85rem', fontWeight: 600,
                   color: '#E53E3E',
                 }}>{ch.value}</div>
@@ -210,20 +210,20 @@ export default function SamparkPage() {
                   width: 36, height: 3, background: '#E53E3E', borderRadius: 2,
                 }} />
                 <span style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: 'var(--font-english), sans-serif',
                   fontSize: '0.7rem', fontWeight: 700,
                   color: '#E53E3E', letterSpacing: '0.14em',
                   textTransform: 'uppercase',
                 }}>CONTACT FORM</span>
               </div>
               <h2 style={{
-                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontFamily: 'var(--font-hindi), sans-serif',
                 fontSize: 'clamp(1.2rem, 3vw, 1.5rem)',
                 fontWeight: 800, color: '#1F2937',
                 marginBottom: 6,
               }}>हमें संदेश भेजें</h2>
               <p style={{
-                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontFamily: 'var(--font-hindi), sans-serif',
                 fontSize: '0.85rem', color: '#9CA3AF',
                 marginBottom: 32, lineHeight: 1.6,
               }}>
@@ -242,12 +242,12 @@ export default function SamparkPage() {
                     fontSize: 32, margin: '0 auto 20px',
                   }}>✓</div>
                   <h3 style={{
-                    fontFamily: "'Noto Sans Devanagari', sans-serif",
+                    fontFamily: 'var(--font-hindi), sans-serif',
                     fontSize: '1.2rem', fontWeight: 700, color: '#166534',
                     marginBottom: 8,
                   }}>संदेश भेज दिया गया!</h3>
                   <p style={{
-                    fontFamily: "'Noto Sans Devanagari', sans-serif",
+                    fontFamily: 'var(--font-hindi), sans-serif',
                     fontSize: '0.9rem', color: '#6B7280', lineHeight: 1.7,
                   }}>
                     धन्यवाद! हम 24 घंटे के भीतर आपसे संपर्क करेंगे।
@@ -259,7 +259,7 @@ export default function SamparkPage() {
                       background: '#E53E3E', color: '#fff',
                       border: 'none', borderRadius: 8,
                       padding: '12px 28px', cursor: 'pointer',
-                      fontFamily: "'Noto Sans Devanagari', sans-serif",
+                      fontFamily: 'var(--font-hindi), sans-serif',
                       fontSize: '0.88rem', fontWeight: 700,
                     }}
                   >नया संदेश भेजें</button>
@@ -373,7 +373,7 @@ export default function SamparkPage() {
                       border: 'none',
                       borderRadius: 10,
                       padding: '15px 24px',
-                      fontFamily: "'Noto Sans Devanagari', sans-serif",
+                      fontFamily: 'var(--font-hindi), sans-serif',
                       fontSize: '1rem',
                       fontWeight: 700,
                       cursor: sending ? 'wait' : 'pointer',
@@ -408,13 +408,13 @@ export default function SamparkPage() {
                   }}>🏢</div>
                   <div>
                     <div style={{
-                      fontFamily: "'DM Sans', sans-serif",
+                      fontFamily: 'var(--font-english), sans-serif',
                       fontSize: '0.68rem', fontWeight: 700,
                       color: '#E53E3E', letterSpacing: '0.14em',
                       textTransform: 'uppercase',
                     }}>REGISTERED OFFICE</div>
                     <div style={{
-                      fontFamily: "'Noto Sans Devanagari', sans-serif",
+                      fontFamily: 'var(--font-hindi), sans-serif',
                       fontSize: '0.95rem', fontWeight: 700, color: '#fff',
                     }}>कार्यालय</div>
                   </div>
@@ -432,17 +432,17 @@ export default function SamparkPage() {
                   ].map((item, i) => (
                     <div key={i}>
                       <div style={{
-                        fontFamily: "'Noto Sans Devanagari', sans-serif",
+                        fontFamily: 'var(--font-hindi), sans-serif',
                         fontSize: '0.75rem', color: '#6B7280', marginBottom: 3,
                       }}>{item.label}</div>
                       {item.link ? (
                         <a href={item.link} target={item.link.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" style={{
-                          fontFamily: "'DM Sans', sans-serif",
+                          fontFamily: 'var(--font-english), sans-serif',
                           fontSize: '0.88rem', color: '#fff', textDecoration: 'none', fontWeight: 600,
                         }}>{item.value}</a>
                       ) : (
                         <div style={{
-                          fontFamily: "'DM Sans', sans-serif",
+                          fontFamily: 'var(--font-english), sans-serif',
                           fontSize: '0.88rem', color: '#E5E7EB', fontWeight: 600,
                         }}>{item.value}</div>
                       )}
@@ -463,12 +463,12 @@ export default function SamparkPage() {
                 }}>
                   <div style={{ fontSize: 24, marginBottom: 12 }}>🌐</div>
                   <h3 style={{
-                    fontFamily: "'Noto Sans Devanagari', sans-serif",
+                    fontFamily: 'var(--font-hindi), sans-serif',
                     fontSize: '0.95rem', fontWeight: 700, color: '#1F2937', marginBottom: 12,
                   }}>हमारी वेबसाइट</h3>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                     <a href="https://www.indianpotato.in" style={{
-                      fontFamily: "'DM Sans', sans-serif",
+                      fontFamily: 'var(--font-english), sans-serif',
                       fontSize: '0.85rem', color: '#E53E3E', fontWeight: 600, textDecoration: 'none',
                       display: 'flex', alignItems: 'center', gap: 6,
                     }}>
@@ -476,7 +476,7 @@ export default function SamparkPage() {
                       indianpotato.in <span style={{ color: '#9CA3AF', fontWeight: 400 }}>(हिंदी)</span>
                     </a>
                     <a href="https://indianpotato.com" target="_blank" rel="noopener noreferrer" style={{
-                      fontFamily: "'DM Sans', sans-serif",
+                      fontFamily: 'var(--font-english), sans-serif',
                       fontSize: '0.85rem', color: '#E53E3E', fontWeight: 600, textDecoration: 'none',
                       display: 'flex', alignItems: 'center', gap: 6,
                     }}>
@@ -501,7 +501,7 @@ export default function SamparkPage() {
                     background: 'radial-gradient(circle, rgba(229,62,62,0.15) 0%, transparent 70%)',
                   }} />
                   <div style={{
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: 'var(--font-english), sans-serif',
                     fontSize: '0.62rem', fontWeight: 700,
                     color: '#E53E3E', letterSpacing: '0.16em',
                     textTransform: 'uppercase', marginBottom: 14,
@@ -523,12 +523,12 @@ export default function SamparkPage() {
                     />
                     <div>
                       <div style={{
-                        fontFamily: "'Noto Sans Devanagari', sans-serif",
+                        fontFamily: 'var(--font-hindi), sans-serif',
                         fontSize: '0.95rem', fontWeight: 700, color: '#fff',
                         lineHeight: 1.3,
                       }}>देवेंद्र कुमार झा</div>
                       <div style={{
-                        fontFamily: "'DM Sans', sans-serif",
+                        fontFamily: 'var(--font-english), sans-serif',
                         fontSize: '0.75rem', color: '#9CA3AF',
                         marginTop: 2,
                       }}>Co-Founder and Director</div>
@@ -548,7 +548,7 @@ export default function SamparkPage() {
                       color: '#fff',
                       borderRadius: 8,
                       padding: '11px 16px',
-                      fontFamily: "'DM Sans', sans-serif",
+                      fontFamily: 'var(--font-english), sans-serif',
                       fontSize: '0.85rem',
                       fontWeight: 700,
                       textDecoration: 'none',
@@ -571,7 +571,7 @@ export default function SamparkPage() {
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         gap: 5, padding: '9px 4px',
                         background: '#1a1a1a', borderRadius: 6,
-                        fontFamily: "'DM Sans', sans-serif",
+                        fontFamily: 'var(--font-english), sans-serif',
                         fontSize: '0.65rem', color: '#9CA3AF', fontWeight: 600,
                         textDecoration: 'none', border: '1px solid #2a2a2a',
                         whiteSpace: 'nowrap',
@@ -596,7 +596,7 @@ export default function SamparkPage() {
               margin: '0 auto 16px',
             }} />
             <h2 style={{
-              fontFamily: "'Noto Sans Devanagari', sans-serif",
+              fontFamily: 'var(--font-hindi), sans-serif',
               fontSize: 'clamp(1.2rem, 3vw, 1.5rem)',
               fontWeight: 800, color: '#1F2937',
               textAlign: 'center', marginBottom: 36,
@@ -629,11 +629,11 @@ export default function SamparkPage() {
                   }}>{item.icon}</div>
                   <div>
                     <div style={{
-                      fontFamily: "'Noto Sans Devanagari', sans-serif",
+                      fontFamily: 'var(--font-hindi), sans-serif',
                       fontSize: '0.9rem', fontWeight: 700, color: '#1F2937', marginBottom: 3,
                     }}>{item.title}</div>
                     <div style={{
-                      fontFamily: "'Noto Sans Devanagari', sans-serif",
+                      fontFamily: 'var(--font-hindi), sans-serif',
                       fontSize: '0.82rem', color: '#9CA3AF', lineHeight: 1.6,
                     }}>{item.desc}</div>
                   </div>
@@ -651,13 +651,13 @@ export default function SamparkPage() {
         }}>
           <div style={{ maxWidth: 600, margin: '0 auto' }}>
             <h2 style={{
-              fontFamily: "'Noto Sans Devanagari', sans-serif",
+              fontFamily: 'var(--font-hindi), sans-serif',
               fontSize: 'clamp(1.2rem, 3vw, 1.5rem)',
               fontWeight: 800, color: '#fff',
               marginBottom: 10,
             }}>⏱️ 24 घंटे में उत्तर</h2>
             <p style={{
-              fontFamily: "'Noto Sans Devanagari', sans-serif",
+              fontFamily: 'var(--font-hindi), sans-serif',
               fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)',
               lineHeight: 1.7, marginBottom: 24,
             }}>
@@ -667,7 +667,7 @@ export default function SamparkPage() {
               <a href="https://wa.me/919499668498" target="_blank" rel="noopener noreferrer" style={{
                 background: '#25D366', color: '#fff',
                 padding: '12px 24px', borderRadius: 8,
-                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontFamily: 'var(--font-hindi), sans-serif',
                 fontSize: '0.9rem', fontWeight: 700,
                 textDecoration: 'none',
                 display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -675,7 +675,7 @@ export default function SamparkPage() {
               <a href="mailto:info@indpotato.com" style={{
                 background: 'rgba(255,255,255,0.15)', color: '#fff',
                 padding: '12px 24px', borderRadius: 8,
-                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontFamily: 'var(--font-hindi), sans-serif',
                 fontSize: '0.9rem', fontWeight: 700,
                 textDecoration: 'none', border: '1px solid rgba(255,255,255,0.3)',
                 display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -706,7 +706,7 @@ export default function SamparkPage() {
 /* ─── Shared Styles ─── */
 const labelStyle: React.CSSProperties = {
   display: 'block',
-  fontFamily: "'Noto Sans Devanagari', sans-serif",
+  fontFamily: 'var(--font-hindi), sans-serif',
   fontSize: '0.82rem',
   fontWeight: 600,
   color: '#374151',
@@ -715,7 +715,7 @@ const labelStyle: React.CSSProperties = {
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
-  fontFamily: "'Noto Sans Devanagari', sans-serif",
+  fontFamily: 'var(--font-hindi), sans-serif',
   fontSize: '0.9rem',
   color: '#1F2937',
   background: '#fff',

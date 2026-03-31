@@ -39,8 +39,8 @@ export default function Navbar() {
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer', textDecoration: 'none' }}>
           <img src="/logo.png" alt="इंडियन पोटैटो लोगो" style={{ width: 40, height: 40, borderRadius: 6 }} />
           <div>
-            <div style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '1.2rem', fontWeight: 800, color: '#E53E3E', lineHeight: 1.05 }}>इंडियन पोटैटो</div>
-            <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.52rem', fontWeight: 700, color: '#999', letterSpacing: '0.3em', textTransform: 'uppercase' }}>INDIANPOTATO.IN</div>
+            <div style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '1.2rem', fontWeight: 800, color: '#E53E3E', lineHeight: 1.05 }}>इंडियन पोटैटो</div>
+            <div style={{ fontFamily: 'var(--font-english), sans-serif', fontSize: '0.52rem', fontWeight: 700, color: '#999', letterSpacing: '0.3em', textTransform: 'uppercase' }}>INDIANPOTATO.IN</div>
           </div>
         </Link>
 
@@ -49,7 +49,7 @@ export default function Navbar() {
             item.highlight ? (
               <Link key={item.href} href={item.href} style={{
                 textDecoration: 'none', padding: '6px 14px', margin: '0 6px',
-                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontFamily: 'var(--font-hindi), sans-serif',
                 fontSize: '0.82rem', fontWeight: 700, color: '#fff',
                 background: '#E53E3E', borderRadius: 6,
                 transition: 'all 0.15s',
@@ -57,7 +57,7 @@ export default function Navbar() {
             ) : (
               <Link key={item.href} href={item.href} style={{
                 textDecoration: 'none', padding: '22px 14px',
-                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontFamily: 'var(--font-hindi), sans-serif',
                 fontSize: '0.88rem', fontWeight: 600, color: '#555',
                 borderBottom: '3px solid transparent', marginBottom: -3,
                 transition: 'all 0.15s',
@@ -69,7 +69,7 @@ export default function Navbar() {
             display: 'inline-flex', alignItems: 'center', gap: 6,
             background: '#E53E3E', color: '#fff',
             textDecoration: 'none', padding: '9px 22px', borderRadius: 5,
-            fontFamily: "'Noto Sans Devanagari', sans-serif",
+            fontFamily: 'var(--font-hindi), sans-serif',
             fontSize: '0.82rem', fontWeight: 700,
           }}>💬 जुड़ें</a>
         </div>
@@ -86,14 +86,14 @@ export default function Navbar() {
             item.highlight ? (
               <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{
                 display: 'block', textDecoration: 'none', padding: '12px 16px', margin: '6px 0',
-                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontFamily: 'var(--font-hindi), sans-serif',
                 fontSize: '1rem', fontWeight: 700, color: '#fff',
                 background: '#E53E3E', borderRadius: 8, textAlign: 'center',
               }}>📋 {item.label}</Link>
             ) : (
               <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{
                 display: 'block', textDecoration: 'none', padding: '13px 0',
-                fontFamily: "'Noto Sans Devanagari', sans-serif",
+                fontFamily: 'var(--font-hindi), sans-serif',
                 fontSize: '1rem', fontWeight: 600, color: '#444',
                 borderBottom: '1px solid #f5f5f5',
               }}>{item.label}</Link>
@@ -103,7 +103,7 @@ export default function Navbar() {
             display: 'block', textAlign: 'center', textDecoration: 'none',
             background: '#16a34a', color: '#fff',
             padding: '13px', borderRadius: 5, marginTop: 10,
-            fontFamily: "'Noto Sans Devanagari', sans-serif",
+            fontFamily: 'var(--font-hindi), sans-serif',
             fontSize: '0.95rem', fontWeight: 700,
           }}>💬 WhatsApp पर जुड़ें</a>
         </div>

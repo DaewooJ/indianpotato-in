@@ -1,4 +1,5 @@
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import type { Metadata } from 'next';
 import { Mukta, DM_Sans } from 'next/font/google';
 import './globals.css';
@@ -142,7 +143,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body><GoogleAnalytics />{children}</body>
+      <body><GoogleAnalytics />{children}<FloatingWhatsApp /></body>
     </html>
   );
 }
