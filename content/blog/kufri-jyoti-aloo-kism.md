@@ -26,7 +26,6 @@ featured: false
 </div>
 </div>
 
-![कुफरी ज्योति — भारत की सबसे लोकप्रिय आलू किस्म](/images/kufri-jyoti-variety.jpg)
 
 
 ![कुफरी ज्योति आलू किस्म — भारत की सबसे लोकप्रिय किस्म](/images/kufri-jyoti.jpg)

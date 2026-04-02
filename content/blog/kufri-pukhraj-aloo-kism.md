@@ -26,7 +26,6 @@ featured: false
 </div>
 </div>
 
-![कुफरी पुखराज — भारत की सबसे अधिक उपज वाली आलू किस्म](/images/kufri-pukhraj-variety.jpg)
 
 
 ![कुफरी पुखराज आलू किस्म — उच्च उपज वाली अगेती किस्म](/images/kufri-pukhraj.jpg)

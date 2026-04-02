@@ -26,7 +26,6 @@ featured: false
 </div>
 </div>
 
-![लेडी रोसेटा — प्रसंस्करण के लिए विश्व की उत्तम आलू किस्म](/images/lady-rosetta-variety.jpg)
 
 
 ![लेडी रोसेटा आलू किस्म — चिप्स बनाने के लिए उत्तम](/images/lady-rosetta.jpg)

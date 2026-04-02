@@ -26,7 +26,6 @@ featured: false
 </div>
 </div>
 
-![कुफरी चिप्सोना-1 — भारत की #1 चिप्स-गुणवत्ता आलू किस्म](/images/kufri-chipsona-variety.jpg)
 
 
 ![कुफरी चिप्सोना-1 आलू किस्म — प्रसंस्करण के लिए उत्तम](/images/kufri-chipsona-1.jpg)
