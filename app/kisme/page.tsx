@@ -26,20 +26,20 @@ export default function KismePage() {
       ]} />
       <Navbar />
       <main className="pt-[76px]">
-        <div className="bg-gradient-to-r from-red-700 to-red-600 py-16 px-6">
-          <div className="max-w-[1280px] mx-auto">
-            <BreadcrumbNav items={[
-              { name: 'होम', url: '/' },
-              { name: 'किस्में', url: '/kisme' },
-            ]} />
-            <h1 className="font-display text-[clamp(2rem,5vw,3rem)] font-bold text-white mb-3">
-              आलू की किस्में
+        <section style={{ background: '#fff', padding: 'clamp(60px, 10vw, 100px) 20px clamp(48px, 8vw, 80px)', borderBottom: '1px solid #f0f0f0' }}>
+          <div style={{ maxWidth: 700, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <span style={{ display: 'inline-block', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 50, padding: '4px 14px', marginBottom: 24, fontSize: 12, color: '#dc2626', fontWeight: 600, letterSpacing: '0.05em' }}>
+              आलू किस्में
+            </span>
+            <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', fontWeight: 700, color: '#111827', lineHeight: 1.2, marginBottom: 16, maxWidth: 600 }}>
+              भारत की प्रमुख आलू किस्में
             </h1>
-            <p className="font-body text-[1.05rem] text-white/75 max-w-[600px]">
-              भारत में उगाई जाने वाली प्रमुख आलू किस्मों का विस्तृत डेटाबेस — उपज, अवधि, उपयोग और उपयुक्त क्षेत्र
+            <p style={{ fontSize: 16, color: '#6b7280', lineHeight: 1.6, maxWidth: 550, marginBottom: 20 }}>
+              ICAR-CPRI द्वारा विकसित उन्नत किस्में — खाने, चिप्स, फ्रेंच फ्राइज़ और स्टार्च उत्पादन के लिए
             </p>
+            <span style={{ fontSize: 14, color: '#9ca3af' }}>6 किस्में</span>
           </div>
-        </div>
+        </section>
         <VarietiesQuick />
         <WhatsAppCTA />
       </main>
