@@ -60,25 +60,26 @@ export default function YojnayePage() {
 
         {/* HERO */}
         <section style={{
-          background: 'linear-gradient(135deg, #7f1d1d 0%, #dc2626 40%, #7f1d1d 100%)',
-          padding: 'clamp(40px, 8vw, 80px) clamp(16px, 5vw, 48px)',
+          background: 'linear-gradient(180deg, #1a0a0a 0%, #2d0808 50%, #450a0a 100%)',
+          padding: 'clamp(60px, 10vw, 100px) 20px clamp(48px, 8vw, 80px)',
           position: 'relative', overflow: 'hidden',
         }}>
-          <div style={{ position: 'absolute', top: '-40%', right: '-15%', width: 500, height: 500, background: 'radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
-          <div style={{ maxWidth: 900, margin: '0 auto', position: 'relative', zIndex: 2 }}>
-            <BreadcrumbNav items={[
-              { name: 'होम', url: '/' },
-              { name: 'योजनाएँ', url: '/yojnaye' },
-            ]} />
-            <div style={{ display: 'inline-block', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 50, padding: '6px 16px', marginBottom: 20 }}>
-              <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#fff', letterSpacing: 1 }}>{schemes.length} योजनाएँ उपलब्ध</span>
-            </div>
-            <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)', fontWeight: 800, color: '#fff', lineHeight: 1.15, marginBottom: 16 }}>
+          {/* Subtle radial glow */}
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 0%, rgba(220,38,38,0.15) 0%, transparent 60%)', pointerEvents: 'none' }} />
+          {/* Faint dot pattern */}
+          <div style={{ position: 'absolute', inset: 0, opacity: 0.04, backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0)', backgroundSize: '32px 32px', pointerEvents: 'none' }} />
+          <div style={{ maxWidth: 700, margin: '0 auto', position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            {/* Tiny pill */}
+            <span style={{ display: 'inline-block', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 50, padding: '4px 14px', marginBottom: 24, fontSize: 12, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.05em' }}>
               सरकारी योजनाएँ
+            </span>
+            <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: 16, maxWidth: 600 }}>
+              आलू किसानों के लिए योजनाएँ और सब्सिडी
             </h1>
-            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.15rem)', color: 'rgba(255,255,255,0.8)', lineHeight: 1.7, maxWidth: 650, marginBottom: 0 }}>
-              केंद्र और राज्य सरकार की योजनाएँ जो आलू किसानों, प्रसंस्करण उद्योग और कोल्ड स्टोरेज व्यवसाय को लाभ पहुँचाती हैं
+            <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, maxWidth: 500, marginBottom: 20 }}>
+              केंद्र और राज्य सरकार की योजनाएँ जो आलू किसानों, प्रसंस्करण उद्योग और कोल्ड स्टोरेज व्यवसाय को सीधे लाभ पहुँचाती हैं
             </p>
+            <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)' }}>{schemes.length} योजनाएँ उपलब्ध</span>
           </div>
         </section>
 
