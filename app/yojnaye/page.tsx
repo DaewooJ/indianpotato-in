@@ -1,67 +1,37 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
-import { WhatsAppCTA, Footer } from '@/components/Sections';
+import { Footer } from '@/components/Sections';
 import { BreadcrumbJsonLd, BreadcrumbNav } from '@/components/Breadcrumbs';
 import { getAllPosts } from '@/lib/blog';
+import YojnayeClient from './YojnayeClient';
 
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'PM किसान सम्मान निधि योजना क्या है?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'PM किसान सम्मान निधि योजना के तहत सभी किसान परिवारों को ₹6,000 प्रति वर्ष तीन समान किस्तों में सीधे बैंक खाते में दिया जाता है।',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'कोल्ड स्टोरेज सब्सिडी कितनी मिलती है?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'PMKSY के तहत नए कोल्ड स्टोरेज निर्माण पर 35-50% तक सरकारी अनुदान मिलता है।',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'किसान क्रेडिट कार्ड पर ब्याज दर क्या है?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'किसान क्रेडिट कार्ड पर ₹5 लाख तक के फसल ऋण पर 4% ब्याज दर लगती है, समय पर भुगतान करने पर 3% की अतिरिक्त छूट मिलती है।',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'PMFME योजना में आलू प्रसंस्करण पर कितनी सब्सिडी मिलती है?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'PMFME योजना में आलू चिप्स, फ्लेक्स, स्टार्च जैसे सूक्ष्म प्रसंस्करण उद्यमों के लिए परियोजना लागत का 35% (अधिकतम ₹10 लाख) सब्सिडी मिलती है।',
-      },
-    },
+    { '@type': 'Question', name: 'PM किसान सम्मान निधि योजना क्या है?', acceptedAnswer: { '@type': 'Answer', text: 'PM किसान सम्मान निधि योजना के तहत सभी किसान परिवारों को ₹6,000 प्रति वर्ष तीन समान किस्तों में सीधे बैंक खाते में दिया जाता है।' } },
+    { '@type': 'Question', name: 'कोल्ड स्टोरेज सब्सिडी कितनी मिलती है?', acceptedAnswer: { '@type': 'Answer', text: 'PMKSY के तहत नए कोल्ड स्टोरेज निर्माण पर 35-50% तक सरकारी अनुदान मिलता है।' } },
+    { '@type': 'Question', name: 'किसान क्रेडिट कार्ड पर ब्याज दर क्या है?', acceptedAnswer: { '@type': 'Answer', text: 'किसान क्रेडिट कार्ड पर ₹5 लाख तक के फसल ऋण पर 4% ब्याज दर लगती है, समय पर भुगतान करने पर 3% की अतिरिक्त छूट मिलती है।' } },
+    { '@type': 'Question', name: 'PMFME योजना में आलू प्रसंस्करण पर कितनी सब्सिडी मिलती है?', acceptedAnswer: { '@type': 'Answer', text: 'PMFME योजना में आलू चिप्स, फ्लेक्स, स्टार्च जैसे सूक्ष्म प्रसंस्करण उद्यमों के लिए परियोजना लागत का 35% (अधिकतम ₹10 लाख) सब्सिडी मिलती है।' } },
   ],
 };
 
-/* All scheme cards — hardcoded highlights + dynamic blog posts */
-const highlightSchemes = [
-  { icon: '🌾', name: 'PM किसान सम्मान निधि', benefit: '₹6,000/वर्ष', desc: 'तीन किस्तों में सीधे बैंक खाते में — सभी किसान परिवारों के लिए', status: 'सक्रिय', link: '/samachar/pm-kisan-samman-nidhi-yojana' },
-  { icon: '❄️', name: 'कोल्ड स्टोरेज सब्सिडी (PMKSY)', benefit: '35-50% अनुदान', desc: 'नए कोल्ड स्टोरेज निर्माण पर सरकारी सब्सिडी — PMKSY के तहत', status: 'सक्रिय', link: '/samachar/cold-storage-subsidy-scheme-india' },
-  { icon: '🧬', name: 'लेडी रोसेटा विस्तार योजना', benefit: '75% सब्सिडी', desc: 'बिहार 17 जिलों में प्रसंस्करण-गुणवत्ता आलू पर ₹93,863/हे. अनुदान', status: 'नई', link: '/samachar/bihar-lady-rosetta-vistar-yojana' },
-  { icon: '💰', name: 'किसान क्रेडिट कार्ड (KCC)', benefit: '4% ब्याज दर', desc: '₹5 लाख तक का फसल ऋण — समय पर भुगतान पर 3% छूट', status: 'सक्रिय', link: '/samachar/kisan-credit-card-yojana' },
-  { icon: '🏭', name: 'PMFME — सूक्ष्म प्रसंस्करण सब्सिडी', benefit: '35% / ₹10 लाख', desc: 'आलू चिप्स, फ्लेक्स, स्टार्च बनाने के लिए सूक्ष्म उद्यम सब्सिडी', status: 'सक्रिय', link: '/samachar/pmfme-yojana-potato-processing' },
-  { icon: '🏦', name: 'NABARD कोल्ड स्टोरेज लोन', benefit: '3% ब्याज छूट', desc: 'AIF से ₹2 करोड़ तक लोन — 7 वर्षों तक 3% ब्याज सहायता + CGTMSE गारंटी', status: 'सक्रिय', link: '/samachar/nabard-cold-storage-subsidy-loan' },
-  { icon: '🥔', name: 'UP आलू खेती योजनाएँ', benefit: '50% उपकरण अनुदान', desc: 'उत्तर प्रदेश — प्लांटर, हार्वेस्टर, ड्रिप सिंचाई, बीज अनुदान', status: 'राज्य', link: '/samachar/up-aloo-kheti-yojana' },
-  { icon: '🏗️', name: 'गुजरात प्रसंस्करण योजनाएँ', benefit: '35-50% सब्सिडी', desc: 'गुजरात — GIDC भूमि, बिजली छूट, SGST प्रतिपूर्ति, कॉन्ट्रैक्ट फार्मिंग', status: 'राज्य', link: '/samachar/gujarat-aloo-processing-yojana' },
+const schemes = [
+  { icon: '🌾', name: 'PM किसान सम्मान निधि', benefit: '₹6,000/वर्ष', desc: 'तीन किस्तों में सीधे बैंक खाते में — सभी किसान परिवारों के लिए', status: 'सक्रिय' as const, type: 'केंद्र' as const, tags: ['किसान', 'आय सहायता'], link: '/samachar/pm-kisan-samman-nidhi-yojana', eligibility: 'सभी भूमिधारक किसान' },
+  { icon: '❄️', name: 'कोल्ड स्टोरेज सब्सिडी (PMKSY)', benefit: '35-50% अनुदान', desc: 'नए कोल्ड स्टोरेज निर्माण पर सरकारी सब्सिडी — अधिकतम ₹10 करोड़', status: 'सक्रिय' as const, type: 'केंद्र' as const, tags: ['कोल्ड स्टोरेज', 'अवसंरचना'], link: '/samachar/cold-storage-subsidy-scheme-india', eligibility: 'किसान, FPO, कंपनियाँ' },
+  { icon: '🧬', name: 'लेडी रोसेटा विस्तार योजना', benefit: '75% सब्सिडी', desc: 'बिहार 17 ज़िलों में प्रसंस्करण-गुणवत्ता आलू पर ₹93,863/हे. अनुदान', status: 'नई' as const, type: 'राज्य' as const, tags: ['बिहार', 'प्रसंस्करण'], link: '/samachar/bihar-lady-rosetta-vistar-yojana', eligibility: 'बिहार के किसान (17 ज़िले)' },
+  { icon: '💰', name: 'किसान क्रेडिट कार्ड (KCC)', benefit: '4% ब्याज दर', desc: '₹5 लाख तक का फसल ऋण — समय पर भुगतान पर वास्तविक ब्याज सिर्फ 1%', status: 'सक्रिय' as const, type: 'केंद्र' as const, tags: ['ऋण', 'किसान'], link: '/samachar/kisan-credit-card-yojana', eligibility: 'सभी किसान' },
+  { icon: '🏭', name: 'PMFME — सूक्ष्म प्रसंस्करण', benefit: '35% / ₹10 लाख', desc: 'आलू चिप्स, फ्लेक्स, स्टार्च — सूक्ष्म खाद्य प्रसंस्करण उद्यम सब्सिडी', status: 'सक्रिय' as const, type: 'केंद्र' as const, tags: ['प्रसंस्करण', 'उद्यम'], link: '/samachar/pmfme-yojana-potato-processing', eligibility: 'उद्यमी, SHG, FPO' },
+  { icon: '🏦', name: 'NABARD कोल्ड स्टोरेज लोन', benefit: '3% ब्याज छूट', desc: 'AIF से ₹2 करोड़ तक लोन — 7 वर्षों तक ब्याज सहायता + CGTMSE गारंटी', status: 'सक्रिय' as const, type: 'केंद्र' as const, tags: ['कोल्ड स्टोरेज', 'लोन'], link: '/samachar/nabard-cold-storage-subsidy-loan', eligibility: 'किसान, FPO, कंपनियाँ' },
+  { icon: '🥔', name: 'UP आलू खेती योजनाएँ', benefit: '50% उपकरण अनुदान', desc: 'उत्तर प्रदेश — प्लांटर, हार्वेस्टर, ड्रिप सिंचाई, बीज अनुदान', status: 'सक्रिय' as const, type: 'राज्य' as const, tags: ['उत्तर प्रदेश', 'उपकरण'], link: '/samachar/up-aloo-kheti-yojana', eligibility: 'UP के किसान' },
+  { icon: '🏗️', name: 'गुजरात प्रसंस्करण योजनाएँ', benefit: '35-50% सब्सिडी', desc: 'GIDC भूमि, बिजली छूट, SGST प्रतिपूर्ति, कॉन्ट्रैक्ट फार्मिंग सहायता', status: 'सक्रिय' as const, type: 'राज्य' as const, tags: ['गुजरात', 'प्रसंस्करण'], link: '/samachar/gujarat-aloo-processing-yojana', eligibility: 'गुजरात के उद्यमी' },
 ];
 
 export const metadata: Metadata = {
   title: 'सरकारी योजनाएँ — आलू किसानों के लिए अनुदान और सब्सिडी | Govt Schemes for Potato Farmers',
   description: 'आलू किसानों के लिए प्रमुख सरकारी योजनाएँ — PM किसान, कोल्ड स्टोरेज सब्सिडी, PMFME, NABARD लोन, किसान क्रेडिट कार्ड, UP और गुजरात राज्य योजनाएँ।',
-  alternates: {
-    canonical: 'https://www.indianpotato.in/yojnaye',
-  },
+  alternates: { canonical: 'https://www.indianpotato.in/yojnaye' },
   openGraph: {
     title: 'सरकारी योजनाएँ — आलू किसानों के लिए अनुदान और सब्सिडी',
     description: 'आलू किसानों के लिए प्रमुख सरकारी योजनाएँ — PM किसान, कोल्ड स्टोरेज सब्सिडी, PMFME, NABARD लोन, और राज्य स्तरीय योजनाएँ।',
@@ -71,14 +41,11 @@ export const metadata: Metadata = {
 };
 
 export default function YojnayePage() {
-  // Pull scheme-related blog posts dynamically
   const allPosts = getAllPosts();
   const schemePosts = allPosts.filter(
     (p) => p.category === 'policy' || p.tags.some((t) => t.includes('योजना') || t.includes('सब्सिडी'))
   );
-
-  // Deduplicate: remove posts already in highlightSchemes
-  const highlightSlugs = new Set(highlightSchemes.map((s) => s.link.replace('/samachar/', '')));
+  const highlightSlugs = new Set(schemes.map((s) => s.link.replace('/samachar/', '')));
   const additionalPosts = schemePosts.filter((p) => !highlightSlugs.has(p.slug));
 
   return (
@@ -90,73 +57,66 @@ export default function YojnayePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navbar />
       <main className="pt-[76px]">
-        <div className="bg-gradient-to-r from-red-700 to-red-600 py-16 px-6">
-          <div className="max-w-[1280px] mx-auto">
+
+        {/* HERO */}
+        <section style={{
+          background: 'linear-gradient(135deg, #7f1d1d 0%, #dc2626 40%, #7f1d1d 100%)',
+          padding: 'clamp(40px, 8vw, 80px) clamp(16px, 5vw, 48px)',
+          position: 'relative', overflow: 'hidden',
+        }}>
+          <div style={{ position: 'absolute', top: '-40%', right: '-15%', width: 500, height: 500, background: 'radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
+          <div style={{ maxWidth: 900, margin: '0 auto', position: 'relative', zIndex: 2 }}>
             <BreadcrumbNav items={[
               { name: 'होम', url: '/' },
               { name: 'योजनाएँ', url: '/yojnaye' },
             ]} />
-            <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, color: '#fff', marginBottom: 12 }}>
+            <div style={{ display: 'inline-block', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 50, padding: '6px 16px', marginBottom: 20 }}>
+              <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#fff', letterSpacing: 1 }}>{schemes.length} योजनाएँ उपलब्ध</span>
+            </div>
+            <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)', fontWeight: 800, color: '#fff', lineHeight: 1.15, marginBottom: 16 }}>
               सरकारी योजनाएँ
             </h1>
-            <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.75)', maxWidth: 600 }}>
-              आलू किसानों और प्रसंस्करण उद्योग के लिए केंद्र व राज्य सरकार की योजनाएँ, अनुदान और सब्सिडी
+            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.15rem)', color: 'rgba(255,255,255,0.8)', lineHeight: 1.7, maxWidth: 650, marginBottom: 0 }}>
+              केंद्र और राज्य सरकार की योजनाएँ जो आलू किसानों, प्रसंस्करण उद्योग और कोल्ड स्टोरेज व्यवसाय को लाभ पहुँचाती हैं
             </p>
           </div>
-        </div>
-
-        {/* All Scheme Cards */}
-        <section style={{ padding: '80px 20px', background: '#f9fafb' }}>
-          <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 32 }}>
-              <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
-              <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#333' }}>प्रमुख योजनाएँ</h2>
-            </div>
-            <div className="scheme-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
-              {highlightSchemes.map((s, i) => (
-                <Link key={i} href={s.link} className="scheme-card" style={{ background: '#fff', padding: '28px 24px', border: '1px solid #eee', borderLeft: '4px solid #E53E3E', borderRadius: 10, cursor: 'pointer', position: 'relative', textDecoration: 'none', color: 'inherit', display: 'block', transition: 'transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease' }}>
-                  <div style={{ position: 'absolute', top: 16, right: 16, padding: '4px 12px', borderRadius: 20, fontSize: '0.62rem', fontWeight: 700,
-                    background: s.status === 'नई' ? '#fef2f2' : s.status === 'राज्य' ? '#eff6ff' : '#dcfce7',
-                    color: s.status === 'नई' ? '#dc2626' : s.status === 'राज्य' ? '#1d4ed8' : '#166534',
-                  }}>{s.status}</div>
-                  <div style={{ width: 48, height: 48, borderRadius: '50%', background: '#fef2f2', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, marginBottom: 16 }}>{s.icon}</div>
-                  <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#333', marginBottom: 6, lineHeight: 1.3 }}>{s.name}</h3>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 900, color: '#E53E3E', marginBottom: 10 }}>{s.benefit}</div>
-                  <p style={{ fontSize: '0.85rem', color: '#888', lineHeight: 1.6, marginBottom: 12 }}>{s.desc}</p>
-                  <span className="scheme-arrow" style={{ fontSize: '0.78rem', fontWeight: 600, color: '#dc2626', opacity: 0, transition: 'opacity 0.3s' }}>विवरण देखें →</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-          <style>{`
-            .scheme-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(220,38,38,0.12); background: linear-gradient(180deg, #fff 0%, #fef8f8 100%) !important; }
-            .scheme-card:hover .scheme-arrow { opacity: 1 !important; }
-          `}</style>
         </section>
 
-        {/* Additional scheme-related blog posts */}
-        {additionalPosts.length > 0 && (
-          <section style={{ padding: '0 20px 80px', background: '#f9fafb' }}>
-            <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24 }}>
-                <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
-                <h2 style={{ fontSize: 'clamp(1.3rem, 3vw, 1.7rem)', fontWeight: 700, color: '#333' }}>और योजना-संबंधी लेख</h2>
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
-                {additionalPosts.map((post) => (
-                  <Link key={post.slug} href={'/samachar/' + post.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <div style={{ background: '#fff', borderRadius: 10, padding: '20px 24px', border: '1px solid #eee', transition: 'box-shadow 0.2s, transform 0.2s', cursor: 'pointer' }}>
-                      <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#333', lineHeight: 1.4, marginBottom: 8 }}>{post.title}</h3>
-                      <p style={{ fontSize: '0.82rem', color: '#888', lineHeight: 1.6 }}>{post.excerpt.slice(0, 120)}…</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
+        {/* SCHEME CARDS — client component for filter interactivity */}
+        <YojnayeClient schemes={schemes} additionalPosts={additionalPosts.map((p) => ({ slug: p.slug, title: p.title, excerpt: p.excerpt }))} />
 
-        <WhatsAppCTA />
+        {/* BOTTOM CTA */}
+        <section style={{ padding: '64px 20px', background: '#fff' }}>
+          <div style={{ maxWidth: 700, margin: '0 auto', textAlign: 'center' }}>
+            <h2 style={{ fontSize: 'clamp(1.3rem, 4vw, 1.8rem)', fontWeight: 700, color: '#333', marginBottom: 12 }}>
+              क्या आपको योजना के बारे में और जानकारी चाहिए?
+            </h2>
+            <p style={{ fontSize: '0.95rem', color: '#888', lineHeight: 1.7, marginBottom: 28, maxWidth: 500, margin: '0 auto 28px' }}>
+              हमारी टीम आपकी सहायता के लिए तैयार है — पात्रता, आवेदन प्रक्रिया, या DPR बनाने में मदद
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
+              <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{
+                display: 'inline-flex', alignItems: 'center', gap: 10,
+                padding: '14px 28px', borderRadius: 50,
+                background: 'linear-gradient(135deg, #25D366, #128C7E)',
+                color: '#fff', fontWeight: 700, fontSize: '0.95rem',
+                textDecoration: 'none', boxShadow: '0 4px 15px rgba(37,211,102,0.3)',
+              }}>
+                WhatsApp पर पूछें
+              </a>
+              <a href="mailto:news@indpotato.com?subject=योजना जानकारी — Indian Potato" style={{
+                display: 'inline-flex', alignItems: 'center', gap: 10,
+                padding: '14px 28px', borderRadius: 50,
+                background: '#fff', border: '2px solid #dc2626',
+                color: '#dc2626', fontWeight: 700, fontSize: '0.95rem',
+                textDecoration: 'none',
+              }}>
+                ईमेल करें
+              </a>
+            </div>
+          </div>
+        </section>
+
       </main>
       <Footer />
     </>
