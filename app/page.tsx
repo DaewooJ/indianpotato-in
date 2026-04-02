@@ -48,7 +48,7 @@ export default function HomePage() {
             <span style={{ fontSize: 13, color: '#555', fontWeight: 600, opacity: 0.7 }}>🏛️ data.gov.in</span>
             <span style={{ fontSize: 13, color: '#555', fontWeight: 600, opacity: 0.7 }}>🔬 ICAR-CPRI शिमला</span>
             <span style={{ fontSize: 13, color: '#555', fontWeight: 600, opacity: 0.7 }}>🌾 कृषि मंत्रालय</span>
-            <span style={{ fontSize: 13, color: '#555', fontWeight: 600, opacity: 0.7 }}>💬 15,000+ WhatsApp सदस्य</span>
+            <span style={{ fontSize: 13, color: '#555', fontWeight: 600, opacity: 0.7 }}>💬 5,000+ WhatsApp सदस्य</span>
             <span style={{ fontSize: 13, color: '#555', fontWeight: 600, opacity: 0.7 }}>📊 86+ मंडी भाव</span>
           </div>
         </section>

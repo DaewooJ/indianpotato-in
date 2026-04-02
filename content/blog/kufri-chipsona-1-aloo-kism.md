@@ -98,7 +98,7 @@ featured: false
 
 <div style="background:linear-gradient(135deg,#fef2f2,#fff);border:1px solid #fecaca;padding:20px;border-radius:12px;margin:24px 0;">
 <strong style="color:#dc2626;font-size:16px;">🏭 प्रसंस्करण उद्योग से जुड़ें</strong><br><br>
-<span style="color:#555;">चिप्सोना-1 के ख़रीदार खोज रहे हैं? <a href="/directory/processors" style="color:#dc2626;font-weight:600;">प्रसंस्करण कंपनी डायरेक्टरी</a> में Balaji, PepsiCo, HyFun जैसी कंपनियों की जानकारी। <a href="https://spuds.me/kisan" style="color:#dc2626;font-weight:600;">WhatsApp ग्रुप</a> में 15,000+ उद्योग सदस्य।</span>
+<span style="color:#555;">चिप्सोना-1 के ख़रीदार खोज रहे हैं? <a href="/directory/processors" style="color:#dc2626;font-weight:600;">प्रसंस्करण कंपनी डायरेक्टरी</a> में Balaji, PepsiCo, HyFun जैसी कंपनियों की जानकारी। <a href="https://spuds.me/kisan" style="color:#dc2626;font-weight:600;">WhatsApp ग्रुप</a> में 5,000+ उद्योग सदस्य।</span>
 </div>
 
 ---

@@ -99,7 +99,7 @@ export default function PlansPage() {
               अपना व्यवसाय भारत के<br className="hidden sm:block" /> <span className="text-amber-400">#1 आलू प्लेटफ़ॉर्म</span> पर सूचीबद्ध करें
             </h1>
             <p className="font-body text-[0.92rem] text-stone-400 max-w-[520px] mx-auto leading-relaxed">
-              15,000+ किसान, व्यापारी और उद्योग पेशेवर प्रतिसप्ताह हमारी डायरेक्टरी देखते हैं। अपनी पहुँच बढ़ाएँ।
+              5,000+ किसान, व्यापारी और उद्योग पेशेवर प्रतिसप्ताह हमारी डायरेक्टरी देखते हैं। अपनी पहुँच बढ़ाएँ।
             </p>
           </div>
         </div>

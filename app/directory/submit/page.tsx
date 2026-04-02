@@ -36,7 +36,7 @@ export default function SubmitListingPage() {
               अपना व्यवसाय भारत के<br className="hidden sm:block" /> <span className="text-amber-400">सबसे बड़े आलू प्लेटफ़ॉर्म</span> पर सूचीबद्ध करें
             </h1>
             <p className="font-body text-[0.9rem] text-stone-400 max-w-[480px] mx-auto leading-relaxed">
-              15,000+ किसान और व्यापारी प्रतिसप्ताह हमारी डायरेक्टरी देखते हैं। नीचे फ़ॉर्म भरें।
+              5,000+ किसान और व्यापारी प्रतिसप्ताह हमारी डायरेक्टरी देखते हैं। नीचे फ़ॉर्म भरें।
             </p>
             <div className="flex flex-wrap justify-center gap-3 mt-6">
               {[{ icon: '✅', text: 'सत्यापित लिस्टिंग' }, { icon: '🔒', text: 'डेटा सुरक्षित' }, { icon: '⚡', text: '24 घंटे में लाइव' }].map((t, i) => (

@@ -186,7 +186,7 @@ featured: false
 
 <div style="background:linear-gradient(135deg,#fef2f2,#fff);border:1px solid #fecaca;padding:20px;border-radius:12px;margin:24px 0;">
 <strong style="color:#dc2626;font-size:16px;">📊 रोज़ाना भाव अपडेट पाएँ</strong><br><br>
-<span style="color:#555;">Indian Potato पर <a href="/mandi" style="color:#dc2626;font-weight:600;">मंडी भाव पेज</a> पर यूपी की सभी प्रमुख मंडियों के लाइव भाव देखें। <a href="https://spuds.me/kisan" style="color:#dc2626;font-weight:600;">WhatsApp ग्रुप</a> जॉइन करें — 15,000+ किसान और व्यापारी रोज़ अपडेट पाते हैं।</span>
+<span style="color:#555;">Indian Potato पर <a href="/mandi" style="color:#dc2626;font-weight:600;">मंडी भाव पेज</a> पर यूपी की सभी प्रमुख मंडियों के लाइव भाव देखें। <a href="https://spuds.me/kisan" style="color:#dc2626;font-weight:600;">WhatsApp ग्रुप</a> जॉइन करें — 5,000+ किसान और व्यापारी रोज़ अपडेट पाते हैं।</span>
 </div>
 
 ---

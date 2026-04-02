@@ -223,7 +223,7 @@ export function WhatsAppCTA() {
           आलू उद्योग से जुड़े रहें
         </h2>
         <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, marginBottom: 32 }}>
-          15,000+ सदस्य · मंडी भाव · योजनाएँ · समाचार
+          5,000+ सदस्य · मंडी भाव · योजनाएँ · समाचार
         </p>
         <a
           href="https://spuds.me/kisan"
@@ -255,7 +255,7 @@ export function Footer() {
         {[
           { number: '15+', label: 'लेख और गाइड' },
           { number: '54+', label: 'कंपनियाँ डायरेक्टरी में' },
-          { number: '15,000+', label: 'WhatsApp सदस्य' },
+          { number: '5,000+', label: 'WhatsApp सदस्य' },
           { number: '86+', label: 'मंडी भाव रोज़ाना' },
         ].map((stat, i) => (
           <div key={i} style={{ textAlign: 'center', minWidth: 120 }}>

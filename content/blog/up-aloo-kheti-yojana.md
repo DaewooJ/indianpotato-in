@@ -134,7 +134,7 @@ upagriculture.com या CSC केंद्र पर किसान पंज
 
 <div style="background:linear-gradient(135deg,#fef2f2,#fff);border:1px solid #fecaca;padding:20px;border-radius:12px;margin:24px 0;">
 <strong style="color:#dc2626;font-size:16px;">📞 सहायता</strong><br><br>
-<span style="color:#555;"><a href="https://spuds.me/kisan" style="color:#dc2626;font-weight:600;">WhatsApp ग्रुप</a> जॉइन करें — 15,000+ UP किसान जुड़े हैं। <a href="/sampark" style="color:#dc2626;font-weight:600;">संपर्क</a> करें।</span>
+<span style="color:#555;"><a href="https://spuds.me/kisan" style="color:#dc2626;font-weight:600;">WhatsApp ग्रुप</a> जॉइन करें — 5,000+ UP किसान जुड़े हैं। <a href="/sampark" style="color:#dc2626;font-weight:600;">संपर्क</a> करें।</span>
 </div>
 
 ---
