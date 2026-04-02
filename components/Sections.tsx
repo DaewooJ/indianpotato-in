@@ -207,15 +207,31 @@ export function DirectoryPreview({ categories }: { categories: DirCat[] }) {
 /* ─── WHATSAPP CTA ─── */
 export function WhatsAppCTA() {
   return (
-    <section id="whatsapp" style={{ padding: '56px 28px', background: '#E53E3E' }}>
-      <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 36, flexWrap: 'wrap', justifyContent: 'center' }}>
-        <div style={{ width: 64, height: 64, borderRadius: 10, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32, flexShrink: 0 }}>💬</div>
-        <div style={{ flex: 1, minWidth: 240 }}>
-          <h2 style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '1.35rem', fontWeight: 800, color: '#fff', marginBottom: 6 }}>WhatsApp पर रोज़ अपडेट पाएँ</h2>
-          <p style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.88rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.6 }}>मंडी भाव · योजनाएँ · खेती टिप्स · समाचार — मुफ्त · 15,000+ सदस्य</p>
-        </div>
-        <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#fff', color: '#E53E3E', textDecoration: 'none', padding: '14px 32px', borderRadius: 6, fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.95rem', fontWeight: 800, flexShrink: 0 }}>📲 अभी जॉइन करें</a>
+    <section id="whatsapp" style={{ padding: '80px 20px', background: '#111827' }}>
+      <div style={{ maxWidth: 600, margin: '0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <h2 style={{ fontSize: 'clamp(1.4rem, 4vw, 1.75rem)', fontWeight: 600, color: '#fff', lineHeight: 1.3, marginBottom: 12 }}>
+          आलू उद्योग से जुड़े रहें
+        </h2>
+        <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, marginBottom: 32 }}>
+          15,000+ सदस्य · मंडी भाव · योजनाएँ · समाचार
+        </p>
+        <a
+          href="https://spuds.me/kisan"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="wa-cta-btn"
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: 10,
+            padding: '14px 32px', borderRadius: 50,
+            background: '#fff', color: '#111827',
+            textDecoration: 'none', fontWeight: 600, fontSize: 15,
+            transition: 'background 0.25s ease',
+          }}
+        >
+          WhatsApp ग्रुप जॉइन करें
+        </a>
       </div>
+      <style>{`.wa-cta-btn:hover { background: #f3f4f6 !important; }`}</style>
     </section>
   );
 }
