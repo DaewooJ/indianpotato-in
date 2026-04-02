@@ -3,7 +3,7 @@ title: "कुफरी ज्योति — भारत की सबसे 
 excerpt: "कुफरी ज्योति आलू किस्म की सम्पूर्ण जानकारी — उपज 25-30 टन/हे., 90-100 दिन अवधि, लेट ब्लाइट प्रतिरोधी, 20+ राज्यों में उगाई जाने वाली भारत की #1 आलू किस्म।"
 date: "2026-04-01"
 category: "research"
-image: "/images/kufri-jyoti-variety.jpg"
+image: "/images/kufri-jyoti.jpg"
 author: "Indian Potato Team"
 tags: ["कुफरी ज्योति", "आलू किस्म", "CPRI", "आलू उपज", "आलू खेती", "लेट ब्लाइट"]
 featured: false
@@ -27,6 +27,9 @@ featured: false
 </div>
 
 ![कुफरी ज्योति — भारत की सबसे लोकप्रिय आलू किस्म](/images/kufri-jyoti-variety.jpg)
+
+
+![कुफरी ज्योति आलू किस्म — भारत की सबसे लोकप्रिय किस्म](/images/kufri-jyoti.jpg)
 
 ## किस्म परिचय
 

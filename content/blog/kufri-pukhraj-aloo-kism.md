@@ -3,7 +3,7 @@ title: "कुफरी पुखराज — भारत की सबसे 
 excerpt: "कुफरी पुखराज आलू किस्म — 35-40 टन/हे. उपज, 80-90 दिन में तैयार, सुनहरी-पीली त्वचा। UP, बिहार, बंगाल में सबसे लोकप्रिय। खेती गाइड, बीज दर और बाज़ार भाव।"
 date: "2026-04-01"
 category: "research"
-image: "/images/kufri-pukhraj-variety.jpg"
+image: "/images/kufri-pukhraj.jpg"
 author: "Indian Potato Team"
 tags: ["कुफरी पुखराज", "आलू किस्म", "उच्च उपज", "अगेती किस्म", "आलू खेती", "बिहार आलू"]
 featured: false
@@ -27,6 +27,9 @@ featured: false
 </div>
 
 ![कुफरी पुखराज — भारत की सबसे अधिक उपज वाली आलू किस्म](/images/kufri-pukhraj-variety.jpg)
+
+
+![कुफरी पुखराज आलू किस्म — उच्च उपज वाली अगेती किस्म](/images/kufri-pukhraj.jpg)
 
 ## किस्म परिचय
 
