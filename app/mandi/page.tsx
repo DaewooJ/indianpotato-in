@@ -34,20 +34,22 @@ export default function MandiPage() {
       ]} />
       <Navbar />
       <main className="pt-[76px]">
-        <div className="bg-gradient-to-r from-red-700 to-red-600 py-16 px-6">
-          <div className="max-w-[1280px] mx-auto">
-            <BreadcrumbNav items={[
-              { name: 'होम', url: '/' },
-              { name: 'मंडी भाव', url: '/mandi' },
-            ]} />
-            <h1 className="font-display text-[clamp(2rem,5vw,3rem)] font-bold text-white mb-3">
-              आलू मंडी भाव
-            </h1>
-            <p className="font-body text-[1.05rem] text-white/75 max-w-[600px]">
-              भारत की सभी प्रमुख मंडियों से आलू के रोज़ाना थोक भाव — राज्यवार फ़िल्टर के साथ
+        <section style={{ background: '#fff', padding: 'clamp(48px, 8vw, 80px) 20px clamp(36px, 6vw, 60px)', borderBottom: '1px solid #f0f0f0' }}>
+          <div style={{ maxWidth: 700, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <span style={{ display: 'inline-block', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 50, padding: '4px 14px', marginBottom: 24, fontSize: 12, color: '#dc2626', fontWeight: 600, letterSpacing: '0.05em' }}>
+              मंडी भाव
+            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
+              <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', fontWeight: 700, color: '#111827', lineHeight: 1.2, margin: 0 }}>
+                आज का आलू मंडी भाव
+              </h1>
+              <span style={{ background: '#dcfce7', color: '#166534', fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 50, letterSpacing: '0.05em' }}>LIVE</span>
+            </div>
+            <p style={{ fontSize: 16, color: '#6b7280', lineHeight: 1.6, maxWidth: 550 }}>
+              भारत की प्रमुख मंडियों से आलू के ताज़ा थोक भाव — data.gov.in API से लाइव अपडेट
             </p>
           </div>
-        </div>
+        </section>
         <MandiPricesLive />
         <WhatsAppCTA />
       </main>
