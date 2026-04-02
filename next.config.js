@@ -70,10 +70,8 @@ const nextConfig = {
       { source: '/seed-com-test-1-4', destination: '/directory/seed-suppliers', permanent: true },
       { source: '/kavyapotato', destination: '/directory/seed-suppliers/kavya-agro-potato-seed-sikandrabad', permanent: true },
 
-      // Old state pages → /samachar
-      { source: '/state/punjab', destination: '/samachar', permanent: true },
-      { source: '/state/uttar-pradesh', destination: '/samachar', permanent: true },
-      { source: '/state/:path*', destination: '/samachar', permanent: true },
+      // Old state pages — removed: now have real /state/ pages
+      { source: '/state/haryana', destination: '/samachar', permanent: true },
 
       // Old WordPress junk → homepage
       { source: '/tbuilder-layout-part/:path*', destination: '/', permanent: true },
