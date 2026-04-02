@@ -15,6 +15,13 @@ export const metadata: Metadata = {
     description: 'भारत की प्रमुख मंडियों से आलू के ताज़ा थोक भाव। प्रतिदिन अपडेट।',
     url: 'https://www.indianpotato.in/mandi',
     type: 'website',
+    images: [{ url: 'https://www.indianpotato.in/images/mandi-og-image.jpg', width: 1200, height: 630, alt: 'आज का आलू मंडी भाव — Indian Potato' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'आज का आलू मंडी भाव — ताज़ा थोक भाव',
+    description: 'भारत की प्रमुख मंडियों से आलू के ताज़ा थोक भाव। प्रतिदिन अपडेट।',
+    images: ['https://www.indianpotato.in/images/mandi-og-image.jpg'],
   },
 };
 
