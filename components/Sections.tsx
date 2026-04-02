@@ -79,7 +79,7 @@ const schemes = [
 
 export function GovSchemes() {
   return (
-    <section id="schemes" style={{ padding: '80px 20px', background: '#f9fafb' }}>
+    <section id="schemes" style={{ padding: '80px 20px', background: '#fafafa' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 8 }}>
           <div>
@@ -87,29 +87,39 @@ export function GovSchemes() {
               <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
               <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#333' }}>सरकारी योजनाएँ</h2>
             </div>
-            <div style={{ fontSize: '0.72rem', color: '#999', marginTop: 4, paddingLeft: 16 }}>अपडेट: मार्च 2026</div>
+            <div style={{ fontSize: '0.72rem', color: '#999', marginTop: 4, paddingLeft: 16 }}>अपडेट: अप्रैल 2026</div>
           </div>
           <Link href="/yojnaye" style={{ textDecoration: 'none', fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>सभी योजनाएँ →</Link>
         </div>
-        <div className="scheme-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
+        <div className="scheme-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
           {schemes.map((s, i) => (
-            <a key={i} href={s.link || "/yojnaye"} className="scheme-card" style={{ background: '#fff', padding: '28px 24px', border: '1px solid #eee', borderLeft: '4px solid #E53E3E', borderRadius: 10, cursor: 'pointer', position: 'relative', textDecoration: 'none', color: 'inherit', display: 'block', transition: 'transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease' }}>
-              <div style={{ position: 'absolute', top: 16, right: 16, padding: '4px 12px', borderRadius: 20, fontSize: '0.62rem', fontWeight: 700,
-                background: s.status === 'नई' ? '#fef2f2' : '#dcfce7',
-                color: s.status === 'नई' ? '#dc2626' : '#166534',
-              }}>{s.status}</div>
-              <div style={{ width: 48, height: 48, borderRadius: '50%', background: '#fef2f2', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, marginBottom: 16 }}>{s.icon}</div>
-              <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#333', marginBottom: 6, lineHeight: 1.3 }}>{s.name}</h3>
-              <div style={{ fontSize: '1.1rem', fontWeight: 900, color: '#E53E3E', marginBottom: 10 }}>{s.benefit}</div>
-              <p style={{ fontSize: '0.85rem', color: '#888', lineHeight: 1.6, marginBottom: 12 }}>{s.desc}</p>
-              <span className="scheme-arrow" style={{ fontSize: '0.78rem', fontWeight: 600, color: '#dc2626', opacity: 0 , transition: 'opacity 0.3s' }}>विवरण देखें →</span>
-            </a>
+            <Link key={i} href={s.link || '/yojnaye'} className="scheme-card" style={{
+              background: '#fff', padding: 28, borderRadius: 16,
+              border: '1px solid #f0f0f0',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
+              textDecoration: 'none', color: 'inherit',
+              display: 'flex', flexDirection: 'column',
+              transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+                <span style={{ fontSize: 11, fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.05em' }}>केंद्र सरकार</span>
+                <span style={{ padding: '4px 10px', borderRadius: 50, fontSize: 11, fontWeight: 600,
+                  background: s.status === 'नई' ? '#dbeafe' : '#dcfce7',
+                  color: s.status === 'नई' ? '#1d4ed8' : '#166534',
+                }}>{s.status}</span>
+              </div>
+              <h3 style={{ fontSize: 18, fontWeight: 600, color: '#1f2937', lineHeight: 1.35, marginBottom: 10 }}>{s.name}</h3>
+              <div style={{ fontSize: 24, fontWeight: 700, color: '#dc2626', marginBottom: 12, letterSpacing: '-0.02em' }}>{s.benefit}</div>
+              <p style={{ fontSize: 14, color: '#6b7280', lineHeight: 1.6, marginBottom: 16, flex: 1 }}>{s.desc}</p>
+              <span className="scheme-cta" style={{ fontSize: 14, fontWeight: 500, color: '#dc2626', transition: 'opacity 0.25s' }}>विवरण पढ़ें →</span>
+            </Link>
           ))}
         </div>
       </div>
       <style>{`
-        .scheme-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(220,38,38,0.12); background: linear-gradient(180deg, #fff 0%, #fef8f8 100%) !important; }
-        .scheme-card:hover .scheme-arrow { opacity: 1 !important; }
+        .scheme-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.08) !important; }
+        .scheme-card:hover .scheme-cta { text-decoration: underline; }
+        @media (max-width: 768px) { .scheme-cards { grid-template-columns: 1fr !important; gap: 16px !important; } }
       `}</style>
     </section>
   );
