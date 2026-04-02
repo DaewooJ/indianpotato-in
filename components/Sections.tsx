@@ -141,7 +141,7 @@ export function VarietiesQuick() {
         </div>
         <div className="variety-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: 16 }}>
           {varieties.map((v, i) => (
-            <div key={i} className="variety-card" style={{ background: '#fff', borderRadius: 12, padding: '20px', border: '1px solid #eee', borderLeft: '3px solid #dc2626', cursor: 'pointer', display: 'flex', gap: 18, alignItems: 'center', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}>
+            <div key={i} className="variety-card" style={{ background: '#fff', borderRadius: 12, padding: '20px', border: '1px solid #fecaca', cursor: 'default', display: 'flex', gap: 18, alignItems: 'flex-start', transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease' }}>
               <img src={v.img} alt={v.name + ' — भारतीय आलू किस्म'} style={{ width: 80, height: 80, borderRadius: 12, objectFit: 'cover', flexShrink: 0 }} loading="lazy" />
               <div style={{ flex: 1 }}>
                 <div style={{ marginBottom: 10 }}>
@@ -159,6 +159,7 @@ export function VarietiesQuick() {
                     </div>
                   ))}
                 </div>
+                <div style={{ fontSize: 12, color: '#9ca3af', fontStyle: 'italic', marginTop: 10 }}>जल्द ही विवरण उपलब्ध</div>
               </div>
             </div>
           ))}
@@ -166,7 +167,7 @@ export function VarietiesQuick() {
       </div>
       <style>{`
         @media (max-width: 720px) { .variety-cards { grid-template-columns: 1fr !important; } }
-        .variety-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+        .variety-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); border-color: #f87171 !important; }
       `}</style>
     </section>
   );
