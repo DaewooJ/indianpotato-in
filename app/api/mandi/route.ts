@@ -108,16 +108,27 @@ export async function GET(req: NextRequest) {
     .sort((a, b) => statePriority(a) - statePriority(b))
 
   // 6. === TRANSLATE EVERYTHING TO HINDI — FINAL STEP ===
-  const hindiRecords = sorted.map(r => ({
-    state: translateState(r.state),
-    market: translateMarket(r.market),
-    district: r.district,
-    variety: r.variety,
-    arrival_date: r.arrival_date,
-    min_price: r.min_price,
-    max_price: r.max_price,
-    modal_price: r.modal_price,
-  }))
+  const unmapped: string[] = []
+  const hindiRecords = sorted.map(r => {
+    const translatedMarket = translateMarket(r.market)
+    // If translation returned the same Latin text, it's unmapped
+    if (translatedMarket === r.market || !/[\u0900-\u097F]/.test(translatedMarket)) {
+      unmapped.push(r.market)
+    }
+    return {
+      state: translateState(r.state),
+      market: translatedMarket,
+      district: r.district,
+      variety: r.variety,
+      arrival_date: r.arrival_date,
+      min_price: r.min_price,
+      max_price: r.max_price,
+      modal_price: r.modal_price,
+    }
+  })
+  if (unmapped.length > 0) {
+    console.log('[mandi] Untranslated markets:', [...new Set(unmapped)].join(', '))
+  }
 
   const hindiStates = uniqueStates.map(s => translateState(s))
 

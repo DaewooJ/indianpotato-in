@@ -104,7 +104,7 @@ export default function SamacharClient({ posts }: { posts: Post[] }) {
             {featuredPost && (
               <Link href={`/samachar/${featuredPost.slug}`} className="block mb-10 sm:mb-14 group">
                 <article className="rounded-xl border border-gray-200 overflow-hidden bg-white transition-all duration-200 group-hover:-translate-y-0.5 group-hover:shadow-lg">
-                  <div className="relative aspect-[2/1] sm:aspect-[5/2] bg-gray-100">
+                  <div className="relative aspect-[16/9] bg-gray-100">
                     <Image
                       src={featuredPost.image}
                       alt={featuredPost.title}
@@ -142,7 +142,7 @@ export default function SamacharClient({ posts }: { posts: Post[] }) {
                 {displayPosts.map(post => (
                   <Link key={post.slug} href={`/samachar/${post.slug}`} className="group">
                     <article className="rounded-xl border border-gray-200 overflow-hidden bg-white h-full flex flex-col transition-all duration-200 group-hover:-translate-y-0.5 group-hover:shadow-md">
-                      <div className="relative aspect-[3/2] bg-gray-100">
+                      <div className="relative aspect-[16/9] bg-gray-100">
                         <Image
                           src={post.image}
                           alt={post.title}
