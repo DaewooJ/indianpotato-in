@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react'
 import { Search, MapPin, CheckCircle2, AlertCircle, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
+import { createClient } from '@/lib/supabase/client'
 
 interface SearchResult {
   name: string
@@ -23,7 +24,8 @@ export function ClaimListingFlow({ listings }: ClaimListingFlowProps) {
   const [results, setResults] = useState<SearchResult[]>([])
   const [searched, setSearched] = useState(false)
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null)
-  const [status, setStatus] = useState<'idle' | 'success'>('idle')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleSearch = useCallback(() => {
     if (!query.trim()) return
@@ -37,9 +39,32 @@ export function ClaimListingFlow({ listings }: ClaimListingFlowProps) {
     )
   }, [query, listings])
 
-  function handleClaim(e: React.FormEvent<HTMLFormElement>) {
+  async function handleClaim(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setStatus('success')
+    setStatus('loading')
+    setErrorMessage('')
+
+    const formEl = e.currentTarget
+    const fd = new FormData(formEl)
+    const selectedCompany = results.find((r) => r.slug === selectedSlug)
+
+    try {
+      const supabase = createClient()
+      const { error } = await supabase.from('enquiries').insert({
+        name: (fd.get('claimant_name') as string).trim(),
+        email: (fd.get('claimant_email') as string).trim(),
+        phone: (fd.get('claimant_phone') as string).trim(),
+        message: (fd.get('message') as string)?.trim() || `क्लेम अनुरोध — पद: ${(fd.get('designation') as string)?.trim() || 'N/A'}`,
+        company_name: selectedCompany?.name || '',
+        source: 'claim',
+      })
+
+      if (error) throw error
+      setStatus('success')
+    } catch (err) {
+      setStatus('error')
+      setErrorMessage('कुछ गलत हो गया। कृपया WhatsApp पर संपर्क करें।')
+    }
   }
 
   if (status === 'success') {
@@ -151,6 +176,12 @@ export function ClaimListingFlow({ listings }: ClaimListingFlowProps) {
                       onSubmit={handleClaim}
                       className="rounded-b-xl border border-t-0 border-gray-200 bg-gray-50 p-5 space-y-4 -mt-1"
                     >
+                      {status === 'error' && (
+                        <div className="flex items-start gap-2 rounded-lg bg-red-50 border border-red-200 p-3 text-sm text-red-700">
+                          <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                          <span>{errorMessage}</span>
+                        </div>
+                      )}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <label htmlFor="claimant_name" className="block text-sm font-medium text-gray-900 mb-1.5">आपका नाम *</label>
@@ -175,8 +206,15 @@ export function ClaimListingFlow({ listings }: ClaimListingFlowProps) {
                         <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-1.5">संदेश <span className="text-gray-400 font-normal">(वैकल्पिक)</span></label>
                         <textarea id="message" name="message" rows={3} className={`${inputCls} resize-none`} placeholder="क्लेम सत्यापन में मदद के लिए अतिरिक्त जानकारी..." />
                       </div>
-                      <Button type="submit" variant="primary" size="md">
-                        क्लेम अनुरोध जमा करें
+                      <Button type="submit" variant="primary" size="md" disabled={status === 'loading'}>
+                        {status === 'loading' ? (
+                          <span className="inline-flex items-center gap-2">
+                            <span className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            जमा हो रहा है...
+                          </span>
+                        ) : (
+                          'क्लेम अनुरोध जमा करें'
+                        )}
                       </Button>
                     </form>
                   )}

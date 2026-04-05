@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { CheckCircle2, AlertCircle, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { COMPANY_SIZE_LABELS, TURNOVER_LABELS, CERTIFICATIONS } from '@/lib/dir-constants'
+import { createClient } from '@/lib/supabase/client'
 
 const STEPS = ['कंपनी की बुनियादी जानकारी', 'संपर्क और स्थान', 'व्यवसाय विवरण', 'समीक्षा और जमा करें']
 
@@ -108,8 +109,39 @@ export function SubmitListingForm() {
     setStep((s) => Math.max(s - 1, 0))
   }
 
-  function handleSubmit() {
-    setStatus('success')
+  async function handleSubmit() {
+    setStatus('loading')
+    setErrorMessage('')
+
+    const productsArray = form.products_services
+      .split(',')
+      .map((p) => p.trim())
+      .filter(Boolean)
+
+    try {
+      const supabase = createClient()
+      const { error } = await supabase.from('listing_submissions').insert({
+        company_name: form.company_name.trim(),
+        company_name_hi: null,
+        category_slug: form.category_id,
+        description: form.description.trim(),
+        contact_person: null,
+        email: form.email.trim(),
+        phone: form.phone.trim(),
+        whatsapp: form.whatsapp.trim() || null,
+        website: form.website.trim() || null,
+        city: form.city.trim() || null,
+        state: form.state || null,
+        products: productsArray.length > 0 ? productsArray.join(', ') : null,
+        status: 'pending',
+      })
+
+      if (error) throw error
+      setStatus('success')
+    } catch (err) {
+      setStatus('error')
+      setErrorMessage('कुछ गलत हो गया। कृपया WhatsApp पर संपर्क करें।')
+    }
   }
 
   if (status === 'success') {
