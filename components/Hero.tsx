@@ -24,7 +24,7 @@ export default function Hero() {
                 padding: '16px 36px', borderRadius: 50,
                 fontSize: '1rem', fontWeight: 700,
                 display: 'inline-flex', alignItems: 'center', gap: 8,
-                boxShadow: '0 6px 20px rgba(220,38,38,0.35)',
+                boxShadow: '0 6px 20px rgba(5,66,13,0.35)',
                 transition: 'transform 0.2s ease, box-shadow 0.2s ease',
               }}>
                 मंडी भाव देखें →
@@ -83,7 +83,7 @@ export default function Hero() {
       </div>
       <style>{`
         @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr !important; gap: 36px !important; } }
-        .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(220,38,38,0.45) !important; filter: brightness(1.05); }
+        .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(5,66,13,0.45) !important; filter: brightness(1.05); }
       `}</style>
     </section>
   );

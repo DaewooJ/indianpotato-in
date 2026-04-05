@@ -88,7 +88,7 @@ export default function MandiPricesLive() {
               style={{ padding: '8px 18px', borderRadius: 20, border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' as const, transition: 'all 0.2s',
                 background: activeState === state ? '#05420d' : '#fff',
                 color: activeState === state ? '#fff' : '#666',
-                boxShadow: activeState === state ? '0 4px 14px rgba(220,38,38,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>
+                boxShadow: activeState === state ? '0 4px 14px rgba(5,66,13,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>
               {state}
             </button>
           ))}
@@ -120,7 +120,7 @@ export default function MandiPricesLive() {
                 return (
                   <div key={`${record.state}-${record.market}-${idx}`}
                     style={{ background: '#fff', borderRadius: 16, padding: 24, border: '1px solid #f3f4f6', transition: 'all 0.25s', cursor: 'default', position: 'relative' as const, overflow: 'hidden' }}
-                    onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = '0 8px 30px rgba(220,38,38,0.1)'; el.style.borderColor = '#bbf7d0'; el.style.transform = 'translateY(-2px)'; }}
+                    onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = '0 8px 30px rgba(5,66,13,0.1)'; el.style.borderColor = '#bbf7d0'; el.style.transform = 'translateY(-2px)'; }}
                     onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = 'none'; el.style.borderColor = '#f3f4f6'; el.style.transform = 'none'; }}>
                     <div style={{ marginBottom: 14 }}>
                       <h3 style={{ fontSize: 18, fontWeight: 700, color: '#1a1a1a', margin: 0 }}>{cleanMarket(record.market_hindi || record.market)}</h3>
@@ -148,7 +148,7 @@ export default function MandiPricesLive() {
             {filteredRecords.length > 8 && (
               <div style={{ textAlign: 'center' as const, marginTop: 28 }}>
                 <button onClick={() => setShowAll(!showAll)}
-                  style={{ padding: '12px 32px', background: '#ed6442', color: '#fff', border: 'none', borderRadius: 28, fontSize: 14, fontWeight: 700, cursor: 'pointer', boxShadow: '0 4px 14px rgba(220,38,38,0.25)' }}>
+                  style={{ padding: '12px 32px', background: '#ed6442', color: '#fff', border: 'none', borderRadius: 28, fontSize: 14, fontWeight: 700, cursor: 'pointer', boxShadow: '0 4px 14px rgba(5,66,13,0.25)' }}>
                   {showAll ? '↑ कम दिखाएँ' : `सभी ${filteredRecords.length} मंडी भाव देखें →`}
                 </button>
               </div>

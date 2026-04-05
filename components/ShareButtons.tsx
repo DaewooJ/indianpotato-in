@@ -78,7 +78,7 @@ export default function ShareButtons({ title, slug, variant = 'inline' }: ShareB
             background: '#ed6442',
             color: 'white', fontWeight: 600, fontSize: 14,
             border: 'none', cursor: 'pointer',
-            boxShadow: '0 2px 8px rgba(220,38,38,0.3)',
+            boxShadow: '0 2px 8px rgba(5,66,13,0.3)',
           }}
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" /></svg>

@@ -177,7 +177,7 @@ export function VarietiesQuick() {
       </div>
       <style>{`
         @media (max-width: 720px) { .variety-cards { grid-template-columns: 1fr !important; } }
-        .variety-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); border-color: #f87171 !important; }
+        .variety-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); border-color: #05420d !important; }
       `}</style>
     </section>
   );

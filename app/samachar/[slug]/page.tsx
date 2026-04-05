@@ -114,7 +114,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 color: '#05420d', fontWeight: 700, fontSize: 15,
                 textDecoration: 'none',
                 border: '2px solid rgba(255,255,255,0.3)',
-                boxShadow: '0 4px 15px rgba(220,38,38,0.15)',
+                boxShadow: '0 4px 15px rgba(5,66,13,0.15)',
               }}>
                 📧 समाचार या सुझाव ईमेल करें
               </a>
