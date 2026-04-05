@@ -42,7 +42,6 @@ export const STATE_NAMES_HI: Record<string, string> = {
 }
 
 export const MANDI_NAMES_HI: Record<string, string> = {
-  // Major cities & mandis
   'Agra': 'आगरा',
   'Ahmedabad': 'अहमदाबाद',
   'Ajmer': 'अजमेर',
@@ -50,9 +49,9 @@ export const MANDI_NAMES_HI: Record<string, string> = {
   'Allahabad': 'इलाहाबाद',
   'Ambala': 'अंबाला',
   'Amritsar': 'अमृतसर',
-  'Anand': 'आणंद',
+  'Anand': 'आनंद',
   'Azadpur': 'आज़ादपुर',
-  'Bangalore': 'बेंगलुरु',
+  'Bangalore': 'बैंगलोर',
   'Bareilly': 'बरेली',
   'Bayana': 'बयाना',
   'Bhavnagar': 'भावनगर',
@@ -66,8 +65,8 @@ export const MANDI_NAMES_HI: Record<string, string> = {
   'Dehradun': 'देहरादून',
   'Delhi': 'दिल्ली',
   'Etawah': 'इटावा',
-  'Farrukhabad': 'फ़र्रुख़ाबाद',
-  'Firozabad': 'फ़िरोज़ाबाद',
+  'Farrukhabad': 'फर्रुखाबाद',
+  'Firozabad': 'फिरोजाबाद',
   'Gandhidham': 'गांधीधाम',
   'Guwahati': 'गुवाहाटी',
   'Gwalior': 'ग्वालियर',
@@ -94,7 +93,7 @@ export const MANDI_NAMES_HI: Record<string, string> = {
   'Meerut': 'मेरठ',
   'Mehsana': 'मेहसाणा',
   'Mumbai': 'मुंबई',
-  'Muzaffarpur': 'मुज़फ़्फ़रपुर',
+  'Muzaffarpur': 'मुजफ्फरपुर',
   'Nagpur': 'नागपुर',
   'Nalanda': 'नालंदा',
   'Nashik': 'नासिक',
@@ -112,16 +111,14 @@ export const MANDI_NAMES_HI: Record<string, string> = {
   'Unnao': 'उन्नाव',
   'Vadodara': 'वडोदरा',
   'Varanasi': 'वाराणसी',
-
-  // Smaller mandis from data.gov.in
-  'Akluj': 'अकलूज',
+  'Akluj': 'अकलुज',
   'Barwala': 'बरवाला',
-  'Baxirhat': 'बक्शीरहाट',
-  'Bishnupur': 'बिशनपुर',
-  'Bisoli': 'बिसौली',
+  'Baxirhat': 'बक्सिरहाट',
+  'Bishnupur': 'बिष्णुपुर',
+  'Bisoli': 'बिसोली',
   'Charra': 'छर्रा',
-  'Chinnalapatti': 'चिन्नलपट्टी',
-  'Dharapuram': 'धरापुरम',
+  'Chinnalapatti': 'चिन्नालापट्टी',
+  'Dharapuram': 'धारापुरम',
   'Dinanagar': 'दीनानगर',
   'Dinhata': 'दिनहाटा',
   'Gharaunda': 'घरौंडा',
@@ -134,45 +131,43 @@ export const MANDI_NAMES_HI: Record<string, string> = {
   'Karur': 'करूर',
   'Katni': 'कटनी',
   'Khambhat': 'खंभात',
-  'Khatra': 'खात्रा',
+  'Khatra': 'खतरा',
   'Maihar': 'मैहर',
-  'Mayiladuthurai': 'मयिलादुतुरै',
+  'Mayiladuthurai': 'मयिलादुथुराई',
   'Morena': 'मुरैना',
   'Narnaul': 'नारनौल',
   'Padra': 'पादरा',
   'Patiala': 'पटियाला',
-  'PMY Chamba': 'चंबा',
-  'Punhana': 'पुनहाना',
+  'PMY Chamba': 'PMY चंबा',
+  'Punhana': 'पुन्हाना',
   'Raipur Rai': 'रायपुर राय',
   'Rawatsar': 'रावतसर',
   'Sangriya': 'संगरिया',
   'Shimoga': 'शिमोगा',
   'Siwan': 'सीवान',
-  'Sundarapuram': 'सुंदरापुरम',
-  'Sunguvarchatram': 'सुंगुवार्चत्रम',
-  'Thammampatti': 'तम्मनपट्टी',
+  'Sundarapuram': 'सुंदरपुरम',
+  'Sunguvarchatram': 'सुंगुवरछत्रम',
+  'Thammampatti': 'थम्ममपट्टी',
   'Toofanganj': 'तूफानगंज',
   'Uklana': 'उकलाना',
-  'Velayuthampalayam': 'वेलयुतमपालयम',
-
-  // Additional common mandis
+  'Velayuthampalayam': 'वेलायुथमपलायम',
   'Saharanpur': 'सहारनपुर',
   'Moradabad': 'मुरादाबाद',
   'Gorakhpur': 'गोरखपुर',
   'Sultanpur': 'सुल्तानपुर',
-  'Faizabad': 'फ़ैज़ाबाद',
+  'Faizabad': 'फैजाबाद',
   'Ayodhya': 'अयोध्या',
   'Hardoi': 'हरदोई',
-  'Shahjahanpur': 'शाहजहाँपुर',
+  'Shahjahanpur': 'शाहजहांपुर',
   'Sitapur': 'सीतापुर',
   'Lakhimpur': 'लखीमपुर',
-  'Fatehpur': 'फ़तेहपुर',
+  'Fatehpur': 'फतेहपुर',
   'Rae Bareli': 'रायबरेली',
   'Banda': 'बांदा',
-  'Jhansi': 'झाँसी',
-  'Orai': 'ओरई',
+  'Jhansi': 'झांसी',
+  'Orai': 'ओराई',
   'Hamirpur': 'हमीरपुर',
-  'Muzaffarnagar': 'मुज़फ़्फ़रनगर',
+  'Muzaffarnagar': 'मुजफ्फरनगर',
   'Bijnor': 'बिजनौर',
   'Rampur': 'रामपुर',
   'Pilibhit': 'पीलीभीत',
@@ -182,18 +177,18 @@ export const MANDI_NAMES_HI: Record<string, string> = {
   'Samastipur': 'समस्तीपुर',
   'Begusarai': 'बेगूसराय',
   'Purnia': 'पूर्णिया',
-  'Burdwan': 'बर्धमान',
+  'Burdwan': 'बर्दवान',
   'Midnapore': 'मिदनापुर',
   'Malda': 'मालदा',
   'Siliguri': 'सिलीगुड़ी',
-  'Cooch Behar': 'कूचबिहार',
+  'Cooch Behar': 'कूच बिहार',
   'Jalpaiguri': 'जलपाईगुड़ी',
-  'Bankura': 'बाँकुड़ा',
+  'Bankura': 'बांकुरा',
   'Birbhum': 'बीरभूम',
-  'Nadia': 'नदिया',
+  'Nadia': 'नादिया',
   'Karimganj': 'करीमगंज',
   'Panaji': 'पणजी',
-  'Margao': 'मडगाँव',
+  'Margao': 'मडगांव',
   'Hisar': 'हिसार',
   'Rohtak': 'रोहतक',
   'Sonipat': 'सोनीपत',
@@ -203,21 +198,21 @@ export const MANDI_NAMES_HI: Record<string, string> = {
   'Sangrur': 'संगरूर',
   'Barnala': 'बरनाला',
   'Moga': 'मोगा',
-  'Firozpur': 'फ़िरोज़पुर',
+  'Firozpur': 'फिरोजपुर',
   'Muktsar': 'मुक्तसर',
-  'Faridkot': 'फ़रीदकोट',
+  'Faridkot': 'फरीदकोट',
   'Mandi': 'मंडी',
   'Kullu': 'कुल्लू',
   'Solan': 'सोलन',
   'Bilaspur': 'बिलासपुर',
   'Haridwar': 'हरिद्वार',
-  'Roorkee': 'रूड़की',
+  'Roorkee': 'रुड़की',
   'Kashipur': 'काशीपुर',
   'Rudrapur': 'रुद्रपुर',
   'Alwar': 'अलवर',
   'Bhilwara': 'भीलवाड़ा',
   'Sikar': 'सीकर',
-  'Sri Ganganagar': 'श्रीगंगानगर',
+  'Sri Ganganagar': 'श्री गंगानगर',
   'Ganganagar': 'गंगानगर',
   'Churu': 'चूरू',
   'Nagaur': 'नागौर',
@@ -234,31 +229,31 @@ export const MANDI_NAMES_HI: Record<string, string> = {
   'Kolhapur': 'कोल्हापुर',
   'Sangli': 'सांगली',
   'Latur': 'लातूर',
-  'Dhule': 'धुळे',
-  'Jalgaon': 'जलगाँव',
+  'Dhule': 'धुले',
+  'Jalgaon': 'जलगांव',
   'Ahmednagar': 'अहमदनगर',
   'Davangere': 'दावणगेरे',
   'Hubli': 'हुबली',
-  'Belgaum': 'बेलगावी',
+  'Belgaum': 'बेलगाम',
   'Mysore': 'मैसूर',
-  'Mangalore': 'मंगलुरु',
+  'Mangalore': 'मैंगलोर',
   'Coimbatore': 'कोयंबटूर',
-  'Madurai': 'मदुरई',
+  'Madurai': 'मदुरै',
   'Salem': 'सेलम',
   'Tiruchirappalli': 'तिरुचिरापल्ली',
   'Erode': 'इरोड',
   'Tirunelveli': 'तिरुनेलवेली',
-  'Vellore': 'वेल्लूर',
+  'Vellore': 'वेल्लोर',
   'Warangal': 'वारंगल',
   'Karimnagar': 'करीमनगर',
   'Nizamabad': 'निज़ामाबाद',
   'Vijayawada': 'विजयवाड़ा',
-  'Visakhapatnam': 'विशाखापट्टनम',
+  'Visakhapatnam': 'विशाखापत्तनम',
   'Guntur': 'गुंटूर',
-  'Kurnool': 'कुर्नूल',
+  'Kurnool': 'कुरनूल',
   'Cuttack': 'कटक',
   'Sambalpur': 'संबलपुर',
-  'Berhampur': 'बेरहमपुर',
+  'Berhampur': 'बरहामपुर',
 }
 
 /** Translate a state name to Hindi, fallback to original */
@@ -273,7 +268,7 @@ const SUFFIXES = [
   /\s*\(F\s*&\s*V\)/gi,
   /\s*\(Mandi\)/gi,
   /\s*\(APMC\)/gi,
-  /\s*\(.*?\)/g,          // any remaining parenthesized text
+  /\s*\(.*?\)/g,
   /\s+Market\s+Yard$/gi,
   /\s+Mandi\s+Samiti$/gi,
   /\s+Mandi$/gi,
@@ -284,56 +279,14 @@ const SUFFIXES = [
   /\s+Vegetable\s+Market$/gi,
 ]
 
-// Basic English → Devanagari transliteration map
-const TRANSLIT: [RegExp, string][] = [
-  [/ksh/gi, 'क्ष'], [/gya/gi, 'ज्ञ'], [/tra/gi, 'त्र'], [/shr/gi, 'श्र'],
-  [/shh/gi, 'षh'], [/chh/gi, 'छ'], [/dha/gi, 'धा'], [/tha/gi, 'था'],
-  [/bha/gi, 'भा'], [/sha/gi, 'शा'], [/kha/gi, 'खा'], [/gha/gi, 'घा'],
-  [/pha/gi, 'फ़ा'], [/nk/gi, 'ंक'], [/ng/gi, 'ंग'], [/nd/gi, 'ंद'],
-  [/mp/gi, 'ंप'], [/mb/gi, 'ंब'], [/sh/gi, 'श'], [/ch/gi, 'च'],
-  [/th/gi, 'थ'], [/dh/gi, 'ध'], [/bh/gi, 'भ'], [/kh/gi, 'ख'],
-  [/gh/gi, 'घ'], [/ph/gi, 'फ़'], [/jh/gi, 'झ'],
-  [/aa/gi, 'आ'], [/ee/gi, 'ई'], [/oo/gi, 'ऊ'], [/ai/gi, 'ऐ'],
-  [/au/gi, 'औ'], [/ou/gi, 'औ'],
-  [/ka/gi, 'का'], [/ki/gi, 'कि'], [/ku/gi, 'कु'], [/ke/gi, 'के'], [/ko/gi, 'को'],
-  [/ga/gi, 'गा'], [/gi/gi, 'गि'], [/gu/gi, 'गु'], [/ge/gi, 'गे'], [/go/gi, 'गो'],
-  [/ja/gi, 'जा'], [/ji/gi, 'जि'], [/ju/gi, 'जु'], [/je/gi, 'जे'], [/jo/gi, 'जो'],
-  [/ta/gi, 'ता'], [/ti/gi, 'ति'], [/tu/gi, 'तु'], [/te/gi, 'ते'], [/to/gi, 'तो'],
-  [/da/gi, 'दा'], [/di/gi, 'दि'], [/du/gi, 'दु'], [/de/gi, 'दे'], [/do/gi, 'दो'],
-  [/na/gi, 'ना'], [/ni/gi, 'नि'], [/nu/gi, 'नु'], [/ne/gi, 'ने'], [/no/gi, 'नो'],
-  [/pa/gi, 'पा'], [/pi/gi, 'पि'], [/pu/gi, 'पु'], [/pe/gi, 'पे'], [/po/gi, 'पो'],
-  [/ba/gi, 'बा'], [/bi/gi, 'बि'], [/bu/gi, 'बु'], [/be/gi, 'बे'], [/bo/gi, 'बो'],
-  [/ma/gi, 'मा'], [/mi/gi, 'मि'], [/mu/gi, 'मु'], [/me/gi, 'मे'], [/mo/gi, 'मो'],
-  [/ra/gi, 'रा'], [/ri/gi, 'रि'], [/ru/gi, 'रु'], [/re/gi, 'रे'], [/ro/gi, 'रो'],
-  [/la/gi, 'ला'], [/li/gi, 'लि'], [/lu/gi, 'लु'], [/le/gi, 'ले'], [/lo/gi, 'लो'],
-  [/sa/gi, 'सा'], [/si/gi, 'सि'], [/su/gi, 'सु'], [/se/gi, 'से'], [/so/gi, 'सो'],
-  [/va/gi, 'वा'], [/vi/gi, 'वि'], [/vu/gi, 'वु'], [/ve/gi, 'वे'], [/vo/gi, 'वो'],
-  [/wa/gi, 'वा'], [/wi/gi, 'वि'], [/we/gi, 'वे'], [/wo/gi, 'वो'],
-  [/ha/gi, 'हा'], [/hi/gi, 'हि'], [/hu/gi, 'हु'], [/he/gi, 'हे'], [/ho/gi, 'हो'],
-  [/ya/gi, 'या'], [/yi/gi, 'यि'], [/yu/gi, 'यु'], [/ye/gi, 'ये'], [/yo/gi, 'यो'],
-  [/k/gi, 'क'], [/g/gi, 'ग'], [/j/gi, 'ज'], [/t/gi, 'त'], [/d/gi, 'द'],
-  [/n/gi, 'न'], [/p/gi, 'प'], [/b/gi, 'ब'], [/m/gi, 'म'], [/r/gi, 'र'],
-  [/l/gi, 'ल'], [/s/gi, 'स'], [/v/gi, 'व'], [/h/gi, 'ह'], [/y/gi, 'य'],
-  [/a/gi, 'अ'], [/i/gi, 'इ'], [/u/gi, 'उ'], [/e/gi, 'ए'], [/o/gi, 'ओ'],
-]
-
-function transliterate(text: string): string {
-  let result = text
-  for (const [pattern, replacement] of TRANSLIT) {
-    result = result.replace(pattern, replacement)
-  }
-  // Remove any remaining Latin characters
-  return result.replace(/[a-zA-Z]/g, '')
-}
-
-/** Translate a market name to Hindi with aggressive matching + transliteration fallback */
+/** Translate a market name to Hindi — returns English as-is if not in map */
 export function translateMarket(name: string): string {
   if (!name) return name
 
-  // Step 1: exact match on raw name
+  // Step 1: exact match
   if (MANDI_NAMES_HI[name]) return MANDI_NAMES_HI[name]
 
-  // Step 2: strip suffixes progressively and try matching
+  // Step 2: strip suffixes and try
   let cleaned = name
   for (const suffix of SUFFIXES) {
     cleaned = cleaned.replace(suffix, '').trim()
@@ -341,16 +294,16 @@ export function translateMarket(name: string): string {
   cleaned = cleaned.replace(/\s+/g, ' ').trim()
   if (MANDI_NAMES_HI[cleaned]) return MANDI_NAMES_HI[cleaned]
 
-  // Step 3: try first word only (e.g. "Chandausi APMC" → "Chandausi")
+  // Step 3: first word only
   const firstWord = cleaned.split(/\s+/)[0]
   if (firstWord && MANDI_NAMES_HI[firstWord]) return MANDI_NAMES_HI[firstWord]
 
-  // Step 4: try case-insensitive match
-  const lowerCleaned = cleaned.toLowerCase()
+  // Step 4: case-insensitive match
+  const lower = cleaned.toLowerCase()
   for (const [key, value] of Object.entries(MANDI_NAMES_HI)) {
-    if (key.toLowerCase() === lowerCleaned) return value
+    if (key.toLowerCase() === lower) return value
   }
 
-  // Step 5: transliterate English to Devanagari
-  return transliterate(cleaned)
+  // No match — return English as-is
+  return cleaned
 }
