@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { Send, CheckCircle2, AlertCircle } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { createClient } from '@/lib/supabase/client'
 
 interface EnquiryFormProps {
   companyName: string
@@ -22,29 +21,25 @@ export function EnquiryForm({ companyName }: EnquiryFormProps) {
     const fd = new FormData(formEl)
 
     try {
-      const supabase = createClient()
-      const payload = {
-        company_id: null,
-        name: (fd.get('sender_name') as string).trim(),
-        email: (fd.get('sender_email') as string).trim(),
-        phone: (fd.get('sender_phone') as string)?.trim() || null,
-        message: (fd.get('message') as string).trim(),
-        company_name: companyName,
-        source: 'directory',
-        source_site: 'hi',
-      }
-      console.log('Enquiry insert payload:', payload)
-      const { data, error } = await supabase.from('enquiries').insert(payload)
-      console.log('Enquiry insert error:', error)
-      console.log('Enquiry insert data:', data)
-
-      if (error) throw error
+      const res = await fetch('/api/directory/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: (fd.get('sender_name') as string).trim(),
+          email: (fd.get('sender_email') as string).trim(),
+          phone: (fd.get('sender_phone') as string)?.trim() || null,
+          message: (fd.get('message') as string).trim(),
+          company_name: companyName,
+          source: 'directory',
+        }),
+      })
+      const result = await res.json()
+      if (!result.success) throw new Error(result.error)
       setStatus('success')
       formEl.reset()
-    } catch (err: any) {
-      console.error('Enquiry catch:', err)
+    } catch {
       setStatus('error')
-      setErrorMessage(`Error: ${err?.message || err?.code || JSON.stringify(err) || 'Unknown error'}`)
+      setErrorMessage('कुछ गलत हो गया। कृपया WhatsApp पर संपर्क करें।')
     }
   }
 

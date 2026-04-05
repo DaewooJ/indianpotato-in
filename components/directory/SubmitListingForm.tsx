@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { CheckCircle2, AlertCircle, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { COMPANY_SIZE_LABELS, TURNOVER_LABELS, CERTIFICATIONS } from '@/lib/dir-constants'
-import { createClient } from '@/lib/supabase/client'
 
 const STEPS = ['कंपनी की बुनियादी जानकारी', 'संपर्क और स्थान', 'व्यवसाय विवरण', 'समीक्षा और जमा करें']
 
@@ -119,34 +118,28 @@ export function SubmitListingForm() {
       .filter(Boolean)
 
     try {
-      const supabase = createClient()
-      const payload = {
-        company_name: form.company_name.trim(),
-        company_name_hi: null,
-        category_slug: form.category_id,
-        description: form.description.trim(),
-        contact_person: null,
-        email: form.email.trim(),
-        phone: form.phone.trim(),
-        whatsapp: form.whatsapp.trim() || null,
-        website: form.website.trim() || null,
-        city: form.city.trim() || null,
-        state: form.state || null,
-        products: productsArray.length > 0 ? productsArray.join(', ') : null,
-        status: 'pending',
-        source_site: 'hi',
-      }
-      console.log('Supabase insert payload:', payload)
-      const { data, error } = await supabase.from('listing_submissions').insert(payload)
-      console.log('Supabase insert error:', error)
-      console.log('Supabase insert data:', data)
-
-      if (error) throw error
+      const res = await fetch('/api/directory/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          company_name: form.company_name.trim(),
+          category_slug: form.category_id,
+          description: form.description.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          whatsapp: form.whatsapp.trim() || null,
+          website: form.website.trim() || null,
+          city: form.city.trim() || null,
+          state: form.state || null,
+          products: productsArray.length > 0 ? productsArray.join(', ') : null,
+        }),
+      })
+      const result = await res.json()
+      if (!result.success) throw new Error(result.error)
       setStatus('success')
-    } catch (err: any) {
-      console.error('Submit catch:', err)
+    } catch {
       setStatus('error')
-      setErrorMessage(`Error: ${err?.message || err?.code || JSON.stringify(err) || 'Unknown error'}`)
+      setErrorMessage('कुछ गलत हो गया। कृपया WhatsApp पर संपर्क करें।')
     }
   }
 

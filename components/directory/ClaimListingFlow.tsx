@@ -4,7 +4,6 @@ import { useState, useCallback } from 'react'
 import { Search, MapPin, CheckCircle2, AlertCircle, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
-import { createClient } from '@/lib/supabase/client'
 
 interface SearchResult {
   name: string
@@ -49,20 +48,22 @@ export function ClaimListingFlow({ listings }: ClaimListingFlowProps) {
     const selectedCompany = results.find((r) => r.slug === selectedSlug)
 
     try {
-      const supabase = createClient()
-      const { error } = await supabase.from('enquiries').insert({
-        name: (fd.get('claimant_name') as string).trim(),
-        email: (fd.get('claimant_email') as string).trim(),
-        phone: (fd.get('claimant_phone') as string).trim(),
-        message: (fd.get('message') as string)?.trim() || `क्लेम अनुरोध — पद: ${(fd.get('designation') as string)?.trim() || 'N/A'}`,
-        company_name: selectedCompany?.name || '',
-        source: 'claim',
-        source_site: 'hi',
+      const res = await fetch('/api/directory/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: (fd.get('claimant_name') as string).trim(),
+          email: (fd.get('claimant_email') as string).trim(),
+          phone: (fd.get('claimant_phone') as string).trim(),
+          message: (fd.get('message') as string)?.trim() || `क्लेम अनुरोध — पद: ${(fd.get('designation') as string)?.trim() || 'N/A'}`,
+          company_name: selectedCompany?.name || '',
+          source: 'claim',
+        }),
       })
-
-      if (error) throw error
+      const result = await res.json()
+      if (!result.success) throw new Error(result.error)
       setStatus('success')
-    } catch (err) {
+    } catch {
       setStatus('error')
       setErrorMessage('कुछ गलत हो गया। कृपया WhatsApp पर संपर्क करें।')
     }
