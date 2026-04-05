@@ -28,10 +28,10 @@ export default function MandiPrices() {
             <h2 style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: '#1a1a1a' }}>आज का मंडी भाव</h2>
           </div>
           <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', padding: '7px 14px', borderRadius: 5, fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.75rem', fontWeight: 700, color: '#05420d', display: 'flex', alignItems: 'center', gap: 6 }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#05420d', animation: 'blink 1.5s infinite' }} /> LIVE
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#05420d' }} /> दैनिक
           </div>
         </div>
-        <p style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.88rem', color: '#999', marginBottom: 24, paddingLeft: 16 }}>प्रमुख मंडियों से आलू के ताज़ा थोक भाव (₹ प्रति क्विंटल)</p>
+        <p style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.88rem', color: '#999', marginBottom: 24, paddingLeft: 16 }}>देश भर की प्रमुख मंडियों से आज के आलू भाव — दैनिक अपडेट</p>
         <div style={{ display: 'flex', gap: 5, marginBottom: 20, flexWrap: 'wrap' }}>
           {states.map(s => (
             <button key={s} onClick={() => setActiveState(s)} style={{

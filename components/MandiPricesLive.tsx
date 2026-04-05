@@ -67,13 +67,12 @@ export default function MandiPricesLive() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6 }}>
               <h2 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 1.85rem)', fontWeight: 700, color: '#111827', margin: 0 }}>आज का मंडी भाव</h2>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: '#f0fdf4', border: '1px solid #dcfce7', borderRadius: 4, padding: '3px 10px' }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#05420d', animation: 'pulse 2s infinite' }} />
-                <span style={{ fontSize: '0.62rem', fontWeight: 700, color: '#05420d', letterSpacing: 1, textTransform: 'uppercase' as const }}>LIVE</span>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#05420d' }} />
+                <span style={{ fontSize: '0.62rem', fontWeight: 700, color: '#05420d', letterSpacing: 1, textTransform: 'uppercase' as const }}>दैनिक</span>
               </span>
             </div>
             <p style={{ color: '#9ca3af', fontSize: '0.85rem', margin: 0 }}>
-              प्रमुख मंडियों से आलू के ताज़ा थोक भाव (₹ प्रति क्विंटल)
-              {data && !data.api_key_configured && <span style={{ color: '#ea580c', fontSize: '0.75rem', marginLeft: 8 }}>⚠ डेमो डेटा</span>}
+              देश भर की प्रमुख मंडियों से आज के आलू भाव — दैनिक अपडेट
             </p>
           </div>
           {data && (
