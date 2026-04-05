@@ -109,13 +109,12 @@ export default function MandiPricesLive() {
         {loading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="rounded-xl border border-gray-200 overflow-hidden animate-pulse">
-                <div className="h-[42px]" style={{ background: '#05420d' }} />
-                <div className="p-3">
-                  <div className="w-1/3 h-2 bg-gray-100 rounded mb-1.5" />
-                  <div className="w-2/5 h-5 bg-gray-100 rounded mb-3" />
-                  <div className="w-full h-2.5 bg-gray-50 rounded" />
-                </div>
+              <div key={i} className="rounded-xl border border-gray-200 border-t-[3px] border-t-[#ed6442] p-4 animate-pulse">
+                <div className="w-3/5 h-3.5 bg-gray-100 rounded mb-1.5" />
+                <div className="w-2/5 h-2.5 bg-gray-50 rounded mb-4" />
+                <div className="w-1/4 h-2 bg-gray-50 rounded mb-1" />
+                <div className="w-2/5 h-5 bg-gray-100 rounded mb-3" />
+                <div className="w-4/5 h-2.5 bg-gray-50 rounded" />
               </div>
             ))}
           </div>
@@ -146,39 +145,26 @@ export default function MandiPricesLive() {
               {displayRecords.map((r, idx) => (
                 <div
                   key={`${r.state}-${r.market}-${idx}`}
-                  className="rounded-xl border border-gray-200 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 mandi-card"
+                  className="rounded-xl border border-gray-200 border-t-[3px] border-t-[#ed6442] bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 mandi-card"
                 >
-                  {/* Green header */}
-                  <div className="px-3.5 py-2.5" style={{ background: '#05420d' }}>
-                    <div className="flex items-baseline justify-between gap-2">
-                      <h3 className="text-[13.5px] font-bold text-white leading-tight truncate">
-                        {r.market}
-                      </h3>
-                      <span className="text-[10px] text-white/60 shrink-0 font-medium">{r.state}</span>
-                    </div>
-                  </div>
+                  <h3 className="text-sm font-bold text-gray-900 leading-snug truncate">{r.market}</h3>
+                  <p className="text-xs text-gray-500 mt-0.5">{r.state}</p>
 
-                  {/* Body */}
-                  <div className="px-3.5 pt-3 pb-2.5">
-                    <span className="text-[9px] font-semibold uppercase tracking-wider text-gray-300">मॉडल भाव</span>
-                    <div className="text-[22px] font-extrabold leading-none mt-0.5" style={{ color: '#ed6442' }}>
+                  <div className="mt-3">
+                    <span className="text-[10px] text-gray-400">मॉडल भाव</span>
+                    <div className="text-xl font-bold" style={{ color: '#05420d' }}>
                       ₹{r.modal_price.toLocaleString('hi-IN')}
                     </div>
-
-                    <div className="text-[11px] text-gray-400 mt-2.5">
-                      न्यूनतम <span className="font-semibold text-gray-600">₹{r.min_price.toLocaleString('hi-IN')}</span>
-                      <span className="mx-1.5 text-gray-200">·</span>
-                      अधिकतम <span className="font-semibold text-gray-600">₹{r.max_price.toLocaleString('hi-IN')}</span>
-                    </div>
                   </div>
 
-                  {/* Date footer */}
+                  <div className="text-xs text-gray-500 mt-2">
+                    न्यूनतम <span className="font-semibold text-gray-600">₹{r.min_price.toLocaleString('hi-IN')}</span>
+                    <span className="mx-1 text-gray-300">·</span>
+                    अधिकतम <span className="font-semibold text-gray-600">₹{r.max_price.toLocaleString('hi-IN')}</span>
+                  </div>
+
                   {r.arrival_date && (
-                    <div className="px-3.5 pb-2.5">
-                      <div className="pt-2 border-t border-gray-100 text-[9px] text-gray-300 text-right">
-                        {formatDate(r.arrival_date)}
-                      </div>
-                    </div>
+                    <div className="text-[10px] text-gray-400 text-right mt-2">{formatDate(r.arrival_date)}</div>
                   )}
                 </div>
               ))}
