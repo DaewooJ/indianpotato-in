@@ -127,7 +127,7 @@ export async function GET(req: NextRequest) {
     }
   })
   if (unmapped.length > 0) {
-    console.log('[mandi] Untranslated markets:', [...new Set(unmapped)].join(', '))
+    console.log('[mandi] Untranslated markets:', Array.from(new Set(unmapped)).join(', '))
   }
 
   const hindiStates = uniqueStates.map(s => translateState(s))
