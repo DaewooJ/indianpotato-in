@@ -43,10 +43,10 @@ export default function MandiPage() {
               <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', fontWeight: 700, color: '#111827', lineHeight: 1.2, margin: 0 }}>
                 आज का आलू मंडी भाव
               </h1>
-              <span style={{ background: '#dcfce7', color: '#166534', fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 50, letterSpacing: '0.05em' }}>LIVE</span>
+              <span style={{ background: '#dcfce7', color: '#166534', fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 50, letterSpacing: '0.05em' }}>दैनिक</span>
             </div>
             <p style={{ fontSize: 16, color: '#6b7280', lineHeight: 1.6, maxWidth: 550 }}>
-              भारत की प्रमुख मंडियों से आलू के ताज़ा थोक भाव — data.gov.in API से लाइव अपडेट
+              देश भर की प्रमुख मंडियों से आज के आलू भाव — दैनिक अपडेट
             </p>
           </div>
         </section>
