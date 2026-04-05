@@ -4,10 +4,9 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const navItems = [
-  { label: 'होम', href: '/' },
   { label: 'मंडी भाव', href: '/mandi' },
-  { label: 'डायरेक्टरी', href: '/directory', highlight: true },
   { label: 'समाचार', href: '/samachar' },
+  { label: 'डायरेक्टरी', href: '/directory' },
   { label: 'किस्में', href: '/kisme' },
   { label: 'योजनाएँ', href: '/yojnaye' },
   { label: 'संपर्क', href: '/sampark' },
@@ -18,7 +17,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const h = () => setScrolled(window.scrollY > 50);
+    const h = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', h);
     return () => window.removeEventListener('scroll', h);
   }, []);
@@ -27,85 +26,62 @@ export default function Navbar() {
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
       background: '#fff',
-      borderBottom: '3px solid #05420d',
-      boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.08)' : 'none',
-      transition: 'box-shadow 0.3s',
+      borderBottom: scrolled ? '1px solid #e5e7eb' : '1px solid #f3f4f6',
+      boxShadow: scrolled ? '0 1px 8px rgba(0,0,0,0.04)' : 'none',
+      transition: 'all 0.3s',
     }}>
       <div style={{
-        maxWidth: 1320, margin: '0 auto', padding: '0 28px',
+        maxWidth: 1280, margin: '0 auto', padding: '0 24px',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        height: 66,
+        height: 64,
       }}>
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer', textDecoration: 'none' }}>
-          <img src="/logo.png" alt="इंडियन पोटैटो लोगो" style={{ width: 40, height: 40, borderRadius: 6 }} />
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+          <img src="/logo.png" alt="इंडियन पोटैटो लोगो" style={{ width: 36, height: 36, borderRadius: 8 }} />
           <div>
-            <div style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '1.2rem', fontWeight: 800, color: '#05420d', lineHeight: 1.05 }}>इंडियन पोटैटो</div>
-            <div style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.52rem', fontWeight: 700, color: '#999', letterSpacing: '0.3em', textTransform: 'uppercase' }}>INDIANPOTATO.IN</div>
+            <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#05420d', lineHeight: 1.1 }}>इंडियन पोटैटो</div>
+            <div style={{ fontSize: '0.5rem', fontWeight: 600, color: '#9ca3af', letterSpacing: '0.2em', textTransform: 'uppercase' }}>INDIAN POTATO</div>
           </div>
         </Link>
 
-        <div className="desk-nav" style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
-          {navItems.map((item: any) => (
-            item.highlight ? (
-              <Link key={item.href} href={item.href} style={{
-                textDecoration: 'none', padding: '6px 14px', margin: '0 6px',
-                fontFamily: 'var(--font-poppins), sans-serif',
-                fontSize: '0.82rem', fontWeight: 700, color: '#fff',
-                background: '#05420d', borderRadius: 6,
-                transition: 'all 0.15s',
-              }}>📋 {item.label}</Link>
-            ) : (
-              <Link key={item.href} href={item.href} style={{
-                textDecoration: 'none', padding: '22px 14px',
-                fontFamily: 'var(--font-poppins), sans-serif',
-                fontSize: '0.88rem', fontWeight: 600, color: '#555',
-                borderBottom: '3px solid transparent', marginBottom: -3,
-                transition: 'all 0.15s',
-              }}>{item.label}</Link>
-            )
+        <div className="desk-nav" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href} style={{
+              textDecoration: 'none', padding: '8px 14px',
+              fontSize: '0.85rem', fontWeight: 500, color: '#4b5563',
+              borderRadius: 8, transition: 'all 0.15s',
+            }}>{item.label}</Link>
           ))}
-          <div style={{ width: 1, height: 24, background: '#e5e5e5', margin: '0 14px' }} />
+          <div style={{ width: 1, height: 20, background: '#e5e7eb', margin: '0 8px' }} />
           <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
-            background: '#05420d', color: '#fff',
-            textDecoration: 'none', padding: '9px 22px', borderRadius: 5,
-            fontFamily: 'var(--font-poppins), sans-serif',
-            fontSize: '0.82rem', fontWeight: 700,
-          }}>💬 जुड़ें</a>
+            background: '#ed6442', color: '#fff',
+            textDecoration: 'none', padding: '8px 18px', borderRadius: 8,
+            fontSize: '0.82rem', fontWeight: 600,
+            transition: 'background 0.15s',
+          }}>WhatsApp जुड़ें</a>
         </div>
 
         <button onClick={() => setMenuOpen(!menuOpen)} className="mob-btn" style={{
           display: 'none', background: 'none', border: 'none',
-          fontSize: 26, cursor: 'pointer', color: '#05420d',
+          fontSize: 24, cursor: 'pointer', color: '#374151',
         }}>{menuOpen ? '✕' : '☰'}</button>
       </div>
 
       {menuOpen && (
-        <div style={{ background: '#fff', borderTop: '1px solid #f0f0f0', padding: '8px 28px 16px' }}>
-          {navItems.map((item: any) => (
-            item.highlight ? (
-              <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{
-                display: 'block', textDecoration: 'none', padding: '12px 16px', margin: '6px 0',
-                fontFamily: 'var(--font-poppins), sans-serif',
-                fontSize: '1rem', fontWeight: 700, color: '#fff',
-                background: '#05420d', borderRadius: 8, textAlign: 'center',
-              }}>📋 {item.label}</Link>
-            ) : (
-              <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{
-                display: 'block', textDecoration: 'none', padding: '13px 0',
-                fontFamily: 'var(--font-poppins), sans-serif',
-                fontSize: '1rem', fontWeight: 600, color: '#444',
-                borderBottom: '1px solid #f5f5f5',
-              }}>{item.label}</Link>
-            )
+        <div style={{ background: '#fff', borderTop: '1px solid #f3f4f6', padding: '8px 24px 16px' }}>
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{
+              display: 'block', textDecoration: 'none', padding: '14px 0',
+              fontSize: '0.95rem', fontWeight: 500, color: '#374151',
+              borderBottom: '1px solid #f5f5f5',
+            }}>{item.label}</Link>
           ))}
           <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} style={{
             display: 'block', textAlign: 'center', textDecoration: 'none',
-            background: '#16a34a', color: '#fff',
-            padding: '13px', borderRadius: 5, marginTop: 10,
-            fontFamily: 'var(--font-poppins), sans-serif',
-            fontSize: '0.95rem', fontWeight: 700,
-          }}>💬 WhatsApp पर जुड़ें</a>
+            background: '#ed6442', color: '#fff',
+            padding: '14px', borderRadius: 8, marginTop: 12,
+            fontSize: '0.95rem', fontWeight: 600,
+          }}>WhatsApp ग्रुप जॉइन करें</a>
         </div>
       )}
 
@@ -114,6 +90,7 @@ export default function Navbar() {
           .desk-nav { display: none !important; }
           .mob-btn { display: block !important; }
         }
+        .desk-nav a:hover { background: #f9fafb; color: #111827; }
       `}</style>
     </nav>
   );

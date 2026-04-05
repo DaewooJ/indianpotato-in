@@ -12,9 +12,10 @@ export default function HomePage() {
   const posts = allPosts.slice(0, 6);
   const tickerPosts = allPosts.slice(0, 8).map((p) => ({ slug: p.slug, title: p.title }));
   const dirCounts = getCategoryCounts();
-  const dirCategories = DIRECTORY_CATEGORIES.slice(0, 6).map((cat) => ({
+  const dirCategories = DIRECTORY_CATEGORIES.map((cat) => ({
     icon: cat.icon,
     name: cat.name,
+    nameEn: cat.nameEn,
     slug: cat.slug,
     count: dirCounts[cat.slug] || 0,
   }));
@@ -22,34 +23,19 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main className="pt-[66px]">
+      <main className="pt-[64px]">
         <NewsTicker posts={tickerPosts} />
         <Hero />
 
-        {/* Trust / Credibility Bar */}
-        <section style={{
-          background: '#fafafa',
-          borderTop: '1px solid #f0f0f0',
-          borderBottom: '1px solid #f0f0f0',
-          padding: '20px 0',
-          overflow: 'hidden',
-        }}>
-          <div style={{
-            maxWidth: 1280,
-            margin: '0 auto',
-            padding: '0 20px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '24px',
-          }}>
-            <span style={{ fontSize: 13, color: '#999', fontWeight: 500 }}>डेटा स्रोत:</span>
-            <span style={{ fontSize: 13, color: '#555', fontWeight: 600, opacity: 0.7 }}>🏛️ data.gov.in</span>
-            <span style={{ fontSize: 13, color: '#555', fontWeight: 600, opacity: 0.7 }}>🔬 ICAR-CPRI शिमला</span>
-            <span style={{ fontSize: 13, color: '#555', fontWeight: 600, opacity: 0.7 }}>🌾 कृषि मंत्रालय</span>
-            <span style={{ fontSize: 13, color: '#555', fontWeight: 600, opacity: 0.7 }}>💬 5,000+ WhatsApp सदस्य</span>
-            <span style={{ fontSize: 13, color: '#555', fontWeight: 600, opacity: 0.7 }}>📊 86+ मंडी भाव</span>
+        {/* Trust Bar */}
+        <section style={{ background: '#f9fafb', borderBottom: '1px solid #e5e7eb', padding: '14px 0' }}>
+          <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px', display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', gap: '6px 20px' }}>
+            <span style={{ fontSize: '0.75rem', color: '#9ca3af', fontWeight: 500 }}>डेटा स्रोत:</span>
+            {['data.gov.in', 'ICAR-CPRI शिमला', 'कृषि मंत्रालय', '5,000+ WhatsApp सदस्य', '86+ मंडी भाव'].map((src, i) => (
+              <span key={i} style={{ fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>
+                {i > 0 && <span style={{ color: '#d1d5db', margin: '0 2px' }}>·</span>} {src}
+              </span>
+            ))}
           </div>
         </section>
 
@@ -60,13 +46,13 @@ export default function HomePage() {
           <NewsSection posts={posts} />
         </RevealSection>
         <RevealSection delay={100}>
+          <DirectoryPreview categories={dirCategories} />
+        </RevealSection>
+        <RevealSection delay={100}>
           <GovSchemes />
         </RevealSection>
         <RevealSection delay={100}>
           <VarietiesQuick />
-        </RevealSection>
-        <RevealSection delay={100}>
-          <DirectoryPreview categories={dirCategories} />
         </RevealSection>
         <WhatsAppCTA />
       </main>

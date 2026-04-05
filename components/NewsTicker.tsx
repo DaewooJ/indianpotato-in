@@ -9,7 +9,7 @@ interface TickerPost {
 
 export default function NewsTicker({ posts }: { posts: TickerPost[] }) {
   const items = posts.length > 0 ? posts : [
-    { slug: '', title: 'भारत में आलू उत्पादन 60.18 मिलियन टन के रिकॉर्ड स्तर पर पहुँचा' },
+    { slug: '', title: 'भारत में आलू उत्पादन 60.18 मिलियन टन के रिक���र्ड स्तर पर पहुँचा' },
   ];
 
   return (
@@ -17,37 +17,36 @@ export default function NewsTicker({ posts }: { posts: TickerPost[] }) {
       background: '#05420d', color: '#fff',
       overflow: 'hidden', whiteSpace: 'nowrap',
       display: 'flex', alignItems: 'center',
+      height: 36,
     }}>
       <div style={{
-        background: '#fff', color: '#05420d',
-        padding: '11px 20px', fontWeight: 800,
-        fontSize: '0.7rem', letterSpacing: '0.14em',
-        textTransform: 'uppercase',
-        fontFamily: 'var(--font-poppins), sans-serif',
-        flexShrink: 0, display: 'flex', alignItems: 'center', gap: 7,
+        background: 'rgba(255,255,255,0.15)',
+        padding: '0 16px', height: '100%',
+        fontWeight: 700, fontSize: '0.65rem',
+        letterSpacing: '0.12em', textTransform: 'uppercase',
+        flexShrink: 0, display: 'flex', alignItems: 'center', gap: 6,
       }}>
         <span style={{
-          width: 8, height: 8, borderRadius: '50%',
-          background: '#05420d', animation: 'blink 1.5s infinite',
+          width: 6, height: 6, borderRadius: '50%',
+          background: '#ed6442', animation: 'blink 1.5s infinite',
         }} />
         ताज़ा
       </div>
-      <div style={{ overflow: 'hidden', flex: 1, padding: '11px 0' }}>
+      <div style={{ overflow: 'hidden', flex: 1, display: 'flex', alignItems: 'center' }}>
         <div style={{
           display: 'inline-block', animation: 'ticker 50s linear infinite',
-          fontFamily: 'var(--font-poppins), sans-serif',
-          fontSize: '0.84rem', fontWeight: 500,
+          fontSize: '0.78rem', fontWeight: 400,
         }}>
           {[...items, ...items].map((h, i) => (
-            <span key={i} style={{ padding: '0 36px' }}>
+            <span key={i} style={{ padding: '0 28px' }}>
               {h.slug ? (
-                <Link href={'/samachar/' + h.slug} style={{ color: '#fff', textDecoration: 'none', cursor: 'pointer' }} className="ticker-link">
+                <Link href={'/samachar/' + h.slug} style={{ color: '#fff', textDecoration: 'none' }} className="ticker-link">
                   {h.title}
                 </Link>
               ) : (
                 h.title
               )}
-              <span style={{ margin: '0 16px', opacity: 0.4, fontSize: '0.6rem' }}>●</span>
+              <span style={{ margin: '0 12px', opacity: 0.3, fontSize: '0.5rem' }}>●</span>
             </span>
           ))}
         </div>

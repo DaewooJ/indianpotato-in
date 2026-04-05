@@ -60,35 +60,40 @@ export default function MandiPricesLive() {
   };
 
   return (
-    <section id="mandi-prices" style={{ padding: '80px 0', background: '#fff' }}>
+    <section id="mandi-prices" style={{ padding: '64px 0', background: '#fff' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 16 }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 16 }}>
           <div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 20, padding: '4px 14px', marginBottom: 12 }}>
-              <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#05420d', animation: 'pulse 2s infinite' }} />
-              <span style={{ fontSize: 11, fontWeight: 700, color: '#05420d', letterSpacing: 1.5, textTransform: 'uppercase' as const }}>LIVE PRICES</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6 }}>
+              <h2 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 1.85rem)', fontWeight: 700, color: '#111827', margin: 0 }}>आज का मंडी भाव</h2>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: '#f0fdf4', border: '1px solid #dcfce7', borderRadius: 4, padding: '3px 10px' }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#05420d', animation: 'pulse 2s infinite' }} />
+                <span style={{ fontSize: '0.62rem', fontWeight: 700, color: '#05420d', letterSpacing: 1, textTransform: 'uppercase' as const }}>LIVE</span>
+              </span>
             </div>
-            <h2 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 800, color: '#1a1a1a', margin: 0 }}>आज का मंडी भाव</h2>
-            <p style={{ color: '#666', fontSize: 14, margin: '6px 0 0' }}>
+            <p style={{ color: '#9ca3af', fontSize: '0.85rem', margin: 0 }}>
               प्रमुख मंडियों से आलू के ताज़ा थोक भाव (₹ प्रति क्विंटल)
-              {data && !data.api_key_configured && <span style={{ color: '#ea580c', fontSize: 12, marginLeft: 8 }}>⚠ डेमो डेटा — API key सेट करें</span>}
+              {data && !data.api_key_configured && <span style={{ color: '#ea580c', fontSize: '0.75rem', marginLeft: 8 }}>⚠ डेमो डेटा</span>}
             </p>
           </div>
           {data && (
-            <div style={{ textAlign: 'right' as const, fontSize: 12, color: '#999' }}>
-              <div>Indian Potato Team</div>
-              <div>अपडेट: {formatTime(data.updated_at)} • {data.total} मंडियाँ</div>
+            <div style={{ fontSize: '0.75rem', color: '#9ca3af', textAlign: 'right' as const }}>
+              <div>अपडेट: {formatTime(data.updated_at)}</div>
+              <div>{data.total} मंडियाँ</div>
             </div>
           )}
         </div>
 
-        <div style={{ display: 'flex', gap: 8, marginBottom: 28, overflowX: 'auto' as const, paddingBottom: 8 }}>
+        <div className="scrollbar-hide" style={{ display: 'flex', gap: 8, marginBottom: 28, overflowX: 'auto' as const, paddingBottom: 4 }}>
           {(loading ? ['सभी'] : stateFilters.slice(0, 10)).map((state) => (
             <button key={state} onClick={() => { setActiveState(state); setShowAll(false); }}
-              style={{ padding: '8px 18px', borderRadius: 20, border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' as const, transition: 'all 0.2s',
+              style={{
+                padding: '7px 16px', borderRadius: 8, fontSize: '0.82rem', fontWeight: 500,
+                cursor: 'pointer', whiteSpace: 'nowrap' as const, transition: 'all 0.2s',
                 background: activeState === state ? '#05420d' : '#fff',
-                color: activeState === state ? '#fff' : '#666',
-                boxShadow: activeState === state ? '0 4px 14px rgba(5,66,13,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>
+                color: activeState === state ? '#fff' : '#6b7280',
+                border: activeState === state ? '1px solid #05420d' : '1px solid #e5e7eb',
+              }}>
               {state}
             </button>
           ))}
@@ -97,8 +102,8 @@ export default function MandiPricesLive() {
         {loading && (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
             {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} style={{ background: '#fff', borderRadius: 16, padding: 24, border: '1px solid #f3f4f6', animation: 'shimmer 1.5s infinite' }}>
-                <div style={{ width: '60%', height: 20, background: '#f3f4f6', borderRadius: 4, marginBottom: 8 }} />
+              <div key={i} style={{ background: '#fff', borderRadius: 12, padding: 24, border: '1px solid #e5e7eb', animation: 'shimmer 1.5s infinite' }}>
+                <div style={{ width: '60%', height: 18, background: '#f3f4f6', borderRadius: 4, marginBottom: 8 }} />
                 <div style={{ width: '40%', height: 14, background: '#f3f4f6', borderRadius: 4, marginBottom: 16 }} />
                 <div style={{ width: '50%', height: 28, background: '#f3f4f6', borderRadius: 4 }} />
               </div>
@@ -107,58 +112,56 @@ export default function MandiPricesLive() {
         )}
 
         {error && (
-          <div style={{ textAlign: 'center' as const, padding: 40, color: '#05420d' }}>
-            <p style={{ fontSize: 16, marginBottom: 12 }}>{error}</p>
-            <button onClick={fetchPrices} style={{ padding: '10px 24px', background: '#05420d', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer', fontWeight: 600 }}>पुनः प्रयास करें</button>
+          <div style={{ textAlign: 'center' as const, padding: 40 }}>
+            <p style={{ fontSize: '0.95rem', color: '#6b7280', marginBottom: 12 }}>{error}</p>
+            <button onClick={fetchPrices} style={{ padding: '10px 24px', background: '#ed6442', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer', fontWeight: 600, fontSize: '0.85rem' }}>पुनः प्रयास करें</button>
           </div>
         )}
 
         {!loading && !error && (
           <>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
-              {displayRecords.map((record, idx) => {
-                return (
-                  <div key={`${record.state}-${record.market}-${idx}`}
-                    style={{ background: '#fff', borderRadius: 16, padding: 24, border: '1px solid #f3f4f6', transition: 'all 0.25s', cursor: 'default', position: 'relative' as const, overflow: 'hidden' }}
-                    onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = '0 8px 30px rgba(5,66,13,0.1)'; el.style.borderColor = '#bbf7d0'; el.style.transform = 'translateY(-2px)'; }}
-                    onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = 'none'; el.style.borderColor = '#f3f4f6'; el.style.transform = 'none'; }}>
-                    <div style={{ marginBottom: 14 }}>
-                      <h3 style={{ fontSize: 18, fontWeight: 700, color: '#1a1a1a', margin: 0 }}>{cleanMarket(record.market_hindi || record.market)}</h3>
-                      <p style={{ fontSize: 13, color: '#888', margin: '2px 0 0' }}>{record.state_hindi}</p>
-                    </div>
-                    <div style={{ marginBottom: 14 }}>
-                      <span style={{ fontSize: 11, color: '#999', fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: 0.5 }}>मॉडल भाव</span>
-                      <div style={{ fontSize: 28, fontWeight: 800, color: '#05420d' }}>₹{record.modal_price.toLocaleString('hi-IN')}</div>
-                    </div>
-                    <div style={{ display: 'flex', gap: 16, borderTop: '1px solid #f5f5f5', paddingTop: 12 }}>
-                      <div style={{ flex: 1 }}>
-                        <span style={{ fontSize: 11, color: '#aaa' }}>न्यूनतम</span>
-                        <div style={{ fontSize: 15, fontWeight: 700, color: '#444' }}>₹{record.min_price.toLocaleString('hi-IN')}</div>
-                      </div>
-                      <div style={{ flex: 1 }}>
-                        <span style={{ fontSize: 11, color: '#aaa' }}>अधिकतम</span>
-                        <div style={{ fontSize: 15, fontWeight: 700, color: '#444' }}>₹{record.max_price.toLocaleString('hi-IN')}</div>
-                      </div>
-                    </div>
-                    {record.arrival_date && <div style={{ marginTop: 10, fontSize: 11, color: '#999' }}>📅 {formatDate(record.arrival_date)}</div>}
+              {displayRecords.map((record, idx) => (
+                <div key={`${record.state}-${record.market}-${idx}`}
+                  style={{ background: '#fff', borderRadius: 12, padding: 24, border: '1px solid #e5e7eb', transition: 'box-shadow 0.25s' }}
+                  className="mandi-card">
+                  <div style={{ marginBottom: 14 }}>
+                    <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#111827', margin: 0 }}>{cleanMarket(record.market_hindi || record.market)}</h3>
+                    <p style={{ fontSize: '0.78rem', color: '#9ca3af', margin: '2px 0 0' }}>{record.state_hindi}</p>
                   </div>
-                );
-              })}
+                  <div style={{ marginBottom: 14 }}>
+                    <span style={{ fontSize: '0.62rem', color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: 0.5 }}>मॉडल भाव</span>
+                    <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#05420d' }}>₹{record.modal_price.toLocaleString('hi-IN')}</div>
+                  </div>
+                  <div style={{ display: 'flex', gap: 16, borderTop: '1px solid #f3f4f6', paddingTop: 12 }}>
+                    <div style={{ flex: 1 }}>
+                      <span style={{ fontSize: '0.62rem', color: '#9ca3af' }}>न्यूनतम</span>
+                      <div style={{ fontSize: '0.92rem', fontWeight: 600, color: '#374151' }}>₹{record.min_price.toLocaleString('hi-IN')}</div>
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <span style={{ fontSize: '0.62rem', color: '#9ca3af' }}>अधिकतम</span>
+                      <div style={{ fontSize: '0.92rem', fontWeight: 600, color: '#374151' }}>₹{record.max_price.toLocaleString('hi-IN')}</div>
+                    </div>
+                  </div>
+                  {record.arrival_date && <div style={{ marginTop: 10, fontSize: '0.7rem', color: '#d1d5db' }}>{formatDate(record.arrival_date)}</div>}
+                </div>
+              ))}
             </div>
             {filteredRecords.length > 8 && (
               <div style={{ textAlign: 'center' as const, marginTop: 28 }}>
                 <button onClick={() => setShowAll(!showAll)}
-                  style={{ padding: '12px 32px', background: '#ed6442', color: '#fff', border: 'none', borderRadius: 28, fontSize: 14, fontWeight: 700, cursor: 'pointer', boxShadow: '0 4px 14px rgba(5,66,13,0.25)' }}>
-                  {showAll ? '↑ कम दिखाएँ' : `सभी ${filteredRecords.length} मंडी भाव देखें →`}
+                  style={{ padding: '12px 28px', background: '#ed6442', color: '#fff', border: 'none', borderRadius: 10, fontSize: '0.88rem', fontWeight: 600, cursor: 'pointer' }}>
+                  {showAll ? 'कम दिखाएँ' : `सभी ${filteredRecords.length} मंडी भाव देखें →`}
                 </button>
               </div>
             )}
           </>
         )}
       </div>
-      <style jsx global>{`
+      <style>{`
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
         @keyframes shimmer { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+        .mandi-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
       `}</style>
     </section>
   );
