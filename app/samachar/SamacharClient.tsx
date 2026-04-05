@@ -1,7 +1,9 @@
-'use client';
+'use client'
 
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import Link from 'next/link'
+import Image from 'next/image'
+import { useState } from 'react'
+import { BreadcrumbNav } from '@/components/Breadcrumbs'
 
 interface Post {
   slug: string; title: string; excerpt: string; date: string;
@@ -9,93 +11,184 @@ interface Post {
   author: string; tags: string[]; featured: boolean; readingTime: number;
 }
 
-export default function SamacharClient() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [activeCategory, setActiveCategory] = useState('सभी');
+const CATEGORIES = [
+  { key: 'सभी', label: 'सभी' },
+  { key: 'उत्पादन', label: 'उत्पादन' },
+  { key: 'निर्यात', label: 'निर्यात' },
+  { key: 'नीति', label: 'नीति' },
+  { key: 'तकनीक', label: 'तकनीक' },
+  { key: 'अनुसंधान', label: 'अनुसंधान' },
+  { key: 'राज्य', label: 'राज्य' },
+  { key: 'प्रसंस्करण', label: 'प्रसंस्करण' },
+  { key: 'बाज़ार', label: 'बाज़ार' },
+]
 
-  useEffect(() => {
-    fetch('/api/blog')
-      .then(r => r.json())
-      .then(d => setPosts(d.posts || []))
-      .catch(() => {});
-  }, []);
+function formatDate(d: string) {
+  try { return new Date(d).toLocaleDateString('hi-IN', { day: 'numeric', month: 'long', year: 'numeric' }) }
+  catch { return d }
+}
 
-  const categories = Array.from(new Set(posts.map(p => p.category_hindi)));
-  const filtered = activeCategory === 'सभी' ? posts : posts.filter(p => p.category_hindi === activeCategory);
-  const featuredPost = filtered.find(p => p.featured) || filtered[0];
-  const otherPosts = filtered.filter(p => featuredPost && p.slug !== featuredPost.slug);
+export default function SamacharClient({ posts }: { posts: Post[] }) {
+  const [activeCategory, setActiveCategory] = useState('सभी')
+  const [showCount, setShowCount] = useState(12)
 
-  const formatDate = (d: string) => {
-    try { return new Date(d).toLocaleDateString('hi-IN', { day: 'numeric', month: 'long', year: 'numeric' }); }
-    catch { return d; }
-  };
+  const filtered = activeCategory === 'सभी'
+    ? posts
+    : posts.filter(p => p.category_hindi === activeCategory)
+
+  const featuredPost = filtered.find(p => p.featured) || filtered[0]
+  const otherPosts = filtered.filter(p => featuredPost && p.slug !== featuredPost.slug)
+  const displayPosts = otherPosts.slice(0, showCount)
+  const hasMore = otherPosts.length > showCount
 
   return (
-    <main style={{ maxWidth: 1280, margin: '0 auto', padding: '100px clamp(16px, 4vw, 24px) 60px' }}>
-      <div style={{ marginBottom: 48 }}>
-        <h1 style={{ fontSize: 'clamp(28px, 5vw, 42px)', fontWeight: 800, color: '#1a1a1a', marginBottom: 8 }}>ताज़ा समाचार</h1>
-        <p style={{ color: '#666', fontSize: 16, maxWidth: 600 }}>भारतीय आलू उद्योग की सबसे ताज़ा ख़बरें, विश्लेषण और अपडेट</p>
-      </div>
+    <main className="pt-[64px] min-h-screen bg-white">
 
-      <div style={{ display: 'flex', gap: 8, marginBottom: 40, flexWrap: 'wrap' as const, overflowX: 'auto' as const }}>
-        <button onClick={() => setActiveCategory('सभी')} style={{ padding: '8px 18px', borderRadius: 20, border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer', background: activeCategory === 'सभी' ? '#05420d' : '#fff', color: activeCategory === 'सभी' ? '#fff' : '#666', boxShadow: activeCategory === 'सभी' ? '0 4px 14px rgba(5,66,13,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>सभी ({posts.length})</button>
-        {categories.map(cat => {
-          const count = posts.filter(p => p.category_hindi === cat).length;
-          return (
-            <button key={cat} onClick={() => setActiveCategory(cat)} style={{ padding: '8px 18px', borderRadius: 20, border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer', background: activeCategory === cat ? '#05420d' : '#fff', color: activeCategory === cat ? '#fff' : '#666', boxShadow: activeCategory === cat ? '0 4px 14px rgba(5,66,13,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>{cat} ({count})</button>
-          );
-        })}
-      </div>
+      {/* Hero Header */}
+      <section className="border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-10 sm:pt-14 pb-8">
+          <BreadcrumbNav items={[
+            { name: 'होम', url: '/' },
+            { name: 'समाचार', url: '/samachar' },
+          ]} />
 
-      {posts.length === 0 ? (
-        <div style={{ textAlign: 'center' as const, padding: '80px 20px', color: '#999' }}>
-          <div style={{ fontSize: 48, marginBottom: 16 }}>📝</div>
-          <h2 style={{ fontSize: 24, fontWeight: 700, color: '#444' }}>लोड हो रहा है...</h2>
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-6">ताज़ा समाचार</h1>
+          <p className="text-gray-500 mt-2 max-w-xl leading-relaxed">
+            भारतीय आलू उद्योग की ताज़ा ख़बरें, विश्लेषण और रिपोर्ट
+          </p>
+
+          {/* Category pills */}
+          <div className="flex gap-2 mt-6 overflow-x-auto pb-1 scrollbar-hide">
+            {CATEGORIES.map(cat => {
+              const isActive = activeCategory === cat.key
+              const count = cat.key === 'सभी' ? posts.length : posts.filter(p => p.category_hindi === cat.key).length
+              if (cat.key !== 'सभी' && count === 0) return null
+              return (
+                <button
+                  key={cat.key}
+                  onClick={() => { setActiveCategory(cat.key); setShowCount(12) }}
+                  className="shrink-0 rounded-full text-xs font-medium cursor-pointer transition-all duration-200"
+                  style={{
+                    padding: '7px 16px',
+                    background: isActive ? '#05420d' : '#fff',
+                    color: isActive ? '#fff' : '#4b5563',
+                    border: isActive ? '1.5px solid #05420d' : '1.5px solid #e5e7eb',
+                  }}
+                >
+                  {cat.label}
+                </button>
+              )
+            })}
+          </div>
+
+          <p className="text-xs text-gray-400 mt-4">{filtered.length} लेख</p>
         </div>
-      ) : filtered.length === 0 ? (
-        <div style={{ textAlign: 'center' as const, padding: '60px 20px', color: '#999' }}>
-          <p>इस श्रेणी में कोई लेख नहीं है।</p>
-        </div>
-      ) : (
-        <>
-          {featuredPost && (
-            <Link href={'/samachar/' + featuredPost.slug} style={{ textDecoration: 'none' }}>
-              <article style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 0, background: '#fff', borderRadius: 20, overflow: 'hidden', border: '1px solid #f0f0f0', marginBottom: 48 }}>
-                <div style={{ aspectRatio: '16/9', background: 'url(' + featuredPost.image + ') center/cover no-repeat', minHeight: 200, maxWidth: '100%' }} />
-                <div style={{ padding: '24px' }}>
-                  <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
-                    <span style={{ background: '#f0fdf4', color: '#05420d', padding: '4px 12px', borderRadius: 12, fontSize: 12, fontWeight: 700 }}>🔥 मुख्य ख़बर</span>
-                    <span style={{ background: '#f5f5f5', color: '#666', padding: '4px 12px', borderRadius: 12, fontSize: 12, fontWeight: 600 }}>{featuredPost.category_hindi}</span>
-                  </div>
-                  <h2 style={{ fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 800, color: '#1a1a1a', lineHeight: 1.3, marginBottom: 12 }}>{featuredPost.title}</h2>
-                  <p style={{ color: '#666', fontSize: 15, lineHeight: 1.6, marginBottom: 16 }}>{featuredPost.excerpt}</p>
-                  <div style={{ display: 'flex', gap: 12, color: '#999', fontSize: 13 }}>
-                    <span>{formatDate(featuredPost.date)}</span><span>•</span><span>{featuredPost.readingTime} मिनट पढ़ें</span>
-                  </div>
-                </div>
-              </article>
-            </Link>
-          )}
+      </section>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 24 }}>
-            {otherPosts.map(post => (
-              <Link key={post.slug} href={'/samachar/' + post.slug} style={{ textDecoration: 'none' }}>
-                <article style={{ background: '#fff', borderRadius: 16, overflow: 'hidden', border: '1px solid #f0f0f0', height: '100%', display: 'flex', flexDirection: 'column' as const }}>
-                  <div style={{ aspectRatio: '16/9', background: 'url(' + post.image + ') center/cover no-repeat' }} />
-                  <div style={{ padding: 20, flex: 1 }}>
-                    <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
-                      <span style={{ background: '#f5f5f5', color: '#666', padding: '3px 10px', borderRadius: 10, fontSize: 11, fontWeight: 600 }}>{post.category_hindi}</span>
-                      <span style={{ color: '#aaa', fontSize: 11 }}>{formatDate(post.date)}</span>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+        {filtered.length === 0 ? (
+          <div className="text-center py-20 text-gray-400">
+            <p className="text-lg mb-2">इस श्रेणी में कोई लेख नहीं है।</p>
+            <button
+              onClick={() => setActiveCategory('सभी')}
+              className="text-sm font-medium cursor-pointer"
+              style={{ color: '#05420d' }}
+            >
+              सभी लेख देखें
+            </button>
+          </div>
+        ) : (
+          <>
+            {/* Featured Post */}
+            {featuredPost && (
+              <Link href={`/samachar/${featuredPost.slug}`} className="block mb-10 sm:mb-14 group">
+                <article className="rounded-xl border border-gray-200 overflow-hidden bg-white transition-all duration-200 group-hover:-translate-y-0.5 group-hover:shadow-lg">
+                  <div className="relative aspect-[2/1] sm:aspect-[5/2] bg-gray-100">
+                    <Image
+                      src={featuredPost.image}
+                      alt={featuredPost.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 1152px"
+                      priority
+                    />
+                  </div>
+                  <div className="p-5 sm:p-7">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full" style={{ border: '1px solid #05420d', color: '#05420d' }}>
+                        {featuredPost.category_hindi}
+                      </span>
+                      <span className="text-xs text-gray-400">{formatDate(featuredPost.date)}</span>
+                      <span className="text-xs text-gray-300">·</span>
+                      <span className="text-xs text-gray-400">{featuredPost.readingTime} मिनट</span>
                     </div>
-                    <h3 style={{ fontSize: 17, fontWeight: 700, color: '#1a1a1a', lineHeight: 1.4, marginBottom: 8 }}>{post.title}</h3>
-                    <p style={{ color: '#888', fontSize: 14, lineHeight: 1.5 }}>{post.excerpt.slice(0, 120)}…</p>
+                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-[#05420d] transition-colors">
+                      {featuredPost.title}
+                    </h2>
+                    <p className="text-sm text-gray-500 mt-2 line-clamp-2 leading-relaxed">{featuredPost.excerpt}</p>
+                    <span className="inline-flex items-center gap-1 text-sm font-medium mt-4" style={{ color: '#05420d' }}>
+                      पूरा पढ़ें
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </span>
                   </div>
                 </article>
               </Link>
-            ))}
-          </div>
-        </>
-      )}
+            )}
+
+            {/* Post Grid */}
+            {displayPosts.length > 0 && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {displayPosts.map(post => (
+                  <Link key={post.slug} href={`/samachar/${post.slug}`} className="group">
+                    <article className="rounded-xl border border-gray-200 overflow-hidden bg-white h-full flex flex-col transition-all duration-200 group-hover:-translate-y-0.5 group-hover:shadow-md">
+                      <div className="relative aspect-[3/2] bg-gray-100">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 384px"
+                        />
+                      </div>
+                      <div className="p-4 flex-1 flex flex-col">
+                        <div className="flex items-center gap-2 mb-2.5">
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ border: '1px solid #05420d', color: '#05420d' }}>
+                            {post.category_hindi}
+                          </span>
+                          <span className="text-[11px] text-gray-400">{formatDate(post.date)}</span>
+                        </div>
+                        <h3 className="text-base font-semibold text-gray-900 leading-snug line-clamp-2 group-hover:text-[#05420d] transition-colors">
+                          {post.title}
+                        </h3>
+                        <p className="text-sm text-gray-500 mt-1.5 line-clamp-2 leading-relaxed flex-1">{post.excerpt}</p>
+                        <span className="inline-flex items-center gap-1 text-sm font-medium mt-3" style={{ color: '#05420d' }}>
+                          पूरा पढ़ें
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </span>
+                      </div>
+                    </article>
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {/* Load More */}
+            {hasMore && (
+              <div className="text-center mt-10">
+                <button
+                  onClick={() => setShowCount(s => s + 12)}
+                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-semibold text-white cursor-pointer transition-all hover:shadow-lg"
+                  style={{ background: '#ed6442' }}
+                >
+                  और लेख लोड करें
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+                </button>
+              </div>
+            )}
+          </>
+        )}
+      </div>
     </main>
-  );
+  )
 }
