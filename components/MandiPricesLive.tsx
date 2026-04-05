@@ -142,112 +142,27 @@ export default function MandiPricesLive() {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {displayRecords.map((r, idx) => {
-                const style = idx < 5 ? idx + 1 : 1
-                const price = `₹${r.modal_price.toLocaleString('hi-IN')}`
-                const min = `₹${r.min_price.toLocaleString('hi-IN')}`
-                const max = `₹${r.max_price.toLocaleString('hi-IN')}`
-                const date = r.arrival_date ? formatDate(r.arrival_date) : ''
-                const badge = idx < 5 ? (
-                  <span className="absolute top-2 right-2 text-[8px] font-bold px-1.5 py-0.5 rounded bg-gray-100 text-gray-400">स्टाइल {style}</span>
-                ) : null
-
-                /* ── STYLE 1: Minimal Clean ── */
-                if (style === 1) return (
-                  <div key={`${r.state}-${r.market}-${idx}`} className="relative rounded-xl border border-gray-200 bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 mandi-card">
-                    {badge}
-                    <h3 className="text-sm font-bold text-gray-900 truncate">{r.market}</h3>
-                    <p className="text-xs text-gray-500 mt-0.5">{r.state}</p>
-                    <div className="mt-3">
-                      <span className="text-[10px] text-gray-400">मॉडल भाव</span>
-                      <div className="text-xl font-bold" style={{ color: '#05420d' }}>{price}</div>
-                    </div>
-                    <div className="text-xs text-gray-500 mt-2">
-                      न्यूनतम <span className="font-semibold text-gray-600">{min}</span>
-                      <span className="mx-1 text-gray-300">·</span>
-                      अधिकतम <span className="font-semibold text-gray-600">{max}</span>
-                    </div>
-                    {date && <div className="text-[10px] text-gray-400 text-right mt-2">{date}</div>}
+              {displayRecords.map((r, idx) => (
+                <div
+                  key={`${r.state}-${r.market}-${idx}`}
+                  className="rounded-xl border border-gray-200 bg-white p-4 transition-all duration-200 hover:-translate-y-[2px] mandi-card"
+                >
+                  <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-white" style={{ background: '#05420d' }}>{r.market}</div>
+                  <p className="text-xs text-gray-500 mt-1.5">{r.state}</p>
+                  <div className="mt-3">
+                    <span className="text-[10px] text-gray-400">मॉडल भाव</span>
+                    <div className="text-xl font-bold" style={{ color: '#05420d' }}>₹{r.modal_price.toLocaleString('hi-IN')}</div>
                   </div>
-                )
-
-                /* ── STYLE 2: Left Green Border ── */
-                if (style === 2) return (
-                  <div key={`${r.state}-${r.market}-${idx}`} className="relative rounded-xl bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 mandi-card" style={{ border: '1px solid #e5e7eb', borderLeft: '4px solid #05420d' }}>
-                    {badge}
-                    <div className="flex items-baseline justify-between gap-2">
-                      <div className="min-w-0">
-                        <h3 className="text-sm font-bold text-gray-900 truncate">{r.market} <span className="text-[10px] font-normal text-gray-400">· {r.state}</span></h3>
-                      </div>
-                      <div className="text-xl font-bold shrink-0" style={{ color: '#05420d' }}>{price}</div>
-                    </div>
-                    <div className="flex items-center justify-between mt-2.5">
-                      <div className="text-xs text-gray-500">
-                        न्यूनतम <span className="font-semibold text-gray-600">{min}</span>
-                        <span className="mx-1 text-gray-300">·</span>
-                        अधिकतम <span className="font-semibold text-gray-600">{max}</span>
-                      </div>
-                      {date && <span className="text-[10px] text-gray-400 shrink-0">{date}</span>}
-                    </div>
+                  <div className="text-xs text-gray-500 mt-2">
+                    न्यूनतम <span className="font-semibold text-gray-600">₹{r.min_price.toLocaleString('hi-IN')}</span>
+                    <span className="mx-1 text-gray-300">·</span>
+                    अधिकतम <span className="font-semibold text-gray-600">₹{r.max_price.toLocaleString('hi-IN')}</span>
                   </div>
-                )
-
-                /* ── STYLE 3: Green Badge Header ── */
-                if (style === 3) return (
-                  <div key={`${r.state}-${r.market}-${idx}`} className="relative rounded-xl border border-gray-200 bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 mandi-card">
-                    {badge}
-                    <div className="inline-block px-3 py-1 rounded-full text-xs font-bold text-white mb-2" style={{ background: '#05420d' }}>{r.market}</div>
-                    <p className="text-xs text-gray-500">{r.state}</p>
-                    <div className="text-center mt-3">
-                      <span className="text-[10px] text-gray-400">मॉडल भाव</span>
-                      <div className="text-2xl font-bold" style={{ color: '#ed6442' }}>{price}</div>
-                    </div>
-                    <div className="text-xs text-gray-500 text-center mt-2">
-                      न्यूनतम <span className="font-semibold text-gray-600">{min}</span>
-                      <span className="mx-1 text-gray-300">·</span>
-                      अधिकतम <span className="font-semibold text-gray-600">{max}</span>
-                    </div>
-                    {date && <div className="text-[10px] text-gray-400 text-right mt-2">{date}</div>}
-                  </div>
-                )
-
-                /* ── STYLE 4: Split Card ── */
-                if (style === 4) return (
-                  <div key={`${r.state}-${r.market}-${idx}`} className="relative rounded-xl border border-gray-200 bg-white overflow-hidden flex transition-all duration-200 hover:-translate-y-0.5 mandi-card">
-                    {badge}
-                    <div className="flex-[3] p-4">
-                      <h3 className="text-sm font-bold text-gray-900 truncate">{r.market}</h3>
-                      <p className="text-xs text-gray-500 mt-0.5">{r.state}</p>
-                      <div className="text-xs text-gray-500 mt-3">
-                        न्यूनतम <span className="font-semibold text-gray-600">{min}</span>
-                        <span className="mx-1 text-gray-300">·</span>
-                        अधिकतम <span className="font-semibold text-gray-600">{max}</span>
-                      </div>
-                      {date && <div className="text-[10px] text-gray-400 mt-1.5">{date}</div>}
-                    </div>
-                    <div className="flex-[2] flex flex-col items-center justify-center p-3" style={{ background: '#f0fdf4', borderLeft: '1px solid #dcfce7' }}>
-                      <span className="text-[9px] text-gray-400">मॉडल भाव</span>
-                      <div className="text-xl font-bold mt-0.5" style={{ color: '#05420d' }}>{price}</div>
-                    </div>
-                  </div>
-                )
-
-                /* ── STYLE 5: Compact Tag Style ── */
-                return (
-                  <div key={`${r.state}-${r.market}-${idx}`} className="relative rounded-xl bg-white p-3 transition-all duration-200 hover:-translate-y-0.5 mandi-card" style={{ border: '1px solid #e5e7eb', borderBottom: '2px solid #ed6442' }}>
-                    {badge}
-                    <div className="text-sm truncate">
-                      <span className="font-bold text-gray-900">{r.market}</span>
-                      <span className="text-xs text-gray-400 ml-1">({r.state})</span>
-                    </div>
-                    <div className="flex items-baseline gap-2 mt-2">
-                      <span className="text-xl font-bold" style={{ color: '#05420d' }}>{price}</span>
-                      <span className="text-[11px] text-gray-400">↕ {min} – {max}</span>
-                    </div>
-                    {date && <div className="text-[10px] text-gray-400 text-right mt-1.5">{date}</div>}
-                  </div>
-                )
-              })}
+                  {r.arrival_date && (
+                    <div className="text-[10px] text-gray-400 text-right mt-2">{formatDate(r.arrival_date)}</div>
+                  )}
+                </div>
+              ))}
             </div>
 
             {/* Show more */}
