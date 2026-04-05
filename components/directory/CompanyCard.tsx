@@ -1,19 +1,21 @@
 import Link from 'next/link'
-import { MapPin } from 'lucide-react'
+import { MapPin, Eye } from 'lucide-react'
 import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
-import { truncateText } from '@/lib/dir-utils'
+import { truncateText, formatNumber } from '@/lib/dir-utils'
 
 interface CompanyCardProps {
   name: string
   slug: string
   categorySlug: string
   description: string | null
+  logoUrl?: string | null
   city?: string
   state?: string
   planTier?: string
   isVerified?: boolean
   isFeatured?: boolean
+  viewCount?: number
 }
 
 export function CompanyCard({
@@ -21,11 +23,13 @@ export function CompanyCard({
   slug,
   categorySlug,
   description,
+  logoUrl,
   city,
   state,
   planTier = 'free',
   isVerified = false,
   isFeatured = false,
+  viewCount,
 }: CompanyCardProps) {
   const location = [city, state].filter(Boolean).join(', ')
   const showPlanBadge = planTier === 'premium' || planTier === 'platinum'
@@ -45,10 +49,22 @@ export function CompanyCard({
       >
         <div className="p-4 sm:p-5">
           <div className="flex items-start gap-3.5">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#f0fdf4] text-[#05420d] font-bold text-lg">
-              {name.charAt(0).toUpperCase()}
-            </div>
+            {/* Logo / Initial */}
+            {logoUrl ? (
+              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-gray-200">
+                <img
+                  src={logoUrl}
+                  alt={`${name} logo`}
+                  className="h-full w-full object-contain"
+                />
+              </div>
+            ) : (
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#f0fdf4] text-[#05420d] font-bold text-lg">
+                {name.charAt(0).toUpperCase()}
+              </div>
+            )}
 
+            {/* Content */}
             <div className="min-w-0 flex-1">
               <div className="flex items-start gap-2 flex-wrap">
                 <h3 className="font-semibold text-gray-900 group-hover:text-[#05420d] transition-colors leading-tight">
@@ -71,6 +87,12 @@ export function CompanyCard({
                   <span className="inline-flex items-center gap-1">
                     <MapPin className="h-3.5 w-3.5" />
                     {location}
+                  </span>
+                )}
+                {viewCount !== undefined && viewCount > 0 && (
+                  <span className="inline-flex items-center gap-1">
+                    <Eye className="h-3.5 w-3.5" />
+                    {formatNumber(viewCount)}
                   </span>
                 )}
               </div>

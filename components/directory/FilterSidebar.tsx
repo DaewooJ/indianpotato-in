@@ -21,6 +21,7 @@ export function FilterSidebar({ states = [] }: FilterSidebarProps) {
   const searchParams = useSearchParams()
 
   const currentState = searchParams.get('state') ?? ''
+  const currentVerified = searchParams.get('verified') === '1'
   const currentQuery = searchParams.get('q') ?? ''
 
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -46,7 +47,7 @@ export function FilterSidebar({ states = [] }: FilterSidebarProps) {
     router.push(pathname)
   }, [router, pathname])
 
-  const hasFilters = currentState || currentQuery
+  const hasFilters = currentState || currentVerified || currentQuery
 
   const filterContent = (
     <div className="space-y-6">
@@ -88,6 +89,28 @@ export function FilterSidebar({ states = [] }: FilterSidebarProps) {
             </option>
           ))}
         </select>
+      </div>
+
+      {/* Verified toggle */}
+      <div>
+        <label className="flex items-center gap-3 cursor-pointer">
+          <button
+            type="button"
+            role="switch"
+            aria-checked={currentVerified}
+            onClick={() => updateParams({ verified: currentVerified ? null : '1' })}
+            className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full transition-colors duration-200 ${
+              currentVerified ? 'bg-[#05420d]' : 'bg-gray-200'
+            }`}
+          >
+            <span
+              className={`pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow-sm ring-0 transition-transform duration-200 translate-y-0.5 ${
+                currentVerified ? 'translate-x-5.5 ml-px' : 'translate-x-0.5'
+              }`}
+            />
+          </button>
+          <span className="text-sm font-medium text-gray-900">केवल सत्यापित</span>
+        </label>
       </div>
 
       {hasFilters && (

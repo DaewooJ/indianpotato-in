@@ -40,8 +40,8 @@ export default function DirectoryPage() {
         />
 
         {/* Hero */}
-        <section className="bg-[#05420d] text-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+        <section className="relative bg-[#05420d] text-white">
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
                 भारत का आलू उद्योग डायरेक्टरी
