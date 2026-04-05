@@ -258,52 +258,73 @@ export const MANDI_NAMES_HI: Record<string, string> = {
 
 /** Translate a state name to Hindi, fallback to original */
 export function translateState(name: string): string {
-  return STATE_NAMES_HI[name] || name
+  if (!name) return name
+  // Exact match
+  if (STATE_NAMES_HI[name]) return STATE_NAMES_HI[name]
+  // Case-insensitive
+  const lower = name.trim().toLowerCase()
+  for (const [key, value] of Object.entries(STATE_NAMES_HI)) {
+    if (key.toLowerCase() === lower) return value
+  }
+  return name
 }
 
-// Suffixes to strip from market names (order matters — longer first)
-const SUFFIXES = [
-  /\s*\(Subzi Mandi\)/gi,
-  /\s*\(Fruit\s*&\s*Veg\.?\)/gi,
-  /\s*\(F\s*&\s*V\)/gi,
-  /\s*\(Mandi\)/gi,
-  /\s*\(APMC\)/gi,
-  /\s*\(.*?\)/g,
-  /\s+Market\s+Yard$/gi,
-  /\s+Mandi\s+Samiti$/gi,
-  /\s+Mandi$/gi,
-  /\s+APMC$/gi,
-  /\s+Sabzi\s+Mandi$/gi,
-  /\s+Subzi\s+Mandi$/gi,
-  /\s+Fruit\s+Market$/gi,
-  /\s+Vegetable\s+Market$/gi,
-]
+// Build a lowercase lookup map once for fast case-insensitive matching
+const MANDI_LOWER_MAP = new Map<string, string>()
+for (const [key, value] of Object.entries(MANDI_NAMES_HI)) {
+  MANDI_LOWER_MAP.set(key.toLowerCase(), value)
+}
 
-/** Translate a market name to Hindi — returns English as-is if not in map */
+function tryMatch(text: string): string | null {
+  if (!text) return null
+  // Exact match
+  if (MANDI_NAMES_HI[text]) return MANDI_NAMES_HI[text]
+  // Case-insensitive
+  return MANDI_LOWER_MAP.get(text.toLowerCase()) || null
+}
+
+/** Translate a market name to Hindi — aggressive matching */
 export function translateMarket(name: string): string {
   if (!name) return name
 
-  // Step 1: exact match
-  if (MANDI_NAMES_HI[name]) return MANDI_NAMES_HI[name]
+  // Step 1: exact match on raw name
+  const exact = tryMatch(name)
+  if (exact) return exact
 
-  // Step 2: strip suffixes and try
-  let cleaned = name
-  for (const suffix of SUFFIXES) {
-    cleaned = cleaned.replace(suffix, '').trim()
+  // Step 2: strip parenthesized content — "Agra(Subzi Mandi)" or "Agra (F&V)"
+  let cleaned = name.replace(/\(.*?\)/g, '').trim()
+
+  // Step 3: strip common trailing suffixes
+  cleaned = cleaned
+    .replace(/\s+APMC$/i, '')
+    .replace(/\s+Mandi\s+Samiti$/i, '')
+    .replace(/\s+Mandi$/i, '')
+    .replace(/\s+Market\s+Yard$/i, '')
+    .replace(/\s+Market$/i, '')
+    .replace(/\s+Wholesale$/i, '')
+    .replace(/\s+Yard$/i, '')
+    .replace(/\s+Sabzi$/i, '')
+    .replace(/\s+Subzi$/i, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+  const afterClean = tryMatch(cleaned)
+  if (afterClean) return afterClean
+
+  // Step 4: strip trailing dash/hyphen content — "Agra - Wholesale"
+  const dashStripped = cleaned.split(/\s*[-–—]\s*/)[0].trim()
+  if (dashStripped !== cleaned) {
+    const afterDash = tryMatch(dashStripped)
+    if (afterDash) return afterDash
   }
-  cleaned = cleaned.replace(/\s+/g, ' ').trim()
-  if (MANDI_NAMES_HI[cleaned]) return MANDI_NAMES_HI[cleaned]
 
-  // Step 3: first word only
-  const firstWord = cleaned.split(/\s+/)[0]
-  if (firstWord && MANDI_NAMES_HI[firstWord]) return MANDI_NAMES_HI[firstWord]
-
-  // Step 4: case-insensitive match
-  const lower = cleaned.toLowerCase()
-  for (const [key, value] of Object.entries(MANDI_NAMES_HI)) {
-    if (key.toLowerCase() === lower) return value
+  // Step 5: first word only — "Chandausi APMC" → "Chandausi"
+  const firstWord = cleaned.split(/[\s\-\(]/)[0].trim()
+  if (firstWord && firstWord !== cleaned) {
+    const afterFirst = tryMatch(firstWord)
+    if (afterFirst) return afterFirst
   }
 
-  // No match — return English as-is
+  // No match — return cleaned English name
   return cleaned
 }

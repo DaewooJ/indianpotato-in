@@ -1,12 +1,17 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { translateState, translateMarket } from '@/lib/mandi-translations';
+import { NextRequest, NextResponse } from 'next/server'
+import { translateState, translateMarket } from '@/lib/mandi-translations'
 
-const RID = '9ef84268-d588-465a-a308-a864a43d0070';
-const BU = 'https://api.data.gov.in/resource';
-const CD = 1800;
-let cache: { data: any; ts: number } | null = null;
+const RID = '9ef84268-d588-465a-a308-a864a43d0070'
+const BU = 'https://api.data.gov.in/resource'
+const CACHE_TTL = 1800 * 1000 // 30 min in ms
 
-const FB: any[] = [
+// Cache stores ALREADY-TRANSLATED data
+let cache: { data: any; ts: number } | null = null
+
+// Build version — changes on every deploy, busts stale cache
+const BUILD_ID = Date.now().toString()
+
+const FALLBACK = [
   { state:'Uttar Pradesh',district:'Agra',market:'Agra',commodity:'Potato',variety:'Other',arrival_date:'2026-03-26',min_price:1180,max_price:1420,modal_price:1340 },
   { state:'Uttar Pradesh',district:'Lucknow',market:'Lucknow',commodity:'Potato',variety:'Other',arrival_date:'2026-03-26',min_price:1200,max_price:1480,modal_price:1380 },
   { state:'West Bengal',district:'Kolkata',market:'Kolkata',commodity:'Potato',variety:'Other',arrival_date:'2026-03-26',min_price:1350,max_price:1550,modal_price:1460 },
@@ -19,98 +24,116 @@ const FB: any[] = [
   { state:'Maharashtra',district:'Pune',market:'Pune',commodity:'Potato',variety:'Other',arrival_date:'2026-03-26',min_price:1400,max_price:1650,modal_price:1520 },
   { state:'Haryana',district:'Karnal',market:'Karnal',commodity:'Potato',variety:'Other',arrival_date:'2026-03-26',min_price:1100,max_price:1300,modal_price:1200 },
   { state:'Chhattisgarh',district:'Raipur',market:'Raipur',commodity:'Potato',variety:'Other',arrival_date:'2026-03-26',min_price:1500,max_price:1750,modal_price:1620 },
-];
+]
 
-// Internal record — keeps English state_en for sorting/dedup
-interface IR {
-  state_en: string; state: string; district: string; market: string;
-  commodity: string; variety: string; arrival_date: string;
-  min_price: number; max_price: number; modal_price: number;
+// Priority sort order
+const PRIORITY_STATES = ['Gujarat','Punjab','Uttar Pradesh','West Bengal','Madhya Pradesh','Bihar','Haryana','Rajasthan','Maharashtra','Chhattisgarh','Uttarakhand','Himachal Pradesh','Karnataka','Delhi']
+
+function statePriority(state: string): number {
+  const idx = PRIORITY_STATES.indexOf(state)
+  return idx >= 0 ? idx : 999
 }
 
-function parseRecord(d: any): IR {
-  return {
-    state_en: d.state || '',
-    state: translateState(d.state || ''),
-    district: d.district || '',
-    market: translateMarket(d.market || ''),
-    commodity: d.commodity || 'Potato',
-    variety: d.variety || '',
-    arrival_date: d.arrival_date || '',
-    min_price: Number(d.min_price) || 0,
-    max_price: Number(d.max_price) || 0,
-    modal_price: Number(d.modal_price) || 0,
-  };
-}
+async function fetchRawRecords(state?: string, limit = 100): Promise<any[]> {
+  const apiKey = process.env.DATA_GOV_IN_API_KEY
+  if (!apiKey) return FALLBACK
 
-async function fetchData(state?: string, limit = 100): Promise<IR[]> {
-  const ak = process.env.DATA_GOV_IN_API_KEY;
-  if (!ak) return FB.map(parseRecord);
   try {
-    const p = new URLSearchParams({
-      'api-key': ak, format: 'json', limit: String(limit),
+    const params = new URLSearchParams({
+      'api-key': apiKey, format: 'json', limit: String(limit),
       'filters[commodity]': 'Potato',
-    });
-    if (state) p.set('filters[state]', state);
-    const r = await fetch(BU + '/' + RID + '?' + p.toString(), {
-      next: { revalidate: CD }, headers: { Accept: 'application/json' },
-    });
-    if (!r.ok) throw new Error('E');
-    const j = await r.json();
-    if (!j.records || !j.records.length) return FB.map(parseRecord);
-    return j.records.map(parseRecord);
-  } catch (e) {
-    return FB.map(parseRecord);
+    })
+    if (state) params.set('filters[state]', state)
+
+    const res = await fetch(`${BU}/${RID}?${params}`, {
+      next: { revalidate: 1800 },
+      headers: { Accept: 'application/json' },
+    })
+    if (!res.ok) return FALLBACK
+
+    const json = await res.json()
+    return json.records?.length ? json.records : FALLBACK
+  } catch {
+    return FALLBACK
   }
 }
-
-// Priority sort order (English names for internal matching)
-const PS = ['Gujarat', 'Punjab', 'Uttar Pradesh', 'West Bengal', 'Madhya Pradesh', 'Bihar', 'Haryana', 'Rajasthan', 'Maharashtra', 'Chhattisgarh', 'Uttarakhand', 'Himachal Pradesh', 'Karnataka', 'Delhi'];
 
 export async function GET(req: NextRequest) {
-  const sp = new URL(req.url).searchParams;
-  const st = sp.get('state') || undefined;
-  const lm = Math.min(Number(sp.get('limit') || 100), 500);
-  if (cache && cache.ts > Date.now() - CD * 1000) return NextResponse.json(cache.data);
+  const sp = new URL(req.url).searchParams
+  const stateFilter = sp.get('state') || undefined
+  const limit = Math.min(Number(sp.get('limit') || 100), 500)
 
-  const recs = await fetchData(st, lm);
-
-  // Dedup: keep latest record per state+market
-  const mm = new Map<string, IR>();
-  for (const r of recs) {
-    const k = r.state_en + '-' + r.market;
-    const e = mm.get(k);
-    if (!e || r.arrival_date > e.arrival_date) mm.set(k, r);
+  // Serve from cache if fresh
+  if (cache && cache.ts > Date.now() - CACHE_TTL) {
+    return NextResponse.json(cache.data, {
+      headers: { 'Cache-Control': 'public, s-maxage=1800, stale-while-revalidate=3600' },
+    })
   }
 
-  // Sort by priority state, then by price desc
-  const sorted = Array.from(mm.values()).sort((a, b) => {
-    const pa = PS.indexOf(a.state_en); const pb = PS.indexOf(b.state_en);
-    const ia = pa >= 0 ? pa : 999; const ib = pb >= 0 ? pb : 999;
-    if (ia !== ib) return ia - ib;
-    return b.modal_price - a.modal_price;
-  });
+  // 1. Fetch raw English data from API
+  const rawRecords = await fetchRawRecords(stateFilter, limit)
 
-  // Build unique Hindi state list for filter pills
-  const stateOrder = Array.from(new Set(sorted.map(r => r.state_en))).sort((a, b) => {
-    const pa = PS.indexOf(a); const pb = PS.indexOf(b);
-    const ia = pa >= 0 ? pa : 999; const ib = pb >= 0 ? pb : 999;
-    return ia - ib;
-  });
-  const states = stateOrder.map(s => translateState(s));
+  // 2. Normalize to simple objects (ALL ENGLISH at this stage)
+  const normalized = rawRecords.map((r: any) => ({
+    state: (r.state || '').trim(),
+    district: (r.district || '').trim(),
+    market: (r.market || '').trim(),
+    variety: (r.variety || '').trim(),
+    arrival_date: r.arrival_date || '',
+    min_price: Number(r.min_price) || 0,
+    max_price: Number(r.max_price) || 0,
+    modal_price: Number(r.modal_price) || 0,
+  }))
 
-  // Final response records — Hindi only, drop state_en
-  const records = sorted.map(({ state_en, ...rest }) => rest);
+  // 3. Dedup: keep latest per state+market (ENGLISH keys)
+  const deduped = new Map<string, typeof normalized[0]>()
+  for (const r of normalized) {
+    const key = `${r.state}|${r.market}`
+    const existing = deduped.get(key)
+    if (!existing || r.arrival_date > existing.arrival_date) {
+      deduped.set(key, r)
+    }
+  }
 
-  const d = {
+  // 4. Sort by priority state, then price desc (ENGLISH sorting)
+  const sorted = Array.from(deduped.values()).sort((a, b) => {
+    const pa = statePriority(a.state)
+    const pb = statePriority(b.state)
+    if (pa !== pb) return pa - pb
+    return b.modal_price - a.modal_price
+  })
+
+  // 5. Build unique English state list, sorted
+  const uniqueStates = Array.from(new Set(sorted.map(r => r.state)))
+    .sort((a, b) => statePriority(a) - statePriority(b))
+
+  // 6. === TRANSLATE EVERYTHING TO HINDI — FINAL STEP ===
+  const hindiRecords = sorted.map(r => ({
+    state: translateState(r.state),
+    market: translateMarket(r.market),
+    district: r.district,
+    variety: r.variety,
+    arrival_date: r.arrival_date,
+    min_price: r.min_price,
+    max_price: r.max_price,
+    modal_price: r.modal_price,
+  }))
+
+  const hindiStates = uniqueStates.map(s => translateState(s))
+
+  const responseData = {
     updated_at: new Date().toISOString(),
-    total: records.length,
-    states,
-    records,
+    total: hindiRecords.length,
+    states: hindiStates,
+    records: hindiRecords,
     source: 'Indian Potato Team',
-  };
-  cache = { data: d, ts: Date.now() };
-  return NextResponse.json(d, {
+    build: BUILD_ID,
+  }
+
+  // Cache the translated response
+  cache = { data: responseData, ts: Date.now() }
+
+  return NextResponse.json(responseData, {
     headers: { 'Cache-Control': 'public, s-maxage=1800, stale-while-revalidate=3600' },
-  });
+  })
 }
