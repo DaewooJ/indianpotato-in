@@ -4,9 +4,18 @@ import { useState, useCallback } from 'react'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import { Search, SlidersHorizontal, X } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { INDIAN_STATES } from '@/lib/directory'
 
-export function FilterSidebar() {
+interface StateOption {
+  slug: string
+  name: string
+  nameEn: string
+}
+
+interface FilterSidebarProps {
+  states?: StateOption[]
+}
+
+export function FilterSidebar({ states = [] }: FilterSidebarProps) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -73,7 +82,7 @@ export function FilterSidebar() {
           className="w-full rounded-lg border border-gray-200 py-2.5 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#05420d]/20 focus:border-[#05420d] appearance-none bg-white cursor-pointer"
         >
           <option value="">सभी राज्य</option>
-          {INDIAN_STATES.map((s) => (
+          {states.map((s) => (
             <option key={s.slug} value={s.nameEn}>
               {s.name}
             </option>

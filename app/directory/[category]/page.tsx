@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar'
 import { Footer } from '@/components/Sections'
 import { generateDirMetadata, generateCategoryJsonLd } from '@/lib/dir-seo'
 import { formatNumber } from '@/lib/dir-utils'
-import { DIRECTORY_CATEGORIES, getListingsByCategory, getCategoryConfig } from '@/lib/directory'
+import { DIRECTORY_CATEGORIES, INDIAN_STATES, getListingsByCategory, getCategoryConfig } from '@/lib/directory'
 import { DirBreadcrumbs } from '@/components/directory/DirBreadcrumbs'
 import { CompanyCard } from '@/components/directory/CompanyCard'
 import { FilterSidebar } from '@/components/directory/FilterSidebar'
@@ -102,7 +102,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
           {/* Two-column layout */}
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 pb-12">
             <div className="lg:w-1/3 xl:w-1/4">
-              <FilterSidebar />
+              <FilterSidebar states={INDIAN_STATES} />
             </div>
 
             <div className="flex-1">
