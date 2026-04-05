@@ -11,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: baseUrl + '/kisme', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: baseUrl + '/yojnaye', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: baseUrl + '/directory', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: baseUrl + '/directory/pricing', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: baseUrl + '/directory/submit', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     { url: baseUrl + '/sampark', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     { url: baseUrl + '/about', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: baseUrl + '/privacy-policy', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
