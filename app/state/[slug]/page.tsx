@@ -31,9 +31,9 @@ function SH({ title, sub, link, linkText }: { title: string; sub?: string; link?
     <div style={{ marginBottom: 32 }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}>
         <h2 style={{ fontSize: 24, fontWeight: 700, color: '#111827', margin: 0 }}>{title}</h2>
-        {link && linkText && <Link href={link} style={{ fontSize: 14, fontWeight: 500, color: '#dc2626', textDecoration: 'none' }}>{linkText}</Link>}
+        {link && linkText && <Link href={link} style={{ fontSize: 14, fontWeight: 500, color: '#05420d', textDecoration: 'none' }}>{linkText}</Link>}
       </div>
-      <div style={{ width: 40, height: 3, background: '#dc2626', borderRadius: 2, marginTop: 12 }} />
+      <div style={{ width: 40, height: 3, background: '#05420d', borderRadius: 2, marginTop: 12 }} />
       {sub && <p style={{ fontSize: 15, color: '#6b7280', marginTop: 12, lineHeight: 1.6 }}>{sub}</p>}
     </div>
   );
@@ -111,13 +111,13 @@ export default function StatePage({ params }: { params: { slug: string } }) {
         {/* ─── HERO ─── */}
         <section style={{ background: '#fff', padding: 'clamp(60px, 10vw, 100px) 20px clamp(48px, 8vw, 80px)', borderBottom: '1px solid #f0f0f0' }}>
           <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <span style={{ display: 'inline-block', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 50, padding: '4px 14px', marginBottom: 24, fontSize: 12, color: '#dc2626', fontWeight: 600, letterSpacing: '0.05em' }}>राज्य प्रोफ़ाइल</span>
+            <span style={{ display: 'inline-block', background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 50, padding: '4px 14px', marginBottom: 24, fontSize: 12, color: '#05420d', fontWeight: 600, letterSpacing: '0.05em' }}>राज्य प्रोफ़ाइल</span>
             <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', fontWeight: 700, color: '#111827', lineHeight: 1.2, marginBottom: 16, maxWidth: 700 }}>उत्तर प्रदेश — भारत का #1 आलू उत्पादक राज्य</h1>
             <p style={{ fontSize: 16, color: '#6b7280', lineHeight: 1.6, maxWidth: 600, marginBottom: 36 }}>भारत के कुल आलू उत्पादन का एक-तिहाई। शीर्ष 10 ज़िले, प्रमुख किस्में, बीज उत्पादन, चुनौतियाँ और भविष्य का दृष्टिकोण।</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'center' }}>
               {[{ v: '19.17M टन', l: 'UP उत्पादन 2023-24' }, { v: '33.6%', l: 'भारत के कुल का हिस्सा' }, { v: '7 लाख हे.', l: 'खेती क्षेत्र' }, { v: '29 टन/हे.', l: 'औसत उपज' }].map((s, i) => (
                 <div key={i} className="state-card" style={{ ...card, padding: '20px 28px', minWidth: 150, cursor: 'default' }}>
-                  <div style={{ fontSize: 24, fontWeight: 700, color: '#dc2626', marginBottom: 4, letterSpacing: '-0.02em' }}>{s.v}</div>
+                  <div style={{ fontSize: 24, fontWeight: 700, color: '#05420d', marginBottom: 4, letterSpacing: '-0.02em' }}>{s.v}</div>
                   <div style={{ fontSize: 13, color: '#9ca3af' }}>{s.l}</div>
                 </div>
               ))}
@@ -137,7 +137,7 @@ export default function StatePage({ params }: { params: { slug: string } }) {
                 { icon: '👥', title: 'अनुभवी कृषि समुदाय', desc: 'आगरा, फर्रुखाबाद, कन्नौज में पीढ़ियों से आलू खेती का गहरा अनुभव' },
               ].map((c, i) => (
                 <div key={i} className="state-card" style={{ ...card, padding: 28 }}>
-                  <div style={{ width: 48, height: 48, borderRadius: 14, background: '#fef2f2', border: '1px solid #fecaca', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, marginBottom: 16 }}>{c.icon}</div>
+                  <div style={{ width: 48, height: 48, borderRadius: 14, background: '#f0fdf4', border: '1px solid #bbf7d0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, marginBottom: 16 }}>{c.icon}</div>
                   <h3 style={{ fontSize: 16, fontWeight: 600, color: '#1f2937', marginBottom: 8 }}>{c.title}</h3>
                   <p style={{ fontSize: 14, color: '#6b7280', lineHeight: 1.6, margin: 0 }}>{c.desc}</p>
                 </div>
@@ -156,7 +156,7 @@ export default function StatePage({ params }: { params: { slug: string } }) {
               <p style={{ marginBottom: 0 }}>UP + पश्चिम बंगाल + बिहार मिलकर भारत के ~68% खेती क्षेत्र और ~78% उत्पादन का योगदान करते हैं। UP से ~105 लाख MT विपणन योग्य अधिशेष दक्षिण और पूर्वोत्तर भारत को वितरित किया जाता है।</p>
             </div>
             <div style={{ ...card, padding: '24px 28px', marginTop: 28 }}>
-              <div style={{ fontSize: 11, fontWeight: 600, color: '#dc2626', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 10 }}>प्रमुख तथ्य</div>
+              <div style={{ fontSize: 11, fontWeight: 600, color: '#05420d', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 10 }}>प्रमुख तथ्य</div>
               <div style={{ fontSize: 18, fontWeight: 700, color: '#111827', marginBottom: 8 }}>आगरा-कानपुर आलू पट्टी</div>
               <p style={{ fontSize: 14, color: '#6b7280', lineHeight: 1.6, margin: 0 }}>भारत का सबसे गहन आलू उत्पादन क्षेत्र — 6.94 लाख हेक्टेयर, 29 टन/हे. औसत उपज। आगरा, फ़िरोज़ाबाद, कन्नौज, हाथरस, फर्रुखाबाद, मैनपुरी ज़िले शामिल।</p>
             </div>
@@ -170,12 +170,12 @@ export default function StatePage({ params }: { params: { slug: string } }) {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }} className="state-grid">
               {districts.map((d) => (
                 <div key={d.rank} className="state-card" style={{ ...card, padding: 28, display: 'flex', gap: 20, alignItems: 'flex-start' }}>
-                  <div style={{ fontSize: 28, fontWeight: 800, color: d.rank <= 3 ? '#dc2626' : '#d1d5db', lineHeight: 1, minWidth: 36, flexShrink: 0 }}>
+                  <div style={{ fontSize: 28, fontWeight: 800, color: d.rank <= 3 ? '#05420d' : '#d1d5db', lineHeight: 1, minWidth: 36, flexShrink: 0 }}>
                     {String(d.rank).padStart(2, '0')}
                   </div>
                   <div>
                     <div style={{ fontSize: 18, fontWeight: 600, color: '#1f2937', marginBottom: 6 }}>{d.name}</div>
-                    <div style={{ fontSize: 20, fontWeight: 700, color: '#dc2626', marginBottom: 8 }}>{d.prod}</div>
+                    <div style={{ fontSize: 20, fontWeight: 700, color: '#05420d', marginBottom: 8 }}>{d.prod}</div>
                     <div style={{ fontSize: 13, color: '#6b7280', lineHeight: 1.5 }}>{d.hl}</div>
                   </div>
                 </div>
@@ -188,11 +188,11 @@ export default function StatePage({ params }: { params: { slug: string } }) {
         <section style={{ padding: `${SP}px 20px`, background: '#fff', borderTop: '1px solid #f0f0f0' }}>
           <div style={{ maxWidth: 800, margin: '0 auto' }}>
             <SH title="आगरा — UP की आलू राजधानी" />
-            <div style={{ ...card, padding: 32, background: '#fffbfb', borderColor: '#fecaca' }}>
+            <div style={{ ...card, padding: 32, background: '#fffbfb', borderColor: '#bbf7d0' }}>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, marginBottom: 24 }}>
                 {[{ v: '28 लाख MT', l: 'वार्षिक उत्पादन' }, { v: '71,000 हे.', l: 'खेती क्षेत्र' }, { v: '~27%', l: 'UP उत्पादन का हिस्सा' }, { v: '~7 लाख MT', l: 'बीज आवश्यकता/वर्ष' }].map((s, i) => (
-                  <div key={i} style={{ flex: 1, minWidth: 120, padding: '12px 16px', background: '#fff', borderRadius: 12, border: '1px solid #fef2f2' }}>
-                    <div style={{ fontSize: 18, fontWeight: 700, color: '#dc2626' }}>{s.v}</div>
+                  <div key={i} style={{ flex: 1, minWidth: 120, padding: '12px 16px', background: '#fff', borderRadius: 12, border: '1px solid #f0fdf4' }}>
+                    <div style={{ fontSize: 18, fontWeight: 700, color: '#05420d' }}>{s.v}</div>
                     <div style={{ fontSize: 12, color: '#9ca3af', marginTop: 2 }}>{s.l}</div>
                   </div>
                 ))}
@@ -242,7 +242,7 @@ export default function StatePage({ params }: { params: { slug: string } }) {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }} className="state-grid">
               {challenges.map((c, i) => (
                 <div key={i} className="state-card" style={{ ...card, padding: 28 }}>
-                  <div style={{ width: 48, height: 48, borderRadius: 14, background: '#fef2f2', border: '1px solid #fecaca', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, marginBottom: 16 }}>{c.icon}</div>
+                  <div style={{ width: 48, height: 48, borderRadius: 14, background: '#f0fdf4', border: '1px solid #bbf7d0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, marginBottom: 16 }}>{c.icon}</div>
                   <h3 style={{ fontSize: 15, fontWeight: 600, color: '#1f2937', marginBottom: 8 }}>{c.title}</h3>
                   <p style={{ fontSize: 14, color: '#6b7280', lineHeight: 1.6, margin: 0 }}>{c.desc}</p>
                 </div>
@@ -262,7 +262,7 @@ export default function StatePage({ params }: { params: { slug: string } }) {
                 { title: 'CIP आगरा कार्यालय', desc: 'किस्म विकास, जलवायु अनुकूलन अनुसंधान, दक्षिण एशिया के लिए क्षेत्रीय समन्वय केंद्र।' },
               ].map((f, i) => (
                 <div key={i} style={{ ...card, padding: 24, display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#dc2626', marginTop: 8, flexShrink: 0 }} />
+                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#05420d', marginTop: 8, flexShrink: 0 }} />
                   <div>
                     <h3 style={{ fontSize: 16, fontWeight: 600, color: '#1f2937', marginBottom: 6 }}>{f.title}</h3>
                     <p style={{ fontSize: 14, color: '#6b7280', lineHeight: 1.6, margin: 0 }}>{f.desc}</p>
@@ -310,7 +310,7 @@ export default function StatePage({ params }: { params: { slug: string } }) {
                           <Link key={l.slug} href={`/directory/${l.category}/${l.slug}`} className="state-card" style={{ ...card, padding: 20, display: 'block', textDecoration: 'none', color: 'inherit' }}>
                             <div style={{ fontSize: 15, fontWeight: 600, color: '#1f2937', marginBottom: 4 }}>{l.name}</div>
                             <div style={{ fontSize: 13, color: '#9ca3af' }}>{l.district}</div>
-                            <span style={{ display: 'inline-block', marginTop: 10, fontSize: 13, fontWeight: 500, color: '#dc2626' }}>देखें →</span>
+                            <span style={{ display: 'inline-block', marginTop: 10, fontSize: 13, fontWeight: 500, color: '#05420d' }}>देखें →</span>
                           </Link>
                         ))}
                       </div>
@@ -321,7 +321,7 @@ export default function StatePage({ params }: { params: { slug: string } }) {
             ) : (
               <div style={{ ...card, padding: '40px 24px', textAlign: 'center' }}>
                 <p style={{ fontSize: 15, color: '#9ca3af', marginBottom: 16 }}>जल्द ही UP की कंपनियाँ यहाँ दिखेंगी</p>
-                <Link href="/directory" style={{ fontSize: 14, fontWeight: 500, color: '#dc2626', textDecoration: 'none' }}>डायरेक्टरी देखें →</Link>
+                <Link href="/directory" style={{ fontSize: 14, fontWeight: 500, color: '#05420d', textDecoration: 'none' }}>डायरेक्टरी देखें →</Link>
               </div>
             )}
           </div>
@@ -335,12 +335,12 @@ export default function StatePage({ params }: { params: { slug: string } }) {
               <Link href="/samachar/up-aloo-kheti-yojana" className="state-card" style={{ ...card, padding: 28, display: 'block', textDecoration: 'none', color: 'inherit' }}>
                 <span style={{ fontSize: 11, fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.05em' }}>राज्य योजना</span>
                 <h3 style={{ fontSize: 16, fontWeight: 600, color: '#1f2937', lineHeight: 1.4, marginTop: 10 }}>UP आलू खेती योजनाएँ — 50% उपकरण अनुदान</h3>
-                <span style={{ display: 'inline-block', marginTop: 14, fontSize: 14, fontWeight: 500, color: '#dc2626' }}>विवरण पढ़ें →</span>
+                <span style={{ display: 'inline-block', marginTop: 14, fontSize: 14, fontWeight: 500, color: '#05420d' }}>विवरण पढ़ें →</span>
               </Link>
               <Link href="/yojnaye" className="state-card" style={{ ...card, padding: 28, display: 'block', textDecoration: 'none', color: 'inherit' }}>
                 <span style={{ fontSize: 11, fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.05em' }}>केंद्र सरकार</span>
                 <h3 style={{ fontSize: 16, fontWeight: 600, color: '#1f2937', lineHeight: 1.4, marginTop: 10 }}>PM किसान, KCC, PMFME, NABARD और अन्य</h3>
-                <span style={{ display: 'inline-block', marginTop: 14, fontSize: 14, fontWeight: 500, color: '#dc2626' }}>सभी योजनाएँ देखें →</span>
+                <span style={{ display: 'inline-block', marginTop: 14, fontSize: 14, fontWeight: 500, color: '#05420d' }}>सभी योजनाएँ देखें →</span>
               </Link>
             </div>
           </div>

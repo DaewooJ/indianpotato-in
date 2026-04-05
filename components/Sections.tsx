@@ -24,22 +24,22 @@ export function NewsSection({ posts }: { posts: NewsPost[] }) {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 12 }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
+              <div style={{ width: 4, height: 28, background: '#05420d', borderRadius: 2 }} />
               <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#333' }}>ताज़ा समाचार</h2>
             </div>
             <div style={{ fontSize: '0.72rem', color: '#999', marginTop: 4, paddingLeft: 16 }}>अपडेट: {formatDate(featured.date)}</div>
           </div>
-          <Link href="/samachar" style={{ textDecoration: 'none', fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>सभी समाचार →</Link>
+          <Link href="/samachar" style={{ textDecoration: 'none', fontSize: '0.85rem', fontWeight: 700, color: '#05420d', borderBottom: '2px solid #05420d', paddingBottom: 2 }}>सभी समाचार →</Link>
         </div>
         <div className="news-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 16 }}>
           <Link href={'/samachar/' + featured.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
             <div style={{ borderRadius: 12, overflow: 'hidden', border: '1px solid #eee', background: '#fff', display: 'flex', flexDirection: 'column', height: '100%', transition: 'box-shadow 0.3s' }}>
               <div style={{ position: 'relative' }}>
                 <img src={featured.image} alt={featured.title} style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover', display: 'block' }} loading="lazy" />
-                <div style={{ position: 'absolute', top: 12, left: 12, background: '#E53E3E', padding: '5px 14px', borderRadius: 4, fontSize: '0.65rem', fontWeight: 800, color: '#fff', textTransform: 'uppercase', letterSpacing: '0.1em' }}>🔥 मुख्य ख़बर</div>
+                <div style={{ position: 'absolute', top: 12, left: 12, background: '#05420d', padding: '5px 14px', borderRadius: 4, fontSize: '0.65rem', fontWeight: 800, color: '#fff', textTransform: 'uppercase', letterSpacing: '0.1em' }}>🔥 मुख्य ख़बर</div>
               </div>
               <div style={{ padding: '24px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <span style={{ display: 'inline-block', width: 'fit-content', background: '#fef2f2', color: '#E53E3E', padding: '3px 12px', borderRadius: 3, fontSize: '0.72rem', fontWeight: 700, marginBottom: 14 }}>{featured.category_hindi}</span>
+                <span style={{ display: 'inline-block', width: 'fit-content', background: '#f0fdf4', color: '#05420d', padding: '3px 12px', borderRadius: 3, fontSize: '0.72rem', fontWeight: 700, marginBottom: 14 }}>{featured.category_hindi}</span>
                 <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#333', lineHeight: 1.4, marginBottom: 14 }}>{featured.title}</h3>
                 <div style={{ fontSize: '0.78rem', color: '#aaa' }}>{formatDate(featured.date)}</div>
               </div>
@@ -53,7 +53,7 @@ export function NewsSection({ posts }: { posts: NewsPost[] }) {
                   <img src={a.image} alt={a.title} style={{ width: 88, aspectRatio: '16/9', borderRadius: 6, objectFit: 'cover', flexShrink: 0 }} loading="lazy" />
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-                      <span style={{ fontSize: '0.62rem', fontWeight: 700, color: '#E53E3E', background: '#fef2f2', padding: '1px 7px', borderRadius: 3 }}>{a.category_hindi}</span>
+                      <span style={{ fontSize: '0.62rem', fontWeight: 700, color: '#05420d', background: '#f0fdf4', padding: '1px 7px', borderRadius: 3 }}>{a.category_hindi}</span>
                       <span style={{ fontSize: '0.62rem', color: '#ccc' }}>{formatDate(a.date)}</span>
                     </div>
                     <h4 style={{ fontSize: '0.88rem', fontWeight: 700, color: '#333', lineHeight: 1.4 }}>{a.title}</h4>
@@ -84,12 +84,12 @@ export function GovSchemes() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 8 }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
+              <div style={{ width: 4, height: 28, background: '#05420d', borderRadius: 2 }} />
               <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#333' }}>सरकारी योजनाएँ</h2>
             </div>
             <div style={{ fontSize: '0.72rem', color: '#999', marginTop: 4, paddingLeft: 16 }}>अपडेट: अप्रैल 2026</div>
           </div>
-          <Link href="/yojnaye" style={{ textDecoration: 'none', fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>सभी योजनाएँ →</Link>
+          <Link href="/yojnaye" style={{ textDecoration: 'none', fontSize: '0.85rem', fontWeight: 700, color: '#05420d', borderBottom: '2px solid #05420d', paddingBottom: 2 }}>सभी योजनाएँ →</Link>
         </div>
         <div className="scheme-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
           {schemes.map((s, i) => (
@@ -109,9 +109,9 @@ export function GovSchemes() {
                 }}>{s.status}</span>
               </div>
               <h3 style={{ fontSize: 18, fontWeight: 600, color: '#1f2937', lineHeight: 1.35, marginBottom: 10 }}>{s.name}</h3>
-              <div style={{ fontSize: 24, fontWeight: 700, color: '#dc2626', marginBottom: 12, letterSpacing: '-0.02em' }}>{s.benefit}</div>
+              <div style={{ fontSize: 24, fontWeight: 700, color: '#05420d', marginBottom: 12, letterSpacing: '-0.02em' }}>{s.benefit}</div>
               <p style={{ fontSize: 14, color: '#6b7280', lineHeight: 1.6, marginBottom: 16, flex: 1 }}>{s.desc}</p>
-              <span className="scheme-cta" style={{ fontSize: 14, fontWeight: 500, color: '#dc2626', transition: 'opacity 0.25s' }}>विवरण पढ़ें →</span>
+              <span className="scheme-cta" style={{ fontSize: 14, fontWeight: 500, color: '#05420d', transition: 'opacity 0.25s' }}>विवरण पढ़ें →</span>
             </Link>
           ))}
         </div>
@@ -142,16 +142,16 @@ export function VarietiesQuick() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 12 }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
+              <div style={{ width: 4, height: 28, background: '#05420d', borderRadius: 2 }} />
               <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#333' }}>आलू की प्रमुख किस्में</h2>
             </div>
             <div style={{ fontSize: '0.72rem', color: '#999', marginTop: 4, paddingLeft: 16 }}>अपडेट: मार्च 2026</div>
           </div>
-          <Link href="/kisme" style={{ textDecoration: 'none', fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>सभी किस्में →</Link>
+          <Link href="/kisme" style={{ textDecoration: 'none', fontSize: '0.85rem', fontWeight: 700, color: '#05420d', borderBottom: '2px solid #05420d', paddingBottom: 2 }}>सभी किस्में →</Link>
         </div>
         <div className="variety-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: 16 }}>
           {varieties.map((v, i) => (
-            <div key={i} className="variety-card" style={{ background: '#fff', borderRadius: 12, padding: '20px', border: '1px solid #fecaca', cursor: 'default', display: 'flex', gap: 18, alignItems: 'flex-start', transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease' }}>
+            <div key={i} className="variety-card" style={{ background: '#fff', borderRadius: 12, padding: '20px', border: '1px solid #bbf7d0', cursor: 'default', display: 'flex', gap: 18, alignItems: 'flex-start', transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease' }}>
               <img src={v.img} alt={v.name + ' — भारतीय आलू किस्म'} style={{ width: 80, height: 80, borderRadius: 12, objectFit: 'cover', flexShrink: 0 }} loading="lazy" />
               <div style={{ flex: 1 }}>
                 <div style={{ marginBottom: 10 }}>
@@ -192,10 +192,10 @@ export function DirectoryPreview({ categories }: { categories: DirCat[] }) {
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 12 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
+            <div style={{ width: 4, height: 28, background: '#05420d', borderRadius: 2 }} />
             <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#333' }}>उद्योग डायरेक्टरी</h2>
           </div>
-          <Link href="/directory" style={{ textDecoration: 'none', fontSize: '0.85rem', fontWeight: 700, color: '#E53E3E', borderBottom: '2px solid #E53E3E', paddingBottom: 2 }}>पूरी डायरेक्टरी →</Link>
+          <Link href="/directory" style={{ textDecoration: 'none', fontSize: '0.85rem', fontWeight: 700, color: '#05420d', borderBottom: '2px solid #05420d', paddingBottom: 2 }}>पूरी डायरेक्टरी →</Link>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 16 }}>
           {categories.map((c) => (
@@ -203,7 +203,7 @@ export function DirectoryPreview({ categories }: { categories: DirCat[] }) {
               <div style={{ background: '#fff', borderRadius: 10, padding: '28px 20px', border: '1px solid #eee', cursor: 'pointer', textAlign: 'center', transition: 'box-shadow 0.2s, transform 0.2s' }}>
                 <div style={{ fontSize: 32, marginBottom: 10 }}>{c.icon}</div>
                 <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#333', marginBottom: 4 }}>{c.name}</div>
-                {c.count > 0 && <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#E53E3E' }}>{c.count} कंपनियाँ</div>}
+                {c.count > 0 && <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#05420d' }}>{c.count} कंपनियाँ</div>}
                 {c.count === 0 && <div style={{ fontSize: '0.78rem', color: '#aaa' }}>जल्द आ रहा है</div>}
               </div>
             </Link>
@@ -259,7 +259,7 @@ export function Footer() {
           { number: '86+', label: 'मंडी भाव रोज़ाना' },
         ].map((stat, i) => (
           <div key={i} style={{ textAlign: 'center', minWidth: 120 }}>
-            <div style={{ fontSize: 28, fontWeight: 700, color: '#dc2626' }}>{stat.number}</div>
+            <div style={{ fontSize: 28, fontWeight: 700, color: '#05420d' }}>{stat.number}</div>
             <div style={{ fontSize: 13, color: '#666', marginTop: 4 }}>{stat.label}</div>
           </div>
         ))}
@@ -267,10 +267,10 @@ export function Footer() {
       <div className="footer-g" style={{ maxWidth: 1280, margin: '0 auto', display: 'grid', gridTemplateColumns: '1.8fr 1fr 1fr 1fr', gap: 40 }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
-            <div style={{ background: '#E53E3E', width: 32, height: 32, borderRadius: 5, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 17 }}>🥔</div>
-            <span style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '1.05rem', fontWeight: 800, color: '#E53E3E' }}>इंडियन पोटैटो</span>
+            <div style={{ background: '#05420d', width: 32, height: 32, borderRadius: 5, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 17 }}>🥔</div>
+            <span style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '1.05rem', fontWeight: 800, color: '#05420d' }}>इंडियन पोटैटो</span>
           </div>
-          <p style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.82rem', color: '#888', lineHeight: 1.7, maxWidth: 280 }}>भारत का #1 आलू उद्योग मंच — किसानों, व्यापारियों और प्रसंस्करण उद्योग को जोड़ता है।</p>
+          <p style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.82rem', color: '#888', lineHeight: 1.7, maxWidth: 280 }}>भारत का #1 आलू उद्योग मंच — किसानों, व्यापारियों और प्रसंस्करण उद्योग को जोड़ता है।</p>
         </div>
         {[
           { title: 'जानकारी', links: [{ l: 'मंडी भाव', h: '/mandi' }, { l: 'किस्में', h: '/kisme' }, { l: 'निर्यात डेटा', h: '/samachar' }, { l: 'खेती गाइड', h: '/samachar' }, { l: 'सरकारी योजनाएँ', h: '/yojnaye' }] },
@@ -278,16 +278,16 @@ export function Footer() {
           { title: 'कंपनी', links: [{ l: 'हमारे बारे में', h: '/about' }, { l: 'संपर्क', h: '/sampark' }, { l: 'विज्ञापन', h: '/sampark' }, { l: 'गोपनीयता नीति', h: '/privacy-policy' }, { l: 'नियम व शर्तें', h: '/terms-and-conditions' }, { l: 'अस्वीकरण', h: '/disclaimer' }] },
         ].map((col, i) => (
           <div key={i}>
-            <h4 style={{ fontFamily: 'var(--font-english), sans-serif', fontSize: '0.7rem', fontWeight: 700, color: '#E53E3E', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>{col.title}</h4>
+            <h4 style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.7rem', fontWeight: 700, color: '#05420d', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>{col.title}</h4>
             {col.links.map((link, j) => (
-              <Link key={j} href={link.h} style={{ display: 'block', fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.82rem', color: '#888', padding: '4px 0', textDecoration: 'none' }}>{link.l}</Link>
+              <Link key={j} href={link.h} style={{ display: 'block', fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.82rem', color: '#888', padding: '4px 0', textDecoration: 'none' }}>{link.l}</Link>
             ))}
           </div>
         ))}
       </div>
       <div style={{ maxWidth: 1320, margin: '36px auto 0', paddingTop: 16, borderTop: '1px solid #e5e5e5', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 6 }}>
-        <span style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.72rem', color: '#aaa' }}>© 2026 इंडियन पोटैटो। सर्वाधिकार सुरक्षित।</span>
-        <span style={{ fontFamily: 'var(--font-english), sans-serif', fontSize: '0.72rem', color: '#aaa' }}>indianpotato.in</span>
+        <span style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.72rem', color: '#aaa' }}>© 2026 इंडियन पोटैटो। सर्वाधिकार सुरक्षित।</span>
+        <span style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.72rem', color: '#aaa' }}>indianpotato.in</span>
       </div>
       <style>{`
         @media (max-width: 800px) { .footer-g { grid-template-columns: 1fr 1fr !important; } }

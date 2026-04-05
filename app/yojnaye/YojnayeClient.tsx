@@ -48,10 +48,10 @@ export default function YojnayeClient({ schemes, additionalPosts }: { schemes: S
                 onClick={() => setActive(f)}
                 style={{
                   padding: '9px 20px', borderRadius: 50,
-                  border: active === f ? '1.5px solid #dc2626' : '1.5px solid #e5e7eb',
+                  border: active === f ? '1.5px solid #05420d' : '1.5px solid #e5e7eb',
                   fontSize: '0.82rem', fontWeight: 500, cursor: 'pointer',
                   whiteSpace: 'nowrap', transition: 'all 0.25s ease',
-                  background: active === f ? '#dc2626' : '#fff',
+                  background: active === f ? '#05420d' : '#fff',
                   color: active === f ? '#fff' : '#6b7280',
                 }}
               >
@@ -93,7 +93,7 @@ export default function YojnayeClient({ schemes, additionalPosts }: { schemes: S
                 <h3 style={{ fontSize: 18, fontWeight: 600, color: '#1f2937', lineHeight: 1.35, marginBottom: 12 }}>{s.name}</h3>
 
                 {/* Benefit — largest text, the hook */}
-                <div style={{ fontSize: 24, fontWeight: 700, color: '#dc2626', marginBottom: 14, letterSpacing: '-0.02em' }}>{s.benefit}</div>
+                <div style={{ fontSize: 24, fontWeight: 700, color: '#05420d', marginBottom: 14, letterSpacing: '-0.02em' }}>{s.benefit}</div>
 
                 {/* Description */}
                 <p style={{ fontSize: 14, color: '#6b7280', lineHeight: 1.6, marginBottom: 20, flex: 1 }}>{s.desc}</p>
@@ -105,7 +105,7 @@ export default function YojnayeClient({ schemes, additionalPosts }: { schemes: S
                 </div>
 
                 {/* CTA — text link, not button */}
-                <span className="yojnaye-cta" style={{ fontSize: 14, fontWeight: 500, color: '#dc2626', transition: 'opacity 0.25s' }}>
+                <span className="yojnaye-cta" style={{ fontSize: 14, fontWeight: 500, color: '#05420d', transition: 'opacity 0.25s' }}>
                   विवरण पढ़ें →
                 </span>
               </Link>
@@ -117,7 +117,7 @@ export default function YojnayeClient({ schemes, additionalPosts }: { schemes: S
             <div style={{ textAlign: 'center', padding: '60px 20px', color: '#9ca3af' }}>
               <p style={{ fontSize: 16, marginBottom: 16 }}>इस श्रेणी में कोई योजना नहीं मिली।</p>
               <button onClick={() => setActive('सभी')} style={{
-                padding: '10px 24px', background: '#dc2626', color: '#fff',
+                padding: '10px 24px', background: '#05420d', color: '#fff',
                 border: 'none', borderRadius: 50, cursor: 'pointer', fontWeight: 600, fontSize: 14,
               }}>
                 सभी योजनाएँ देखें
@@ -145,7 +145,7 @@ export default function YojnayeClient({ schemes, additionalPosts }: { schemes: S
                 }}>
                   <h3 style={{ fontSize: 16, fontWeight: 600, color: '#1f2937', lineHeight: 1.4, marginBottom: 8 }}>{post.title}</h3>
                   <p style={{ fontSize: 13, color: '#6b7280', lineHeight: 1.6, marginBottom: 12 }}>{post.excerpt.slice(0, 140)}…</p>
-                  <span style={{ fontSize: 13, fontWeight: 500, color: '#dc2626' }}>पढ़ें →</span>
+                  <span style={{ fontSize: 13, fontWeight: 500, color: '#05420d' }}>पढ़ें →</span>
                 </Link>
               ))}
             </div>

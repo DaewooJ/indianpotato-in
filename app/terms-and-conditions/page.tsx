@@ -21,13 +21,13 @@ export default function TermsPage() {
       <main style={{ paddingTop: 80, minHeight: '100vh', background: '#fff' }}>
         {/* Header */}
         <section style={{
-          background: '#E53E3E',
+          background: '#05420d',
           padding: '48px 24px 44px',
         }}>
           <div style={{ maxWidth: 820, margin: '0 auto' }}>
             <nav style={{ marginBottom: 16 }}>
               <Link href="/" style={{
-                fontFamily: 'var(--font-hindi), sans-serif',
+                fontFamily: 'var(--font-poppins), sans-serif',
                 fontSize: '0.82rem', color: 'rgba(255,255,255,0.7)',
                 textDecoration: 'none',
               }}>
@@ -35,14 +35,14 @@ export default function TermsPage() {
               </Link>
               <span style={{ color: 'rgba(255,255,255,0.4)', margin: '0 10px', fontSize: '0.75rem' }}>›</span>
               <span style={{
-                fontFamily: 'var(--font-hindi), sans-serif',
+                fontFamily: 'var(--font-poppins), sans-serif',
                 fontSize: '0.82rem', color: '#fff',
               }}>
                 नियम और शर्तें
               </span>
             </nav>
             <h1 style={{
-              fontFamily: 'var(--font-hindi), sans-serif',
+              fontFamily: 'var(--font-poppins), sans-serif',
               fontSize: 'clamp(1.6rem, 4vw, 2.2rem)',
               fontWeight: 800,
               color: '#fff',
@@ -52,7 +52,7 @@ export default function TermsPage() {
               नियम और शर्तें (Terms &amp; Conditions)
             </h1>
             <p style={{
-              fontFamily: 'var(--font-english), sans-serif',
+              fontFamily: 'var(--font-poppins), sans-serif',
               fontSize: '0.82rem',
               color: 'rgba(255,255,255,0.65)',
               marginTop: 10,
@@ -67,7 +67,7 @@ export default function TermsPage() {
           <div style={{
             maxWidth: 820,
             margin: '0 auto',
-            fontFamily: 'var(--font-hindi), sans-serif',
+            fontFamily: 'var(--font-poppins), sans-serif',
             fontSize: '0.95rem',
             color: '#374151',
             lineHeight: 1.9,
@@ -123,7 +123,7 @@ export default function TermsPage() {
               डायरेक्टरी में सूचीबद्ध होने का अर्थ हमारे द्वारा किसी भी कंपनी या सेवा प्रदाता का समर्थन नहीं है। हम सूचीबद्ध संस्थाओं की जानकारी की सटीकता या उनकी सेवाओं की गुणवत्ता की ज़िम्मेदारी नहीं लेते हैं।
             </p>
             <p style={{ marginTop: 12 }}>
-              <strong>सूचीबद्ध संस्थाओं के लिए:</strong> यदि आपकी लिस्टिंग में कोई गलत जानकारी है या आप अपनी लिस्टिंग हटवाना चाहते हैं, तो कृपया <a href="mailto:contact@indianpotato.in" style={{ color: '#E53E3E' }}>contact@indianpotato.in</a> पर संपर्क करें।
+              <strong>सूचीबद्ध संस्थाओं के लिए:</strong> यदि आपकी लिस्टिंग में कोई गलत जानकारी है या आप अपनी लिस्टिंग हटवाना चाहते हैं, तो कृपया <a href="mailto:contact@indianpotato.in" style={{ color: '#05420d' }}>contact@indianpotato.in</a> पर संपर्क करें।
             </p>
 
             <h2 style={h2Style}>6. उपयोगकर्ता द्वारा प्रस्तुत सामग्री</h2>
@@ -141,7 +141,7 @@ export default function TermsPage() {
             <div style={{
               background: '#FEF2F2',
               border: '1px solid #FECACA',
-              borderLeft: '4px solid #E53E3E',
+              borderLeft: '4px solid #05420d',
               borderRadius: 8,
               padding: '20px 24px',
               margin: '16px 0',
@@ -188,8 +188,8 @@ export default function TermsPage() {
               marginTop: 12,
             }}>
               <p style={{ margin: '4px 0', fontWeight: 600 }}>इंडियन पोटैटो (Indpotato Pvt Ltd)</p>
-              <p style={{ margin: '4px 0' }}>📧 ईमेल: <a href="mailto:contact@indianpotato.in" style={{ color: '#E53E3E', textDecoration: 'none' }}>contact@indianpotato.in</a></p>
-              <p style={{ margin: '4px 0' }}>🌐 वेबसाइट: <a href="https://www.indianpotato.in" style={{ color: '#E53E3E', textDecoration: 'none' }}>indianpotato.in</a></p>
+              <p style={{ margin: '4px 0' }}>📧 ईमेल: <a href="mailto:contact@indianpotato.in" style={{ color: '#05420d', textDecoration: 'none' }}>contact@indianpotato.in</a></p>
+              <p style={{ margin: '4px 0' }}>🌐 वेबसाइट: <a href="https://www.indianpotato.in" style={{ color: '#05420d', textDecoration: 'none' }}>indianpotato.in</a></p>
               <p style={{ margin: '4px 0' }}>📍 पिंपरी-चिंचवड, पुणे, महाराष्ट्र</p>
             </div>
           </div>
@@ -201,7 +201,7 @@ export default function TermsPage() {
 }
 
 const h2Style: React.CSSProperties = {
-  fontFamily: 'var(--font-hindi), sans-serif',
+  fontFamily: 'var(--font-poppins), sans-serif',
   fontSize: '1.15rem',
   fontWeight: 700,
   color: '#1F2937',

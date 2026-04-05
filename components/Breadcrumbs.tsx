@@ -32,7 +32,7 @@ export function BreadcrumbNav({ items }: { items: BreadcrumbItem[] }) {
         <span key={item.url}>
           {index > 0 && <span style={{ margin: '0 6px', color: '#ccc' }}>{'\u203A'}</span>}
           {index === items.length - 1 ? (
-            <span style={{ color: '#dc2626', fontWeight: 600 }}>{item.name}</span>
+            <span style={{ color: '#05420d', fontWeight: 600 }}>{item.name}</span>
           ) : (
             <Link href={item.url} style={{ color: '#888', textDecoration: 'none' }}>{item.name}</Link>
           )}

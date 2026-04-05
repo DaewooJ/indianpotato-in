@@ -14,28 +14,28 @@ export default function NewsTicker({ posts }: { posts: TickerPost[] }) {
 
   return (
     <div style={{
-      background: '#E53E3E', color: '#fff',
+      background: '#05420d', color: '#fff',
       overflow: 'hidden', whiteSpace: 'nowrap',
       display: 'flex', alignItems: 'center',
     }}>
       <div style={{
-        background: '#fff', color: '#E53E3E',
+        background: '#fff', color: '#05420d',
         padding: '11px 20px', fontWeight: 800,
         fontSize: '0.7rem', letterSpacing: '0.14em',
         textTransform: 'uppercase',
-        fontFamily: 'var(--font-english), sans-serif',
+        fontFamily: 'var(--font-poppins), sans-serif',
         flexShrink: 0, display: 'flex', alignItems: 'center', gap: 7,
       }}>
         <span style={{
           width: 8, height: 8, borderRadius: '50%',
-          background: '#E53E3E', animation: 'blink 1.5s infinite',
+          background: '#05420d', animation: 'blink 1.5s infinite',
         }} />
         ताज़ा
       </div>
       <div style={{ overflow: 'hidden', flex: 1, padding: '11px 0' }}>
         <div style={{
           display: 'inline-block', animation: 'ticker 50s linear infinite',
-          fontFamily: 'var(--font-hindi), sans-serif',
+          fontFamily: 'var(--font-poppins), sans-serif',
           fontSize: '0.84rem', fontWeight: 500,
         }}>
           {[...items, ...items].map((h, i) => (

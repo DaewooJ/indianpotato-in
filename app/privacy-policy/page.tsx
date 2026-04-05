@@ -21,13 +21,13 @@ export default function PrivacyPolicyPage() {
       <main style={{ paddingTop: 80, minHeight: '100vh', background: '#fff' }}>
         {/* Header */}
         <section style={{
-          background: '#E53E3E',
+          background: '#05420d',
           padding: '48px 24px 44px',
         }}>
           <div style={{ maxWidth: 820, margin: '0 auto' }}>
             <nav style={{ marginBottom: 16 }}>
               <Link href="/" style={{
-                fontFamily: 'var(--font-hindi), sans-serif',
+                fontFamily: 'var(--font-poppins), sans-serif',
                 fontSize: '0.82rem', color: 'rgba(255,255,255,0.7)',
                 textDecoration: 'none',
               }}>
@@ -35,14 +35,14 @@ export default function PrivacyPolicyPage() {
               </Link>
               <span style={{ color: 'rgba(255,255,255,0.4)', margin: '0 10px', fontSize: '0.75rem' }}>›</span>
               <span style={{
-                fontFamily: 'var(--font-hindi), sans-serif',
+                fontFamily: 'var(--font-poppins), sans-serif',
                 fontSize: '0.82rem', color: '#fff',
               }}>
                 गोपनीयता नीति
               </span>
             </nav>
             <h1 style={{
-              fontFamily: 'var(--font-hindi), sans-serif',
+              fontFamily: 'var(--font-poppins), sans-serif',
               fontSize: 'clamp(1.6rem, 4vw, 2.2rem)',
               fontWeight: 800,
               color: '#fff',
@@ -52,7 +52,7 @@ export default function PrivacyPolicyPage() {
               गोपनीयता नीति (Privacy Policy)
             </h1>
             <p style={{
-              fontFamily: 'var(--font-english), sans-serif',
+              fontFamily: 'var(--font-poppins), sans-serif',
               fontSize: '0.82rem',
               color: 'rgba(255,255,255,0.65)',
               marginTop: 10,
@@ -67,7 +67,7 @@ export default function PrivacyPolicyPage() {
           <div style={{
             maxWidth: 820,
             margin: '0 auto',
-            fontFamily: 'var(--font-hindi), sans-serif',
+            fontFamily: 'var(--font-poppins), sans-serif',
             fontSize: '0.95rem',
             color: '#374151',
             lineHeight: 1.9,
@@ -125,7 +125,7 @@ export default function PrivacyPolicyPage() {
 
             <h2 style={h2Style}>4. Google Analytics</h2>
             <p>
-              हम Google Analytics का उपयोग करते हैं, जो Google Inc. की एक वेब विश्लेषण सेवा है। Google Analytics कुकीज़ का उपयोग करता है ताकि हम यह समझ सकें कि उपयोगकर्ता वेबसाइट का उपयोग कैसे करते हैं। एकत्र की गई जानकारी (आपके IP पते सहित) Google के सर्वर पर स्थानांतरित और संग्रहीत की जाती है। अधिक जानकारी के लिए <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: '#E53E3E' }}>Google की गोपनीयता नीति</a> देखें।
+              हम Google Analytics का उपयोग करते हैं, जो Google Inc. की एक वेब विश्लेषण सेवा है। Google Analytics कुकीज़ का उपयोग करता है ताकि हम यह समझ सकें कि उपयोगकर्ता वेबसाइट का उपयोग कैसे करते हैं। एकत्र की गई जानकारी (आपके IP पते सहित) Google के सर्वर पर स्थानांतरित और संग्रहीत की जाती है। अधिक जानकारी के लिए <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: '#05420d' }}>Google की गोपनीयता नीति</a> देखें।
             </p>
 
             <h2 style={h2Style}>5. तीसरे पक्ष के साथ साझा करना</h2>
@@ -153,7 +153,7 @@ export default function PrivacyPolicyPage() {
               • कुकीज़ को अक्षम करना
             </p>
             <p style={{ marginTop: 12 }}>
-              इनमें से किसी भी अधिकार का उपयोग करने के लिए कृपया <a href="mailto:contact@indianpotato.in" style={{ color: '#E53E3E', textDecoration: 'none' }}>contact@indianpotato.in</a> पर ईमेल करें।
+              इनमें से किसी भी अधिकार का उपयोग करने के लिए कृपया <a href="mailto:contact@indianpotato.in" style={{ color: '#05420d', textDecoration: 'none' }}>contact@indianpotato.in</a> पर ईमेल करें।
             </p>
 
             <h2 style={h2Style}>8. बच्चों की गोपनीयता</h2>
@@ -178,8 +178,8 @@ export default function PrivacyPolicyPage() {
               marginTop: 12,
             }}>
               <p style={{ margin: '4px 0', fontWeight: 600 }}>इंडियन पोटैटो (Indpotato Pvt Ltd)</p>
-              <p style={{ margin: '4px 0' }}>📧 ईमेल: <a href="mailto:contact@indianpotato.in" style={{ color: '#E53E3E', textDecoration: 'none' }}>contact@indianpotato.in</a></p>
-              <p style={{ margin: '4px 0' }}>🌐 वेबसाइट: <a href="https://www.indianpotato.in" style={{ color: '#E53E3E', textDecoration: 'none' }}>indianpotato.in</a></p>
+              <p style={{ margin: '4px 0' }}>📧 ईमेल: <a href="mailto:contact@indianpotato.in" style={{ color: '#05420d', textDecoration: 'none' }}>contact@indianpotato.in</a></p>
+              <p style={{ margin: '4px 0' }}>🌐 वेबसाइट: <a href="https://www.indianpotato.in" style={{ color: '#05420d', textDecoration: 'none' }}>indianpotato.in</a></p>
               <p style={{ margin: '4px 0' }}>📍 पिंपरी-चिंचवड, पुणे, महाराष्ट्र</p>
             </div>
           </div>
@@ -191,7 +191,7 @@ export default function PrivacyPolicyPage() {
 }
 
 const h2Style: React.CSSProperties = {
-  fontFamily: 'var(--font-hindi), sans-serif',
+  fontFamily: 'var(--font-poppins), sans-serif',
   fontSize: '1.15rem',
   fontWeight: 700,
   color: '#1F2937',
@@ -202,7 +202,7 @@ const h2Style: React.CSSProperties = {
 };
 
 const h3Style: React.CSSProperties = {
-  fontFamily: 'var(--font-hindi), sans-serif',
+  fontFamily: 'var(--font-poppins), sans-serif',
   fontSize: '1rem',
   fontWeight: 600,
   color: '#374151',

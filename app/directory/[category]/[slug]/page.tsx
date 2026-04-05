@@ -52,8 +52,8 @@ export default function ListingPage({ params }: { params: { category: string; sl
         )}
 
         {/* Hero */}
-        <div className={'relative overflow-hidden ' + (isPremium ? 'bg-gradient-to-br from-amber-900 via-red-900 to-orange-800' : 'bg-gradient-to-br from-red-900 via-red-800 to-orange-700')}>
-          {listing.image && (<div className="absolute inset-0"><img src={listing.image} alt={listing.name} className="w-full h-full object-cover opacity-15" /><div className={'absolute inset-0 ' + (isPremium ? 'bg-gradient-to-t from-amber-900/95 via-red-900/85 to-red-900/70' : 'bg-gradient-to-t from-red-900/95 via-red-900/80 to-red-900/60')} /></div>)}
+        <div className={'relative overflow-hidden ' + (isPremium ? 'bg-gradient-to-br from-amber-900 via-[#032808] to-[#d94e2a]' : 'bg-gradient-to-br from-[#032808] via-[#05420d] to-[#ed6442]')}>
+          {listing.image && (<div className="absolute inset-0"><img src={listing.image} alt={listing.name} className="w-full h-full object-cover opacity-15" /><div className={'absolute inset-0 ' + (isPremium ? 'bg-gradient-to-t from-amber-900/95 via-[#032808]/85 to-[#011503]/70' : 'bg-gradient-to-t from-[#032808]/95 via-[#032808]/80 to-[#011503]/60')} /></div>)}
           <div className="relative z-10 py-14 md:py-18 px-6">
             <div className="max-w-[1280px] mx-auto">
               {/* Breadcrumb */}
@@ -101,13 +101,13 @@ export default function ListingPage({ params }: { params: { category: string; sl
                 {listing.capacity && (
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full text-[0.78rem] text-white/80 font-body">📊 {listing.capacity}</span>
                 )}
-                <span className={'inline-flex items-center gap-1.5 px-3 py-1.5 backdrop-blur-sm border rounded-full text-[0.78rem] font-body font-semibold ' + (isPremium ? 'bg-amber-500/20 border-amber-400/30 text-amber-200' : 'bg-red-500/20 border-red-400/20 text-red-200')}>{cat.icon} {cat.name}</span>
+                <span className={'inline-flex items-center gap-1.5 px-3 py-1.5 backdrop-blur-sm border rounded-full text-[0.78rem] font-body font-semibold ' + (isPremium ? 'bg-amber-500/20 border-amber-400/30 text-amber-200' : 'bg-green-500/20 border-emerald-600/20 text-green-200')}>{cat.icon} {cat.name}</span>
               </div>
 
               {/* CTA Buttons in hero for premium */}
               {isPremium && listing.phone && listing.phone[0] && (
                 <div className="flex flex-wrap gap-3 mt-8">
-                  <a href={'tel:' + listing.phone[0]} className="inline-flex items-center gap-2 px-6 py-3 bg-white text-red-700 font-body font-bold text-[0.95rem] rounded-xl hover:bg-red-50 transition-colors shadow-lg">📞 अभी कॉल करें</a>
+                  <a href={'tel:' + listing.phone[0]} className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#032808] font-body font-bold text-[0.95rem] rounded-xl hover:bg-green-50 transition-colors shadow-lg">📞 अभी कॉल करें</a>
                   <a href={'https://wa.me/' + cleanWhatsapp + '?text=' + encodeURIComponent('नमस्ते, मुझे आलू बीज के बारे में जानकारी चाहिए।')} target="_blank" rel="noopener" className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 text-white font-body font-bold text-[0.95rem] rounded-xl hover:bg-green-600 transition-colors shadow-lg">💬 WhatsApp करें</a>
                   {listing.email && (
                     <a href={'mailto:' + listing.email} className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-body font-semibold text-[0.95rem] rounded-xl hover:bg-white/20 transition-colors">📧 ईमेल भेजें</a>
@@ -127,7 +127,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
                 {/* Description */}
                 <div className={'rounded-2xl p-6 md:p-8 border ' + (isPremium ? 'bg-amber-50/50 border-amber-200' : 'bg-stone-50 border-stone-200')}>
                   <h2 className="font-display text-[1.15rem] font-bold text-stone-900 mb-4 flex items-center gap-2">
-                    <span className={'w-1 h-5 rounded-full ' + (isPremium ? 'bg-amber-500' : 'bg-red-500')} />
+                    <span className={'w-1 h-5 rounded-full ' + (isPremium ? 'bg-amber-500' : 'bg-green-500')} />
                     विवरण
                   </h2>
                   <p className="font-body text-[0.92rem] text-stone-600 leading-relaxed">{listing.description}</p>
@@ -144,9 +144,9 @@ export default function ListingPage({ params }: { params: { category: string; sl
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {listing.varieties.map((v: any, i: number) => (
-                        <div key={i} className={'rounded-xl p-4 border ' + (v.type === 'processing' ? 'bg-red-50/50 border-red-100' : 'bg-green-50/50 border-green-100')}>
+                        <div key={i} className={'rounded-xl p-4 border ' + (v.type === 'processing' ? 'bg-green-50/50 border-green-100' : 'bg-green-50/50 border-green-100')}>
                           <div className="flex items-center gap-2 mb-2">
-                            <span className={'text-[0.65rem] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ' + (v.type === 'processing' ? 'text-red-700 bg-red-100' : 'text-green-700 bg-green-100')}>
+                            <span className={'text-[0.65rem] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ' + (v.type === 'processing' ? 'text-[#032808] bg-green-100' : 'text-green-700 bg-green-100')}>
                               {v.type === 'processing' ? '🏭 प्रसंस्करण' : '🥔 टेबल'}
                             </span>
                           </div>
@@ -163,7 +163,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
                 {listing.specialization && listing.specialization.length > 0 && (
                   <div className="rounded-2xl p-6 md:p-8 border border-stone-200 bg-stone-50">
                     <h2 className="font-display text-[1.15rem] font-bold text-stone-900 mb-4 flex items-center gap-2">
-                      <span className="w-1 h-5 bg-red-500 rounded-full" />
+                      <span className="w-1 h-5 bg-green-500 rounded-full" />
                       विशेषज्ञता
                     </h2>
                     <div className="flex flex-wrap gap-2">
@@ -193,7 +193,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
               {/* Sidebar */}
               <div className="space-y-5">
                 {/* Contact Card */}
-                <div className={'rounded-2xl p-6 sticky top-[140px] ' + (isPremium ? 'bg-gradient-to-b from-amber-50 to-white border-2 border-amber-300 shadow-lg shadow-amber-100/50' : 'bg-white border-2 border-red-100')}>
+                <div className={'rounded-2xl p-6 sticky top-[140px] ' + (isPremium ? 'bg-gradient-to-b from-amber-50 to-white border-2 border-amber-300 shadow-lg shadow-amber-100/50' : 'bg-white border-2 border-green-100')}>
                   {isPremium && (
                     <div className="flex items-center gap-2 mb-4 pb-3 border-b border-amber-200">
                       <span className="text-[1.2rem]">👑</span>
@@ -232,7 +232,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
                         <span className="text-[1rem] mt-0.5 shrink-0">☎️</span>
                         <div>
                           <div className="font-body text-[0.75rem] text-stone-400 font-semibold uppercase tracking-wide mb-0.5">फ़ोन</div>
-                          <div className="space-y-1">{listing.phone.map((ph: string, i: number) => (<a key={i} href={'tel:' + ph} className="block font-body text-[0.92rem] text-red-600 hover:text-red-800 font-bold transition-colors">{ph}</a>))}</div>
+                          <div className="space-y-1">{listing.phone.map((ph: string, i: number) => (<a key={i} href={'tel:' + ph} className="block font-body text-[0.92rem] text-[#05420d] hover:text-[#021f06] font-bold transition-colors">{ph}</a>))}</div>
                         </div>
                       </div>
                     )}
@@ -243,7 +243,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
                         <span className="text-[1rem] mt-0.5 shrink-0">📧</span>
                         <div>
                           <div className="font-body text-[0.75rem] text-stone-400 font-semibold uppercase tracking-wide mb-0.5">ईमेल</div>
-                          <a href={'mailto:' + listing.email} className="font-body text-[0.88rem] text-red-600 hover:text-red-800 font-medium transition-colors break-all">{listing.email}</a>
+                          <a href={'mailto:' + listing.email} className="font-body text-[0.88rem] text-[#05420d] hover:text-[#021f06] font-medium transition-colors break-all">{listing.email}</a>
                         </div>
                       </div>
                     )}
@@ -254,7 +254,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
                         <span className="text-[1rem] mt-0.5 shrink-0">🌐</span>
                         <div>
                           <div className="font-body text-[0.75rem] text-stone-400 font-semibold uppercase tracking-wide mb-0.5">वेबसाइट / सोशल</div>
-                          <a href={listing.website} target="_blank" rel="noopener noreferrer" className="font-body text-[0.88rem] text-red-600 hover:text-red-800 font-medium transition-colors break-all">{listing.website.replace('https://www.', '').replace('https://', '').replace('http://', '')}</a>
+                          <a href={listing.website} target="_blank" rel="noopener noreferrer" className="font-body text-[0.88rem] text-[#05420d] hover:text-[#021f06] font-medium transition-colors break-all">{listing.website.replace('https://www.', '').replace('https://', '').replace('http://', '')}</a>
                         </div>
                       </div>
                     )}
@@ -263,7 +263,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
                   {/* Action Buttons */}
                   <div className="mt-6 space-y-3">
                     {isPremium && listing.phone && listing.phone[0] && (
-                      <a href={'tel:' + listing.phone[0]} className={'flex items-center justify-center gap-2 w-full py-3.5 font-body font-bold text-[0.95rem] rounded-xl transition-all ' + (isPremium ? 'bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white shadow-lg shadow-red-200' : 'bg-red-600 hover:bg-red-700 text-white')}>
+                      <a href={'tel:' + listing.phone[0]} className={'flex items-center justify-center gap-2 w-full py-3.5 font-body font-bold text-[0.95rem] rounded-xl transition-all ' + (isPremium ? 'bg-gradient-to-r from-[#0a6b18] to-[#0a6b18] hover:from-[#05420d] hover:to-[#021f06] text-white shadow-lg shadow-green-200' : 'bg-[#05420d] hover:bg-[#032808] text-white')}>
                         📞 अभी कॉल करें
                       </a>
                     )}
@@ -306,7 +306,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
               <div className="mt-16 pt-12 border-t border-stone-200">
                 <h2 className="font-display text-[1.3rem] font-bold text-stone-900 mb-6">अन्य {cat.name}</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {related.map((r) => (<Link key={r.slug} href={'/directory/' + cat.slug + '/' + r.slug} className="group p-4 bg-stone-50 rounded-xl border border-stone-200 hover:border-red-200 hover:shadow-md transition-all"><h4 className="font-body text-[0.9rem] font-semibold text-stone-800 group-hover:text-red-700 transition-colors mb-1 line-clamp-1">{r.name}</h4><p className="font-body text-[0.75rem] text-stone-400">📍 {r.district}, {r.state}</p></Link>))}
+                  {related.map((r) => (<Link key={r.slug} href={'/directory/' + cat.slug + '/' + r.slug} className="group p-4 bg-stone-50 rounded-xl border border-stone-200 hover:border-green-200 hover:shadow-md transition-all"><h4 className="font-body text-[0.9rem] font-semibold text-stone-800 group-hover:text-[#032808] transition-colors mb-1 line-clamp-1">{r.name}</h4><p className="font-body text-[0.75rem] text-stone-400">📍 {r.district}, {r.state}</p></Link>))}
                 </div>
               </div>
             )}

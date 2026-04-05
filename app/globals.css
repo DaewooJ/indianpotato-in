@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --red: #E53E3E;
+  --green: #05420d;
   --dark: #1a1a1a;
   --darker: #0f0f0f;
   --darkest: #0a0a0a;
@@ -18,18 +18,18 @@ html {
 }
 
 body {
-  font-family: var(--font-hindi), 'Mukta', system-ui, sans-serif;
+  font-family: var(--font-poppins), 'Poppins', system-ui, sans-serif;
   background: #fff;
   color: #1a1a1a;
   line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-hindi), 'Mukta', sans-serif;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
 ::selection {
-  background: #fecaca;
+  background: #bbf7d0;
   color: #7f1d1d;
 }
 

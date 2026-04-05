@@ -64,9 +64,9 @@ export default function MandiPricesLive() {
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 16 }}>
           <div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 20, padding: '4px 14px', marginBottom: 12 }}>
-              <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#dc2626', animation: 'pulse 2s infinite' }} />
-              <span style={{ fontSize: 11, fontWeight: 700, color: '#dc2626', letterSpacing: 1.5, textTransform: 'uppercase' as const }}>LIVE PRICES</span>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 20, padding: '4px 14px', marginBottom: 12 }}>
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#05420d', animation: 'pulse 2s infinite' }} />
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#05420d', letterSpacing: 1.5, textTransform: 'uppercase' as const }}>LIVE PRICES</span>
             </div>
             <h2 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 800, color: '#1a1a1a', margin: 0 }}>आज का मंडी भाव</h2>
             <p style={{ color: '#666', fontSize: 14, margin: '6px 0 0' }}>
@@ -86,7 +86,7 @@ export default function MandiPricesLive() {
           {(loading ? ['सभी'] : stateFilters.slice(0, 10)).map((state) => (
             <button key={state} onClick={() => { setActiveState(state); setShowAll(false); }}
               style={{ padding: '8px 18px', borderRadius: 20, border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' as const, transition: 'all 0.2s',
-                background: activeState === state ? 'linear-gradient(135deg, #dc2626, #f97316)' : '#fff',
+                background: activeState === state ? 'linear-gradient(135deg, #05420d, #f97316)' : '#fff',
                 color: activeState === state ? '#fff' : '#666',
                 boxShadow: activeState === state ? '0 4px 14px rgba(220,38,38,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>
               {state}
@@ -107,9 +107,9 @@ export default function MandiPricesLive() {
         )}
 
         {error && (
-          <div style={{ textAlign: 'center' as const, padding: 40, color: '#dc2626' }}>
+          <div style={{ textAlign: 'center' as const, padding: 40, color: '#05420d' }}>
             <p style={{ fontSize: 16, marginBottom: 12 }}>{error}</p>
-            <button onClick={fetchPrices} style={{ padding: '10px 24px', background: '#dc2626', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer', fontWeight: 600 }}>पुनः प्रयास करें</button>
+            <button onClick={fetchPrices} style={{ padding: '10px 24px', background: '#05420d', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer', fontWeight: 600 }}>पुनः प्रयास करें</button>
           </div>
         )}
 
@@ -120,7 +120,7 @@ export default function MandiPricesLive() {
                 return (
                   <div key={`${record.state}-${record.market}-${idx}`}
                     style={{ background: '#fff', borderRadius: 16, padding: 24, border: '1px solid #f3f4f6', transition: 'all 0.25s', cursor: 'default', position: 'relative' as const, overflow: 'hidden' }}
-                    onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = '0 8px 30px rgba(220,38,38,0.1)'; el.style.borderColor = '#fecaca'; el.style.transform = 'translateY(-2px)'; }}
+                    onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = '0 8px 30px rgba(220,38,38,0.1)'; el.style.borderColor = '#bbf7d0'; el.style.transform = 'translateY(-2px)'; }}
                     onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = 'none'; el.style.borderColor = '#f3f4f6'; el.style.transform = 'none'; }}>
                     <div style={{ marginBottom: 14 }}>
                       <h3 style={{ fontSize: 18, fontWeight: 700, color: '#1a1a1a', margin: 0 }}>{cleanMarket(record.market_hindi || record.market)}</h3>
@@ -128,7 +128,7 @@ export default function MandiPricesLive() {
                     </div>
                     <div style={{ marginBottom: 14 }}>
                       <span style={{ fontSize: 11, color: '#999', fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: 0.5 }}>मॉडल भाव</span>
-                      <div style={{ fontSize: 28, fontWeight: 800, color: '#dc2626' }}>₹{record.modal_price.toLocaleString('hi-IN')}</div>
+                      <div style={{ fontSize: 28, fontWeight: 800, color: '#05420d' }}>₹{record.modal_price.toLocaleString('hi-IN')}</div>
                     </div>
                     <div style={{ display: 'flex', gap: 16, borderTop: '1px solid #f5f5f5', paddingTop: 12 }}>
                       <div style={{ flex: 1 }}>
@@ -148,7 +148,7 @@ export default function MandiPricesLive() {
             {filteredRecords.length > 8 && (
               <div style={{ textAlign: 'center' as const, marginTop: 28 }}>
                 <button onClick={() => setShowAll(!showAll)}
-                  style={{ padding: '12px 32px', background: 'linear-gradient(135deg, #dc2626, #f97316)', color: '#fff', border: 'none', borderRadius: 28, fontSize: 14, fontWeight: 700, cursor: 'pointer', boxShadow: '0 4px 14px rgba(220,38,38,0.25)' }}>
+                  style={{ padding: '12px 32px', background: 'linear-gradient(135deg, #05420d, #f97316)', color: '#fff', border: 'none', borderRadius: 28, fontSize: 14, fontWeight: 700, cursor: 'pointer', boxShadow: '0 4px 14px rgba(220,38,38,0.25)' }}>
                   {showAll ? '↑ कम दिखाएँ' : `सभी ${filteredRecords.length} मंडी भाव देखें →`}
                 </button>
               </div>

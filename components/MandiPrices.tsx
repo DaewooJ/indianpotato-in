@@ -24,48 +24,48 @@ export default function MandiPrices() {
       <div style={{ maxWidth: 1320, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6, flexWrap: 'wrap', gap: 12 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <div style={{ width: 4, height: 28, background: '#E53E3E', borderRadius: 2 }} />
-            <h2 style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: '#1a1a1a' }}>आज का मंडी भाव</h2>
+            <div style={{ width: 4, height: 28, background: '#05420d', borderRadius: 2 }} />
+            <h2 style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: '#1a1a1a' }}>आज का मंडी भाव</h2>
           </div>
-          <div style={{ background: '#fef2f2', border: '1px solid #fecaca', padding: '7px 14px', borderRadius: 5, fontFamily: 'var(--font-english), sans-serif', fontSize: '0.75rem', fontWeight: 700, color: '#E53E3E', display: 'flex', alignItems: 'center', gap: 6 }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#E53E3E', animation: 'blink 1.5s infinite' }} /> LIVE
+          <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', padding: '7px 14px', borderRadius: 5, fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.75rem', fontWeight: 700, color: '#05420d', display: 'flex', alignItems: 'center', gap: 6 }}>
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#05420d', animation: 'blink 1.5s infinite' }} /> LIVE
           </div>
         </div>
-        <p style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.88rem', color: '#999', marginBottom: 24, paddingLeft: 16 }}>प्रमुख मंडियों से आलू के ताज़ा थोक भाव (₹ प्रति क्विंटल)</p>
+        <p style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.88rem', color: '#999', marginBottom: 24, paddingLeft: 16 }}>प्रमुख मंडियों से आलू के ताज़ा थोक भाव (₹ प्रति क्विंटल)</p>
         <div style={{ display: 'flex', gap: 5, marginBottom: 20, flexWrap: 'wrap' }}>
           {states.map(s => (
             <button key={s} onClick={() => setActiveState(s)} style={{
-              background: activeState === s ? '#E53E3E' : '#fff',
+              background: activeState === s ? '#05420d' : '#fff',
               color: activeState === s ? '#fff' : '#666',
-              border: activeState === s ? '1.5px solid #E53E3E' : '1.5px solid #e5e5e5',
+              border: activeState === s ? '1.5px solid #05420d' : '1.5px solid #e5e5e5',
               cursor: 'pointer', padding: '7px 18px', borderRadius: 4,
-              fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.82rem', fontWeight: 600,
+              fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.82rem', fontWeight: 600,
             }}>{s}</button>
           ))}
         </div>
         <div className="mandi-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 10 }}>
           {filtered.map((p, i) => (
-            <div key={i} style={{ background: '#fff', borderRadius: 8, padding: '20px 22px', border: '1px solid #eee', borderLeft: '4px solid #E53E3E', cursor: 'pointer' }}>
+            <div key={i} style={{ background: '#fff', borderRadius: 8, padding: '20px 22px', border: '1px solid #eee', borderLeft: '4px solid #05420d', cursor: 'pointer' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
                 <div>
-                  <div style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '1.05rem', fontWeight: 800, color: '#1a1a1a' }}>{p.mandi}</div>
-                  <div style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.75rem', color: '#aaa', marginTop: 2 }}>{p.state}</div>
+                  <div style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '1.05rem', fontWeight: 800, color: '#1a1a1a' }}>{p.mandi}</div>
+                  <div style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.75rem', color: '#aaa', marginTop: 2 }}>{p.state}</div>
                 </div>
-                <div style={{ background: p.up ? '#f0fdf4' : '#fef2f2', color: p.up ? '#16a34a' : '#dc2626', padding: '4px 10px', borderRadius: 4, fontFamily: 'var(--font-english), sans-serif', fontSize: '0.78rem', fontWeight: 800 }}>{p.up ? '▲' : '▼'} {p.change}</div>
+                <div style={{ background: p.up ? '#f0fdf4' : '#f0fdf4', color: p.up ? '#16a34a' : '#05420d', padding: '4px 10px', borderRadius: 4, fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.78rem', fontWeight: 800 }}>{p.up ? '▲' : '▼'} {p.change}</div>
               </div>
               <div style={{ display: 'flex', alignItems: 'flex-end', gap: 20 }}>
                 <div>
-                  <div style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.6rem', fontWeight: 600, color: '#bbb', marginBottom: 2 }}>मॉडल भाव</div>
-                  <div style={{ fontFamily: 'var(--font-english), sans-serif', fontSize: '1.6rem', fontWeight: 900, color: '#E53E3E' }}>{p.modal}</div>
+                  <div style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.6rem', fontWeight: 600, color: '#bbb', marginBottom: 2 }}>मॉडल भाव</div>
+                  <div style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '1.6rem', fontWeight: 900, color: '#05420d' }}>{p.modal}</div>
                 </div>
                 <div style={{ display: 'flex', gap: 14, borderLeft: '1px solid #eee', paddingLeft: 14, marginBottom: 4 }}>
                   <div>
-                    <div style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.58rem', color: '#bbb', marginBottom: 1 }}>न्यूनतम</div>
-                    <div style={{ fontFamily: 'var(--font-english), sans-serif', fontSize: '0.88rem', fontWeight: 700, color: '#555' }}>{p.min}</div>
+                    <div style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.58rem', color: '#bbb', marginBottom: 1 }}>न्यूनतम</div>
+                    <div style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.88rem', fontWeight: 700, color: '#555' }}>{p.min}</div>
                   </div>
                   <div>
-                    <div style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.58rem', color: '#bbb', marginBottom: 1 }}>अधिकतम</div>
-                    <div style={{ fontFamily: 'var(--font-english), sans-serif', fontSize: '0.88rem', fontWeight: 700, color: '#555' }}>{p.max}</div>
+                    <div style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.58rem', color: '#bbb', marginBottom: 1 }}>अधिकतम</div>
+                    <div style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.88rem', fontWeight: 700, color: '#555' }}>{p.max}</div>
                   </div>
                 </div>
               </div>
@@ -73,7 +73,7 @@ export default function MandiPrices() {
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: 24 }}>
-          <Link href="/mandi" style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.88rem', fontWeight: 700, color: '#E53E3E', textDecoration: 'none', borderBottom: '2px solid #E53E3E', paddingBottom: 3 }}>सभी मंडी भाव देखें →</Link>
+          <Link href="/mandi" style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.88rem', fontWeight: 700, color: '#05420d', textDecoration: 'none', borderBottom: '2px solid #05420d', paddingBottom: 3 }}>सभी मंडी भाव देखें →</Link>
         </div>
       </div>
     </section>

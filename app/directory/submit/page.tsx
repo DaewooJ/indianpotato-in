@@ -97,10 +97,10 @@ export default function SubmitListingPage() {
                             <div className="h-3 w-32 bg-stone-200 rounded mb-2" />
                             <div className="h-24 w-full bg-stone-100 rounded-xl border border-stone-200" />
                           </div>
-                          <div className="h-12 w-full bg-red-100 rounded-xl" />
+                          <div className="h-12 w-full bg-green-100 rounded-xl" />
                         </div>
                         <div className="flex items-center justify-center gap-2 mt-6">
-                          <div className="w-4 h-4 border-2 border-stone-300 border-t-red-600 rounded-full animate-spin" />
+                          <div className="w-4 h-4 border-2 border-stone-300 border-t-[#05420d] rounded-full animate-spin" />
                           <span className="text-[0.78rem] text-stone-400 font-body">फ़ॉर्म लोड हो रहा है...</span>
                         </div>
                       </div>
@@ -164,11 +164,11 @@ export default function SubmitListingPage() {
                       <div key={i} className={'flex items-center gap-2.5 p-2.5 rounded-lg border ' + plan.color + (plan.popular ? ' ring-1 ring-amber-400' : '')}>
                         <span className="text-[1rem]">{plan.icon}</span>
                         <span className="font-body text-[0.78rem] font-semibold text-stone-700 flex-1">{plan.name}</span>
-                        <span className="font-body text-[0.7rem] font-bold text-red-600">{plan.price}</span>
+                        <span className="font-body text-[0.7rem] font-bold text-[#05420d]">{plan.price}</span>
                       </div>
                     ))}
                   </div>
-                  <Link href="/directory/plans" className="block mt-3 text-center font-body text-[0.72rem] font-semibold text-red-600 hover:text-red-700">तुलना देखें →</Link>
+                  <Link href="/directory/plans" className="block mt-3 text-center font-body text-[0.72rem] font-semibold text-[#05420d] hover:text-[#032808]">तुलना देखें →</Link>
                 </div>
 
                 {/* How it works */}
@@ -187,8 +187,8 @@ export default function SubmitListingPage() {
                 </div>
 
                 {/* Stats */}
-                <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl border border-red-200 p-5">
-                  <h3 className="font-body text-[0.82rem] font-bold text-red-800 mb-3">📊 डायरेक्टरी आँकड़े</h3>
+                <div className="bg-gradient-to-br from-green-50 to-green-50 rounded-2xl border border-green-200 p-5">
+                  <h3 className="font-body text-[0.82rem] font-bold text-[#021f06] mb-3">📊 डायरेक्टरी आँकड़े</h3>
                   <div className="grid grid-cols-2 gap-3">
                     {[
                       { value: '15K+', label: 'साप्ताहिक विज़िटर' },
@@ -197,8 +197,8 @@ export default function SubmitListingPage() {
                       { value: '#1', label: 'आलू प्लेटफ़ॉर्म' },
                     ].map((stat, i) => (
                       <div key={i} className="text-center">
-                        <div className="font-display text-[1rem] font-bold text-red-700">{stat.value}</div>
-                        <div className="font-body text-[0.6rem] text-red-600/60">{stat.label}</div>
+                        <div className="font-display text-[1rem] font-bold text-[#032808]">{stat.value}</div>
+                        <div className="font-body text-[0.6rem] text-[#05420d]/60">{stat.label}</div>
                       </div>
                     ))}
                   </div>

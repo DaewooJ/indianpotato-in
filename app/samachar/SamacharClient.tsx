@@ -38,11 +38,11 @@ export default function SamacharClient() {
       </div>
 
       <div style={{ display: 'flex', gap: 8, marginBottom: 40, flexWrap: 'wrap' as const, overflowX: 'auto' as const }}>
-        <button onClick={() => setActiveCategory('सभी')} style={{ padding: '8px 18px', borderRadius: 20, border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer', background: activeCategory === 'सभी' ? 'linear-gradient(135deg, #dc2626, #f97316)' : '#fff', color: activeCategory === 'सभी' ? '#fff' : '#666', boxShadow: activeCategory === 'सभी' ? '0 4px 14px rgba(220,38,38,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>सभी ({posts.length})</button>
+        <button onClick={() => setActiveCategory('सभी')} style={{ padding: '8px 18px', borderRadius: 20, border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer', background: activeCategory === 'सभी' ? 'linear-gradient(135deg, #05420d, #f97316)' : '#fff', color: activeCategory === 'सभी' ? '#fff' : '#666', boxShadow: activeCategory === 'सभी' ? '0 4px 14px rgba(220,38,38,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>सभी ({posts.length})</button>
         {categories.map(cat => {
           const count = posts.filter(p => p.category_hindi === cat).length;
           return (
-            <button key={cat} onClick={() => setActiveCategory(cat)} style={{ padding: '8px 18px', borderRadius: 20, border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer', background: activeCategory === cat ? 'linear-gradient(135deg, #dc2626, #f97316)' : '#fff', color: activeCategory === cat ? '#fff' : '#666', boxShadow: activeCategory === cat ? '0 4px 14px rgba(220,38,38,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>{cat} ({count})</button>
+            <button key={cat} onClick={() => setActiveCategory(cat)} style={{ padding: '8px 18px', borderRadius: 20, border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer', background: activeCategory === cat ? 'linear-gradient(135deg, #05420d, #f97316)' : '#fff', color: activeCategory === cat ? '#fff' : '#666', boxShadow: activeCategory === cat ? '0 4px 14px rgba(220,38,38,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>{cat} ({count})</button>
           );
         })}
       </div>
@@ -64,7 +64,7 @@ export default function SamacharClient() {
                 <div style={{ aspectRatio: '16/9', background: 'url(' + featuredPost.image + ') center/cover no-repeat', minHeight: 200, maxWidth: '100%' }} />
                 <div style={{ padding: '24px' }}>
                   <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
-                    <span style={{ background: '#fef2f2', color: '#dc2626', padding: '4px 12px', borderRadius: 12, fontSize: 12, fontWeight: 700 }}>🔥 मुख्य ख़बर</span>
+                    <span style={{ background: '#f0fdf4', color: '#05420d', padding: '4px 12px', borderRadius: 12, fontSize: 12, fontWeight: 700 }}>🔥 मुख्य ख़बर</span>
                     <span style={{ background: '#f5f5f5', color: '#666', padding: '4px 12px', borderRadius: 12, fontSize: 12, fontWeight: 600 }}>{featuredPost.category_hindi}</span>
                   </div>
                   <h2 style={{ fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 800, color: '#1a1a1a', lineHeight: 1.3, marginBottom: 12 }}>{featuredPost.title}</h2>

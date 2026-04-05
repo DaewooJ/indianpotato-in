@@ -75,7 +75,7 @@ export default function ShareButtons({ title, slug, variant = 'inline' }: ShareB
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
             padding: '10px 20px', borderRadius: 50,
-            background: 'linear-gradient(135deg,#dc2626,#ef4444)',
+            background: 'linear-gradient(135deg,#05420d,#ed6442)',
             color: 'white', fontWeight: 600, fontSize: 14,
             border: 'none', cursor: 'pointer',
             boxShadow: '0 2px 8px rgba(220,38,38,0.3)',

@@ -28,7 +28,7 @@ export default function StateFilter({ states, counts }: { states: string[]; coun
         <button
           onClick={() => handleClick('all')}
           className={'shrink-0 px-3 py-1.5 text-[0.72rem] font-body font-semibold rounded-full cursor-pointer transition-colors border ' +
-            (selected === 'all' ? 'bg-red-600 text-white border-red-600' : 'bg-stone-100 text-stone-600 border-stone-200 hover:bg-red-50 hover:text-red-700 hover:border-red-200')}
+            (selected === 'all' ? 'bg-[#05420d] text-white border-[#05420d]' : 'bg-stone-100 text-stone-600 border-stone-200 hover:bg-green-50 hover:text-[#032808] hover:border-green-200')}
         >
           सभी ({total})
         </button>
@@ -37,7 +37,7 @@ export default function StateFilter({ states, counts }: { states: string[]; coun
             key={state}
             onClick={() => handleClick(state)}
             className={'shrink-0 px-3 py-1.5 text-[0.72rem] font-body font-medium rounded-full cursor-pointer transition-colors border whitespace-nowrap ' +
-              (selected === state ? 'bg-red-600 text-white border-red-600' : 'bg-stone-100 text-stone-600 border-stone-200 hover:bg-red-50 hover:text-red-700 hover:border-red-200')}
+              (selected === state ? 'bg-[#05420d] text-white border-[#05420d]' : 'bg-stone-100 text-stone-600 border-stone-200 hover:bg-green-50 hover:text-[#032808] hover:border-green-200')}
           >
             {state} ({counts[state] || 0})
           </button>

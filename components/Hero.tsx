@@ -7,19 +7,19 @@ export default function Hero() {
       <div style={{ maxWidth: 1320, margin: '0 auto', padding: '72px 28px 64px', position: 'relative', zIndex: 2 }}>
         <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: 48, alignItems: 'center' }}>
           <div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 4, padding: '7px 16px', marginBottom: 24 }}>
-              <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#E53E3E', animation: 'blink 1.5s infinite' }} />
-              <span style={{ fontFamily: 'var(--font-english), sans-serif', fontSize: '0.72rem', fontWeight: 700, color: '#E53E3E', letterSpacing: '0.12em', textTransform: 'uppercase' }}>LIVE · आज का अपडेट</span>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 4, padding: '7px 16px', marginBottom: 24 }}>
+              <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#05420d', animation: 'blink 1.5s infinite' }} />
+              <span style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.72rem', fontWeight: 700, color: '#05420d', letterSpacing: '0.12em', textTransform: 'uppercase' }}>LIVE · आज का अपडेट</span>
             </div>
-            <h1 style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', fontWeight: 900, color: '#1a1a1a', lineHeight: 1.15, marginBottom: 20 }}>
-              भारत का <span style={{ color: '#E53E3E' }}>#1 आलू</span><br />उद्योग मंच
+            <h1 style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', fontWeight: 900, color: '#1a1a1a', lineHeight: 1.15, marginBottom: 20 }}>
+              भारत का <span style={{ color: '#05420d' }}>#1 आलू</span><br />उद्योग मंच
             </h1>
-            <p style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '1.08rem', lineHeight: 1.85, color: '#777', maxWidth: 500, marginBottom: 32 }}>
+            <p style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '1.08rem', lineHeight: 1.85, color: '#777', maxWidth: 500, marginBottom: 32 }}>
               मंडी भाव · सरकारी योजनाएँ · किस्मों का डेटाबेस · निर्यात डेटा · उद्योग डायरेक्टरी — किसानों, व्यापारियों और प्रसंस्करण उद्योग के लिए।
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 40, alignItems: 'flex-start' }}>
               <Link href="/mandi" className="hero-cta" style={{
-                background: 'linear-gradient(135deg, #dc2626, #b91c1c)',
+                background: 'linear-gradient(135deg, #05420d, #032808)',
                 color: '#fff', textDecoration: 'none',
                 padding: '16px 36px', borderRadius: 50,
                 fontSize: '1rem', fontWeight: 700,
@@ -34,7 +34,7 @@ export default function Hero() {
                 fontWeight: 500, paddingLeft: 4,
                 transition: 'color 0.2s',
               }}>
-                या <span style={{ color: '#dc2626', fontWeight: 600 }}>WhatsApp ग्रुप जॉइन करें →</span>
+                या <span style={{ color: '#05420d', fontWeight: 600 }}>WhatsApp ग्रुप जॉइन करें →</span>
               </a>
             </div>
             {/* Stats row below buttons */}
@@ -45,8 +45,8 @@ export default function Hero() {
                 { value: '#2 विश्व', label: 'चीन के बाद' },
               ].map((s, i) => (
                 <div key={i} style={{ borderLeft: i === 0 ? 'none' : '1px solid #eee', paddingLeft: i === 0 ? 0 : 28 }}>
-                  <div style={{ fontFamily: 'var(--font-english), sans-serif', fontSize: '1.3rem', fontWeight: 900, color: '#E53E3E', letterSpacing: '-0.02em' }}>{s.value}</div>
-                  <div style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.75rem', color: '#aaa', fontWeight: 500 }}>{s.label}</div>
+                  <div style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '1.3rem', fontWeight: 900, color: '#05420d', letterSpacing: '-0.02em' }}>{s.value}</div>
+                  <div style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.75rem', color: '#aaa', fontWeight: 500 }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -73,10 +73,10 @@ export default function Hero() {
               padding: '16px 22px',
               boxShadow: '0 8px 30px rgba(0,0,0,0.1)',
               border: '1px solid #f0f0f0',
-              borderLeft: '4px solid #E53E3E',
+              borderLeft: '4px solid #05420d',
             }}>
-              <div style={{ fontFamily: 'var(--font-english), sans-serif', fontSize: '1.4rem', fontWeight: 900, color: '#E53E3E' }}>15K+</div>
-              <div style={{ fontFamily: 'var(--font-hindi), sans-serif', fontSize: '0.72rem', color: '#888' }}>साप्ताहिक पाठक</div>
+              <div style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '1.4rem', fontWeight: 900, color: '#05420d' }}>15K+</div>
+              <div style={{ fontFamily: 'var(--font-poppins), sans-serif', fontSize: '0.72rem', color: '#888' }}>साप्ताहिक पाठक</div>
             </div>
           </div>
         </div>

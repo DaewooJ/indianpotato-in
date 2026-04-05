@@ -27,7 +27,7 @@ const plans = [
     id: 'gold', name: 'Gold', nameHi: 'गोल्ड', price: '₹7,999', priceEn: '₹7,999', period: '/वर्ष',
     color: 'amber', gradient: 'from-amber-50 to-yellow-50/50', border: 'border-amber-300',
     badge: '👑', badgeBg: 'bg-gradient-to-r from-amber-200 to-yellow-200 text-amber-900', icon: '👑',
-    cta: 'Gold चुनें — लोकप्रिय', ctaBg: 'bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700',
+    cta: 'Gold चुनें — लोकप्रिय', ctaBg: 'bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-[#ed6442]',
     popular: true,
     features: { companyName: true, location: true, phone: true, category: true, description: true, descriptionWords: 300, logo: true, photos: 3, varieties: true, certifications: true, contactPerson: true, email: true, website: true, whatsappButton: true, callButton: true, premiumBadge: true, featuredHomepage: true, featuredCategory: true, socialMedia: true, seoOptimized: true, prioritySupport: false, analytics: true, dedicatedPage: true, stateFilter: true, searchVisible: true, priorityReferral: false },
   },
@@ -111,7 +111,7 @@ export default function PlansPage() {
               {plans.map((plan: any) => (
                 <div key={plan.id} className={'relative rounded-2xl border-2 overflow-hidden transition-all ' + plan.border + (plan.popular ? ' ring-2 ring-amber-400 ring-offset-2 scale-[1.02] lg:scale-105' : '')}>
                   {plan.popular && (
-                    <div className="bg-gradient-to-r from-amber-500 to-orange-500 py-1.5 text-center">
+                    <div className="bg-gradient-to-r from-amber-500 to-green-500 py-1.5 text-center">
                       <span className="text-[0.7rem] font-bold text-white tracking-wider uppercase">⭐ सबसे लोकप्रिय</span>
                     </div>
                   )}
@@ -160,9 +160,9 @@ export default function PlansPage() {
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 rounded-full mb-3">
-                <span className="w-1.5 h-1.5 bg-red-500 rounded-full" />
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
                 <span className="text-[0.68rem] font-bold text-stone-500 uppercase tracking-wider">Feature Comparison</span>
-                <span className="w-1.5 h-1.5 bg-red-500 rounded-full" />
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
               </div>
               <h2 className="font-display text-[clamp(1.4rem,3.5vw,2rem)] font-bold text-stone-900 mb-2">विस्तृत तुलना</h2>
               <p className="font-body text-[0.85rem] text-stone-400">हर प्लान में क्या-क्या मिलता है — एक नज़र में</p>
@@ -245,14 +245,14 @@ export default function PlansPage() {
             <div className="md:hidden space-y-4">
               {plans.map((plan: any) => (
                 <div key={plan.id} className={'rounded-2xl border-2 overflow-hidden ' + plan.border + (plan.popular ? ' ring-2 ring-amber-400' : '')}>
-                  {plan.popular && (<div className="bg-gradient-to-r from-amber-500 to-orange-500 py-1 text-center"><span className="text-[0.62rem] font-bold text-white uppercase tracking-wider">⭐ सबसे लोकप्रिय</span></div>)}
+                  {plan.popular && (<div className="bg-gradient-to-r from-amber-500 to-green-500 py-1 text-center"><span className="text-[0.62rem] font-bold text-white uppercase tracking-wider">⭐ सबसे लोकप्रिय</span></div>)}
                   <div className={'bg-gradient-to-b ' + plan.gradient + ' p-4'}>
                     <div className="flex items-center justify-between mb-4 pb-3 border-b border-stone-200">
                       <div className="flex items-center gap-2">
                         <span className="text-[1.3rem]">{plan.icon}</span>
                         <span className="font-display text-[1.05rem] font-bold text-stone-900">{plan.name}</span>
                       </div>
-                      <span className="font-display text-[1.15rem] font-bold text-red-600">{plan.price}<span className="text-[0.7rem] text-stone-400 font-normal">{plan.period}</span></span>
+                      <span className="font-display text-[1.15rem] font-bold text-[#05420d]">{plan.price}<span className="text-[0.7rem] text-stone-400 font-normal">{plan.period}</span></span>
                     </div>
                     {comparisonRows.filter(r => !r.section).map((row) => {
                       const val = getFeatureValue(plan.features, row.key, row.type);
@@ -299,7 +299,7 @@ export default function PlansPage() {
         </section>
 
         {/* Bottom CTA */}
-        <section className="py-10 md:py-14 px-4 md:px-6 bg-gradient-to-br from-red-900 to-orange-800">
+        <section className="py-10 md:py-14 px-4 md:px-6 bg-gradient-to-br from-[#032808] to-[#d94e2a]">
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className="font-display text-[clamp(1.3rem,3.5vw,1.8rem)] font-bold text-white mb-3">अभी शुरू करें</h2>
             <p className="font-body text-[0.88rem] text-white/60 mb-6">WhatsApp पर संपर्क करें — हम 24 घंटे में आपकी लिस्टिंग तैयार कर देंगे</p>

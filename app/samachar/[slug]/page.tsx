@@ -58,7 +58,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       <main style={{ paddingTop: 70 }}>
 
         {/* HERO BANNER */}
-        <div style={{ background: 'linear-gradient(135deg, #7f1d1d 0%, #dc2626 40%, #7f1d1d 100%)', padding: 'clamp(24px, 6vw, 60px) clamp(16px, 5vw, 48px)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ background: 'linear-gradient(135deg, #7f1d1d 0%, #05420d 40%, #7f1d1d 100%)', padding: 'clamp(24px, 6vw, 60px) clamp(16px, 5vw, 48px)', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', top: '-50%', right: '-20%', width: 400, height: 400, background: 'radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' as const }} />
           <div style={{ maxWidth: 900, margin: '0 auto', position: 'relative', zIndex: 2 }}>
             <span style={{ display: 'inline-block', background: 'rgba(249,115,22,0.9)', color: '#fff', fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase' as const, padding: '6px 16px', borderRadius: 50, marginBottom: 16 }}>{post.category_hindi}</span>
@@ -86,13 +86,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <div style={{ marginTop: 40, paddingTop: 24, borderTop: '1px solid #f0f0f0' }}>
               <span style={{ fontSize: 13, fontWeight: 700, color: '#666', marginRight: 10 }}>टैग:</span>
               {post.tags.map((tag) => (
-                <span key={tag} style={{ display: 'inline-block', background: '#fef2f2', color: '#dc2626', padding: '5px 14px', borderRadius: 20, fontSize: 13, fontWeight: 600, marginRight: 8, marginBottom: 8 }}>#{tag}</span>
+                <span key={tag} style={{ display: 'inline-block', background: '#f0fdf4', color: '#05420d', padding: '5px 14px', borderRadius: 20, fontSize: 13, fontWeight: 600, marginRight: 8, marginBottom: 8 }}>#{tag}</span>
               ))}
             </div>
           )}
 
           {/* CTA SECTION */}
-          <div style={{ background: 'linear-gradient(135deg, #7f1d1d 0%, #dc2626 50%, #7f1d1d 100%)', borderRadius: 18, padding: 'clamp(28px, 5vw, 48px)', textAlign: 'center' as const, margin: '48px 0', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ background: 'linear-gradient(135deg, #7f1d1d 0%, #05420d 50%, #7f1d1d 100%)', borderRadius: 18, padding: 'clamp(28px, 5vw, 48px)', textAlign: 'center' as const, margin: '48px 0', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '-40%', right: '-15%', width: 300, height: 300, background: 'radial-gradient(circle, rgba(249,115,22,0.2) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' as const }} />
             <h2 style={{ color: '#fff', fontSize: 'clamp(20px, 3.5vw, 28px)', fontWeight: 700, margin: '0 0 12px 0', position: 'relative', zIndex: 2 }}>भारत के आलू उद्योग से जुड़ें</h2>
             <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: 16, margin: '0 0 24px 0', maxWidth: 600, marginLeft: 'auto', marginRight: 'auto', position: 'relative', zIndex: 2 }}>आलू आपूर्तिकर्ता, शीतगृह संचालक, या व्यापारिक साझेदार खोज रहे हैं? Indian Potato आपको जोड़ता है।</p>
@@ -111,7 +111,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
                 padding: '14px 24px', borderRadius: 12,
                 background: 'white',
-                color: '#dc2626', fontWeight: 700, fontSize: 15,
+                color: '#05420d', fontWeight: 700, fontSize: 15,
                 textDecoration: 'none',
                 border: '2px solid rgba(255,255,255,0.3)',
                 boxShadow: '0 4px 15px rgba(220,38,38,0.15)',
@@ -129,13 +129,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           {/* RELATED POSTS */}
           {relatedPosts.length > 0 && (
             <div style={{ margin: '48px 0' }}>
-              <h2 style={{ fontSize: 22, fontWeight: 700, color: '#dc2626', marginBottom: 24, textAlign: 'center' as const }}>और पढ़ें</h2>
+              <h2 style={{ fontSize: 22, fontWeight: 700, color: '#05420d', marginBottom: 24, textAlign: 'center' as const }}>और पढ़ें</h2>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 16 }}>
                 {relatedPosts.map((rp) => (
                   <Link key={rp.slug} href={'/samachar/' + rp.slug} style={{ textDecoration: 'none' }}>
-                    <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 14, padding: 20, textAlign: 'center' as const, transition: 'transform 0.2s, box-shadow 0.2s', height: '100%' }}>
+                    <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 14, padding: 20, textAlign: 'center' as const, transition: 'transform 0.2s, box-shadow 0.2s', height: '100%' }}>
                       <span style={{ fontSize: 28, display: 'block', marginBottom: 10 }}>🥔</span>
-                      <span style={{ color: '#dc2626', fontWeight: 600, fontSize: 14, lineHeight: 1.4, display: 'block' }}>{rp.title}</span>
+                      <span style={{ color: '#05420d', fontWeight: 600, fontSize: 14, lineHeight: 1.4, display: 'block' }}>{rp.title}</span>
                     </div>
                   </Link>
                 ))}
@@ -145,7 +145,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
           {/* BACK */}
           <div style={{ textAlign: 'center' as const, padding: '20px 0 60px' }}>
-            <Link href="/samachar" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 28px', background: 'linear-gradient(135deg, #dc2626, #f97316)', color: '#fff', borderRadius: 24, textDecoration: 'none', fontWeight: 700, fontSize: 14 }}>← सभी समाचार देखें</Link>
+            <Link href="/samachar" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 28px', background: 'linear-gradient(135deg, #05420d, #f97316)', color: '#fff', borderRadius: 24, textDecoration: 'none', fontWeight: 700, fontSize: 14 }}>← सभी समाचार देखें</Link>
           </div>
         </div>
       </main>
@@ -153,21 +153,21 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
       <style>{`
         .premium-article { font-size: 17px; line-height: 1.85; color: #333; }
-        .premium-article h2 { font-size: clamp(22px, 3.5vw, 30px); font-weight: 700; color: #dc2626; margin: 48px 0 18px 0; line-height: 1.3; border-bottom: 3px solid #f97316; padding-bottom: 10px; }
-        .premium-article h3 { font-size: clamp(18px, 2.8vw, 22px); font-weight: 600; color: #b91c1c; margin: 32px 0 12px 0; line-height: 1.4; }
+        .premium-article h2 { font-size: clamp(22px, 3.5vw, 30px); font-weight: 700; color: #05420d; margin: 48px 0 18px 0; line-height: 1.3; border-bottom: 3px solid #f97316; padding-bottom: 10px; }
+        .premium-article h3 { font-size: clamp(18px, 2.8vw, 22px); font-weight: 600; color: #032808; margin: 32px 0 12px 0; line-height: 1.4; }
         .premium-article p { margin: 16px 0; }
         .premium-article strong { color: #1a1a1a; }
-        .premium-article blockquote { border-left: 4px solid #dc2626; padding: 16px 20px; margin: 24px 0; background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%); border-radius: 0 12px 12px 0; font-style: italic; color: #444; }
+        .premium-article blockquote { border-left: 4px solid #05420d; padding: 16px 20px; margin: 24px 0; background: linear-gradient(135deg, #f0fdf4 0%, #fff7ed 100%); border-radius: 0 12px 12px 0; font-style: italic; color: #444; }
         .premium-article ul, .premium-article ol { padding-left: 24px; margin: 12px 0; }
         .premium-article li { margin-bottom: 8px; font-size: 15px; line-height: 1.6; }
-        .premium-article a { color: #dc2626; text-decoration: underline; }
+        .premium-article a { color: #05420d; text-decoration: underline; }
         .premium-article a:hover { color: #f97316; }
         .premium-article code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
         .premium-article hr { border: none; height: 1px; background: #e5e5e5; margin: 32px 0; }
         .premium-article img { max-width: 100% !important; height: auto !important; border-radius: 12px; }
         .premium-article details { margin: 12px 0; border: 1px solid #f0f0f0; border-radius: 10px; overflow: hidden; }
-        .premium-article summary { padding: 14px 18px; cursor: pointer; background: #fef2f2; font-size: 15px; }
-        .premium-article summary strong { color: #dc2626; }
+        .premium-article summary { padding: 14px 18px; cursor: pointer; background: #f0fdf4; font-size: 15px; }
+        .premium-article summary strong { color: #05420d; }
         .premium-article details[open] summary { border-bottom: 1px solid #f0f0f0; }
         .premium-article details > :not(summary) { padding: 14px 18px; font-size: 15px; color: #555; }
         @media (max-width: 768px) {

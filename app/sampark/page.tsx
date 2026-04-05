@@ -13,7 +13,7 @@ export default function SamparkPage() {
         {/* HERO */}
         <section style={{ padding: 'clamp(60px, 10vw, 100px) 20px clamp(48px, 8vw, 64px)', borderBottom: '1px solid #f0f0f0' }}>
           <div style={{ maxWidth: 600, margin: '0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <span style={{ display: 'inline-block', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 50, padding: '4px 14px', marginBottom: 24, fontSize: 12, color: '#dc2626', fontWeight: 600, letterSpacing: '0.05em' }}>
+            <span style={{ display: 'inline-block', background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 50, padding: '4px 14px', marginBottom: 24, fontSize: 12, color: '#05420d', fontWeight: 600, letterSpacing: '0.05em' }}>
               संपर्क
             </span>
             <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', fontWeight: 700, color: '#111827', lineHeight: 1.2, marginBottom: 16 }}>
@@ -90,7 +90,7 @@ export default function SamparkPage() {
               <div style={{ fontSize: 14, color: '#6b7280', marginBottom: 4 }}>Co-Founder and Director</div>
               <div style={{ fontSize: 14, color: '#9ca3af', marginBottom: 16 }}>Indpotato Pvt Ltd, Pimpri-Chinchwad, Pune, Maharashtra</div>
               <a href="https://www.linkedin.com/in/potatoes/" target="_blank" rel="noopener noreferrer" style={{
-                fontSize: 14, fontWeight: 500, color: '#dc2626', textDecoration: 'none',
+                fontSize: 14, fontWeight: 500, color: '#05420d', textDecoration: 'none',
               }}>
                 LinkedIn प्रोफ़ाइल →
               </a>
@@ -111,7 +111,7 @@ export default function SamparkPage() {
               <a href="mailto:info@indpotato.com" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 padding: '12px 24px', borderRadius: 50,
-                background: '#dc2626', color: '#fff',
+                background: '#05420d', color: '#fff',
                 fontWeight: 600, fontSize: 14, textDecoration: 'none',
               }}>
                 ईमेल भेजें

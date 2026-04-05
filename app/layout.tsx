@@ -1,21 +1,14 @@
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import type { Metadata } from 'next';
-import { Mukta, DM_Sans } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 
-const mukta = Mukta({
-  subsets: ['devanagari', 'latin'],
+const poppins = Poppins({
+  subsets: ['latin', 'devanagari'],
   weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins',
   display: 'swap',
-  variable: '--font-hindi',
-});
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
-  variable: '--font-english',
 });
 
 export const metadata: Metadata = {
@@ -131,13 +124,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="hi" dir="ltr" className={`${mukta.variable} ${dmSans.variable}`}>
+    <html lang="hi" dir="ltr" className={poppins.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#dc2626" />
+        <meta name="theme-color" content="#05420d" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

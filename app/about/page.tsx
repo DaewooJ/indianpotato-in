@@ -34,13 +34,13 @@ export const metadata: Metadata = {
 const sectionPad: React.CSSProperties = { padding: '56px 24px' };
 const maxW: React.CSSProperties = { maxWidth: 1080, margin: '0 auto' };
 const bodyFont: React.CSSProperties = {
-  fontFamily: 'var(--font-hindi), sans-serif',
+  fontFamily: 'var(--font-poppins), sans-serif',
   fontSize: '0.95rem',
   color: '#374151',
   lineHeight: 1.9,
 };
 const h2Style: React.CSSProperties = {
-  fontFamily: 'var(--font-hindi), sans-serif',
+  fontFamily: 'var(--font-poppins), sans-serif',
   fontSize: 'clamp(1.3rem, 3vw, 1.7rem)',
   fontWeight: 800,
   color: '#1F2937',
@@ -48,7 +48,7 @@ const h2Style: React.CSSProperties = {
   marginBottom: 12,
 };
 const subtitleStyle: React.CSSProperties = {
-  fontFamily: 'var(--font-hindi), sans-serif',
+  fontFamily: 'var(--font-poppins), sans-serif',
   fontSize: '0.9rem',
   color: '#6B7280',
   textAlign: 'center',
@@ -59,7 +59,7 @@ const subtitleStyle: React.CSSProperties = {
 const redDot: React.CSSProperties = {
   width: 48,
   height: 4,
-  background: '#E53E3E',
+  background: '#05420d',
   borderRadius: 2,
   margin: '0 auto 20px',
 };
@@ -77,7 +77,7 @@ export default function AboutPage() {
 
         {/* ─── HERO ─── */}
         <section style={{
-          background: '#E53E3E',
+          background: '#05420d',
           padding: '56px 24px 52px',
           position: 'relative',
           overflow: 'hidden',
@@ -89,13 +89,13 @@ export default function AboutPage() {
           <div style={{ maxWidth: 820, margin: '0 auto', position: 'relative', zIndex: 1 }}>
             <nav style={{ marginBottom: 20 }}>
               <Link href="/" style={{
-                fontFamily: 'var(--font-hindi), sans-serif',
+                fontFamily: 'var(--font-poppins), sans-serif',
                 fontSize: '0.82rem', color: 'rgba(255,255,255,0.7)',
                 textDecoration: 'none',
               }}>होम</Link>
               <span style={{ color: 'rgba(255,255,255,0.4)', margin: '0 10px', fontSize: '0.75rem' }}>›</span>
               <span style={{
-                fontFamily: 'var(--font-hindi), sans-serif',
+                fontFamily: 'var(--font-poppins), sans-serif',
                 fontSize: '0.82rem', color: '#fff',
               }}>हमारे बारे में</span>
             </nav>
@@ -105,7 +105,7 @@ export default function AboutPage() {
               borderRadius: 6,
               padding: '6px 14px',
               marginBottom: 16,
-              fontFamily: 'var(--font-english), sans-serif',
+              fontFamily: 'var(--font-poppins), sans-serif',
               fontSize: '0.72rem',
               fontWeight: 700,
               color: '#fff',
@@ -113,7 +113,7 @@ export default function AboutPage() {
               textTransform: 'uppercase',
             }}>🥔 ABOUT US</div>
             <h1 style={{
-              fontFamily: 'var(--font-hindi), sans-serif',
+              fontFamily: 'var(--font-poppins), sans-serif',
               fontSize: 'clamp(1.8rem, 5vw, 2.6rem)',
               fontWeight: 900,
               color: '#fff',
@@ -124,7 +124,7 @@ export default function AboutPage() {
               भारत का प्रमुख आलू उद्योग मंच
             </h1>
             <p style={{
-              fontFamily: 'var(--font-hindi), sans-serif',
+              fontFamily: 'var(--font-poppins), sans-serif',
               fontSize: '1.05rem',
               color: 'rgba(255,255,255,0.85)',
               marginTop: 16,
@@ -146,7 +146,7 @@ export default function AboutPage() {
               background: '#fff',
               borderRadius: 12,
               padding: 'clamp(24px, 4vw, 40px)',
-              borderLeft: '4px solid #E53E3E',
+              borderLeft: '4px solid #05420d',
               boxShadow: '0 1px 8px rgba(0,0,0,0.04)',
             }}>
               <p style={{ marginBottom: 20 }}>
@@ -161,7 +161,7 @@ export default function AboutPage() {
               <p style={{ marginBottom: 20 }}>
                 <strong>IndianPotato.com, Indpotato Private Limited की प्रमुख पहल है</strong>, जिसका मुख्यालय पुणे, महाराष्ट्र में है। हमारी संस्थापक टीम कृषि इंजीनियरिंग में शैक्षणिक योग्यता के साथ-साथ आलू मूल्य श्रृंखला में प्रत्यक्ष अनुभव रखती है — मिट्टी स्वास्थ्य और बीज विज्ञान से लेकर प्रसंस्करण तकनीक और निर्यात लॉजिस्टिक्स तक।
               </p>
-              <p style={{ fontWeight: 600, color: '#E53E3E' }}>
+              <p style={{ fontWeight: 600, color: '#05420d' }}>
                 हम आलू उद्योग के बारे में सिर्फ़ लिखते नहीं — हम इसमें जीते हैं। और यही फ़र्क है।
               </p>
             </div>
@@ -196,14 +196,14 @@ export default function AboutPage() {
                 }}>
                   <div style={{ fontSize: 28, marginBottom: 12 }}>{item.icon}</div>
                   <h3 style={{
-                    fontFamily: 'var(--font-hindi), sans-serif',
+                    fontFamily: 'var(--font-poppins), sans-serif',
                     fontSize: '1.05rem',
                     fontWeight: 700,
                     color: '#1F2937',
                     marginBottom: 8,
                   }}>{item.title}</h3>
                   <p style={{
-                    fontFamily: 'var(--font-hindi), sans-serif',
+                    fontFamily: 'var(--font-poppins), sans-serif',
                     fontSize: '0.88rem',
                     color: '#6B7280',
                     lineHeight: 1.75,
@@ -247,7 +247,7 @@ export default function AboutPage() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: 10,
-                  fontFamily: 'var(--font-hindi), sans-serif',
+                  fontFamily: 'var(--font-poppins), sans-serif',
                   fontSize: '0.88rem',
                   fontWeight: 600,
                   color: '#374151',
@@ -264,7 +264,7 @@ export default function AboutPage() {
               margin: '32px auto 0',
               fontSize: '0.9rem',
             }}>
-              चाहे आप आगरा में मंडी भाव देख रहे किसान हों, गुजरात में उपकरण खरीद रहे प्रसंस्करणकर्ता हों, या सिंगापुर में भारतीय आलू बाज़ार का मूल्यांकन कर रहे निवेशक — <strong style={{ color: '#E53E3E' }}>IndianPotato.com आपके लिए बना है।</strong>
+              चाहे आप आगरा में मंडी भाव देख रहे किसान हों, गुजरात में उपकरण खरीद रहे प्रसंस्करणकर्ता हों, या सिंगापुर में भारतीय आलू बाज़ार का मूल्यांकन कर रहे निवेशक — <strong style={{ color: '#05420d' }}>IndianPotato.com आपके लिए बना है।</strong>
             </p>
           </div>
         </section>
@@ -300,14 +300,14 @@ export default function AboutPage() {
                     fontSize: 26, margin: '0 auto 16px',
                   }}>{item.icon}</div>
                   <h3 style={{
-                    fontFamily: 'var(--font-hindi), sans-serif',
+                    fontFamily: 'var(--font-poppins), sans-serif',
                     fontSize: '1rem',
                     fontWeight: 700,
                     color: '#1F2937',
                     marginBottom: 8,
                   }}>{item.title}</h3>
                   <p style={{
-                    fontFamily: 'var(--font-hindi), sans-serif',
+                    fontFamily: 'var(--font-poppins), sans-serif',
                     fontSize: '0.85rem',
                     color: '#6B7280',
                     lineHeight: 1.7,
@@ -348,11 +348,11 @@ export default function AboutPage() {
                   }}>{item.icon}</div>
                   <div>
                     <h3 style={{
-                      fontFamily: 'var(--font-hindi), sans-serif',
+                      fontFamily: 'var(--font-poppins), sans-serif',
                       fontSize: '1rem', fontWeight: 700, color: '#1F2937', marginBottom: 6,
                     }}>{item.title}</h3>
                     <p style={{
-                      fontFamily: 'var(--font-hindi), sans-serif',
+                      fontFamily: 'var(--font-poppins), sans-serif',
                       fontSize: '0.88rem', color: '#6B7280', lineHeight: 1.75, margin: 0,
                     }}>{item.desc}</p>
                   </div>
@@ -382,20 +382,20 @@ export default function AboutPage() {
                   <div style={{
                     position: 'absolute', left: -27, top: 4,
                     width: 14, height: 14, borderRadius: '50%',
-                    background: '#E53E3E', border: '3px solid #FEE2E2',
+                    background: '#05420d', border: '3px solid #FEE2E2',
                   }} />
                   <div style={{
-                    fontFamily: 'var(--font-english), sans-serif',
+                    fontFamily: 'var(--font-poppins), sans-serif',
                     fontSize: '0.72rem', fontWeight: 700,
-                    color: '#E53E3E', letterSpacing: '0.1em',
+                    color: '#05420d', letterSpacing: '0.1em',
                     textTransform: 'uppercase', marginBottom: 4,
                   }}>{item.year}</div>
                   <h3 style={{
-                    fontFamily: 'var(--font-hindi), sans-serif',
+                    fontFamily: 'var(--font-poppins), sans-serif',
                     fontSize: '1.05rem', fontWeight: 700, color: '#1F2937', marginBottom: 4,
                   }}>{item.title}</h3>
                   <p style={{
-                    fontFamily: 'var(--font-hindi), sans-serif',
+                    fontFamily: 'var(--font-poppins), sans-serif',
                     fontSize: '0.88rem', color: '#6B7280', lineHeight: 1.7, margin: 0,
                   }}>{item.desc}</p>
                 </div>
@@ -407,7 +407,7 @@ export default function AboutPage() {
         {/* ─── COMPANY INFO ─── */}
         <section style={{ ...sectionPad, background: '#0f0f0f' }}>
           <div style={{ ...maxW, maxWidth: 700 }}>
-            <div style={{ ...redDot, background: '#E53E3E' }} />
+            <div style={{ ...redDot, background: '#05420d' }} />
             <h2 style={{ ...h2Style, color: '#fff' }}>कंपनी की जानकारी</h2>
             <div style={{
               background: '#1a1a1a',
@@ -434,17 +434,17 @@ export default function AboutPage() {
                   gap: 8,
                 }}>
                   <span style={{
-                    fontFamily: 'var(--font-hindi), sans-serif',
+                    fontFamily: 'var(--font-poppins), sans-serif',
                     fontSize: '0.85rem', color: '#9CA3AF', fontWeight: 500,
                   }}>{item.label}</span>
                   {item.link ? (
                     <a href={item.link} target={item.link.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" style={{
-                      fontFamily: 'var(--font-english), sans-serif',
-                      fontSize: '0.9rem', color: '#E53E3E', textDecoration: 'none', fontWeight: 600,
+                      fontFamily: 'var(--font-poppins), sans-serif',
+                      fontSize: '0.9rem', color: '#05420d', textDecoration: 'none', fontWeight: 600,
                     }}>{item.value}</a>
                   ) : (
                     <span style={{
-                      fontFamily: 'var(--font-english), sans-serif',
+                      fontFamily: 'var(--font-poppins), sans-serif',
                       fontSize: '0.9rem', color: '#fff', fontWeight: 600,
                     }}>{item.value}</span>
                   )}
@@ -456,20 +456,20 @@ export default function AboutPage() {
 
         {/* ─── CTA ─── */}
         <section style={{
-          background: '#E53E3E',
+          background: '#05420d',
           padding: '48px 24px',
           textAlign: 'center',
         }}>
           <div style={{ maxWidth: 600, margin: '0 auto' }}>
             <h2 style={{
-              fontFamily: 'var(--font-hindi), sans-serif',
+              fontFamily: 'var(--font-poppins), sans-serif',
               fontSize: 'clamp(1.3rem, 3vw, 1.6rem)',
               fontWeight: 800,
               color: '#fff',
               marginBottom: 12,
             }}>जुड़ना चाहते हैं?</h2>
             <p style={{
-              fontFamily: 'var(--font-hindi), sans-serif',
+              fontFamily: 'var(--font-poppins), sans-serif',
               fontSize: '0.9rem',
               color: 'rgba(255,255,255,0.8)',
               marginBottom: 28,
@@ -480,10 +480,10 @@ export default function AboutPage() {
             <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/sampark" style={{
                 background: '#fff',
-                color: '#E53E3E',
+                color: '#05420d',
                 padding: '13px 28px',
                 borderRadius: 8,
-                fontFamily: 'var(--font-hindi), sans-serif',
+                fontFamily: 'var(--font-poppins), sans-serif',
                 fontSize: '0.92rem',
                 fontWeight: 700,
                 textDecoration: 'none',
@@ -493,7 +493,7 @@ export default function AboutPage() {
                 color: '#fff',
                 padding: '13px 28px',
                 borderRadius: 8,
-                fontFamily: 'var(--font-hindi), sans-serif',
+                fontFamily: 'var(--font-poppins), sans-serif',
                 fontSize: '0.92rem',
                 fontWeight: 700,
                 textDecoration: 'none',

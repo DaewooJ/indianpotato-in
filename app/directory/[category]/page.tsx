@@ -47,7 +47,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
       <Navbar />
       <main className="pt-[76px]">
         {/* Hero */}
-        <div className="bg-gradient-to-br from-red-900 via-red-800 to-orange-700 py-10 md:py-14 px-4 md:px-6 relative overflow-hidden">
+        <div className="bg-gradient-to-br from-[#032808] via-[#05420d] to-[#ed6442] py-10 md:py-14 px-4 md:px-6 relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)', backgroundSize: '32px 32px' }} />
           <div className="max-w-[1280px] mx-auto relative z-10">
             <nav className="flex items-center gap-1.5 text-[0.72rem] font-body text-white/40 mb-4 flex-wrap">
@@ -85,7 +85,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                 <div className="text-[56px] mb-3">📋</div>
                 <h3 className="font-display text-[1.15rem] font-bold text-stone-800 mb-2">{cat.name} — जल्द आ रहा है</h3>
                 <p className="font-body text-[0.85rem] text-stone-500 max-w-[380px] mx-auto mb-6">हम इस श्रेणी में लिस्टिंग जोड़ रहे हैं।</p>
-                <Link href="/directory/submit" className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-body font-semibold text-[0.85rem] rounded-xl transition-colors">📋 पहली लिस्टिंग बनें</Link>
+                <Link href="/directory/submit" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#05420d] hover:bg-[#032808] text-white font-body font-semibold text-[0.85rem] rounded-xl transition-colors">📋 पहली लिस्टिंग बनें</Link>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -101,7 +101,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                     <Link key={listing.slug} href={'/directory/' + cat.slug + '/' + listing.slug}
                       data-state={listing.state}
                       className={'group rounded-2xl border-2 overflow-hidden transition-all duration-200 flex flex-col ' +
-                        (isPlat ? 'bg-gradient-to-b from-red-50/50 to-white border-red-400 hover:shadow-xl hover:shadow-red-100/50' :
+                        (isPlat ? 'bg-gradient-to-b from-green-50/50 to-white border-emerald-600 hover:shadow-xl hover:shadow-green-100/50' :
                         isGold ? 'bg-gradient-to-b from-amber-50/50 to-white border-amber-300 hover:shadow-xl hover:shadow-amber-100/50' :
                         'bg-white border-stone-200 hover:shadow-md hover:border-stone-300')}>
 
@@ -110,13 +110,13 @@ export default function CategoryPage({ params }: { params: { category: string } 
                         {(isPlat || isGold) && (
                           <div className="flex items-center justify-between mb-3">
                             <span className={'text-[0.6rem] font-bold px-2 py-0.5 rounded-full ' +
-                              (isPlat ? 'text-white bg-gradient-to-r from-red-600 to-red-500' :
+                              (isPlat ? 'text-white bg-gradient-to-r from-[#0a6b18] to-[#0a6b18]' :
                               'text-amber-800 bg-gradient-to-r from-amber-200 to-yellow-200')}>
                               {isPlat ? '💎 PLATINUM' : '👑 GOLD'}
                             </span>
                             <span className={'text-[0.65rem] font-semibold px-2 py-0.5 rounded-full border ' +
-                              (isPlat ? 'text-white bg-red-600 border-red-500 shadow-sm shadow-red-200' :
-                              'text-white bg-red-600 border-red-500 shadow-sm shadow-red-200')}>
+                              (isPlat ? 'text-white bg-[#05420d] border-green-500 shadow-sm shadow-green-200' :
+                              'text-white bg-[#05420d] border-green-500 shadow-sm shadow-green-200')}>
                               📍 {listing.district}, {listing.state}
                             </span>
                           </div>
@@ -131,12 +131,12 @@ export default function CategoryPage({ params }: { params: { category: string } 
                             </div>
                           ) : (
                             <div className={'w-11 h-11 rounded-lg border flex items-center justify-center text-[22px] shrink-0 overflow-hidden ' +
-                              (isPlat ? 'bg-red-100 border-red-200' : isGold ? 'bg-amber-100 border-amber-200' : 'bg-stone-100 border-stone-200')}>
+                              (isPlat ? 'bg-green-100 border-green-200' : isGold ? 'bg-amber-100 border-amber-200' : 'bg-stone-100 border-stone-200')}>
                               {cat.iconImage ? <img src={cat.iconImage} alt="" className="w-full h-full object-contain p-0.5 rounded" /> : cat.icon}
                             </div>
                           )}
                           <div className="min-w-0">
-                            <h3 className={'font-display text-[0.95rem] font-bold leading-snug group-hover:text-red-700 transition-colors ' +
+                            <h3 className={'font-display text-[0.95rem] font-bold leading-snug group-hover:text-[#032808] transition-colors ' +
                               (isFree ? 'text-stone-700' : 'text-stone-900')}>{listing.name}</h3>
                             {listing.nameEn && <p className="font-body text-[0.68rem] text-stone-400 italic">{listing.nameEn}</p>}
                             {isFree && <p className="font-body text-[0.68rem] text-stone-500 mt-1 font-medium">📍 {listing.district}, {listing.state}</p>}
@@ -152,7 +152,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                           <div className="flex flex-wrap gap-1 mt-2.5">
                             {listing.specialization.slice(0, 3).map((spec: string, i: number) => (
                               <span key={i} className={'text-[0.6rem] font-medium px-1.5 py-0.5 rounded ' +
-                                (isPlat ? 'text-red-600 bg-red-100/60' : 'text-amber-700 bg-amber-100/60')}>{spec}</span>
+                                (isPlat ? 'text-[#05420d] bg-green-100/60' : 'text-amber-700 bg-amber-100/60')}>{spec}</span>
                             ))}
                             {listing.specialization.length > 3 && <span className="text-[0.6rem] text-stone-400">+{listing.specialization.length - 3}</span>}
                           </div>
@@ -172,7 +172,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
                               {ld.phone && ld.phone[0] && <span className="text-[0.7rem] font-semibold text-green-600">📞 {ld.phone[0]}</span>}
                               {ld.email && <span className="text-[0.68rem] text-stone-400">📧 {ld.email}</span>}
                               {ld.contactPerson && <span className={'text-[0.68rem] font-medium ml-auto ' +
-                                (isPlat ? 'text-red-600' : 'text-amber-700')}>👤 {ld.contactPerson}</span>}
+                                (isPlat ? 'text-[#05420d]' : 'text-amber-700')}>👤 {ld.contactPerson}</span>}
                             </div>
                           )}
                         </div>
@@ -186,12 +186,12 @@ export default function CategoryPage({ params }: { params: { category: string } 
         </section>
 
         {/* CTA */}
-        <section className="py-8 px-4 bg-red-50 border-t border-red-100">
+        <section className="py-8 px-4 bg-green-50 border-t border-green-100">
           <div className="max-w-[700px] mx-auto text-center">
             <h2 className="font-display text-[1.1rem] font-bold text-stone-900 mb-2">अपना {cat.name} यहाँ सूचीबद्ध करें</h2>
             <p className="font-body text-[0.82rem] text-stone-500 mb-4">निःशुल्क लिस्टिंग — WhatsApp या ईमेल</p>
             <div className="flex flex-col sm:flex-row gap-2.5 justify-center">
-              <Link href="/directory/submit" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-body font-semibold text-[0.85rem] rounded-xl transition-colors">📋 लिस्टिंग जोड़ें</Link>
+              <Link href="/directory/submit" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#05420d] hover:bg-[#032808] text-white font-body font-semibold text-[0.85rem] rounded-xl transition-colors">📋 लिस्टिंग जोड़ें</Link>
               <a href="https://wa.me/919499668831" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white font-body font-semibold text-[0.85rem] rounded-xl transition-colors">💬 WhatsApp</a>
             </div>
           </div>

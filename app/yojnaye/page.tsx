@@ -65,7 +65,7 @@ export default function YojnayePage() {
           borderBottom: '1px solid #f0f0f0',
         }}>
           <div style={{ maxWidth: 700, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <span style={{ display: 'inline-block', border: '1px solid #e5e7eb', borderRadius: 50, padding: '4px 14px', marginBottom: 24, fontSize: 12, color: '#dc2626', background: '#fef2f2', letterSpacing: '0.05em', fontWeight: 600 }}>
+            <span style={{ display: 'inline-block', border: '1px solid #e5e7eb', borderRadius: 50, padding: '4px 14px', marginBottom: 24, fontSize: 12, color: '#05420d', background: '#f0fdf4', letterSpacing: '0.05em', fontWeight: 600 }}>
               सरकारी योजनाएँ
             </span>
             <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', fontWeight: 700, color: '#111827', lineHeight: 1.2, marginBottom: 16, maxWidth: 600 }}>
@@ -103,8 +103,8 @@ export default function YojnayePage() {
               <a href="mailto:news@indpotato.com?subject=योजना जानकारी — Indian Potato" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 10,
                 padding: '14px 28px', borderRadius: 50,
-                background: '#fff', border: '2px solid #dc2626',
-                color: '#dc2626', fontWeight: 700, fontSize: '0.95rem',
+                background: '#fff', border: '2px solid #05420d',
+                color: '#05420d', fontWeight: 700, fontSize: '0.95rem',
                 textDecoration: 'none',
               }}>
                 ईमेल करें
