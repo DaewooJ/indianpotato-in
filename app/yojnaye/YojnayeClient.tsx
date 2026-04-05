@@ -37,22 +37,21 @@ export default function YojnayeClient({ schemes, additionalPosts }: { schemes: S
 
   return (
     <>
-      <section style={{ padding: '48px 20px 80px', background: '#fafafa' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+      <section className="px-4 sm:px-6 pb-16 sm:pb-20">
+        <div className="max-w-7xl mx-auto">
 
           {/* Filter Pills */}
-          <div style={{ display: 'flex', gap: 8, marginBottom: 32, overflowX: 'auto', paddingBottom: 4 }} className="scrollbar-hide">
+          <div className="flex gap-2 mb-8 overflow-x-auto pb-1 scrollbar-hide">
             {filters.map((f) => (
               <button
                 key={f}
                 onClick={() => setActive(f)}
+                className="shrink-0 px-5 py-2.5 rounded-full text-[13px] font-medium transition-all duration-200 cursor-pointer"
                 style={{
-                  padding: '9px 20px', borderRadius: 50,
-                  border: active === f ? '1.5px solid #05420d' : '1.5px solid #e5e7eb',
-                  fontSize: '0.82rem', fontWeight: 500, cursor: 'pointer',
-                  whiteSpace: 'nowrap', transition: 'all 0.25s ease',
                   background: active === f ? '#05420d' : '#fff',
                   color: active === f ? '#fff' : '#6b7280',
+                  border: active === f ? '1.5px solid #05420d' : '1.5px solid #e8ece9',
+                  boxShadow: active === f ? '0 2px 8px rgba(5,66,13,0.15)' : 'none',
                 }}
               >
                 {f}
@@ -61,52 +60,85 @@ export default function YojnayeClient({ schemes, additionalPosts }: { schemes: S
           </div>
 
           {/* Count */}
-          <p style={{ fontSize: '0.78rem', color: '#9ca3af', marginBottom: 24, letterSpacing: '0.02em' }}>
+          <p className="text-xs tracking-wide mb-6" style={{ color: '#9ca3af' }}>
             {filtered.length} योजना{active !== 'सभी' ? ` — ${active}` : 'एँ'}
           </p>
 
-          {/* Cards — 2 column */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }} className="yojnaye-grid">
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {filtered.map((s, i) => (
-              <Link key={i} href={s.link} className="yojnaye-card" style={{
-                background: '#fff', borderRadius: 16, padding: 28,
-                border: '1px solid #f0f0f0',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
-                textDecoration: 'none', color: 'inherit',
-                display: 'flex', flexDirection: 'column',
-                transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-              }}>
-                {/* Category label + status */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
-                  <span style={{
-                    fontSize: 11, fontWeight: 600, color: '#9ca3af',
-                    textTransform: 'uppercase', letterSpacing: '0.05em',
-                  }}>{s.type} सरकार</span>
-                  <span style={{
-                    padding: '4px 10px', borderRadius: 50, fontSize: 11, fontWeight: 600,
-                    background: s.status === 'नई' ? '#dbeafe' : s.status === 'राज्य' ? '#dbeafe' : '#dcfce7',
-                    color: s.status === 'नई' ? '#1d4ed8' : s.status === 'राज्य' ? '#1d4ed8' : '#166534',
-                  }}>{s.status}</span>
+              <Link
+                key={i}
+                href={s.link}
+                className="group relative rounded-2xl bg-white p-7 flex flex-col transition-all duration-300 hover:-translate-y-1"
+                style={{ border: '1px solid #e8ece9', boxShadow: '0 1px 3px rgba(5,66,13,0.04)' }}
+              >
+                {/* Top accent line on hover */}
+                <div
+                  className="absolute top-0 left-8 right-8 h-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  style={{ background: 'linear-gradient(90deg, #05420d, #f97316)' }}
+                />
+
+                {/* Header row */}
+                <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl leading-none">{s.icon}</span>
+                    <span
+                      className="text-[11px] font-semibold uppercase tracking-[0.08em]"
+                      style={{ color: s.type === 'राज्य' ? '#f97316' : '#05420d' }}
+                    >
+                      {s.type} सरकार
+                    </span>
+                  </div>
+                  <span
+                    className="px-3 py-1 rounded-full text-[11px] font-semibold"
+                    style={{
+                      background: s.status === 'नई' ? 'rgba(249,115,22,0.1)' : 'rgba(5,66,13,0.06)',
+                      color: s.status === 'नई' ? '#f97316' : '#05420d',
+                    }}
+                  >
+                    {s.status}
+                  </span>
                 </div>
 
                 {/* Title */}
-                <h3 style={{ fontSize: 18, fontWeight: 600, color: '#1f2937', lineHeight: 1.35, marginBottom: 12 }}>{s.name}</h3>
+                <h3 className="text-[17px] font-bold text-gray-900 leading-snug mb-3 group-hover:text-[#05420d] transition-colors">
+                  {s.name}
+                </h3>
 
-                {/* Benefit — largest text, the hook */}
-                <div style={{ fontSize: 24, fontWeight: 700, color: '#05420d', marginBottom: 14, letterSpacing: '-0.02em' }}>{s.benefit}</div>
-
-                {/* Description */}
-                <p style={{ fontSize: 14, color: '#6b7280', lineHeight: 1.6, marginBottom: 20, flex: 1 }}>{s.desc}</p>
-
-                {/* Eligibility */}
-                <div style={{ marginBottom: 20 }}>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.05em' }}>पात्रता</span>
-                  <div style={{ fontSize: 13, fontWeight: 500, color: '#4b5563', marginTop: 3 }}>{s.eligibility}</div>
+                {/* Benefit */}
+                <div
+                  className="text-2xl sm:text-[26px] font-bold mb-3 tracking-tight"
+                  style={{ color: '#f97316' }}
+                >
+                  {s.benefit}
                 </div>
 
-                {/* CTA — text link, not button */}
-                <span className="yojnaye-cta" style={{ fontSize: 14, fontWeight: 500, color: '#05420d', transition: 'opacity 0.25s' }}>
-                  विवरण पढ़ें →
+                {/* Description */}
+                <p className="text-[13.5px] text-gray-500 leading-relaxed mb-5 flex-1">
+                  {s.desc}
+                </p>
+
+                {/* Eligibility */}
+                <div
+                  className="rounded-xl px-4 py-3 mb-5"
+                  style={{ background: '#f0fdf4', border: '1px solid #dcfce7' }}
+                >
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.08em]" style={{ color: '#9ca3af' }}>
+                    पात्रता
+                  </span>
+                  <div className="text-[13px] font-medium mt-0.5" style={{ color: '#05420d' }}>
+                    {s.eligibility}
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <span
+                  className="inline-flex items-center gap-1.5 text-[13px] font-medium opacity-60 group-hover:opacity-100 transition-all duration-300"
+                  style={{ color: '#05420d' }}
+                >
+                  विवरण पढ़ें
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </span>
               </Link>
             ))}
@@ -114,12 +146,13 @@ export default function YojnayeClient({ schemes, additionalPosts }: { schemes: S
 
           {/* No results */}
           {filtered.length === 0 && (
-            <div style={{ textAlign: 'center', padding: '60px 20px', color: '#9ca3af' }}>
-              <p style={{ fontSize: 16, marginBottom: 16 }}>इस श्रेणी में कोई योजना नहीं मिली।</p>
-              <button onClick={() => setActive('सभी')} style={{
-                padding: '10px 24px', background: '#05420d', color: '#fff',
-                border: 'none', borderRadius: 50, cursor: 'pointer', fontWeight: 600, fontSize: 14,
-              }}>
+            <div className="text-center py-16">
+              <p className="text-gray-400 mb-5">इस श्रेणी में कोई योजना नहीं मिली।</p>
+              <button
+                onClick={() => setActive('सभी')}
+                className="px-6 py-2.5 rounded-full text-sm font-semibold text-white cursor-pointer transition-all hover:shadow-lg"
+                style={{ background: '#05420d' }}
+              >
                 सभी योजनाएँ देखें
               </button>
             </div>
@@ -127,37 +160,48 @@ export default function YojnayeClient({ schemes, additionalPosts }: { schemes: S
         </div>
       </section>
 
-      {/* Additional scheme posts */}
+      {/* ── Additional Posts ── */}
       {additionalPosts.length > 0 && (
-        <section style={{ padding: '0 20px 80px', background: '#fafafa' }}>
-          <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-            <p style={{ fontSize: 11, fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 20 }}>
-              और योजना-संबंधी लेख
-            </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }} className="yojnaye-grid">
+        <section className="px-4 sm:px-6 pb-16 sm:pb-20">
+          <div className="max-w-7xl mx-auto">
+            {/* Divider */}
+            <div className="flex items-center gap-4 mb-8">
+              <div className="flex-1 h-px" style={{ background: '#e8ece9' }} />
+              <span className="text-[11px] font-semibold text-gray-300 uppercase tracking-[0.1em]">और योजना-संबंधी लेख</span>
+              <div className="flex-1 h-px" style={{ background: '#e8ece9' }} />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {additionalPosts.map((post) => (
-                <Link key={post.slug} href={'/samachar/' + post.slug} className="yojnaye-card" style={{
-                  textDecoration: 'none', color: 'inherit',
-                  background: '#fff', borderRadius: 16, padding: 24,
-                  border: '1px solid #f0f0f0',
-                  boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
-                  transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-                }}>
-                  <h3 style={{ fontSize: 16, fontWeight: 600, color: '#1f2937', lineHeight: 1.4, marginBottom: 8 }}>{post.title}</h3>
-                  <p style={{ fontSize: 13, color: '#6b7280', lineHeight: 1.6, marginBottom: 12 }}>{post.excerpt.slice(0, 140)}…</p>
-                  <span style={{ fontSize: 13, fontWeight: 500, color: '#05420d' }}>पढ़ें →</span>
+                <Link
+                  key={post.slug}
+                  href={'/samachar/' + post.slug}
+                  className="group relative rounded-2xl bg-white p-6 transition-all duration-300 hover:-translate-y-1"
+                  style={{ border: '1px solid #e8ece9', boxShadow: '0 1px 3px rgba(5,66,13,0.04)' }}
+                >
+                  <div
+                    className="absolute top-0 left-8 right-8 h-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
+                    style={{ background: 'linear-gradient(90deg, #05420d, #f97316)' }}
+                  />
+                  <h3 className="text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#05420d] transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-[13px] text-gray-500 leading-relaxed mb-4">
+                    {post.excerpt.slice(0, 140)}…
+                  </p>
+                  <span
+                    className="inline-flex items-center gap-1.5 text-[13px] font-medium opacity-60 group-hover:opacity-100 transition-all duration-300"
+                    style={{ color: '#05420d' }}
+                  >
+                    पढ़ें
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </span>
                 </Link>
               ))}
             </div>
           </div>
         </section>
       )}
-
-      <style>{`
-        .yojnaye-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.08) !important; }
-        .yojnaye-card:hover .yojnaye-cta { text-decoration: underline; }
-        @media (max-width: 860px) { .yojnaye-grid { grid-template-columns: 1fr !important; gap: 16px !important; } }
-      `}</style>
     </>
   );
 }

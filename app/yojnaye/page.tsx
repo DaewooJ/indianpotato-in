@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { Footer } from '@/components/Sections';
 import { BreadcrumbJsonLd, BreadcrumbNav } from '@/components/Breadcrumbs';
@@ -37,6 +36,14 @@ export const metadata: Metadata = {
     description: 'आलू किसानों के लिए प्रमुख सरकारी योजनाएँ — PM किसान, कोल्ड स्टोरेज सब्सिडी, PMFME, NABARD लोन, और राज्य स्तरीय योजनाएँ।',
     url: 'https://www.indianpotato.in/yojnaye',
     type: 'website',
+    locale: 'hi_IN',
+    siteName: 'Indian Potato',
+    images: [{ url: 'https://www.indianpotato.in/og-image.jpg' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'सरकारी योजनाएँ — आलू किसानों के लिए अनुदान और सब्सिडी',
+    description: 'आलू किसानों के लिए प्रमुख सरकारी योजनाएँ — PM किसान, कोल्ड स्टोरेज सब्सिडी, PMFME, NABARD लोन।',
   },
 };
 
@@ -56,57 +63,68 @@ export default function YojnayePage() {
       ]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navbar />
-      <main className="pt-[76px]">
+      <main className="pt-[64px]">
 
-        {/* HERO */}
-        <section style={{
-          background: '#fff',
-          padding: 'clamp(60px, 10vw, 100px) 20px clamp(48px, 8vw, 80px)',
-          borderBottom: '1px solid #f0f0f0',
-        }}>
-          <div style={{ maxWidth: 700, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <span style={{ display: 'inline-block', border: '1px solid #e5e7eb', borderRadius: 50, padding: '4px 14px', marginBottom: 24, fontSize: 12, color: '#05420d', background: '#f0fdf4', letterSpacing: '0.05em', fontWeight: 600 }}>
-              सरकारी योजनाएँ
-            </span>
-            <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', fontWeight: 700, color: '#111827', lineHeight: 1.2, marginBottom: 16, maxWidth: 600 }}>
-              आलू किसानों के लिए योजनाएँ और सब्सिडी
+        {/* ── Hero ── */}
+        <section className="relative overflow-hidden" style={{ background: '#05420d' }}>
+          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+          <div className="absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%)' }} />
+          <div className="absolute -bottom-32 -left-32 w-[300px] h-[300px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 70%)' }} />
+
+          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-20 sm:py-24 lg:py-28 text-center">
+            <div className="mx-auto mb-8 w-12 h-1 rounded-full" style={{ background: '#f97316' }} />
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight max-w-2xl mx-auto">
+              आलू किसानों के लिए सरकारी योजनाएँ
             </h1>
-            <p style={{ fontSize: 16, color: '#6b7280', lineHeight: 1.6, maxWidth: 500, marginBottom: 20 }}>
+            <p className="mt-5 text-base sm:text-lg text-white/70 max-w-lg mx-auto leading-relaxed font-light">
               केंद्र और राज्य सरकार की योजनाएँ जो आलू किसानों, प्रसंस्करण उद्योग और कोल्ड स्टोरेज व्यवसाय को सीधे लाभ पहुँचाती हैं
             </p>
-            <span style={{ fontSize: 14, color: '#9ca3af' }}>{schemes.length} योजनाएँ उपलब्ध</span>
+            <div className="mt-8 inline-flex items-center gap-3 border border-white/10 rounded-full px-5 py-2" style={{ background: 'rgba(249,115,22,0.1)' }}>
+              <span className="w-2 h-2 rounded-full" style={{ background: '#f97316' }} />
+              <span className="text-white/80 text-sm tracking-wide">{schemes.length} योजनाएँ उपलब्ध</span>
+            </div>
           </div>
         </section>
+
+        {/* Breadcrumb */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+          <BreadcrumbNav items={[
+            { name: 'होम', url: '/' },
+            { name: 'योजनाएँ', url: '/yojnaye' },
+          ]} />
+        </div>
 
         {/* SCHEME CARDS — client component for filter interactivity */}
         <YojnayeClient schemes={schemes} additionalPosts={additionalPosts.map((p) => ({ slug: p.slug, title: p.title, excerpt: p.excerpt }))} />
 
-        {/* BOTTOM CTA */}
-        <section style={{ padding: '64px 20px', background: '#fff' }}>
-          <div style={{ maxWidth: 700, margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{ fontSize: 'clamp(1.3rem, 4vw, 1.8rem)', fontWeight: 700, color: '#333', marginBottom: 12 }}>
+        {/* ── Bottom CTA ── */}
+        <section className="relative overflow-hidden" style={{ background: '#05420d' }}>
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 60%)' }} />
+
+          <div className="relative max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
+            <div className="mx-auto mb-6 w-10 h-1 rounded-full" style={{ background: '#f97316' }} />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
               क्या आपको योजना के बारे में और जानकारी चाहिए?
             </h2>
-            <p style={{ fontSize: '0.95rem', color: '#888', lineHeight: 1.7, marginBottom: 28, maxWidth: 500, margin: '0 auto 28px' }}>
+            <p className="mt-4 text-white/60 max-w-md mx-auto leading-relaxed font-light">
               हमारी टीम आपकी सहायता के लिए तैयार है — पात्रता, आवेदन प्रक्रिया, या DPR बनाने में मदद
             </p>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
-              <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{
-                display: 'inline-flex', alignItems: 'center', gap: 10,
-                padding: '14px 28px', borderRadius: 50,
-                background: '#25D366',
-                color: '#fff', fontWeight: 700, fontSize: '0.95rem',
-                textDecoration: 'none', boxShadow: '0 4px 15px rgba(37,211,102,0.3)',
-              }}>
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+              <a
+                href="https://spuds.me/kisan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 text-white text-sm font-semibold px-7 py-3.5 rounded-full transition-all duration-200 hover:shadow-xl"
+                style={{ background: '#f97316', boxShadow: '0 4px 14px rgba(249,115,22,0.3)' }}
+              >
                 WhatsApp पर पूछें
               </a>
-              <a href="mailto:news@indpotato.com?subject=योजना जानकारी — Indian Potato" style={{
-                display: 'inline-flex', alignItems: 'center', gap: 10,
-                padding: '14px 28px', borderRadius: 50,
-                background: '#fff', border: '2px solid #05420d',
-                color: '#05420d', fontWeight: 700, fontSize: '0.95rem',
-                textDecoration: 'none',
-              }}>
+              <a
+                href="mailto:news@indpotato.com?subject=योजना जानकारी — Indian Potato"
+                className="inline-flex items-center gap-2.5 text-sm font-semibold px-7 py-3.5 rounded-full transition-colors"
+                style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.9)' }}
+              >
                 ईमेल करें
               </a>
             </div>
