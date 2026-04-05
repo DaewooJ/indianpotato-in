@@ -65,7 +65,7 @@ export default function SamparkPage() {
               <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 padding: '12px 24px', borderRadius: 50,
-                background: 'linear-gradient(135deg, #25D366, #128C7E)',
+                background: '#25D366',
                 color: '#fff', fontWeight: 600, fontSize: 14,
                 textDecoration: 'none', boxShadow: '0 2px 8px rgba(37,211,102,0.3)',
                 transition: 'box-shadow 0.25s',

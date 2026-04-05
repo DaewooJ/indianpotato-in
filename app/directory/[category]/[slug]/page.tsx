@@ -44,7 +44,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
       <main className="pt-[76px]">
         {/* Premium top bar */}
         {isPremium && (
-          <div className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500 py-2 px-4 text-center">
+          <div className="bg-amber-500 py-2 px-4 text-center">
             <span className="text-[0.78rem] font-bold text-amber-900 tracking-wide">
               ⭐ प्रीमियम लिस्टिंग — PREMIUM VERIFIED LISTING ⭐
             </span>
@@ -52,8 +52,8 @@ export default function ListingPage({ params }: { params: { category: string; sl
         )}
 
         {/* Hero */}
-        <div className={'relative overflow-hidden ' + (isPremium ? 'bg-gradient-to-br from-amber-900 via-[#032808] to-[#d94e2a]' : 'bg-gradient-to-br from-[#032808] via-[#05420d] to-[#ed6442]')}>
-          {listing.image && (<div className="absolute inset-0"><img src={listing.image} alt={listing.name} className="w-full h-full object-cover opacity-15" /><div className={'absolute inset-0 ' + (isPremium ? 'bg-gradient-to-t from-amber-900/95 via-[#032808]/85 to-[#011503]/70' : 'bg-gradient-to-t from-[#032808]/95 via-[#032808]/80 to-[#011503]/60')} /></div>)}
+        <div className={'relative overflow-hidden ' + (isPremium ? 'bg-[#05420d]' : 'bg-[#05420d]')}>
+          {listing.image && (<div className="absolute inset-0"><img src={listing.image} alt={listing.name} className="w-full h-full object-cover opacity-15" /><div className={'absolute inset-0 ' + (isPremium ? 'bg-[#05420d]/90' : 'bg-[#05420d]/85')} /></div>)}
           <div className="relative z-10 py-14 md:py-18 px-6">
             <div className="max-w-[1280px] mx-auto">
               {/* Breadcrumb */}
@@ -77,7 +77,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
                   {/* Badges */}
                   <div className="flex flex-wrap gap-2 mb-2">
                     {isPremium && (
-                      <span className="inline-flex items-center gap-1 text-[0.72rem] font-bold text-amber-900 bg-gradient-to-r from-amber-300 to-yellow-300 px-3 py-1 rounded-full shadow-md">
+                      <span className="inline-flex items-center gap-1 text-[0.72rem] font-bold text-amber-900 bg-amber-300 px-3 py-1 rounded-full shadow-md">
                         👑 प्रीमियम सत्यापित · PREMIUM VERIFIED
                       </span>
                     )}
@@ -193,7 +193,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
               {/* Sidebar */}
               <div className="space-y-5">
                 {/* Contact Card */}
-                <div className={'rounded-2xl p-6 sticky top-[140px] ' + (isPremium ? 'bg-gradient-to-b from-amber-50 to-white border-2 border-amber-300 shadow-lg shadow-amber-100/50' : 'bg-white border-2 border-green-100')}>
+                <div className={'rounded-2xl p-6 sticky top-[140px] ' + (isPremium ? 'bg-white border-2 border-amber-300 shadow-lg shadow-amber-100/50' : 'bg-white border-2 border-green-100')}>
                   {isPremium && (
                     <div className="flex items-center gap-2 mb-4 pb-3 border-b border-amber-200">
                       <span className="text-[1.2rem]">👑</span>
@@ -263,7 +263,7 @@ export default function ListingPage({ params }: { params: { category: string; sl
                   {/* Action Buttons */}
                   <div className="mt-6 space-y-3">
                     {isPremium && listing.phone && listing.phone[0] && (
-                      <a href={'tel:' + listing.phone[0]} className={'flex items-center justify-center gap-2 w-full py-3.5 font-body font-bold text-[0.95rem] rounded-xl transition-all ' + (isPremium ? 'bg-gradient-to-r from-[#0a6b18] to-[#0a6b18] hover:from-[#05420d] hover:to-[#021f06] text-white shadow-lg shadow-green-200' : 'bg-[#05420d] hover:bg-[#032808] text-white')}>
+                      <a href={'tel:' + listing.phone[0]} className={'flex items-center justify-center gap-2 w-full py-3.5 font-body font-bold text-[0.95rem] rounded-xl transition-all ' + (isPremium ? 'bg-[#ed6442] hover:bg-[#d94e2a] text-white shadow-lg shadow-green-200' : 'bg-[#05420d] hover:bg-[#032808] text-white')}>
                         📞 अभी कॉल करें
                       </a>
                     )}

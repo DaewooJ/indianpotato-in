@@ -94,7 +94,7 @@ export default function YojnayePage() {
               <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 10,
                 padding: '14px 28px', borderRadius: 50,
-                background: 'linear-gradient(135deg, #25D366, #128C7E)',
+                background: '#25D366',
                 color: '#fff', fontWeight: 700, fontSize: '0.95rem',
                 textDecoration: 'none', boxShadow: '0 4px 15px rgba(37,211,102,0.3)',
               }}>

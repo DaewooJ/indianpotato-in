@@ -31,7 +31,7 @@ export default function ShareButtons({ title, slug, variant = 'inline' }: ShareB
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
             padding: '10px 20px', borderRadius: 50,
-            background: 'linear-gradient(135deg,#25D366,#128C7E)',
+            background: '#25D366',
             color: 'white', fontWeight: 600, fontSize: 14,
             textDecoration: 'none',
             boxShadow: '0 2px 8px rgba(37,211,102,0.3)',
@@ -47,7 +47,7 @@ export default function ShareButtons({ title, slug, variant = 'inline' }: ShareB
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
             padding: '10px 20px', borderRadius: 50,
-            background: 'linear-gradient(135deg,#1877F2,#0C5DC7)',
+            background: '#1877F2',
             color: 'white', fontWeight: 600, fontSize: 14,
             textDecoration: 'none',
             boxShadow: '0 2px 8px rgba(24,119,242,0.3)',
@@ -61,7 +61,7 @@ export default function ShareButtons({ title, slug, variant = 'inline' }: ShareB
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
             padding: '10px 20px', borderRadius: 50,
-            background: 'linear-gradient(135deg,#E4405F,#C13584)',
+            background: '#E4405F',
             color: 'white', fontWeight: 600, fontSize: 14,
             border: 'none', cursor: 'pointer',
             boxShadow: '0 2px 8px rgba(228,64,95,0.3)',
@@ -75,7 +75,7 @@ export default function ShareButtons({ title, slug, variant = 'inline' }: ShareB
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
             padding: '10px 20px', borderRadius: 50,
-            background: 'linear-gradient(135deg,#05420d,#ed6442)',
+            background: '#ed6442',
             color: 'white', fontWeight: 600, fontSize: 14,
             border: 'none', cursor: 'pointer',
             boxShadow: '0 2px 8px rgba(220,38,38,0.3)',

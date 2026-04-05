@@ -17,10 +17,10 @@ export default function SubmitListingPage() {
       <Navbar />
       <main className="pt-[76px]">
         {/* Hero */}
-        <div className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 py-12 md:py-20 px-4 md:px-6 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-stone-600 to-transparent" />
+        <div className="bg-[#05420d] py-12 md:py-20 px-4 md:px-6 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundColor: 'transparent', backgroundSize: '40px 40px' }} />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-amber-500" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-stone-600" />
 
           <div className="max-w-[800px] mx-auto relative z-10 text-center">
             <nav className="flex items-center justify-center gap-1.5 text-[0.72rem] font-body text-white/40 mb-5">
@@ -49,7 +49,7 @@ export default function SubmitListingPage() {
         </div>
 
         {/* Form Section */}
-        <section className="py-10 md:py-16 px-3 md:px-6 bg-gradient-to-b from-stone-100/80 via-stone-50 to-white relative">
+        <section className="py-10 md:py-16 px-3 md:px-6 bg-stone-50 relative">
           {/* Subtle texture */}
           <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
 
@@ -59,8 +59,8 @@ export default function SubmitListingPage() {
               <div className="lg:col-span-2">
                 <div className="bg-white rounded-2xl border border-stone-200 shadow-xl shadow-stone-200/40 overflow-hidden">
                   {/* Premium header bar */}
-                  <div className="bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 px-5 md:px-6 py-4 relative">
-                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
+                  <div className="bg-[#05420d] px-5 md:px-6 py-4 relative">
+                    <div className="absolute top-0 left-0 right-0 h-px bg-amber-500/50" />
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
@@ -82,7 +82,7 @@ export default function SubmitListingPage() {
                   </div>
 
                   {/* Form container with loading skeleton */}
-                  <div className="relative bg-gradient-to-b from-stone-50/50 to-white">
+                  <div className="relative bg-white">
                     {/* Loading skeleton — visible until iframe loads */}
                     {!formLoaded && (
                       <div className="absolute inset-0 z-10 bg-white p-6 md:p-8 animate-pulse">
@@ -187,7 +187,7 @@ export default function SubmitListingPage() {
                 </div>
 
                 {/* Stats */}
-                <div className="bg-gradient-to-br from-green-50 to-green-50 rounded-2xl border border-green-200 p-5">
+                <div className="bg-green-50 rounded-2xl border border-green-200 p-5">
                   <h3 className="font-body text-[0.82rem] font-bold text-[#021f06] mb-3">📊 डायरेक्टरी आँकड़े</h3>
                   <div className="grid grid-cols-2 gap-3">
                     {[
@@ -205,7 +205,7 @@ export default function SubmitListingPage() {
                 </div>
 
                 {/* WhatsApp */}
-                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-200 p-5">
+                <div className="bg-green-50 rounded-2xl border border-green-200 p-5">
                   <h3 className="font-body text-[0.82rem] font-bold text-green-800 mb-1.5">💬 फ़ॉर्म नहीं भरना चाहते?</h3>
                   <p className="font-body text-[0.72rem] text-green-700/70 mb-3 leading-relaxed">
                     सीधे WhatsApp पर अपनी कंपनी की जानकारी भेजें — हम आपकी लिस्टिंग बना देंगे।

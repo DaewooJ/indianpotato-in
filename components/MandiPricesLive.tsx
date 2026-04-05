@@ -60,7 +60,7 @@ export default function MandiPricesLive() {
   };
 
   return (
-    <section id="mandi-prices" style={{ padding: '80px 0', background: 'linear-gradient(180deg, #fffbeb 0%, #ffffff 100%)' }}>
+    <section id="mandi-prices" style={{ padding: '80px 0', background: '#fff' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32, flexWrap: 'wrap', gap: 16 }}>
           <div>
@@ -86,7 +86,7 @@ export default function MandiPricesLive() {
           {(loading ? ['सभी'] : stateFilters.slice(0, 10)).map((state) => (
             <button key={state} onClick={() => { setActiveState(state); setShowAll(false); }}
               style={{ padding: '8px 18px', borderRadius: 20, border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' as const, transition: 'all 0.2s',
-                background: activeState === state ? 'linear-gradient(135deg, #05420d, #f97316)' : '#fff',
+                background: activeState === state ? '#05420d' : '#fff',
                 color: activeState === state ? '#fff' : '#666',
                 boxShadow: activeState === state ? '0 4px 14px rgba(220,38,38,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>
               {state}
@@ -148,7 +148,7 @@ export default function MandiPricesLive() {
             {filteredRecords.length > 8 && (
               <div style={{ textAlign: 'center' as const, marginTop: 28 }}>
                 <button onClick={() => setShowAll(!showAll)}
-                  style={{ padding: '12px 32px', background: 'linear-gradient(135deg, #05420d, #f97316)', color: '#fff', border: 'none', borderRadius: 28, fontSize: 14, fontWeight: 700, cursor: 'pointer', boxShadow: '0 4px 14px rgba(220,38,38,0.25)' }}>
+                  style={{ padding: '12px 32px', background: '#ed6442', color: '#fff', border: 'none', borderRadius: 28, fontSize: 14, fontWeight: 700, cursor: 'pointer', boxShadow: '0 4px 14px rgba(220,38,38,0.25)' }}>
                   {showAll ? '↑ कम दिखाएँ' : `सभी ${filteredRecords.length} मंडी भाव देखें →`}
                 </button>
               </div>

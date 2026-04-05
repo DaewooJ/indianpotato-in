@@ -15,7 +15,7 @@ export default function FloatingWhatsApp() {
         width: 60,
         height: 60,
         borderRadius: '50%',
-        background: 'linear-gradient(135deg, #25D366, #128C7E)',
+        background: '#25D366',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

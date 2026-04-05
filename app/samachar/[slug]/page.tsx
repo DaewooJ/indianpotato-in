@@ -58,8 +58,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       <main style={{ paddingTop: 70 }}>
 
         {/* HERO BANNER */}
-        <div style={{ background: 'linear-gradient(135deg, #7f1d1d 0%, #05420d 40%, #7f1d1d 100%)', padding: 'clamp(24px, 6vw, 60px) clamp(16px, 5vw, 48px)', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', top: '-50%', right: '-20%', width: 400, height: 400, background: 'radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' as const }} />
+        <div style={{ background: '#05420d', padding: 'clamp(24px, 6vw, 60px) clamp(16px, 5vw, 48px)', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', top: '-50%', right: '-20%', width: 400, height: 400, background: 'transparent', borderRadius: '50%', pointerEvents: 'none' as const }} />
           <div style={{ maxWidth: 900, margin: '0 auto', position: 'relative', zIndex: 2 }}>
             <span style={{ display: 'inline-block', background: 'rgba(249,115,22,0.9)', color: '#fff', fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase' as const, padding: '6px 16px', borderRadius: 50, marginBottom: 16 }}>{post.category_hindi}</span>
             <h1 style={{ fontSize: 'clamp(24px, 5vw, 42px)', fontWeight: 800, color: '#fff', lineHeight: 1.2, margin: '0 0 16px 0' }}>{post.title}</h1>
@@ -92,15 +92,15 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           )}
 
           {/* CTA SECTION */}
-          <div style={{ background: 'linear-gradient(135deg, #7f1d1d 0%, #05420d 50%, #7f1d1d 100%)', borderRadius: 18, padding: 'clamp(28px, 5vw, 48px)', textAlign: 'center' as const, margin: '48px 0', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: '-40%', right: '-15%', width: 300, height: 300, background: 'radial-gradient(circle, rgba(249,115,22,0.2) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' as const }} />
+          <div style={{ background: '#05420d', borderRadius: 18, padding: 'clamp(28px, 5vw, 48px)', textAlign: 'center' as const, margin: '48px 0', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', top: '-40%', right: '-15%', width: 300, height: 300, background: 'transparent', borderRadius: '50%', pointerEvents: 'none' as const }} />
             <h2 style={{ color: '#fff', fontSize: 'clamp(20px, 3.5vw, 28px)', fontWeight: 700, margin: '0 0 12px 0', position: 'relative', zIndex: 2 }}>भारत के आलू उद्योग से जुड़ें</h2>
             <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: 16, margin: '0 0 24px 0', maxWidth: 600, marginLeft: 'auto', marginRight: 'auto', position: 'relative', zIndex: 2 }}>आलू आपूर्तिकर्ता, शीतगृह संचालक, या व्यापारिक साझेदार खोज रहे हैं? Indian Potato आपको जोड़ता है।</p>
             <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 12, maxWidth: 400, margin: '0 auto', position: 'relative', zIndex: 2 }}>
               <a href="https://spuds.me/kisan" target="_blank" rel="noopener noreferrer" style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
                 padding: '14px 24px', borderRadius: 12,
-                background: 'linear-gradient(135deg,#25D366,#128C7E)',
+                background: '#25D366',
                 color: 'white', fontWeight: 700, fontSize: 15,
                 textDecoration: 'none',
                 boxShadow: '0 4px 15px rgba(37,211,102,0.4)',
@@ -145,7 +145,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
           {/* BACK */}
           <div style={{ textAlign: 'center' as const, padding: '20px 0 60px' }}>
-            <Link href="/samachar" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 28px', background: 'linear-gradient(135deg, #05420d, #f97316)', color: '#fff', borderRadius: 24, textDecoration: 'none', fontWeight: 700, fontSize: 14 }}>← सभी समाचार देखें</Link>
+            <Link href="/samachar" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 28px', background: '#ed6442', color: '#fff', borderRadius: 24, textDecoration: 'none', fontWeight: 700, fontSize: 14 }}>← सभी समाचार देखें</Link>
           </div>
         </div>
       </main>
@@ -157,7 +157,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         .premium-article h3 { font-size: clamp(18px, 2.8vw, 22px); font-weight: 600; color: #032808; margin: 32px 0 12px 0; line-height: 1.4; }
         .premium-article p { margin: 16px 0; }
         .premium-article strong { color: #1a1a1a; }
-        .premium-article blockquote { border-left: 4px solid #05420d; padding: 16px 20px; margin: 24px 0; background: linear-gradient(135deg, #f0fdf4 0%, #fff7ed 100%); border-radius: 0 12px 12px 0; font-style: italic; color: #444; }
+        .premium-article blockquote { border-left: 4px solid #05420d; padding: 16px 20px; margin: 24px 0; background: #f0fdf4; border-radius: 0 12px 12px 0; font-style: italic; color: #444; }
         .premium-article ul, .premium-article ol { padding-left: 24px; margin: 12px 0; }
         .premium-article li { margin-bottom: 8px; font-size: 15px; line-height: 1.6; }
         .premium-article a { color: #05420d; text-decoration: underline; }

@@ -47,8 +47,8 @@ export default function CategoryPage({ params }: { params: { category: string } 
       <Navbar />
       <main className="pt-[76px]">
         {/* Hero */}
-        <div className="bg-gradient-to-br from-[#032808] via-[#05420d] to-[#ed6442] py-10 md:py-14 px-4 md:px-6 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+        <div className="bg-[#05420d] py-10 md:py-14 px-4 md:px-6 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundColor: 'transparent', backgroundSize: '32px 32px' }} />
           <div className="max-w-[1280px] mx-auto relative z-10">
             <nav className="flex items-center gap-1.5 text-[0.72rem] font-body text-white/40 mb-4 flex-wrap">
               <Link href="/" className="hover:text-white/70">होम</Link><span>/</span>
@@ -101,8 +101,8 @@ export default function CategoryPage({ params }: { params: { category: string } 
                     <Link key={listing.slug} href={'/directory/' + cat.slug + '/' + listing.slug}
                       data-state={listing.state}
                       className={'group rounded-2xl border-2 overflow-hidden transition-all duration-200 flex flex-col ' +
-                        (isPlat ? 'bg-gradient-to-b from-green-50/50 to-white border-emerald-600 hover:shadow-xl hover:shadow-green-100/50' :
-                        isGold ? 'bg-gradient-to-b from-amber-50/50 to-white border-amber-300 hover:shadow-xl hover:shadow-amber-100/50' :
+                        (isPlat ? 'bg-white border-emerald-600 hover:shadow-xl hover:shadow-green-100/50' :
+                        isGold ? 'bg-white border-amber-300 hover:shadow-xl hover:shadow-amber-100/50' :
                         'bg-white border-stone-200 hover:shadow-md hover:border-stone-300')}>
 
                       <div className={'p-4 md:p-5 flex flex-col flex-1'}>
@@ -110,8 +110,8 @@ export default function CategoryPage({ params }: { params: { category: string } 
                         {(isPlat || isGold) && (
                           <div className="flex items-center justify-between mb-3">
                             <span className={'text-[0.6rem] font-bold px-2 py-0.5 rounded-full ' +
-                              (isPlat ? 'text-white bg-gradient-to-r from-[#0a6b18] to-[#0a6b18]' :
-                              'text-amber-800 bg-gradient-to-r from-amber-200 to-yellow-200')}>
+                              (isPlat ? 'text-white bg-[#05420d]' :
+                              'text-amber-800 bg-amber-200')}>
                               {isPlat ? '💎 PLATINUM' : '👑 GOLD'}
                             </span>
                             <span className={'text-[0.65rem] font-semibold px-2 py-0.5 rounded-full border ' +

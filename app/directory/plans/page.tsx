@@ -13,29 +13,29 @@ export const metadata: Metadata = {
 const plans = [
   {
     id: 'basic', name: 'Basic', nameHi: 'बेसिक', price: 'निःशुल्क', priceEn: 'FREE', period: '',
-    color: 'stone', gradient: 'from-stone-100 to-stone-50', border: 'border-stone-200',
+    color: 'stone', bg: 'bg-stone-50', border: 'border-stone-200',
     badge: '', badgeBg: '', icon: '📋', cta: 'निःशुल्क लिस्टिंग', ctaBg: 'bg-stone-800 hover:bg-stone-900',
     features: { companyName: true, location: true, phone: false, category: true, description: false, descriptionWords: 0, logo: false, photos: 0, varieties: false, certifications: false, contactPerson: false, email: true, website: false, whatsappButton: false, callButton: false, premiumBadge: false, featuredHomepage: false, featuredCategory: false, socialMedia: false, seoOptimized: false, prioritySupport: false, analytics: false, dedicatedPage: false, stateFilter: true, searchVisible: true, priorityReferral: false },
   },
   {
     id: 'silver', name: 'Silver', nameHi: 'सिल्वर', price: '₹4,999', priceEn: '₹4,999', period: '/वर्ष',
-    color: 'slate', gradient: 'from-slate-50 to-white', border: 'border-slate-300',
+    color: 'slate', bg: 'bg-slate-50', border: 'border-slate-300',
     badge: '🥈', badgeBg: 'bg-slate-200 text-slate-700', icon: '🥈', cta: 'Silver चुनें', ctaBg: 'bg-slate-700 hover:bg-slate-800',
     features: { companyName: true, location: true, phone: true, category: true, description: true, descriptionWords: 100, logo: true, photos: 2, varieties: false, certifications: true, contactPerson: true, email: true, website: true, whatsappButton: false, callButton: false, premiumBadge: false, featuredHomepage: false, featuredCategory: false, socialMedia: false, seoOptimized: true, prioritySupport: false, analytics: false, dedicatedPage: true, stateFilter: true, searchVisible: true, priorityReferral: false },
   },
   {
     id: 'gold', name: 'Gold', nameHi: 'गोल्ड', price: '₹7,999', priceEn: '₹7,999', period: '/वर्ष',
-    color: 'amber', gradient: 'from-amber-50 to-yellow-50/50', border: 'border-amber-300',
-    badge: '👑', badgeBg: 'bg-gradient-to-r from-amber-200 to-yellow-200 text-amber-900', icon: '👑',
-    cta: 'Gold चुनें — लोकप्रिय', ctaBg: 'bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-[#ed6442]',
+    color: 'amber', bg: 'bg-amber-50', border: 'border-amber-300',
+    badge: '👑', badgeBg: 'bg-amber-200 text-amber-900', icon: '👑',
+    cta: 'Gold चुनें — लोकप्रिय', ctaBg: 'bg-[#ed6442] hover:bg-[#d94e2a]',
     popular: true,
     features: { companyName: true, location: true, phone: true, category: true, description: true, descriptionWords: 300, logo: true, photos: 3, varieties: true, certifications: true, contactPerson: true, email: true, website: true, whatsappButton: true, callButton: true, premiumBadge: true, featuredHomepage: true, featuredCategory: true, socialMedia: true, seoOptimized: true, prioritySupport: false, analytics: true, dedicatedPage: true, stateFilter: true, searchVisible: true, priorityReferral: false },
   },
   {
     id: 'platinum', name: 'Platinum', nameHi: 'प्लेटिनम', price: '₹9,999', priceEn: '₹9,999', period: '/वर्ष',
-    color: 'violet', gradient: 'from-violet-50 to-purple-50/50', border: 'border-violet-300',
-    badge: '💎', badgeBg: 'bg-gradient-to-r from-violet-200 to-purple-200 text-violet-900', icon: '💎',
-    cta: 'Platinum चुनें', ctaBg: 'bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700',
+    color: 'violet', bg: 'bg-violet-50', border: 'border-violet-300',
+    badge: '💎', badgeBg: 'bg-violet-200 text-violet-900', icon: '💎',
+    cta: 'Platinum चुनें', ctaBg: 'bg-violet-600 hover:bg-violet-700',
     features: { companyName: true, location: true, phone: true, category: true, description: true, descriptionWords: 500, logo: true, photos: 10, varieties: true, certifications: true, contactPerson: true, email: true, website: true, whatsappButton: true, callButton: true, premiumBadge: true, featuredHomepage: true, featuredCategory: true, socialMedia: true, seoOptimized: true, prioritySupport: true, analytics: true, dedicatedPage: true, stateFilter: true, searchVisible: true, priorityReferral: true },
   },
 ];
@@ -88,9 +88,9 @@ export default function PlansPage() {
       <Navbar />
       <main className="pt-[76px]">
         {/* Hero */}
-        <div className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 py-12 md:py-20 px-4 md:px-6 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
+        <div className="bg-[#05420d] py-12 md:py-20 px-4 md:px-6 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundColor: 'transparent', backgroundSize: '40px 40px' }} />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-amber-500" />
           <div className="max-w-[1100px] mx-auto relative z-10 text-center">
             <div className="inline-block px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 mb-4">
               <span className="text-[0.72rem] font-bold text-amber-400 tracking-wide uppercase">📋 डायरेक्टरी लिस्टिंग प्लान</span>
@@ -111,11 +111,11 @@ export default function PlansPage() {
               {plans.map((plan: any) => (
                 <div key={plan.id} className={'relative rounded-2xl border-2 overflow-hidden transition-all ' + plan.border + (plan.popular ? ' ring-2 ring-amber-400 ring-offset-2 scale-[1.02] lg:scale-105' : '')}>
                   {plan.popular && (
-                    <div className="bg-gradient-to-r from-amber-500 to-green-500 py-1.5 text-center">
+                    <div className="bg-amber-500 py-1.5 text-center">
                       <span className="text-[0.7rem] font-bold text-white tracking-wider uppercase">⭐ सबसे लोकप्रिय</span>
                     </div>
                   )}
-                  <div className={'bg-gradient-to-b ' + plan.gradient + ' p-5 md:p-6'}>
+                  <div className={plan.bg + ' p-5 md:p-6'}>
                     <div className="flex items-center gap-2 mb-3">
                       <span className="text-[1.4rem]">{plan.icon}</span>
                       <div>
@@ -156,7 +156,7 @@ export default function PlansPage() {
         {/* ═══════════════════════════════════════════
             PREMIUM COMPARISON TABLE
         ═══════════════════════════════════════════ */}
-        <section className="py-12 md:py-20 px-3 md:px-6 bg-gradient-to-b from-white via-stone-50/30 to-white">
+        <section className="py-12 md:py-20 px-3 md:px-6 bg-white">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 rounded-full mb-3">
@@ -245,8 +245,8 @@ export default function PlansPage() {
             <div className="md:hidden space-y-4">
               {plans.map((plan: any) => (
                 <div key={plan.id} className={'rounded-2xl border-2 overflow-hidden ' + plan.border + (plan.popular ? ' ring-2 ring-amber-400' : '')}>
-                  {plan.popular && (<div className="bg-gradient-to-r from-amber-500 to-green-500 py-1 text-center"><span className="text-[0.62rem] font-bold text-white uppercase tracking-wider">⭐ सबसे लोकप्रिय</span></div>)}
-                  <div className={'bg-gradient-to-b ' + plan.gradient + ' p-4'}>
+                  {plan.popular && (<div className="bg-amber-500 py-1 text-center"><span className="text-[0.62rem] font-bold text-white uppercase tracking-wider">⭐ सबसे लोकप्रिय</span></div>)}
+                  <div className={plan.bg + ' p-4'}>
                     <div className="flex items-center justify-between mb-4 pb-3 border-b border-stone-200">
                       <div className="flex items-center gap-2">
                         <span className="text-[1.3rem]">{plan.icon}</span>
@@ -299,7 +299,7 @@ export default function PlansPage() {
         </section>
 
         {/* Bottom CTA */}
-        <section className="py-10 md:py-14 px-4 md:px-6 bg-gradient-to-br from-[#032808] to-[#d94e2a]">
+        <section className="py-10 md:py-14 px-4 md:px-6 bg-[#05420d]">
           <div className="max-w-[600px] mx-auto text-center">
             <h2 className="font-display text-[clamp(1.3rem,3.5vw,1.8rem)] font-bold text-white mb-3">अभी शुरू करें</h2>
             <p className="font-body text-[0.88rem] text-white/60 mb-6">WhatsApp पर संपर्क करें — हम 24 घंटे में आपकी लिस्टिंग तैयार कर देंगे</p>

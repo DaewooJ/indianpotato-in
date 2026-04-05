@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Hero() {
   return (
     <section style={{ background: '#fff', position: 'relative', overflow: 'hidden', borderBottom: '1px solid #f0f0f0' }}>
-      <div style={{ position: 'absolute', top: -300, right: -200, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(229,62,62,0.04) 0%, transparent 70%)' }} />
+      <div style={{ position: 'absolute', top: -300, right: -200, width: 600, height: 600, borderRadius: '50%', background: 'transparent' }} />
       <div style={{ maxWidth: 1320, margin: '0 auto', padding: '72px 28px 64px', position: 'relative', zIndex: 2 }}>
         <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: 48, alignItems: 'center' }}>
           <div>
@@ -19,7 +19,7 @@ export default function Hero() {
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 40, alignItems: 'flex-start' }}>
               <Link href="/mandi" className="hero-cta" style={{
-                background: 'linear-gradient(135deg, #05420d, #032808)',
+                background: '#05420d',
                 color: '#fff', textDecoration: 'none',
                 padding: '16px 36px', borderRadius: 50,
                 fontSize: '1rem', fontWeight: 700,

@@ -40,8 +40,8 @@ export default function DirectoryPage() {
       <Navbar />
       <main className="pt-[76px]">
         {/* Hero — compact */}
-        <div className="bg-gradient-to-br from-[#032808] via-[#05420d] to-[#ed6442] py-10 md:py-16 px-4 md:px-6 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+        <div className="bg-[#05420d] py-10 md:py-16 px-4 md:px-6 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundColor: 'transparent', backgroundSize: '32px 32px' }} />
           <div className="max-w-[1280px] mx-auto relative z-10">
             <div className="inline-block px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 mb-3">
               <span className="text-[0.68rem] font-semibold text-orange-200 tracking-wide uppercase">🇮🇳 भारत की #1 आलू डायरेक्टरी</span>
@@ -104,11 +104,11 @@ export default function DirectoryPage() {
                   const ld = listing as any;
                   const isPremium = ld.premium === true;
                   return (
-                    <Link key={listing.category + '-' + listing.slug} href={'/directory/' + listing.category + '/' + listing.slug} className={'group rounded-xl border overflow-hidden transition-all duration-300 ' + (isPremium ? 'bg-gradient-to-b from-amber-50/50 to-white border-amber-200 hover:shadow-xl hover:shadow-amber-100/60 hover:border-amber-300' : 'bg-stone-50 border-stone-200 hover:shadow-lg hover:border-green-200')}>
+                    <Link key={listing.category + '-' + listing.slug} href={'/directory/' + listing.category + '/' + listing.slug} className={'group rounded-xl border overflow-hidden transition-all duration-300 ' + (isPremium ? 'bg-white border-amber-200 hover:shadow-xl hover:shadow-amber-100/60 hover:border-amber-300' : 'bg-stone-50 border-stone-200 hover:shadow-lg hover:border-green-200')}>
                       <div className="p-4 md:p-5">
                         {isPremium && (
                           <div className="flex items-center gap-1.5 mb-3">
-                            <span className="text-[0.62rem] font-bold text-amber-800 bg-gradient-to-r from-amber-200 to-yellow-200 px-2 py-0.5 rounded-full">👑 PREMIUM</span>
+                            <span className="text-[0.62rem] font-bold text-amber-800 bg-amber-200 px-2 py-0.5 rounded-full">👑 PREMIUM</span>
                           </div>
                         )}
                         <div className="flex items-start gap-3">
@@ -151,7 +151,7 @@ export default function DirectoryPage() {
         )}
 
         {/* CTA */}
-        <section className="py-10 md:py-16 px-4 md:px-6 bg-gradient-to-br from-stone-900 to-stone-800">
+        <section className="py-10 md:py-16 px-4 md:px-6 bg-[#05420d]">
           <div className="max-w-[700px] mx-auto text-center">
             <h2 className="font-display text-[clamp(1.3rem,3.5vw,2rem)] font-bold text-white mb-3">अपना व्यवसाय सूचीबद्ध करें</h2>
             <p className="font-body text-[0.88rem] text-stone-400 mb-6">निःशुल्क लिस्टिंग — भारत के सबसे बड़े आलू प्लेटफ़ॉर्म पर</p>

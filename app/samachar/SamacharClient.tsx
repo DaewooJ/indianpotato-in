@@ -38,11 +38,11 @@ export default function SamacharClient() {
       </div>
 
       <div style={{ display: 'flex', gap: 8, marginBottom: 40, flexWrap: 'wrap' as const, overflowX: 'auto' as const }}>
-        <button onClick={() => setActiveCategory('सभी')} style={{ padding: '8px 18px', borderRadius: 20, border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer', background: activeCategory === 'सभी' ? 'linear-gradient(135deg, #05420d, #f97316)' : '#fff', color: activeCategory === 'सभी' ? '#fff' : '#666', boxShadow: activeCategory === 'सभी' ? '0 4px 14px rgba(220,38,38,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>सभी ({posts.length})</button>
+        <button onClick={() => setActiveCategory('सभी')} style={{ padding: '8px 18px', borderRadius: 20, border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer', background: activeCategory === 'सभी' ? '#05420d' : '#fff', color: activeCategory === 'सभी' ? '#fff' : '#666', boxShadow: activeCategory === 'सभी' ? '0 4px 14px rgba(220,38,38,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>सभी ({posts.length})</button>
         {categories.map(cat => {
           const count = posts.filter(p => p.category_hindi === cat).length;
           return (
-            <button key={cat} onClick={() => setActiveCategory(cat)} style={{ padding: '8px 18px', borderRadius: 20, border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer', background: activeCategory === cat ? 'linear-gradient(135deg, #05420d, #f97316)' : '#fff', color: activeCategory === cat ? '#fff' : '#666', boxShadow: activeCategory === cat ? '0 4px 14px rgba(220,38,38,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>{cat} ({count})</button>
+            <button key={cat} onClick={() => setActiveCategory(cat)} style={{ padding: '8px 18px', borderRadius: 20, border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer', background: activeCategory === cat ? '#05420d' : '#fff', color: activeCategory === cat ? '#fff' : '#666', boxShadow: activeCategory === cat ? '0 4px 14px rgba(220,38,38,0.3)' : '0 1px 4px rgba(0,0,0,0.06)' }}>{cat} ({count})</button>
           );
         })}
       </div>
