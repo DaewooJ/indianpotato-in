@@ -9,12 +9,23 @@ import { CategoryCard } from '@/components/directory/CategoryCard'
 import { SearchBar } from '@/components/directory/SearchBar'
 import { getCategoriesWithCounts, getTotalCompanyCount } from '@/lib/directory-db'
 
-export const metadata: Metadata = generateDirMetadata({
+const baseMeta = generateDirMetadata({
   title: 'भारत का आलू उद्योग डायरेक्टरी — इंडियन पोटैटो',
   description:
     'भारत भर में सत्यापित आलू कंपनियाँ खोजें — बीज आपूर्तिकर्ता, प्रसंस्करण, निर्यातक, कोल्ड स्टोरेज, उपकरण निर्माता और अन्य। भारत की सबसे बड़ी B2B आलू उद्योग डायरेक्टरी।',
   path: '/directory',
 })
+
+export const metadata: Metadata = {
+  ...baseMeta,
+  alternates: {
+    ...baseMeta.alternates,
+    languages: {
+      'hi': 'https://www.indianpotato.in/directory',
+      'en': 'https://indianpotato.com/all-listings/',
+    },
+  },
+}
 
 export const revalidate = 300 // revalidate every 5 minutes
 

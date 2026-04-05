@@ -69,6 +69,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.indianpotato.in',
+    languages: {
+      'hi': 'https://www.indianpotato.in/',
+      'en': 'https://indianpotato.com/',
+      'x-default': 'https://indianpotato.com/',
+    },
     types: {
       'application/rss+xml': 'https://www.indianpotato.in/feed.xml',
     },
