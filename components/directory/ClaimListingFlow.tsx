@@ -9,8 +9,8 @@ interface SearchResult {
   name: string
   slug: string
   category: string
-  city?: string
-  state?: string
+  city?: string | null
+  state?: string | null
   isClaimed: boolean
 }
 

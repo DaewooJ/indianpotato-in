@@ -10,9 +10,9 @@ interface CompanyCardProps {
   categorySlug: string
   description: string | null
   logoUrl?: string | null
-  city?: string
-  state?: string
-  planTier?: string
+  city?: string | null
+  state?: string | null
+  planTier?: string | null
   isVerified?: boolean
   isFeatured?: boolean
   viewCount?: number
