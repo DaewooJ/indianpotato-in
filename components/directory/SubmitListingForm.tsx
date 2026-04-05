@@ -135,11 +135,11 @@ export function SubmitListingForm() {
         }),
       })
       const result = await res.json()
-      if (!result.success) throw new Error(result.error)
+      if (!result.success) throw new Error(JSON.stringify(result))
       setStatus('success')
-    } catch {
+    } catch (err: any) {
       setStatus('error')
-      setErrorMessage('कुछ गलत हो गया। कृपया WhatsApp पर संपर्क करें।')
+      setErrorMessage(`Error: ${err?.message || 'Unknown'}`)
     }
   }
 
