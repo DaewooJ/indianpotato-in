@@ -15,9 +15,9 @@ module.exports = {
         'brand-orange-dark': '#d94e2a',
       },
       fontFamily: {
-        display: ['var(--font-poppins)', 'Poppins', 'sans-serif'],
-        body: ['var(--font-poppins)', 'Poppins', 'sans-serif'],
-        mono: ['var(--font-poppins)', 'Poppins', 'sans-serif'],
+        display: ['var(--font-mukta)', 'Mukta', 'sans-serif'],
+        body: ['var(--font-mukta)', 'Mukta', 'sans-serif'],
+        sans: ['var(--font-mukta)', 'Mukta', 'sans-serif'],
       },
       animation: {
         ticker: 'ticker 55s linear infinite',

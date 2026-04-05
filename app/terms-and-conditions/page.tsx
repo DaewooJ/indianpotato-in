@@ -27,7 +27,7 @@ export default function TermsPage() {
           <div style={{ maxWidth: 820, margin: '0 auto' }}>
             <nav style={{ marginBottom: 16 }}>
               <Link href="/" style={{
-                fontFamily: 'var(--font-poppins), sans-serif',
+                fontFamily: 'var(--font-mukta), sans-serif',
                 fontSize: '0.82rem', color: 'rgba(255,255,255,0.7)',
                 textDecoration: 'none',
               }}>
@@ -35,14 +35,14 @@ export default function TermsPage() {
               </Link>
               <span style={{ color: 'rgba(255,255,255,0.4)', margin: '0 10px', fontSize: '0.75rem' }}>›</span>
               <span style={{
-                fontFamily: 'var(--font-poppins), sans-serif',
+                fontFamily: 'var(--font-mukta), sans-serif',
                 fontSize: '0.82rem', color: '#fff',
               }}>
                 नियम और शर्तें
               </span>
             </nav>
             <h1 style={{
-              fontFamily: 'var(--font-poppins), sans-serif',
+              fontFamily: 'var(--font-mukta), sans-serif',
               fontSize: 'clamp(1.6rem, 4vw, 2.2rem)',
               fontWeight: 800,
               color: '#fff',
@@ -52,7 +52,7 @@ export default function TermsPage() {
               नियम और शर्तें (Terms &amp; Conditions)
             </h1>
             <p style={{
-              fontFamily: 'var(--font-poppins), sans-serif',
+              fontFamily: 'var(--font-mukta), sans-serif',
               fontSize: '0.82rem',
               color: 'rgba(255,255,255,0.65)',
               marginTop: 10,
@@ -67,7 +67,7 @@ export default function TermsPage() {
           <div style={{
             maxWidth: 820,
             margin: '0 auto',
-            fontFamily: 'var(--font-poppins), sans-serif',
+            fontFamily: 'var(--font-mukta), sans-serif',
             fontSize: '0.95rem',
             color: '#374151',
             lineHeight: 1.9,
@@ -201,7 +201,7 @@ export default function TermsPage() {
 }
 
 const h2Style: React.CSSProperties = {
-  fontFamily: 'var(--font-poppins), sans-serif',
+  fontFamily: 'var(--font-mukta), sans-serif',
   fontSize: '1.15rem',
   fontWeight: 700,
   color: '#1F2937',

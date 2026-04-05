@@ -1,13 +1,13 @@
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import { Mukta } from 'next/font/google';
 import './globals.css';
 
-const poppins = Poppins({
-  subsets: ['latin', 'latin-ext'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-poppins',
+const mukta = Mukta({
+  subsets: ['latin', 'latin-ext', 'devanagari'],
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  variable: '--font-mukta',
   display: 'swap',
 });
 
@@ -129,7 +129,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="hi" dir="ltr" className={poppins.variable}>
+    <html lang="hi" dir="ltr" className={mukta.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />

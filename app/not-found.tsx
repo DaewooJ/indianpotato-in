@@ -14,7 +14,7 @@ export default function NotFound() {
       <Navbar />
       <main style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', paddingTop: 76 }}>
         <div style={{ textAlign: 'center', maxWidth: 480, padding: '0 24px' }}>
-          <div style={{ fontSize: 64, fontWeight: 900, color: '#05420d', marginBottom: 16, fontFamily: "'Poppins', sans-serif" }}>404</div>
+          <div style={{ fontSize: 64, fontWeight: 900, color: '#05420d', marginBottom: 16, fontFamily: "'Mukta', sans-serif" }}>404</div>
           <h1 style={{ fontSize: 'clamp(1.4rem, 4vw, 1.8rem)', fontWeight: 800, color: '#1a1a1a', marginBottom: 16 }}>पेज नहीं मिला</h1>
           <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: 32 }}>
             आप जो पेज ढूंढ रहे हैं वह उपलब्ध नहीं है या हटा दिया गया है।
