@@ -7,7 +7,7 @@ import { formatNumber } from '@/lib/dir-utils'
 import { Button } from '@/components/ui/Button'
 import { CategoryCard } from '@/components/directory/CategoryCard'
 import { SearchBar } from '@/components/directory/SearchBar'
-import { DIRECTORY_CATEGORIES, getCategoryCounts, getAllListings } from '@/lib/directory'
+import { getCategoriesWithCounts, getTotalCompanyCount } from '@/lib/directory-db'
 
 export const metadata: Metadata = generateDirMetadata({
   title: 'भारत का आलू उद्योग डायरेक्टरी — इंडियन पोटैटो',
@@ -16,16 +16,21 @@ export const metadata: Metadata = generateDirMetadata({
   path: '/directory',
 })
 
-export default function DirectoryPage() {
-  const dirCounts = getCategoryCounts()
-  const totalListings = getAllListings().length
-  const categories = DIRECTORY_CATEGORIES.map((cat) => ({
+export const revalidate = 300 // revalidate every 5 minutes
+
+export default async function DirectoryPage() {
+  const [dbCategories, totalListings] = await Promise.all([
+    getCategoriesWithCounts(),
+    getTotalCompanyCount(),
+  ])
+
+  const categories = dbCategories.map((cat) => ({
     slug: cat.slug,
-    name: cat.name,
-    nameEn: cat.nameEn,
-    icon: cat.icon,
-    description: cat.description,
-    count: dirCounts[cat.slug] || 0,
+    name: cat.name_hi || cat.name_en,
+    nameEn: cat.name_en,
+    icon: cat.emoji || '📦',
+    description: cat.description_hi || cat.description_en || '',
+    count: cat.company_count,
   }))
 
   const orgJsonLd = generateOrganizationJsonLd()

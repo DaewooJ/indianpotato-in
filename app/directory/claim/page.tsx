@@ -4,7 +4,7 @@ import { Footer } from '@/components/Sections'
 import { generateDirMetadata } from '@/lib/dir-seo'
 import { DirBreadcrumbs } from '@/components/directory/DirBreadcrumbs'
 import { ClaimListingFlow } from '@/components/directory/ClaimListingFlow'
-import { getAllListings } from '@/lib/directory'
+import { createClient } from '@supabase/supabase-js'
 
 export const metadata: Metadata = generateDirMetadata({
   title: 'अपनी लिस्टिंग क्लेम करें — इंडियन पोटैटो डायरेक्टरी',
@@ -14,13 +14,27 @@ export const metadata: Metadata = generateDirMetadata({
   noIndex: true,
 })
 
-export default function ClaimPage() {
-  const allListings = getAllListings().map((l) => ({
-    name: l.name,
-    slug: l.slug,
-    category: l.category,
-    city: l.districtEn || l.district,
-    state: l.stateEn || l.state,
+export const revalidate = 300
+
+export default async function ClaimPage() {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+
+  const { data } = await supabase
+    .from('companies')
+    .select('name, name_hi, slug, address_city, address_state')
+    .eq('active', true)
+    .eq('status', 'approved')
+    .order('name')
+
+  const allListings = (data || []).map((c: any) => ({
+    name: c.name_hi || c.name,
+    slug: c.slug,
+    category: '',
+    city: c.address_city,
+    state: c.address_state,
     isClaimed: false,
   }))
 

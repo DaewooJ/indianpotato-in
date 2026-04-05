@@ -5,19 +5,21 @@ import MandiPricesLive from '@/components/MandiPricesLive';
 import { NewsSection, GovSchemes, VarietiesQuick, DirectoryPreview, WhatsAppCTA, Footer } from '@/components/Sections';
 import RevealSection from '@/components/RevealSection';
 import { getAllPosts } from '@/lib/blog';
-import { DIRECTORY_CATEGORIES, getCategoryCounts } from '@/lib/directory';
+import { getCategoriesWithCounts } from '@/lib/directory-db';
 
-export default function HomePage() {
+export const revalidate = 300;
+
+export default async function HomePage() {
   const allPosts = getAllPosts();
   const posts = allPosts.slice(0, 6);
   const tickerPosts = allPosts.slice(0, 8).map((p) => ({ slug: p.slug, title: p.title }));
-  const dirCounts = getCategoryCounts();
-  const dirCategories = DIRECTORY_CATEGORIES.map((cat) => ({
-    icon: cat.icon,
-    name: cat.name,
-    nameEn: cat.nameEn,
+  const dbCategories = await getCategoriesWithCounts();
+  const dirCategories = dbCategories.map((cat) => ({
+    icon: cat.emoji || '📦',
+    name: cat.name_hi || cat.name_en,
+    nameEn: cat.name_en,
     slug: cat.slug,
-    count: dirCounts[cat.slug] || 0,
+    count: cat.company_count,
   }));
 
   return (
