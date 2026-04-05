@@ -266,8 +266,91 @@ export function translateState(name: string): string {
   return STATE_NAMES_HI[name] || name
 }
 
-/** Translate a market name to Hindi, fallback to original */
+// Suffixes to strip from market names (order matters — longer first)
+const SUFFIXES = [
+  /\s*\(Subzi Mandi\)/gi,
+  /\s*\(Fruit\s*&\s*Veg\.?\)/gi,
+  /\s*\(F\s*&\s*V\)/gi,
+  /\s*\(Mandi\)/gi,
+  /\s*\(APMC\)/gi,
+  /\s*\(.*?\)/g,          // any remaining parenthesized text
+  /\s+Market\s+Yard$/gi,
+  /\s+Mandi\s+Samiti$/gi,
+  /\s+Mandi$/gi,
+  /\s+APMC$/gi,
+  /\s+Sabzi\s+Mandi$/gi,
+  /\s+Subzi\s+Mandi$/gi,
+  /\s+Fruit\s+Market$/gi,
+  /\s+Vegetable\s+Market$/gi,
+]
+
+// Basic English → Devanagari transliteration map
+const TRANSLIT: [RegExp, string][] = [
+  [/ksh/gi, 'क्ष'], [/gya/gi, 'ज्ञ'], [/tra/gi, 'त्र'], [/shr/gi, 'श्र'],
+  [/shh/gi, 'षh'], [/chh/gi, 'छ'], [/dha/gi, 'धा'], [/tha/gi, 'था'],
+  [/bha/gi, 'भा'], [/sha/gi, 'शा'], [/kha/gi, 'खा'], [/gha/gi, 'घा'],
+  [/pha/gi, 'फ़ा'], [/nk/gi, 'ंक'], [/ng/gi, 'ंग'], [/nd/gi, 'ंद'],
+  [/mp/gi, 'ंप'], [/mb/gi, 'ंब'], [/sh/gi, 'श'], [/ch/gi, 'च'],
+  [/th/gi, 'थ'], [/dh/gi, 'ध'], [/bh/gi, 'भ'], [/kh/gi, 'ख'],
+  [/gh/gi, 'घ'], [/ph/gi, 'फ़'], [/jh/gi, 'झ'],
+  [/aa/gi, 'आ'], [/ee/gi, 'ई'], [/oo/gi, 'ऊ'], [/ai/gi, 'ऐ'],
+  [/au/gi, 'औ'], [/ou/gi, 'औ'],
+  [/ka/gi, 'का'], [/ki/gi, 'कि'], [/ku/gi, 'कु'], [/ke/gi, 'के'], [/ko/gi, 'को'],
+  [/ga/gi, 'गा'], [/gi/gi, 'गि'], [/gu/gi, 'गु'], [/ge/gi, 'गे'], [/go/gi, 'गो'],
+  [/ja/gi, 'जा'], [/ji/gi, 'जि'], [/ju/gi, 'जु'], [/je/gi, 'जे'], [/jo/gi, 'जो'],
+  [/ta/gi, 'ता'], [/ti/gi, 'ति'], [/tu/gi, 'तु'], [/te/gi, 'ते'], [/to/gi, 'तो'],
+  [/da/gi, 'दा'], [/di/gi, 'दि'], [/du/gi, 'दु'], [/de/gi, 'दे'], [/do/gi, 'दो'],
+  [/na/gi, 'ना'], [/ni/gi, 'नि'], [/nu/gi, 'नु'], [/ne/gi, 'ने'], [/no/gi, 'नो'],
+  [/pa/gi, 'पा'], [/pi/gi, 'पि'], [/pu/gi, 'पु'], [/pe/gi, 'पे'], [/po/gi, 'पो'],
+  [/ba/gi, 'बा'], [/bi/gi, 'बि'], [/bu/gi, 'बु'], [/be/gi, 'बे'], [/bo/gi, 'बो'],
+  [/ma/gi, 'मा'], [/mi/gi, 'मि'], [/mu/gi, 'मु'], [/me/gi, 'मे'], [/mo/gi, 'मो'],
+  [/ra/gi, 'रा'], [/ri/gi, 'रि'], [/ru/gi, 'रु'], [/re/gi, 'रे'], [/ro/gi, 'रो'],
+  [/la/gi, 'ला'], [/li/gi, 'लि'], [/lu/gi, 'लु'], [/le/gi, 'ले'], [/lo/gi, 'लो'],
+  [/sa/gi, 'सा'], [/si/gi, 'सि'], [/su/gi, 'सु'], [/se/gi, 'से'], [/so/gi, 'सो'],
+  [/va/gi, 'वा'], [/vi/gi, 'वि'], [/vu/gi, 'वु'], [/ve/gi, 'वे'], [/vo/gi, 'वो'],
+  [/wa/gi, 'वा'], [/wi/gi, 'वि'], [/we/gi, 'वे'], [/wo/gi, 'वो'],
+  [/ha/gi, 'हा'], [/hi/gi, 'हि'], [/hu/gi, 'हु'], [/he/gi, 'हे'], [/ho/gi, 'हो'],
+  [/ya/gi, 'या'], [/yi/gi, 'यि'], [/yu/gi, 'यु'], [/ye/gi, 'ये'], [/yo/gi, 'यो'],
+  [/k/gi, 'क'], [/g/gi, 'ग'], [/j/gi, 'ज'], [/t/gi, 'त'], [/d/gi, 'द'],
+  [/n/gi, 'न'], [/p/gi, 'प'], [/b/gi, 'ब'], [/m/gi, 'म'], [/r/gi, 'र'],
+  [/l/gi, 'ल'], [/s/gi, 'स'], [/v/gi, 'व'], [/h/gi, 'ह'], [/y/gi, 'य'],
+  [/a/gi, 'अ'], [/i/gi, 'इ'], [/u/gi, 'उ'], [/e/gi, 'ए'], [/o/gi, 'ओ'],
+]
+
+function transliterate(text: string): string {
+  let result = text
+  for (const [pattern, replacement] of TRANSLIT) {
+    result = result.replace(pattern, replacement)
+  }
+  // Remove any remaining Latin characters
+  return result.replace(/[a-zA-Z]/g, '')
+}
+
+/** Translate a market name to Hindi with aggressive matching + transliteration fallback */
 export function translateMarket(name: string): string {
-  const cleaned = name.replace(/\(.*?\)/g, '').replace(/apmc/gi, '').replace(/\s+/g, ' ').trim()
-  return MANDI_NAMES_HI[cleaned] || cleaned
+  if (!name) return name
+
+  // Step 1: exact match on raw name
+  if (MANDI_NAMES_HI[name]) return MANDI_NAMES_HI[name]
+
+  // Step 2: strip suffixes progressively and try matching
+  let cleaned = name
+  for (const suffix of SUFFIXES) {
+    cleaned = cleaned.replace(suffix, '').trim()
+  }
+  cleaned = cleaned.replace(/\s+/g, ' ').trim()
+  if (MANDI_NAMES_HI[cleaned]) return MANDI_NAMES_HI[cleaned]
+
+  // Step 3: try first word only (e.g. "Chandausi APMC" → "Chandausi")
+  const firstWord = cleaned.split(/\s+/)[0]
+  if (firstWord && MANDI_NAMES_HI[firstWord]) return MANDI_NAMES_HI[firstWord]
+
+  // Step 4: try case-insensitive match
+  const lowerCleaned = cleaned.toLowerCase()
+  for (const [key, value] of Object.entries(MANDI_NAMES_HI)) {
+    if (key.toLowerCase() === lowerCleaned) return value
+  }
+
+  // Step 5: transliterate English to Devanagari
+  return transliterate(cleaned)
 }

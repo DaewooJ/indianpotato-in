@@ -32,12 +32,11 @@ interface IR {
 }
 
 function parseRecord(d: any): IR {
-  const market_raw = (d.market || '').replace(/\(.*?\)/g, '').replace(/apmc/gi, '').replace(/\s+/g, ' ').trim();
   return {
     state_en: d.state || '',
     state: translateState(d.state || ''),
     district: d.district || '',
-    market: translateMarket(market_raw),
+    market: translateMarket(d.market || ''),
     commodity: d.commodity || 'Potato',
     variety: d.variety || '',
     arrival_date: d.arrival_date || '',
