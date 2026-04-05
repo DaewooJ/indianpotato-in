@@ -5,8 +5,6 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
 
-    console.log('Submit body:', JSON.stringify(body))
-
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!,
@@ -31,30 +29,14 @@ export async function POST(req: NextRequest) {
     if (body.state) insertData.state = body.state
     if (body.products) insertData.products = body.products
 
-    console.log('Insert data:', JSON.stringify(insertData))
-
     const { data, error } = await supabase.from('listing_submissions').insert(insertData).select()
 
-    console.log('Supabase result:', { data, error })
-
     if (error) {
-      return NextResponse.json({
-        success: false,
-        error: error.message,
-        code: error.code,
-        details: error.details,
-        hint: error.hint,
-        receivedBody: Object.keys(body),
-        insertDataKeys: Object.keys(insertData),
-      }, { status: 400 })
+      return NextResponse.json({ success: false, error: error.message }, { status: 400 })
     }
 
     return NextResponse.json({ success: true, data })
   } catch (e: any) {
-    return NextResponse.json({
-      success: false,
-      error: e.message,
-      type: 'exception',
-    }, { status: 500 })
+    return NextResponse.json({ success: false, error: e.message }, { status: 500 })
   }
 }
