@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import { Footer } from '@/components/Sections'
 import { generateDirMetadata } from '@/lib/dir-seo'
 import { DirBreadcrumbs } from '@/components/directory/DirBreadcrumbs'
+import { SubmitListingForm } from '@/components/directory/SubmitListingForm'
 
 export const metadata: Metadata = generateDirMetadata({
   title: 'अपनी कंपनी जोड़ें — इंडियन पोटैटो डायरेक्टरी',
@@ -30,19 +31,7 @@ export default function SubmitPage() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-gray-200 bg-white p-6 text-center">
-            <p className="text-gray-500 text-sm mb-4">
-              अपनी कंपनी लिस्ट करने के लिए हमसे WhatsApp पर संपर्क करें
-            </p>
-            <a
-              href="https://wa.me/919499668831?text=नमस्ते%2C%20मैं%20अपनी%20कंपनी%20IndianPotato.in%20डायरेक्टरी%20में%20लिस्ट%20करना%20चाहता%20हूँ।"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-6 py-3 text-sm font-semibold text-white hover:bg-[#1fb855] transition-colors"
-            >
-              WhatsApp पर संपर्क करें
-            </a>
-          </div>
+          <SubmitListingForm />
         </div>
       </main>
       <Footer />
