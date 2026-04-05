@@ -4,7 +4,10 @@ import { translateState, translateMarket } from '@/lib/mandi-translations';
 const RID = '9ef84268-d588-465a-a308-a864a43d0070';
 const BU = 'https://api.data.gov.in/resource';
 const CD = 1800;
+// Cache disabled temporarily for debugging — re-enable after confirming Hindi works
 let cache: { data: any; ts: number } | null = null;
+
+export const dynamic = 'force-dynamic'
 
 const FB: any[] = [
   { state:'Uttar Pradesh',district:'Agra',market:'Agra',commodity:'Potato',variety:'Other',arrival_date:'2026-03-26',min_price:1180,max_price:1420,modal_price:1340 },
@@ -54,7 +57,7 @@ async function fetchData(state?: string, limit = 100): Promise<IR[]> {
     });
     if (state) p.set('filters[state]', state);
     const r = await fetch(BU + '/' + RID + '?' + p.toString(), {
-      next: { revalidate: CD }, headers: { Accept: 'application/json' },
+      cache: 'no-store', headers: { Accept: 'application/json' },
     });
     if (!r.ok) throw new Error('E');
     const j = await r.json();
@@ -72,7 +75,8 @@ export async function GET(req: NextRequest) {
   const sp = new URL(req.url).searchParams;
   const st = sp.get('state') || undefined;
   const lm = Math.min(Number(sp.get('limit') || 100), 500);
-  if (cache && cache.ts > Date.now() - CD * 1000) return NextResponse.json(cache.data);
+  // Skip in-memory cache temporarily for debugging
+  // if (cache && cache.ts > Date.now() - CD * 1000) return NextResponse.json(cache.data);
 
   const recs = await fetchData(st, lm);
 
@@ -112,6 +116,6 @@ export async function GET(req: NextRequest) {
   };
   cache = { data: d, ts: Date.now() };
   return NextResponse.json(d, {
-    headers: { 'Cache-Control': 'public, s-maxage=1800, stale-while-revalidate=3600' },
+    headers: { 'Cache-Control': 'no-store' },
   });
 }
