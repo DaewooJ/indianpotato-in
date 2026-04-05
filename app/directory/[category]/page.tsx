@@ -81,23 +81,25 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(categoryJsonLd) }}
         />
 
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <DirBreadcrumbs items={[{ label: config.name }]} />
-
-          {/* Category Header */}
-          <div className="pb-6 border-b border-gray-200 mb-6">
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+        {/* Category Hero Banner */}
+        <section className="bg-[#05420d] text-white">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+            <h1 className="text-2xl sm:text-3xl font-bold">
               {config.icon} {config.name}
             </h1>
             {config.description && (
-              <p className="mt-2 text-gray-500 leading-relaxed max-w-3xl">
+              <p className="mt-2 text-white/80 leading-relaxed max-w-3xl">
                 {config.description}
               </p>
             )}
-            <p className="mt-2 text-sm text-gray-400">
+            <p className="mt-2 text-sm text-white/60">
               {formatNumber(totalCount)} {totalCount === 1 ? 'कंपनी' : 'कंपनियाँ'} लिस्टेड
             </p>
           </div>
+        </section>
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <DirBreadcrumbs items={[{ label: config.name }]} />
 
           {/* Two-column layout */}
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 pb-12">
