@@ -5,7 +5,7 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 
 const poppins = Poppins({
-  subsets: ['latin', 'devanagari'],
+  subsets: ['latin', 'latin-ext'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-poppins',
   display: 'swap',
