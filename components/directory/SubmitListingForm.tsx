@@ -134,6 +134,7 @@ export function SubmitListingForm() {
         state: form.state || null,
         products: productsArray.length > 0 ? productsArray.join(', ') : null,
         status: 'pending',
+        source_site: 'hi',
       })
 
       if (error) throw error

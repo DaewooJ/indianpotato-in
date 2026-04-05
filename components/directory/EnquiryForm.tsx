@@ -31,6 +31,7 @@ export function EnquiryForm({ companyName }: EnquiryFormProps) {
         message: (fd.get('message') as string).trim(),
         company_name: companyName,
         source: 'directory',
+        source_site: 'hi',
       })
 
       if (error) throw error

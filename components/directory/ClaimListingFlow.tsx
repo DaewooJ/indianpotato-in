@@ -57,6 +57,7 @@ export function ClaimListingFlow({ listings }: ClaimListingFlowProps) {
         message: (fd.get('message') as string)?.trim() || `क्लेम अनुरोध — पद: ${(fd.get('designation') as string)?.trim() || 'N/A'}`,
         company_name: selectedCompany?.name || '',
         source: 'claim',
+        source_site: 'hi',
       })
 
       if (error) throw error
