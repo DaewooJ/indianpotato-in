@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     description: 'भारत की प्रमुख मंडियों से आलू के ताज़ा थोक भाव। प्रतिदिन अपडेट।',
     url: 'https://www.indianpotato.in/mandi',
     type: 'website',
+    locale: 'hi_IN',
+    siteName: 'Indian Potato',
     images: [{ url: 'https://www.indianpotato.in/images/mandi-og-image.jpg', width: 1200, height: 630, alt: 'आज का आलू मंडी भाव — Indian Potato' }],
   },
   twitter: {
@@ -33,23 +35,37 @@ export default function MandiPage() {
         { name: 'मंडी भाव', url: 'https://www.indianpotato.in/mandi' },
       ]} />
       <Navbar />
-      <main className="pt-[76px]">
-        <section style={{ background: '#fff', padding: 'clamp(48px, 8vw, 80px) 20px clamp(36px, 6vw, 60px)', borderBottom: '1px solid #f0f0f0' }}>
-          <div style={{ maxWidth: 700, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <span style={{ display: 'inline-block', background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 50, padding: '4px 14px', marginBottom: 24, fontSize: 12, color: '#05420d', fontWeight: 600, letterSpacing: '0.05em' }}>
-              मंडी भाव
-            </span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
-              <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', fontWeight: 700, color: '#111827', lineHeight: 1.2, margin: 0 }}>
-                आज का आलू मंडी भाव
-              </h1>
-              <span style={{ background: '#dcfce7', color: '#166534', fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 50, letterSpacing: '0.05em' }}>दैनिक</span>
-            </div>
-            <p style={{ fontSize: 16, color: '#6b7280', lineHeight: 1.6, maxWidth: 550 }}>
+      <main className="pt-[64px]">
+
+        {/* Hero */}
+        <section className="relative overflow-hidden" style={{ background: '#05420d' }}>
+          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+          <div className="absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%)' }} />
+          <div className="absolute -bottom-32 -left-32 w-[300px] h-[300px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 70%)' }} />
+
+          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24 text-center">
+            <div className="mx-auto mb-7 w-12 h-1 rounded-full" style={{ background: '#f97316' }} />
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+              आज का आलू मंडी भाव
+            </h1>
+            <p className="mt-4 text-base sm:text-lg text-white/70 max-w-lg mx-auto leading-relaxed font-light">
               देश भर की प्रमुख मंडियों से आज के आलू भाव — दैनिक अपडेट
             </p>
+            <div className="mt-7 inline-flex items-center gap-2.5 border border-white/10 rounded-full px-5 py-2" style={{ background: 'rgba(249,115,22,0.1)' }}>
+              <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#f97316' }} />
+              <span className="text-white/80 text-sm tracking-wide">प्रतिदिन अपडेट</span>
+            </div>
           </div>
         </section>
+
+        {/* Breadcrumb */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+          <BreadcrumbNav items={[
+            { name: 'होम', url: '/' },
+            { name: 'मंडी भाव', url: '/mandi' },
+          ]} />
+        </div>
+
         <MandiPricesLive />
         <WhatsAppCTA />
       </main>
