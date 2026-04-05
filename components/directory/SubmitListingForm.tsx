@@ -120,7 +120,7 @@ export function SubmitListingForm() {
 
     try {
       const supabase = createClient()
-      const { error } = await supabase.from('listing_submissions').insert({
+      const payload = {
         company_name: form.company_name.trim(),
         company_name_hi: null,
         category_slug: form.category_id,
@@ -135,13 +135,18 @@ export function SubmitListingForm() {
         products: productsArray.length > 0 ? productsArray.join(', ') : null,
         status: 'pending',
         source_site: 'hi',
-      })
+      }
+      console.log('Supabase insert payload:', payload)
+      const { data, error } = await supabase.from('listing_submissions').insert(payload)
+      console.log('Supabase insert error:', error)
+      console.log('Supabase insert data:', data)
 
       if (error) throw error
       setStatus('success')
-    } catch (err) {
+    } catch (err: any) {
+      console.error('Submit catch:', err)
       setStatus('error')
-      setErrorMessage('कुछ गलत हो गया। कृपया WhatsApp पर संपर्क करें।')
+      setErrorMessage(`Error: ${err?.message || err?.code || JSON.stringify(err) || 'Unknown error'}`)
     }
   }
 

@@ -23,7 +23,7 @@ export function EnquiryForm({ companyName }: EnquiryFormProps) {
 
     try {
       const supabase = createClient()
-      const { error } = await supabase.from('enquiries').insert({
+      const payload = {
         company_id: null,
         name: (fd.get('sender_name') as string).trim(),
         email: (fd.get('sender_email') as string).trim(),
@@ -32,14 +32,19 @@ export function EnquiryForm({ companyName }: EnquiryFormProps) {
         company_name: companyName,
         source: 'directory',
         source_site: 'hi',
-      })
+      }
+      console.log('Enquiry insert payload:', payload)
+      const { data, error } = await supabase.from('enquiries').insert(payload)
+      console.log('Enquiry insert error:', error)
+      console.log('Enquiry insert data:', data)
 
       if (error) throw error
       setStatus('success')
       formEl.reset()
-    } catch (err) {
+    } catch (err: any) {
+      console.error('Enquiry catch:', err)
       setStatus('error')
-      setErrorMessage('कुछ गलत हो गया। कृपया WhatsApp पर संपर्क करें।')
+      setErrorMessage(`Error: ${err?.message || err?.code || JSON.stringify(err) || 'Unknown error'}`)
     }
   }
 
