@@ -44,19 +44,21 @@ export default async function HomePage() {
         <RevealSection>
           <MandiPricesLive />
         </RevealSection>
-        <RevealSection delay={100}>
+        <RevealSection>
           <NewsSection posts={posts} />
         </RevealSection>
-        <RevealSection delay={100}>
+        <RevealSection>
           <DirectoryPreview categories={dirCategories} />
         </RevealSection>
-        <RevealSection delay={100}>
+        <RevealSection>
           <GovSchemes />
         </RevealSection>
-        <RevealSection delay={100}>
+        <RevealSection>
           <VarietiesQuick />
         </RevealSection>
-        <WhatsAppCTA />
+        <RevealSection>
+          <WhatsAppCTA />
+        </RevealSection>
       </main>
       <Footer />
     </>

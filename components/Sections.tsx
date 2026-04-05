@@ -1,6 +1,38 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+
+/* ─── REVEAL CARD WRAPPER ─── */
+function RevealCard({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.1 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(16px)',
+        transition: `opacity 0.5s ease-out ${delay}ms, transform 0.5s ease-out ${delay}ms`,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
 
 /* ─── SECTION HEADER HELPER ─── */
 function SectionHeader({ title, subtitle, linkText, linkHref }: { title: string; subtitle?: string; linkText?: string; linkHref?: string }) {
@@ -91,8 +123,9 @@ export function DirectoryPreview({ categories }: { categories: DirCat[] }) {
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
         <SectionHeader title="आलू उद्योग डायरेक्टरी" subtitle="बीज कंपनियाँ, प्रोसेसर, निर्यातक, उपकरण — सब एक जगह" />
         <div className="dir-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
-          {categories.map((c) => (
-            <Link key={c.slug} href={'/directory/' + c.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
+          {categories.map((c, idx) => (
+            <RevealCard key={c.slug} delay={idx * 80}>
+            <Link href={'/directory/' + c.slug} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
               <div style={{
                 background: '#fff', borderRadius: 12, padding: '24px 20px',
                 border: '1px solid #e5e7eb', cursor: 'pointer',
@@ -108,6 +141,7 @@ export function DirectoryPreview({ categories }: { categories: DirCat[] }) {
                 )}
               </div>
             </Link>
+            </RevealCard>
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: 32 }}>
@@ -144,7 +178,8 @@ export function GovSchemes() {
         <SectionHeader title="सरकारी योजनाएँ" subtitle="आलू किसानों के लिए प्रमुख केंद्रीय और राज्य सरकारी योजनाएँ" linkText="सभी योजनाएँ" linkHref="/yojnaye" />
         <div className="scheme-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
           {schemes.map((s, i) => (
-            <Link key={i} href={s.link || '/yojnaye'} className="scheme-card" style={{
+            <RevealCard key={i} delay={i * 100}>
+            <Link href={s.link || '/yojnaye'} className="scheme-card" style={{
               background: '#fff', padding: '24px', borderRadius: 12,
               border: '1px solid #e5e7eb', borderLeft: '3px solid #05420d',
               textDecoration: 'none', color: 'inherit',
@@ -163,6 +198,7 @@ export function GovSchemes() {
               <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#05420d', marginBottom: 8 }}>{s.benefit}</div>
               <p style={{ fontSize: '0.85rem', color: '#6b7280', lineHeight: 1.6, margin: 0, flex: 1 }}>{s.desc}</p>
             </Link>
+            </RevealCard>
           ))}
         </div>
       </div>
@@ -191,7 +227,8 @@ export function VarietiesQuick() {
         <SectionHeader title="प्रमुख आलू किस्में" subtitle="भारत में उगाई जाने वाली प्रमुख आलू किस्मों का डेटाबेस" linkText="सभी किस्में" linkHref="/kisme" />
         <div className="variety-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: 16 }}>
           {varieties.map((v, i) => (
-            <div key={i} className="variety-card" style={{
+            <RevealCard key={i} delay={i * 80}>
+            <div className="variety-card" style={{
               background: '#fff', borderRadius: 12, padding: '20px',
               border: '1px solid #e5e7eb',
               display: 'flex', gap: 16, alignItems: 'flex-start',
@@ -217,6 +254,7 @@ export function VarietiesQuick() {
                 </div>
               </div>
             </div>
+            </RevealCard>
           ))}
         </div>
       </div>
