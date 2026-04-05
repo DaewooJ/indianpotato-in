@@ -103,5 +103,9 @@ export async function GET(req: NextRequest) {
     api_key_configured: !!process.env.DATA_GOV_IN_API_KEY,
   };
   cache = { data: d, ts: Date.now() };
-  return NextResponse.json(d);
+  return NextResponse.json(d, {
+    headers: {
+      'Cache-Control': 'public, s-maxage=1800, stale-while-revalidate=3600',
+    },
+  });
 }

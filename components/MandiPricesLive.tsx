@@ -14,6 +14,70 @@ interface MandiResponse {
   records: MandiRecord[]; source: string; api_key_configured: boolean;
 }
 
+/* ── Client-side Hindi fallback maps ── */
+const SH: Record<string, string> = {
+  'Uttar Pradesh':'उत्तर प्रदेश','West Bengal':'पश्चिम बंगाल','Bihar':'बिहार',
+  'Gujarat':'गुजरात','Madhya Pradesh':'मध्य प्रदेश','Punjab':'पंजाब',
+  'Haryana':'हरियाणा','Rajasthan':'राजस्थान','Maharashtra':'महाराष्ट्र',
+  'Karnataka':'कर्नाटक','Jharkhand':'झारखंड','Chhattisgarh':'छत्तीसगढ़',
+  'Himachal Pradesh':'हिमाचल प्रदेश','Uttarakhand':'उत्तराखंड','Delhi':'दिल्ली',
+  'NCT of Delhi':'दिल्ली','Assam':'असम','Odisha':'ओडिशा','Tamil Nadu':'तमिलनाडु',
+  'Andhra Pradesh':'आंध्र प्रदेश','Telangana':'तेलंगाना','Kerala':'केरल',
+  'Meghalaya':'मेघालय','Tripura':'त्रिपुरा','Nagaland':'नागालैंड',
+  'Manipur':'मणिपुर','Mizoram':'मिज़ोरम','Sikkim':'सिक्किम',
+  'Arunachal Pradesh':'अरुणाचल प्रदेश','Goa':'गोवा',
+  'Jammu and Kashmir':'जम्मू और कश्मीर','Chandigarh':'चंडीगढ़',
+};
+const MH: Record<string, string> = {
+  'Agra':'आगरा','Ahmedabad':'अहमदाबाद','Aligarh':'अलीगढ़','Ambala':'अंबाला',
+  'Amritsar':'अमृतसर','Anand':'आणंद','Azadpur':'आज़ादपुर','Bangalore':'बेंगलुरु',
+  'Bareilly':'बरेली','Bhavnagar':'भावनगर','Bhopal':'भोपाल','Bikaner':'बीकानेर',
+  'Bulandshahr':'बुलंदशहर','Chennai':'चेन्नई','Deesa':'डीसा','Dehradun':'देहरादून',
+  'Delhi':'दिल्ली','Etawah':'इटावा','Farrukhabad':'फ़र्रुख़ाबाद',
+  'Firozabad':'फ़िरोज़ाबाद','Gandhidham':'गांधीधाम','Guwahati':'गुवाहाटी',
+  'Gwalior':'ग्वालियर','Haldwani':'हल्द्वानी','Hanumangarh':'हनुमानगढ़',
+  'Hathras':'हाथरस','Hooghly':'हुगली','Hyderabad':'हैदराबाद','Indore':'इंदौर',
+  'Jaipur':'जयपुर','Jalandhar':'जालंधर','Jodhpur':'जोधपुर','Junagadh':'जूनागढ़',
+  'Kanpur':'कानपुर','Karnal':'करनाल','Kolkata':'कोलकाता','Kota':'कोटा',
+  'Lucknow':'लखनऊ','Ludhiana':'लुधियाना','Mainpuri':'मैनपुरी','Mathura':'मथुरा',
+  'Meerut':'मेरठ','Mehsana':'मेहसाणा','Mumbai':'मुंबई','Muzaffarpur':'मुज़फ़्फ़रपुर',
+  'Nagpur':'नागपुर','Nalanda':'नालंदा','Nashik':'नासिक','Patna':'पटना',
+  'Pune':'पुणे','Raipur':'रायपुर','Rajkot':'राजकोट','Ranchi':'रांची',
+  'Rishikesh':'ऋषिकेश','Sambhal':'संभल','Shimla':'शिमला','Surat':'सूरत',
+  'Udaipur':'उदयपुर','Unnao':'उन्नाव','Vadodara':'वडोदरा','Varanasi':'वाराणसी',
+  'Prayagraj':'प्रयागराज','Allahabad':'इलाहाबाद','Saharanpur':'सहारनपुर',
+  'Moradabad':'मुरादाबाद','Gorakhpur':'गोरखपुर','Hisar':'हिसार','Rohtak':'रोहतक',
+  'Sonipat':'सोनीपत','Panipat':'पानीपत','Bathinda':'बठिंडा','Patiala':'पटियाला',
+  'Haridwar':'हरिद्वार','Rudrapur':'रुद्रपुर','Gaya':'गया','Siliguri':'सिलीगुड़ी',
+  'Darbhanga':'दरभंगा','Bhagalpur':'भागलपुर','Burdwan':'बर्धमान','Malda':'मालदा',
+  'Ujjain':'उज्जैन','Jabalpur':'जबलपुर','Ratlam':'रतलाम','Sagar':'सागर',
+  'Aurangabad':'औरंगाबाद','Solapur':'सोलापुर','Kolhapur':'कोल्हापुर',
+  'Coimbatore':'कोयंबटूर','Madurai':'मदुरई','Salem':'सेलम',
+  'Bishnupur':'बिशनपुर','Maihar':'मैहर','Katni':'कटनी','Morena':'मुरैना',
+  'Gharaunda':'घरौंडा','Narnaul':'नारनौल','Uklana':'उकलाना','Barwala':'बरवाला',
+  'Punhana':'पुनहाना','Siwan':'सीवान','Sangriya':'संगरिया','Rawatsar':'रावतसर',
+  'Bayana':'बयाना','Akluj':'अकलूज','Shimoga':'शिमोगा','Padra':'पादरा',
+  'Khambhat':'खंभात','Dinanagar':'दीनानगर','Charra':'छर्रा','Bisoli':'बिसौली',
+  'Jalalabad':'जलालाबाद','Hasanpur':'हसनपुर','Baxirhat':'बक्शीरहाट',
+  'Dinhata':'दिनहाटा','Haldibari':'हल्दीबाड़ी','Khatra':'खात्रा',
+  'Kalipur':'कालीपुर','Toofanganj':'तूफानगंज','Raipur Rai':'रायपुर राय',
+  'PMY Chamba':'चंबा','Dharapuram':'धरापुरम','Chinnalapatti':'चिन्नलपट्टी',
+  'Kancheepuram':'कांचीपुरम','Karur':'करूर','Sirsa':'सिरसा',
+  'Sri Ganganagar':'श्रीगंगानगर','Ganganagar':'गंगानगर',
+};
+
+function hiState(r: MandiRecord): string {
+  if (r.state_hindi && r.state_hindi !== r.state) return r.state_hindi;
+  return SH[r.state] || r.state;
+}
+function hiMarket(r: MandiRecord): string {
+  const raw = r.market_hindi || r.market || '';
+  const cleaned = raw.replace(/\(.*?\)/g, '').replace(/apmc/gi, '').replace(/\s+/g, ' ').trim();
+  // If already Hindi (contains Devanagari), return as-is
+  if (/[\u0900-\u097F]/.test(cleaned)) return cleaned;
+  return MH[cleaned] || cleaned;
+}
+
 export default function MandiPricesLive() {
   const [data, setData] = useState<MandiResponse | null>(null);
   const [loading, setLoading] = useState(true);
@@ -42,12 +106,20 @@ export default function MandiPricesLive() {
     return () => clearInterval(interval);
   }, [fetchPrices]);
 
-  const filteredRecords = data?.records.filter((r) => activeState === 'सभी' ? true : r.state_hindi === activeState) || [];
+  // Build Hindi state list for filters
+  const stateFilters = data
+    ? ['सभी', ...data.states.map((s) => SH[s.name] || s.name_hindi || s.name)]
+    : ['सभी'];
+
+  const filteredRecords = data?.records.filter((r) => {
+    if (activeState === 'सभी') return true;
+    return hiState(r) === activeState;
+  }) || [];
+
   const displayRecords = showAll ? filteredRecords : filteredRecords.slice(0, 12);
-  const stateFilters = ['सभी', ...(data?.states.map((s) => s.name_hindi) || [])];
 
   const formatDate = (dateStr: string) => {
-    try { return new Date(dateStr).toLocaleDateString('hi-IN', { day: 'numeric', month: 'long', year: 'numeric' }); }
+    try { return new Date(dateStr).toLocaleDateString('hi-IN', { day: 'numeric', month: 'short' }); }
     catch { return dateStr; }
   };
   const formatTime = (isoStr: string) => {
@@ -55,46 +127,41 @@ export default function MandiPricesLive() {
     catch { return ''; }
   };
 
-  const cleanMarket = (name: string) => {
-    return name.replace(/\(.*?\)/g, '').replace(/apmc/gi, '').replace(/\s+/g, ' ').trim();
-  };
-
   return (
-    <section id="mandi-prices" className="py-10 sm:py-14 bg-white">
+    <section id="mandi-prices" className="py-8 sm:py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Section Header */}
-        <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
+        <div className="flex flex-wrap items-end justify-between gap-3 mb-6">
           <div>
-            <div className="flex items-center gap-3 mb-2">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">आज का मंडी भाव</h2>
+            <div className="flex items-center gap-2.5 mb-1">
+              <h2 className="text-lg sm:text-xl font-bold text-gray-900">आज का मंडी भाव</h2>
               <span
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold"
+                className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-semibold"
                 style={{ background: 'rgba(5,66,13,0.06)', color: '#05420d' }}
               >
                 <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#05420d' }} />
                 दैनिक
               </span>
             </div>
-            <p className="text-sm text-gray-400">
-              देश भर की प्रमुख मंडियों से आज के आलू भाव
-            </p>
+            <p className="text-[13px] text-gray-400">प्रमुख मंडियों से आज के आलू भाव</p>
           </div>
           {data && (
-            <div className="text-right">
-              <div className="text-xs text-gray-400">अपडेट: {formatTime(data.updated_at)}</div>
-              <div className="text-xs font-medium" style={{ color: '#f97316' }}>{data.total} मंडियाँ</div>
+            <div className="text-right text-[11px]">
+              <span className="text-gray-400">अपडेट: {formatTime(data.updated_at)}</span>
+              <span className="mx-1.5 text-gray-200">|</span>
+              <span className="font-semibold" style={{ color: '#f97316' }}>{data.total} मंडियाँ</span>
             </div>
           )}
         </div>
 
         {/* State Filter Pills */}
-        <div className="flex gap-2 mb-8 overflow-x-auto pb-1 scrollbar-hide">
+        <div className="flex gap-1.5 mb-6 overflow-x-auto pb-1 scrollbar-hide">
           {(loading ? ['सभी'] : stateFilters.slice(0, 12)).map((state) => (
             <button
               key={state}
               onClick={() => { setActiveState(state); setShowAll(false); }}
-              className="shrink-0 px-5 py-2.5 rounded-full text-[13px] font-medium transition-all duration-200 cursor-pointer"
+              className="shrink-0 px-4 py-2 rounded-full text-[12px] font-medium transition-all duration-200 cursor-pointer"
               style={{
                 background: activeState === state ? '#05420d' : '#fff',
                 color: activeState === state ? '#fff' : '#6b7280',
@@ -109,16 +176,15 @@ export default function MandiPricesLive() {
 
         {/* Loading Skeleton */}
         {loading && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="rounded-2xl p-6 animate-pulse" style={{ border: '1px solid #e8ece9' }}>
-                <div className="w-3/5 h-4 bg-gray-100 rounded mb-2" />
-                <div className="w-2/5 h-3 bg-gray-100 rounded mb-5" />
-                <div className="w-1/3 h-2 bg-gray-100 rounded mb-1.5" />
-                <div className="w-2/5 h-7 bg-gray-100 rounded mb-5" />
-                <div className="flex gap-4 pt-4" style={{ borderTop: '1px solid #f3f4f6' }}>
-                  <div className="flex-1"><div className="w-full h-3 bg-gray-100 rounded mb-1" /><div className="w-3/4 h-4 bg-gray-100 rounded" /></div>
-                  <div className="flex-1"><div className="w-full h-3 bg-gray-100 rounded mb-1" /><div className="w-3/4 h-4 bg-gray-100 rounded" /></div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div key={i} className="rounded-xl p-4 animate-pulse" style={{ border: '1px solid #e8ece9' }}>
+                <div className="w-3/5 h-3.5 bg-gray-100 rounded mb-1.5" />
+                <div className="w-2/5 h-2.5 bg-gray-50 rounded mb-4" />
+                <div className="w-2/5 h-6 bg-gray-100 rounded mb-3" />
+                <div className="flex gap-3 pt-3" style={{ borderTop: '1px solid #f5f5f5' }}>
+                  <div className="flex-1"><div className="w-full h-2.5 bg-gray-50 rounded mb-1" /><div className="w-3/4 h-3 bg-gray-100 rounded" /></div>
+                  <div className="flex-1"><div className="w-full h-2.5 bg-gray-50 rounded mb-1" /><div className="w-3/4 h-3 bg-gray-100 rounded" /></div>
                 </div>
               </div>
             ))}
@@ -127,15 +193,12 @@ export default function MandiPricesLive() {
 
         {/* Error State */}
         {error && (
-          <div className="text-center py-16">
-            <div className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center" style={{ background: 'rgba(249,115,22,0.08)' }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            </div>
-            <p className="text-gray-500 mb-5">{error}</p>
+          <div className="text-center py-14">
+            <p className="text-gray-400 text-sm mb-4">{error}</p>
             <button
               onClick={fetchPrices}
-              className="px-6 py-2.5 rounded-full text-sm font-semibold text-white cursor-pointer transition-all hover:shadow-lg"
-              style={{ background: '#f97316', boxShadow: '0 2px 8px rgba(249,115,22,0.25)' }}
+              className="px-5 py-2 rounded-full text-[13px] font-semibold text-white cursor-pointer transition-all hover:shadow-lg"
+              style={{ background: '#f97316' }}
             >
               पुनः प्रयास करें
             </button>
@@ -145,74 +208,71 @@ export default function MandiPricesLive() {
         {/* Mandi Cards */}
         {!loading && !error && (
           <>
-            {/* Count */}
-            <p className="text-xs tracking-wide mb-5" style={{ color: '#9ca3af' }}>
+            <p className="text-[11px] tracking-wide mb-4" style={{ color: '#b0b0b0' }}>
               {filteredRecords.length} मंडी{activeState !== 'सभी' ? ` — ${activeState}` : 'याँ'}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
               {displayRecords.map((record, idx) => (
                 <div
                   key={`${record.state}-${record.market}-${idx}`}
-                  className="group relative rounded-2xl bg-white p-6 transition-all duration-300 hover:-translate-y-1 mandi-card"
-                  style={{ border: '1px solid #e8ece9', boxShadow: '0 1px 3px rgba(5,66,13,0.04)' }}
+                  className="group relative rounded-xl bg-white transition-all duration-200 hover:-translate-y-0.5 mandi-card"
+                  style={{ border: '1px solid #e8ece9' }}
                 >
-                  {/* Top accent on hover */}
+                  {/* Hover accent */}
                   <div
-                    className="absolute top-0 left-6 right-6 h-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
+                    className="absolute top-0 left-4 right-4 h-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                     style={{ background: 'linear-gradient(90deg, #05420d, #f97316)' }}
                   />
 
-                  {/* Market Name + State */}
-                  <div className="mb-4">
-                    <h3 className="text-[15px] font-bold text-gray-900 leading-snug group-hover:text-[#05420d] transition-colors">
-                      {cleanMarket(record.market_hindi || record.market)}
+                  <div className="px-4 pt-4 pb-3">
+                    {/* Market + State */}
+                    <h3 className="text-[13.5px] font-bold text-gray-900 leading-tight group-hover:text-[#05420d] transition-colors truncate">
+                      {hiMarket(record)}
                     </h3>
-                    <p className="text-xs text-gray-400 mt-1">{record.state_hindi}</p>
-                  </div>
+                    <p className="text-[10.5px] text-gray-400 mt-0.5 truncate">{hiState(record)}</p>
 
-                  {/* Modal Price */}
-                  <div className="mb-4">
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.08em]" style={{ color: '#9ca3af' }}>मॉडल भाव</span>
-                    <div className="text-2xl font-extrabold mt-0.5" style={{ color: '#f97316' }}>
-                      ₹{record.modal_price.toLocaleString('hi-IN')}
+                    {/* Modal Price */}
+                    <div className="mt-3">
+                      <span className="text-[9px] font-semibold uppercase tracking-[0.08em] text-gray-300">मॉडल भाव</span>
+                      <div className="text-xl font-extrabold leading-none mt-0.5" style={{ color: '#f97316' }}>
+                        ₹{record.modal_price.toLocaleString('hi-IN')}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Min / Max Row */}
-                  <div className="flex gap-4 pt-4" style={{ borderTop: '1px solid #f0f2f0' }}>
+                  {/* Min / Max */}
+                  <div className="flex mx-4 mb-3 pt-2.5" style={{ borderTop: '1px solid #f0f2f0' }}>
                     <div className="flex-1">
-                      <span className="text-[10px] text-gray-400 block">न्यूनतम</span>
-                      <span className="text-sm font-bold text-gray-700">₹{record.min_price.toLocaleString('hi-IN')}</span>
+                      <span className="text-[9px] text-gray-300 block leading-none">न्यूनतम</span>
+                      <span className="text-[12.5px] font-bold text-gray-600 leading-none mt-1 block">₹{record.min_price.toLocaleString('hi-IN')}</span>
                     </div>
                     <div className="flex-1">
-                      <span className="text-[10px] text-gray-400 block">अधिकतम</span>
-                      <span className="text-sm font-bold text-gray-700">₹{record.max_price.toLocaleString('hi-IN')}</span>
+                      <span className="text-[9px] text-gray-300 block leading-none">अधिकतम</span>
+                      <span className="text-[12.5px] font-bold text-gray-600 leading-none mt-1 block">₹{record.max_price.toLocaleString('hi-IN')}</span>
                     </div>
+                    {record.arrival_date && (
+                      <span className="text-[9px] text-gray-300 self-end leading-none">{formatDate(record.arrival_date)}</span>
+                    )}
                   </div>
-
-                  {/* Date */}
-                  {record.arrival_date && (
-                    <div className="mt-3 text-[11px] text-gray-300">{formatDate(record.arrival_date)}</div>
-                  )}
                 </div>
               ))}
             </div>
 
             {/* Show More / Less */}
             {filteredRecords.length > 12 && (
-              <div className="text-center mt-10">
+              <div className="text-center mt-8">
                 <button
                   onClick={() => setShowAll(!showAll)}
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white cursor-pointer transition-all duration-200 hover:shadow-xl"
-                  style={{ background: '#f97316', boxShadow: '0 4px 14px rgba(249,115,22,0.3)' }}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-[13px] font-semibold text-white cursor-pointer transition-all duration-200 hover:shadow-lg"
+                  style={{ background: '#f97316', boxShadow: '0 3px 12px rgba(249,115,22,0.25)' }}
                 >
                   {showAll ? (
                     'कम दिखाएँ'
                   ) : (
                     <>
                       सभी {filteredRecords.length} मंडी भाव देखें
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </>
                   )}
                 </button>
@@ -223,7 +283,7 @@ export default function MandiPricesLive() {
       </div>
 
       <style>{`
-        .mandi-card:hover { box-shadow: 0 8px 30px rgba(5,66,13,0.08) !important; }
+        .mandi-card:hover { box-shadow: 0 6px 20px rgba(5,66,13,0.07) !important; }
       `}</style>
     </section>
   );
