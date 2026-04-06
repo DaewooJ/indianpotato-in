@@ -11,6 +11,13 @@ featured: true
 
 <div style="font-family:Poppins,Mukta,sans-serif;max-width:860px;margin:0 auto;color:#2d2d2d;font-size:16.5px;line-height:1.8">
 
+<!-- AMBER HERO BANNER -->
+<div style="background:linear-gradient(135deg,#8B6914 0%,#A07818 30%,#C8860A 70%,#D4991A 100%);border-radius:18px;padding:44px 36px 40px;margin-bottom:24px;position:relative;overflow:hidden">
+  <div style="display:inline-block;background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:30px;margin-bottom:16px;border:1px solid rgba(255,255,255,0.2)">आलू किस्म प्रोफ़ाइल</div>
+  <div style="font-size:1.9rem;font-weight:900;color:#ffffff;line-height:1.2;margin-bottom:14px">65 दिनों में तैयार · 22 MT/एकड़ · 7-8 महीने स्टोरेज</div>
+  <div style="color:rgba(255,255,255,0.85);font-size:15px;font-weight:400;line-height:1.6;max-width:680px">ITC ग्रुप की टेक्निको एग्री साइंसेज द्वारा विकसित — भारत की अर्ली-टेबल सेगमेंट की सबसे तेज़ बल्किंग किस्म। पश्चिम बंगाल, बिहार, गुजरात, UP और MP में किसानों द्वारा अपनाई गई।</div>
+</div>
+
 <!-- STATS STRIP: 2x2 grid -->
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 28px">
   <div style="background:linear-gradient(135deg,#FFF8ED,#FFF3E0);border:1px solid #E8D5B0;border-radius:14px;padding:18px 14px;text-align:center"><span style="font-size:1.6rem;font-weight:800;color:#C8860A;line-height:1.2;display:block">65–70</span><span style="font-size:11px;font-weight:600;color:#777;text-transform:uppercase;letter-spacing:0.8px;margin-top:4px;display:block">दिनों में तैयार</span></div>
