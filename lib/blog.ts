@@ -13,6 +13,7 @@ export interface BlogPost {
 const CATEGORY_HINDI: Record<string, string> = {
   production: 'उत्पादन', export: 'निर्यात', policy: 'नीति', technology: 'तकनीक',
   research: 'अनुसंधान', state: 'राज्य', market: 'बाज़ार', processing: 'प्रसंस्करण', general: 'सामान्य',
+  varieties: 'किस्में', 'किस्में': 'किस्में',
 };
 
 function calcReadingTime(content: string): number {

@@ -21,6 +21,7 @@ const CATEGORIES = [
   { key: 'राज्य', label: 'राज्य' },
   { key: 'प्रसंस्करण', label: 'प्रसंस्करण' },
   { key: 'बाज़ार', label: 'बाज़ार' },
+  { key: 'किस्में', label: 'किस्में' },
 ]
 
 function formatDate(d: string) {

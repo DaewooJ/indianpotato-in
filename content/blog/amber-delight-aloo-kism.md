@@ -2,7 +2,7 @@
 title: "एम्बर डिलाइट आलू किस्म: टेक्निको की भारत की सबसे तेज़ बल्किंग टेबल पोटैटो — पूरी जानकारी"
 excerpt: "एम्बर डिलाइट आलू किस्म — टेक्निको एग्री साइंसेज (ITC ग्रुप) द्वारा विकसित। 65-70 दिनों में तैयार, 22 MT/एकड़ तक उपज, 7-8 महीने कोल्ड स्टोरेज लाइफ। पश्चिम बंगाल, बिहार, गुजरात, UP, MP में खेती।"
 date: "2026-04-06"
-category: "किस्में"
+category: "varieties"
 image: "/images/amber-delight-potato-variety.jpg"
 author: "Indian Potato Team"
 tags: ["एम्बर डिलाइट आलू", "टेक्निको आलू किस्म", "ITC आलू", "टेबल पोटैटो किस्म", "आलू की नई किस्में", "कुफरी पुखराज विकल्प", "भारत आलू किस्म"]
@@ -49,7 +49,7 @@ featured: true
 <div id="adp-market">
 <h2 style="font-size:1.55rem;font-weight:800;color:#05420d;margin:42px 0 18px;padding-bottom:10px;border-bottom:3px solid #C8860A;line-height:1.3">भारत का टेबल पोटैटो बाज़ार और स्टोरेबिलिटी की समस्या</h2>
 <p style="margin-bottom:18px;font-size:16.5px;line-height:1.8;color:#2d2d2d">भारत ने 2024-25 में <strong>58.57 मिलियन टन</strong> आलू का उत्पादन किया — जो पाँच साल पहले 48.56 MT से काफ़ी अधिक है। इसमें से <strong>70% से अधिक — लगभग 41 मिलियन टन</strong> — ताज़ा टेबल मार्केट में जाता है, जो भारत की आलू अर्थव्यवस्था का सबसे बड़ा हिस्सा है। लेकिन जल्दी पकने वाली टेबल किस्में उगाने वाले किसानों के लिए एक गंभीर समस्या बनी रही है — और <strong>एम्बर डिलाइट आलू किस्म</strong> इसी को हल करने के लिए विकसित की गई है।</p>
-<p style="margin-bottom:18px;font-size:16.5px;line-height:1.8;color:#2d2d2d">दशकों से इस सेगमेंट के किसानों को लगातार कुछ समस्याओं का सामना करना पड़ा है। अधिकांश उपलब्ध किस्में धीरे बल्क करती हैं, असमान कंद पैदा करती हैं जिनमें मार्केटेबल प्रतिशत कम होता है, और — सबसे अहम बात — <strong>कोल्ड स्टोरेज में ख़राब प्रदर्शन</strong> करती हैं। अधिक शर्करा विकास और अत्यधिक अंकुरण किसानों को फ़सल कटाई के समय कम भाव पर तुरंत बेचने पर मजबूर करता है, जिससे मार्जिन घटता है।</p>
+<p style="margin-bottom:18px;font-size:16.5px;line-height:1.8;color:#2d2d2d">दशकों से इस सेगमेंट के किसानों को लगातार कुछ समस्याओं का सामना करना पड़ा है। अधिकांश उपलब्ध किस्में धीरे बल्क करती हैं, असमान कंद पैदा करती हैं जिनमें मार्केटेबल प्रतिशत कम होता है, और — सबसे अहम बात — <strong>कोल्ड स्टोरेज में ख़राब प्रदर्शन</strong> करती हैं। अधिक शर्करा विकास और अत्यधिक अंकुरण किसानों को फ़सल कटाई के समय कम भाव पर तुरंत बेचने पर मजबूर करता है, जिससे मार्जिन घटता है। आज के <a href="https://www.indianpotato.in/mandi" style="color:#C8860A;font-weight:600">ताज़ा मंडी भाव</a> देखें।</p>
 </div>
 
 
@@ -114,7 +114,7 @@ featured: true
 <tr><td style="padding:13px 18px;font-size:15px;border-bottom:1px solid #f0e8db;color:#333"><strong>कोल्ड स्टोरेज</strong></td><td style="padding:13px 18px;font-size:15px;border-bottom:1px solid #f0e8db;color:#333">7-8 महीने</td><td style="padding:13px 18px;font-size:15px;border-bottom:1px solid #f0e8db;color:#333">मध्यम</td><td style="padding:13px 18px;font-size:15px;border-bottom:1px solid #f0e8db;color:#333">अच्छी</td></tr>
 <tr style="background:#FFF9F0"><td style="padding:13px 18px;font-size:15px;border-bottom:1px solid #f0e8db;color:#333"><strong>त्वचा</strong></td><td style="padding:13px 18px;font-size:15px;border-bottom:1px solid #f0e8db;color:#333">चमकदार, एकसमान</td><td style="padding:13px 18px;font-size:15px;border-bottom:1px solid #f0e8db;color:#333">सफ़ेद, चिकनी</td><td style="padding:13px 18px;font-size:15px;border-bottom:1px solid #f0e8db;color:#333">सफ़ेद, चिकनी</td></tr>
 </tbody></table>
-<p style="margin-bottom:18px;font-size:16.5px;line-height:1.8;color:#2d2d2d">एम्बर डिलाइट सभी मापदंडों पर दोनों कुफरी किस्मों से आगे है। हालाँकि, <a href="https://cpri.icar.gov.in/" target="_blank" rel="noopener" style="color:#C8860A;font-weight:600">ICAR-CPRI</a> किस्में भारतीय आलू खेती की रीढ़ बनी हुई हैं।</p>
+<p style="margin-bottom:18px;font-size:16.5px;line-height:1.8;color:#2d2d2d">एम्बर डिलाइट सभी मापदंडों पर दोनों कुफरी किस्मों से आगे है। हालाँकि, <a href="https://cpri.icar.gov.in/" target="_blank" rel="noopener" style="color:#C8860A;font-weight:600">ICAR-CPRI</a> किस्में भारतीय आलू खेती की रीढ़ बनी हुई हैं। भारत में उगाई जाने वाली सभी प्रमुख <a href="https://www.indianpotato.in/kisme" style="color:#C8860A;font-weight:600">आलू किस्मों की पूरी सूची</a> यहाँ देखें।</p>
 </div>
 
 
@@ -143,7 +143,7 @@ featured: true
 <!-- SECTION 7: FUTURE -->
 <div id="adp-future">
 <h2 style="font-size:1.55rem;font-weight:800;color:#05420d;margin:42px 0 18px;padding-bottom:10px;border-bottom:3px solid #C8860A;line-height:1.3">एम्बर डिलाइट आलू किस्म का भविष्य</h2>
-<p style="margin-bottom:18px;font-size:16.5px;line-height:1.8;color:#2d2d2d">पाँच राज्यों में सफल स्थापना के बाद, टेक्निको <strong>पोटैटो फ़ील्ड हार्वेस्ट डेज़</strong> और किसान बैठकों के माध्यम से विस्तार जारी रखे हुए है। <a href="https://indianpotato.com/india-potato-sector-roadmap-stakeholders-meet-2025/" target="_blank" rel="noopener" style="color:#C8860A;font-weight:600">ग्लोबल पोटैटो समिट 2025</a> में इस किस्म को प्रदर्शित किया गया। <a href="https://apeda.gov.in/" target="_blank" rel="noopener" style="color:#C8860A;font-weight:600">APEDA</a> और <a href="https://www.nhmb.gov.in/" target="_blank" rel="noopener" style="color:#C8860A;font-weight:600">राष्ट्रीय बागवानी मिशन</a> द्वारा समर्थित ग्रेडिंग मानक प्रीमियम टेबल किस्मों के लिए अनुकूल हैं।</p>
+<p style="margin-bottom:18px;font-size:16.5px;line-height:1.8;color:#2d2d2d">पाँच राज्यों में सफल स्थापना के बाद, टेक्निको <strong>पोटैटो फ़ील्ड हार्वेस्ट डेज़</strong> और किसान बैठकों के माध्यम से विस्तार जारी रखे हुए है। <a href="https://indianpotato.com/india-potato-sector-roadmap-stakeholders-meet-2025/" target="_blank" rel="noopener" style="color:#C8860A;font-weight:600">ग्लोबल पोटैटो समिट 2025</a> में इस किस्म को प्रदर्शित किया गया। <a href="https://apeda.gov.in/" target="_blank" rel="noopener" style="color:#C8860A;font-weight:600">APEDA</a> और <a href="https://www.nhmb.gov.in/" target="_blank" rel="noopener" style="color:#C8860A;font-weight:600">राष्ट्रीय बागवानी मिशन</a> द्वारा समर्थित ग्रेडिंग मानक प्रीमियम टेबल किस्मों के लिए अनुकूल हैं। किसानों के लिए उपलब्ध <a href="https://www.indianpotato.in/yojnaye" style="color:#C8860A;font-weight:600">सरकारी योजनाएँ और सब्सिडी</a> भी देखें।</p>
 </div>
 
 
