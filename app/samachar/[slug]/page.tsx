@@ -121,11 +121,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             </div>
           </div>
 
-          {/* SHARE BAR BOTTOM */}
-          <div style={{ padding: '20px 0', margin: '32px 0', borderTop: '1px solid #e0e0e0', borderBottom: '1px solid #e0e0e0' }}>
-            <ShareButtons title={post.title} slug={post.slug} variant="bar" />
-          </div>
-
           {/* RELATED POSTS */}
           {relatedPosts.length > 0 && (
             <div style={{ margin: '48px 0' }}>
